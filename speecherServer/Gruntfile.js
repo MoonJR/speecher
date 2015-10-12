@@ -36,6 +36,12 @@ module.exports = function (grunt) {
           livereload: reloadPort
         }
       },
+      angular: {
+        files: ['public/angularjs/*.js'],
+        options: {
+          livereload: reloadPort
+        }
+      },
       css: {
         files: [
           'public/css/*.css'
