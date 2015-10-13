@@ -1,0 +1,1 @@
+var app=angular.module("StarterApp",[]);app.controller("BaseCtrl",["$scope","$mdSidenav",function(a,p){}]);
