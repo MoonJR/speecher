@@ -1,1 +1,1 @@
-var app=angular.module("StarterApp",[]);app.controller("BaseCtrl",["$scope","$mdSidenav",function(a,p){}]);
+!function(){var r=angular.module("StarterApp",["ngMaterial"]);r.controller("HeaderCtrl",function(r){})}();

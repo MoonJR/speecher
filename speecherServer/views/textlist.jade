@@ -1,0 +1,13 @@
+extends layout
+block content
+  div(ng-controller="AppCtrl", layout="column", ng-cloak)
+    md-toolbar.md-warn
+      .md-toolbar-tools
+        h2.md-flex TEST
+
+    md-content(flex, layout-padding)
+      p TEST
+
+
+block script
+  script(src='/angularjs/textlist.js')

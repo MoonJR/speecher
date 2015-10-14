@@ -17,6 +17,11 @@ router.get('/', function (req, res) {
   res.render('index', {title: 'Express'});
 });
 
+router.get('/textlist', function (req, res) {
+  res.render('textlist', {title: 'Express'});
+});
+
+
 router.get('/login/facebook', facebook.facebookLogin)
 
 
