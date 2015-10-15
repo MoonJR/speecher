@@ -3,31 +3,24 @@
  */
 var express = require('express');
 var router = express.Router();
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://somalunak.cafe24.com:27017/soma'); // 기본 설정에 따라 포트가 상이 할 수 있습니다.
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log("mongo db connection OK.");
-});
-
-var testSchema = mongoose.Schema({
-  test_id: NUMBER,
-  script_id: NUMBER,
-  test_type: NUMBER,
-  score: NUMBER,
-  test_date: DATE
-});
-
-var Click = db.model('test', testSchema);
-console.log(testIns.name); // "testIns"
+var dbTest = require('../models/dbTest');
 
 /* GET users listing. */
 router.get('/testList', function(req, res) {
-  var test_id = req.query.test_id;
+  var scriptId = Number(req.query.script_id);
 
-  res.send(test_id);
+  dbTest.testList(scriptId, function(err, data){
+    if(err) throw err;
+    if(data){
+      res.json({ success:1, msg:"성공적으로 수행되었습니다.", result:data });
+    }else{
+      res.json({ success:0, msg:"수행도중 에러가 발생했습니다." });
+    }
+  });
 });
+
+//router.get('/scriptDetail/failList', function(req, res){
+//
+//});
 
 module.exports = router;

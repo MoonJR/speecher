@@ -18,7 +18,6 @@ mongoClient.connect(url, function (err, db) {
 
 //mongoDB Connection Pool
 
-
 var http = require('https');
 exports.facebookLogin = function (req, res) {
 
