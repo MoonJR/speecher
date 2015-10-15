@@ -2,13 +2,18 @@
 @color-shadow: #888888;
 @color-text: #323232;
 @color-name: #323232;
-
+@color-gray:rgb(224,224,224);
 //text size / vb, b, m, s, vs
 @size-vb :30px;
 @size-b :22px;
 @size-m :18px;
 @size-s :15px;
 @size-vs :12px;
+
+body{
+  max-width:1300px;
+  margin:auto !important;
+}
 
 .left{
   float:left;
@@ -58,4 +63,47 @@ header{
     width:46px;
     height:46px;
   }
+}
+
+.md-toolbar-tools{
+  color:#000000;
+}
+
+.dividerdemoBasicUsage .face {
+  border-radius: 30px;
+  width: 48px;
+  margin: 16px;
+}
+
+
+.box{
+}
+
+.flex{
+  display: flex;
+  .boxR{
+    margin:0 0 0 15px;
+  }
+  .boxL{
+    margin:0 15px 0 0;
+  }
+}
+
+md-toolbar:not(.md-menu-toolbar){
+  background-color: #0d3349;
+}
+
+.chipsdemoStaticChips p.note {
+  font-size: 12px; }
+
+.p70{
+  width:70%;
+}
+
+.p30{
+  width:30%
+}
+
+.border{
+  border: 1px solid @color-gray;
 }
