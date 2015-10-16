@@ -51,7 +51,7 @@ exports.googleLogin = function (req, res) {
 };
 
 
-function getFaceBookData(token, varFunction) {
+exports.getFaceBookData = function getFaceBookData(token, varFunction) {
   var url = 'https://graph.facebook.com/me?fields=email,name&access_token=' + token;
   http.get(url, function (res) {
     var body = '';
@@ -69,7 +69,7 @@ function getFaceBookData(token, varFunction) {
   });
 };
 
-function getGooglePlusData(token, varFunction) {
+exports.getGooglePlusData = function getGooglePlusData(token, varFunction) {
   var url = 'https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' + token;
   http.get(url, function (res) {
     var body = '';
@@ -80,6 +80,7 @@ function getGooglePlusData(token, varFunction) {
 
     res.on('end', function () {
       var fbResponse = JSON.parse(body);
+      fbResponse.id = fbResponse.kid;
       varFunction(fbResponse);
     });
   }).on('error', function (e) {
