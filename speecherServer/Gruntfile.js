@@ -17,12 +17,19 @@ module.exports = function (grunt) {
         file: 'bin/www'
       }
     }, // Test settings
-      karma: {
+    karma: {
         unit: {
           configFile: 'test/karma.conf.js',
           singleRun: true
         }
-      },
+    },
+    plato: {
+      task: {
+        files: {
+          'reports/report-plato': ['plato/**/*.js']
+        }
+      }
+    },
     watch: {
       options: {
         nospawn: true,
@@ -50,14 +57,6 @@ module.exports = function (grunt) {
       },
 
 
-
-      plato: {
-        task: {
-          files: {
-            'reports/report-plato': ['plato/**/*.js']
-          }
-        }
-      },
       css: {
         files: [
           'public/css/*.css'
@@ -97,6 +96,7 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     //'develop',
     //'watch',
-    'karma'
+    'karma',
+    //'plato'
   ]);
 };
