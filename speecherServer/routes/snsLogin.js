@@ -18,13 +18,13 @@ mongoClient.connect(url, function (err, db) {
 
 //mongoDB Connection Pool
 
-
 var http = require('https');
 exports.facebookLogin = function (req, res) {
 
   var facebookToken = req.query.token;
 
   getFaceBookData(facebookToken, function (response) {
+    response.route = 'facebook';
     var collection = mongoDB.collection('user');
 
     collection.insert(response, function (err, result) {
@@ -35,9 +35,23 @@ exports.facebookLogin = function (req, res) {
 
 };
 
+exports.googleLogin = function (req, res) {
+  var googleToken = req.query.token;
+
+  getGooglePlusData(googleToken, function (response) {
+    response.route = 'google';
+    var collection = mongoDB.collection('user');
+
+    collection.insert(response, function (err, result) {
+      res.send(response);
+    })
+
+  });
+};
+
 
 function getFaceBookData(token, varFunction) {
-  url = 'https://graph.facebook.com/me?fields=email,name&access_token=' + token;
+  var url = 'https://graph.facebook.com/me?fields=email,name&access_token=' + token;
   http.get(url, function (res) {
     var body = '';
 
@@ -52,5 +66,25 @@ function getFaceBookData(token, varFunction) {
   }).on('error', function (e) {
     console.log("Got an error: ", e);
   });
+};
 
-}
+function getGooglePlusData(token, varFunction) {
+  var url = 'https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' + token;
+  http.get(url, function (res) {
+    var body = '';
+
+    res.on('data', function (chunk) {
+      body += chunk;
+    });
+
+    res.on('end', function () {
+      var fbResponse = JSON.parse(body);
+      varFunction(fbResponse);
+    });
+  }).on('error', function (e) {
+    console.log("Got an error: ", e);
+  });
+};
+
+
+
