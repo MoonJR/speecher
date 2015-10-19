@@ -1,6 +1,24 @@
 /**
  * Created by MoonJR on 2015. 10. 15..
  */
+
+//mongoDB Connection Pool
+var mongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://somalunak.cafe24.com:27017/soma';
+var mongoDB = null; //mongoDB로 부터 collection 생성해서 사용하면 된다.
+
+mongoClient.connect(url, function (err, db) {
+  if (err) {
+    console.log(url + "에 연결할 수 없습니다.")
+  } else {
+    console.log(url + "에 연결 하였습니다.");
+    mongoDB = db;
+  }
+});
+
+//mongoDB Connection Pool
+
+
 var natural = require('natural');
 var uuid = require('node-uuid');
 
@@ -27,6 +45,30 @@ tokenizer = new natural.TreebankWordTokenizer();
 //  'Syrian soldiers under attack Sunday in Hama Province. Government troops advanced there Monday, aided by Russian air power.U.S. Weaponry Is Turning Syria Into Proxy War With RussiaOCT. 12, 2015\n' +
 //  'Russia’s jets have struck in support of Syrian ground troops advancing from areas under the control of the Syrian government, and might soon back an Iranian-led offensive that appeared to be forming in the northern province of Aleppo on Wednesday. That coordination reflects what American officials described as months of meticulous planning behind Russia’s first military campaign outside former Soviet borders since the dissolution of the Soviet Union.'
 //}
+
+function saveScript(req, res) {
+
+  var query = {
+    user_id: req.query.user_id,
+    script_id: uuid.v1(),
+    script_title: req.query.title,
+    script_content: req.query.content,
+    reg_date: new Date()
+  };
+  var collection = mongoDB.collection('script');
+  collection.insert(query, function (err, result) {
+    response = {};
+
+    if (err) {
+      response.success = 0;
+    } else {
+      response.success = 1;
+    }
+
+    res.send(response);
+  })
+
+}
 
 
 exports.scriptToParagraphJsonArray = function scriptToParagraphJsonArray(script) {

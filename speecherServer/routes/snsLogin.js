@@ -27,9 +27,20 @@ exports.facebookLogin = function (req, res) {
     response.route = 'facebook';
     var collection = mongoDB.collection('user');
 
-    collection.insert(response, function (err, result) {
-      res.send(response);
-    })
+
+    var resData = {};
+    resData.result = response;
+
+    if (typeof response.id != 'undefined') {
+      collection.insert(response, function (err, result) {
+        resData.success = 1;
+        res.send(resData);
+      })
+    } else {
+      resData.success = 0;
+      res.send(resData)
+    }
+
 
   });
 
@@ -42,15 +53,25 @@ exports.googleLogin = function (req, res) {
     response.route = 'google';
     var collection = mongoDB.collection('user');
 
-    collection.insert(response, function (err, result) {
-      res.send(response);
-    })
+    var resData = {};
+    resData.result = response;
+
+
+    if (typeof response.id != 'undefined') {
+      collection.insert(response, function (err, result) {
+        resData.success = 1;
+        res.send(resData);
+      })
+    } else {
+      resData.success = 0;
+      res.send(resData)
+    }
 
   });
 };
 
 
-exports.getFaceBookData = function getFaceBookData(token, varFunction) {
+getFaceBookData = function getFaceBookData(token, varFunction) {
   var url = 'https://graph.facebook.com/me?fields=email,name&access_token=' + token;
   http.get(url, function (res) {
     var body = '';
@@ -68,7 +89,9 @@ exports.getFaceBookData = function getFaceBookData(token, varFunction) {
   });
 };
 
-exports.getGooglePlusData = function getGooglePlusData(token, varFunction) {
+exports.getFaceBookData = getFaceBookData;
+
+getGooglePlusData = function getGooglePlusData(token, varFunction) {
   var url = 'https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=' + token;
   http.get(url, function (res) {
     var body = '';
@@ -86,6 +109,8 @@ exports.getGooglePlusData = function getGooglePlusData(token, varFunction) {
     console.log("Got an error: ", e);
   });
 };
+
+exports.getGooglePlusData = getGooglePlusData;
 
 
 
