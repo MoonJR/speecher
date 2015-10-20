@@ -1,7 +1,7 @@
 /**
  * Created by MoonJR on 2015. 10. 16..
  */
-var stemmers = require('../routes/stemmers');
+var stemmers = require('../routes/saveScript');
 var uuid = require('node-uuid');
 
 
@@ -24,8 +24,11 @@ describe('Stemmers', function () {
     };
 
 
-    it('대본 문단별 토큰라이징 테스트', function (done) {
+    it('대본을 문단 단위로 나눌 수 있다', function (done) {
       var paragraphArray = stemmers.scriptToParagraphJsonArray(scriptJson);
+      //
+      //assert.isEqual(paragraphArray, true);
+      //assert.isEqual(paragraphArray[3].script_id, "dsfdsfsdaf");
 
       if (paragraphArray != null || typeof paragraphArray != 'undefined') {
 
@@ -38,8 +41,6 @@ describe('Stemmers', function () {
             throw i + '번째 인덱스 paragraph_id 없음';
           } else if (typeof paragraphArray[i].content == 'undefined') {
             throw i + '번째 인덱스 content 없음';
-          } else if (typeof paragraphArray[i].reg_date == 'undefined') {
-            throw i + '번째 인덱스 reg_date 없음';
           }
         }
         done();
@@ -48,6 +49,7 @@ describe('Stemmers', function () {
       }
 
     });
+
 
     it('문단별 형태소 토큰라이징 테스트', function (done) {
       try {
@@ -67,8 +69,6 @@ describe('Stemmers', function () {
               throw i + '번째 인덱스 morpheme_id 없음';
             } else if (typeof morphemeArray[i].content == 'undefined') {
               throw i + '번째 인덱스 content 없음';
-            } else if (typeof morphemeArray[i].reg_date == 'undefined') {
-              throw i + '번째 인덱스 reg_date 없음';
             }
           }
           done();

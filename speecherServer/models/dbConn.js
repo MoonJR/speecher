@@ -7,12 +7,12 @@
 //mongoDB Connection Pool
 //var mongoClient = require('mongodb').MongoClient;
 //var url = 'mongodb://somalunak.cafe24.com:27017/soma';
-  var mongodb = require('mongodb');
+var mongodb = require('mongodb');
 
 var server = new mongodb.Server(
   'somalunak.cafe24.com',
   27017,
-  {auto_reconnect:true, poolSize:100});
+  {auto_reconnect: true, poolSize: 100});
 var db = new mongodb.Db('soma', server);
 
 

@@ -2,27 +2,11 @@
  * Created by MoonJR on 2015. 10. 15..
  */
 
-//mongoDB Connection Pool
-var mongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://somalunak.cafe24.com:27017/soma';
-var mongoDB = null; //mongoDB로 부터 collection 생성해서 사용하면 된다.
-
-mongoClient.connect(url, function (err, db) {
-  if (err) {
-    console.log(url + "에 연결할 수 없습니다.")
-  } else {
-    console.log(url + "에 연결 하였습니다.");
-    mongoDB = db;
-  }
-});
-
-//mongoDB Connection Pool
-
-
 var natural = require('natural');
 var uuid = require('node-uuid');
+var tokenizer = new natural.TreebankWordTokenizer();
 
-tokenizer = new natural.TreebankWordTokenizer();
+var db = require('../models/dbSaveScript');
 
 
 // 테스트 json
@@ -46,35 +30,70 @@ tokenizer = new natural.TreebankWordTokenizer();
 //  'Russia’s jets have struck in support of Syrian ground troops advancing from areas under the control of the Syrian government, and might soon back an Iranian-led offensive that appeared to be forming in the northern province of Aleppo on Wednesday. That coordination reflects what American officials described as months of meticulous planning behind Russia’s first military campaign outside former Soviet borders since the dissolution of the Soviet Union.'
 //}
 
-function saveScript(req, res) {
+exports.saveScriptExpress = function saveScriptExpress(req, res) {
 
-  var query = {
-    user_id: req.query.user_id,
-    script_id: uuid.v1(),
-    script_title: req.query.title,
-    script_content: req.query.content,
-    reg_date: new Date()
-  };
-  var collection = mongoDB.collection('script');
-  collection.insert(query, function (err, result) {
-    response = {};
+  var response = {};
 
-    if (err) {
-      response.success = 0;
-    } else {
-      response.success = 1;
+  try {
+    var script = {
+      id: req.session.id,
+      script_id: uuid.v1(),
+      script_title: req.query.title,
+      script_content: req.query.content,
+      reg_date: new Date()
+    };
+    saveScript(script);
+    var paragraphJsonArray = scriptToParagraphJsonArray(script);
+    saveParagraph(paragraphJsonArray);
+    for (var i = 0; i < paragraphJsonArray.length; i++) {
+      var morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
+      saveMorpheme(morphemeJsonArray);
     }
+    response.success = 1;
+  } catch (e) {
+    console.log(e);
+    response.success = 0;
+  }
 
-    res.send(response);
-  })
+  res.send(response);
+
+}
+
+function saveScript(script) {
+
+  db.saveScript(script, function (err, result) {
+    if (err) {
+      throw '대본 저장중 오류 발생';
+    }
+  });
+
+
+}
+
+function saveParagraph(paragraph) {
+
+  db.saveParagraph(paragraph, function (err, result) {
+    if (err) {
+      throw '문단 저장중 오류 발생';
+    }
+  });
+
+
+}
+
+function saveMorpheme(morpheme) {
+  db.saveMorpheme(morpheme, function (err, result) {
+    if (err) {
+      throw '형태소 저장중 오류 발생';
+    }
+  });
 
 }
 
 
-exports.scriptToParagraphJsonArray = function scriptToParagraphJsonArray(script) {
+function scriptToParagraphJsonArray(script) {
   var id = script.id;
   var script_id = script.script_id;
-  var reg_date = new Date();
   var paragraph_array = script.script_content.split('\n');
 
   var returnArray = [];
@@ -84,7 +103,6 @@ exports.scriptToParagraphJsonArray = function scriptToParagraphJsonArray(script)
       script_id: script_id,
       paragraph_id: i,
       content: paragraph_array[i],
-      reg_date: reg_date
     };
 
     returnArray[i] = paragraphJsonTmp;
@@ -93,12 +111,12 @@ exports.scriptToParagraphJsonArray = function scriptToParagraphJsonArray(script)
   return returnArray;
 }
 
+exports.scriptToParagraphJsonArray = scriptToParagraphJsonArray;
 
-exports.paragraphToMorphemeJsonArray = function paragraphToMorphemeJsonArray(paragraph) {
+function paragraphToMorphemeJsonArray(paragraph) {
   var id = paragraph.id;
   var script_id = paragraph.script_id;
   var paragraph_id = paragraph.paragraph_id;
-  var reg_date = new Date();
   var morpheme_array = tokenizer.tokenize(paragraph.content);
 
   var returnArray = [];
@@ -110,7 +128,6 @@ exports.paragraphToMorphemeJsonArray = function paragraphToMorphemeJsonArray(par
       paragraph_id: paragraph_id,
       morpheme_id: i,
       content: morpheme_array[i],
-      reg_date: reg_date
     }
 
     returnArray[i] = morphemeJsonTmp;
@@ -118,6 +135,8 @@ exports.paragraphToMorphemeJsonArray = function paragraphToMorphemeJsonArray(par
 
   return returnArray;
 }
+
+exports.paragraphToMorphemeJsonArray = paragraphToMorphemeJsonArray;
 
 
 

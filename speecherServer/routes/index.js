@@ -4,6 +4,7 @@ var session = require('express-session');
 
 
 var facebook = require('./snsLogin');
+var stemmers = require('./saveScript');
 /* GET home page. */
 
 //세션 사용
@@ -18,6 +19,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/login/facebook', facebook.facebookLogin)
+router.get('/main/scriptSave', stemmers.saveScriptExpress);
 
 
 module.exports = router;
