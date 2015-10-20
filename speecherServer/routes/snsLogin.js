@@ -34,6 +34,7 @@ exports.facebookLogin = function (req, res) {
     if (typeof response.id != 'undefined') {
       collection.insert(response, function (err, result) {
         resData.success = 1;
+        req.session.id = response.id;
         res.send(resData);
       })
     } else {
@@ -61,6 +62,7 @@ exports.googleLogin = function (req, res) {
       collection.insert(response, function (err, result) {
         resData.success = 1;
         res.send(resData);
+        req.session.id = response.id;
       })
     } else {
       resData.success = 0;
