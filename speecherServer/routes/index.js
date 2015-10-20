@@ -23,6 +23,7 @@ router.get('/login/facebook', login.facebookLogin);
 router.get('/login/google', login.googleLogin);
 router.get('/main/scriptSave', saveScript.saveScriptExpress);
 router.get('/main/scriptList', readScript.readScriptList);
+router.get('/scriptDetail/scripContent', readScript.readScriptDetail);
 
 
 module.exports = router;
