@@ -6,7 +6,9 @@ var natural = require('natural');
 var uuid = require('node-uuid');
 var tokenizer = new natural.TreebankWordTokenizer();
 
-var db = require('../models/dbSaveScript');
+//var db = require('../models/dbSaveScript');
+
+var collection = require('../models/dbCollection');
 
 
 // 테스트 json
@@ -60,34 +62,27 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
 }
 
 function saveScript(script) {
-
-  db.saveScript(script, function (err, result) {
+  collection.scriptCollection.insert(script, function (err, result) {
     if (err) {
-      throw '대본 저장중 오류 발생';
+      throw err;
     }
   });
-
-
 }
 
 function saveParagraph(paragraph) {
-
-  db.saveParagraph(paragraph, function (err, result) {
+  collection.paragraphCollection.insert(paragraph, function (err, result) {
     if (err) {
-      throw '문단 저장중 오류 발생';
+      throw err;
     }
   });
-
-
 }
 
 function saveMorpheme(morpheme) {
-  db.saveMorpheme(morpheme, function (err, result) {
+  collection.morphemeCollection.insert(morpheme, function (err, result) {
     if (err) {
-      throw '형태소 저장중 오류 발생';
+      throw err;
     }
   });
-
 }
 
 
