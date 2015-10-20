@@ -24,4 +24,24 @@ describe('dbTest', function() {
         });
       });
   });
+  describe('.totalFailWord(scriptId)', function() {
+    it('should confirm failList data type', function(done) {
+      var scriptId = 1;
+      var wordLimit = 10;
+      dbTest.wrongWordsInScript(scriptId, 10, function(err, data){
+        data.should.be.object;
+        done();
+      });
+    });
+  });
+  describe('.wrongWordDetail(scriptId)', function() {
+    it('should confirm failList data type', function(done) {
+      var scriptId = 1;
+      var wordLimit = 10;
+      dbTest.wrongWordsInScript(scriptId, 10, function(err, data){
+        data.should.be.object;
+        done();
+      });
+    });
+  });
 });

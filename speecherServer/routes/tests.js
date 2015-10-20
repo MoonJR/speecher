@@ -33,4 +33,18 @@ router.get('/scriptDetail/failList', function(req, res){
   });
 });
 
+router.get('/main/totalFailList', function(req, res) {
+  var user_id = req.session.userData;
+  var wordLimit = 10;
+
+  dbTest.totalFailWord(user_id, wordLimit, function (err, data) {
+    if (err) throw err;
+    if (data) {
+      res.json({success: 1, msg: "성공적으로 수행되었습니다.", result: data});
+    } else {
+      res.json({success: 0, msg: "수행도중 에러가 발생했습니다."});
+    }
+  });
+});
+
 module.exports = router;

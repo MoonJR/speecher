@@ -29,3 +29,24 @@ exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
     });
   });
 };
+
+exports.totalFailWord = function(user_id, wordLimit, callback){
+  db.open(function(err, db) {
+    db.collection('morpheme', function (err, collection) {
+      collection.find({}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+        callback(err, items);
+        db.close();
+      })
+    });
+  });
+}
+
+//exports.wrongWordDetail = function(word, callback){
+//
+//     unirest.get("https://wordsapiv1.p.mashape.com/words/{word}/examples")
+//    .header("X-Mashape-Key", "Ts7OIrZgaNmshsP20MhtKUfunFNZp1dDOpBjsnCuuu2C7LROLo")
+//    .header("Accept", "application/json")
+//    .end(function (result) {
+//      console.log(result.status, result.headers, result.body);
+//    });
+//}
