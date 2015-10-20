@@ -1,5 +1,5 @@
 doctype html
-html(lang='kr', ng-app="StarterApp")
+html(lang='kr', ng-app="myApp")
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
@@ -16,25 +16,22 @@ html(lang='kr', ng-app="StarterApp")
       script(src='http://localhost:35729/livereload.js')
   body(layout="column")
 
-    header(ng-controller="HeaderCtrl")
+    header
       p.logo.left SPEECHER
       .top-menu.right
         button.md-raised.md-button.md-default-theme() 대본작성
         button.md-raised.md-button.md-default-theme() 대본목록
         img(alt="프로필 이미지", src="/images/default_profile_image.png")
         p 반상현
-
-    main
-      block content
-
-    footer
+  main
+    block content
+  footer
 
     //Angular Material Dependencies
-    script(src='/components/angular/angular.min.js')
-    script(src='/components/angular-animate/angular-animate.min.js')
-    script(src='/components/angular-aria/angular-aria.min.js')
+    script(src='angular/angular.min.js')
+    script(src='angular-animate/angular-animate.min.js')
+    script(src='angular-aria/angular-aria.min.js')
+    script(src='angular-route/angular-route.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js')
-    script(src='/angularjs/controller.js')
-    block script
-
+    script(src='angularjs/app.js')
 
