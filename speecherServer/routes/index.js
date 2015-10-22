@@ -40,6 +40,6 @@ router.get('/:name', function (req, res) {
   res.redirect('/'+'#/'+name);
 });
 
-//router.get('/login/facebook', facebook.facebookLogin)
+router.get('/login/facebook', facebook.facebookLogin)
 
 module.exports = router;

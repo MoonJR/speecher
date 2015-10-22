@@ -1,55 +1,44 @@
 'use strict';
 
-// Declare app level module which depends on filters, and services
-//
-//angular.module('myApp',['ngRoute']).
-//  config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-//    $routeProvider.
-//      when('/view1', {
-//        templateUrl: '/partials/view1.html'
-//      }).
-//      when('/view2', {
-//        templateUrl: '/partials/view2.jade'
-//      }).
-//      otherwise({
-//        redirectTo: '/'
-//      });
-//    $locationProvider.html5Mode(true);
-//  }]);
-//
-
-
-angular.module('myApp', ['ngRoute'])
-  .config(function($routeProvider, $locationProvider) {
+angular.module('myApp', [
+  'ngRoute',
+  'ngMaterial',
+  'ngFacebook'
+])
+  .config(function($routeProvider, $locationProvider, $facebookProvider) {
     $routeProvider
-      .when('/view1', {
-        templateUrl: '/partials/view1',
-        //controller: 'BookController',
-        resolve: {
-          // I will cause a 1 second delay
-          delay: function($q, $timeout) {
-            var delay = $q.defer();
-            $timeout(delay.resolve, 1000);
-            return delay.promise;
-          }
-        }
-      }).
-      when('/view2', {
-        templateUrl: '/partials/view2',
-        //controller: 'BookController',
-        resolve: {
-          // I will cause a 1 second delay
-          delay: function($q, $timeout) {
-            var delay = $q.defer();
-            $timeout(delay.resolve, 1000);
-            return delay.promise;
-          }
-        }
+      .when('/login', {
+        templateUrl: '/partials/login',
+        controller: 'loginCtrl'
       }).
       otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
 
-    // configure html5 to get links working on jsfiddle
-    $locationProvider.html5Mode(true);
+    $facebookProvider.setAppId('1386879811618975');
+
+    $facebookProvider.setVersion("v2.5");
+
+    $facebookProvider.setPermissions('email');
+
+  })
+  .run(function($rootScope) {
+    // Load the facebook SDK asynchronously
+    (function(){
+      // If we've already installed the SDK, we're done
+      if (document.getElementById('facebook-jssdk')) {return;}
+
+      // Get the first script element, which we'll use to find the parent node
+      var firstScriptElement = document.getElementsByTagName('script')[0];
+
+      // Create a new script element and set its id
+      var facebookJS = document.createElement('script');
+      facebookJS.id = 'facebook-jssdk';
+
+      // Set the new script's source to the source of the Facebook JS SDK
+      facebookJS.src = '//connect.facebook.net/en_US/all.js';
+
+      // Insert the Facebook JS SDK into the DOM
+      firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+    }());
   });

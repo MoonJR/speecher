@@ -94,9 +94,12 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', [
-    //'develop',
-    //'watch',
+    'develop',
+    'watch'
+  ]);
+
+  grunt.registerTask('test', [
     'karma',
-    //'plato'
+    'plato'
   ]);
 };
