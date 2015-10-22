@@ -185,3 +185,9 @@ md-toolbar{
 .md-char-counter{
   margin-right:15px;
 }
+
+.point{
+  position: absolute;
+  top:36px;
+  left:30px;
+}

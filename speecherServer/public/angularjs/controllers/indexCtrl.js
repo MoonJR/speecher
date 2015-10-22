@@ -4,10 +4,17 @@ var app = angular.module('myApp');
 
 app.controller('indexCtrl', function($scope, $mdDialog) {
   $scope.texts = [{
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
+    id: 1,
+    title: 'Brunch this weekend?',
+    point: 84,
+    type: 'Blind Test',
+    text: " I'll be in your neighborhood doing errands"
+  },{
+    id: 2,
+    title: 'Brunch this weekend?',
+    point: 70,
+    type: 'Blind Test',
+    text: " I'll be in your neighborhood doing errands"
   }];
 
   $scope.words = [
