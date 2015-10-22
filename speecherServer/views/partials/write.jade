@@ -1,0 +1,9 @@
+.flex
+  #box-texts.border(ng-controller="teatareaCtrl", ng-cloak='' )
+    md-input-container.flex.md-input-has-value
+      input.ng-pristine.ng-valid.md-input.ng-touched(ng-model="user.address", id="title", aria-invalid="false", placeholder="대본 제목")
+
+    md-input-container.flex.md-input-has-value(style="height: auto;")
+      textarea#input_135(ng-model="user.biography", columns="1", md-maxlength="150",rows="1" , ng-trim="false",  aria-multiline="true", aria-invalid="false", style="height: 81px;")
+      .md-char-counter 102/150
+

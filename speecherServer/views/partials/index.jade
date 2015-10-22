@@ -1,0 +1,31 @@
+.flex
+  #box-texts.border.box(ng-cloak='' )
+    md-toolbar.md-theme-light
+      h2.md-toolbar-tools
+        span 대본 목록
+    md-content
+      md-list
+        md-list-item.md-3-line(ng-repeat='item in texts')
+          .md-list-item-text(id="{{item.id}}")
+            h3 {{item.title}}
+              span [{{item.point}}%]
+            h4 {{item.text}}
+            p {{item.type}}
+          button.md-raised.md-button.md-ink-ripple( style="margin-top: 25px;")
+            span.ng-scope 테스트하기
+            div.md-ripple-container
+              md-divider
+
+  #box-words.border.box(layout='column', ng-cloak='')
+    md-toolbar.md-theme-light
+      h2.md-toolbar-tools
+        span 자주 틀리는 단어
+
+    md-chips(ng-repeat='item in words')
+      md-chip(id="{{item.id}}")
+        div(layout="row", layout-wrap="")
+          md-button.md-primary.md-raised(ng-click="showAlert($event)",flex="",flex-md="100") {{item.word}}({{item.count}})
+
+
+  code($mdDialog.clickOutsideToClose(true))
+
