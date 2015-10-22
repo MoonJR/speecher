@@ -16,3 +16,16 @@ exports.testList = function(scriptId, callback){
   });
 };
 
+exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
+  console.log(scriptId);
+  console.log(wordLimit);
+
+  db.open(function(err, db) {
+    db.collection('morpheme', function (err, collection) {
+      collection.find({"script_id":scriptId}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+          callback(err, items);
+          db.close();
+      })
+    });
+  });
+};
