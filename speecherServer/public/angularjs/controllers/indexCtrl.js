@@ -1,34 +1,24 @@
-app.controller('TextlistCtrl', function($scope) {
-  var imagePath = 'img/list/60.jpeg';
+'use strict';
+//var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-progress']);
+var app = angular.module('myApp');
+
+app.controller('indexCtrl', function($scope) {
   $scope.texts = [{
-    face: imagePath,
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    face: imagePath,
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    face: imagePath,
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    face: imagePath,
-    what: 'Brunch this weekend?',
-    who: 'Min Li Chan',
-    when: '3:08PM',
-    notes: " I'll be in your neighborhood doing errands"
-  }, {
-    face: imagePath,
     what: 'Brunch this weekend?',
     who: 'Min Li Chan',
     when: '3:08PM',
     notes: " I'll be in your neighborhood doing errands"
   }];
+
+  $scope.words = [
+    {
+      id: 1,
+      word: 'Must',
+      count: 5
+    }, {
+      id: 2,
+      word: 'Should',
+      count: 4
+    }
+  ];
 });
