@@ -3,6 +3,7 @@
  */
 var should = require('should');
 var dbTest = require('../models/dbTest');
+var wordDetail = require('../routes/wordDetail');
 
 describe('dbTest', function() {
   describe('.testList(scriptId)', function() {
@@ -45,12 +46,11 @@ describe('dbTest', function() {
       });
     });
   });
-  
+
   describe('.wrongWordDetail(scriptId)', function() {
-    it('should confirm failList data type', function(done) {
-      var scriptId = 1;
-      var wordLimit = 10;
-      dbTest.wrongWordsInScript(scriptId, 10, function(err, data){
+    it('틀린 형태소 상세', function(done) {
+      var word = 'wind';
+      wordDetail.wordDetailData(word, function(err, data){
         data.should.be.object;
         done();
       });

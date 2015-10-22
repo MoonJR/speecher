@@ -40,13 +40,3 @@ exports.totalFailWord = function(user_id, wordLimit, callback){
     });
   });
 }
-
-//exports.wrongWordDetail = function(word, callback){
-//
-//     unirest.get("https://wordsapiv1.p.mashape.com/words/{word}/examples")
-//    .header("X-Mashape-Key", "Ts7OIrZgaNmshsP20MhtKUfunFNZp1dDOpBjsnCuuu2C7LROLo")
-//    .header("Accept", "application/json")
-//    .end(function (result) {
-//      console.log(result.status, result.headers, result.body);
-//    });
-//}
