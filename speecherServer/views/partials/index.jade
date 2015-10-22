@@ -1,7 +1,7 @@
 .flex
   #box-texts.border.box(ng-cloak='' )
     md-toolbar.md-theme-light
-      h2.md-toolbar-tools
+      h3.md-toolbar-tools
         span 대본 목록
     md-content
       md-list
@@ -11,6 +11,7 @@
               span [{{item.point}}%]
             h4 {{item.text}}
             p {{item.type}}
+            .roundtest(round-progress,max="max",current="current",color="#45ccce",bgcolor="#eaeaea",radius="100",stroke="20",semi="true",  rounded="true",  clockwise="false",  responsive="false",  duration="800",  animation="easeInOutQuart")
           button.md-raised.md-button.md-ink-ripple( style="margin-top: 25px;")
             span.ng-scope 테스트하기
             div.md-ripple-container
@@ -18,7 +19,7 @@
 
   #box-words.border.box(layout='column', ng-cloak='')
     md-toolbar.md-theme-light
-      h2.md-toolbar-tools
+      h3.md-toolbar-tools
         span 자주 틀리는 단어
 
     md-chips(ng-repeat='item in words')

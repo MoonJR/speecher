@@ -14,13 +14,14 @@ header {
   height: 70px;
   box-shadow: 0px 3px 15px #888888;
   margin-bottom: 16px;
+  background-color:#323232;
 }
 
 main{
 
 }
 .logo {
-  color: #323232;
+  color: #cdcdcd;
   font-size: 30px;
   margin: 16px;
 }
@@ -37,7 +38,7 @@ main{
   width: 70px;
   position: absolute;
   top: 40px;
-  color: #323232;
+  color: #cdcdcd;
   right: 5px;
   text-align: center;
   font-size: 12px;
@@ -72,9 +73,11 @@ main{
   margin: 0px 15px 0px 0;
 }
 
+
 md-toolbar:not(.md-menu-toolbar){
   color: #ffffff;
-  background-color:rgb(245,245,245);
+  background-color:rgb(255,255,255);
+  border-bottom: 1px solid rgb(224,224,224);
 }
 
 .md-toolbar-tools{
@@ -102,6 +105,12 @@ md-toolbar:not(.md-menu-toolbar){
   margin-right:15px;
 }
 
+.box-main{
+  width:100%;
+  margin:0px;
+}
+
+
 
 .border{
   border: 1px solid rgb(224,224,224);
@@ -127,3 +136,52 @@ a.md-button.md-primary.md-raised:hover, a.md-button.md-primary.md-fab:hover, .md
   line-height: 36px; }
 .inputdemoBasicUsage .md-datepicker-input-container {
   margin-left: 2px; }
+
+
+
+/* Colors */
+.black{
+ color:black;
+}
+
+.dark{
+  background-color:#323232;
+}
+
+
+md-input-container.md-input-focused >  label{
+  color:white !important;
+}
+
+md-input-container >  label{
+  color:white !important;
+}
+md-input-container.md-input-focused input ,
+md-input-container.md-input-focused textarea{
+  border-bottom-color: gainsboro !important;
+}
+
+md-input-container textarea{
+  border-bottom-color: gainsboro !important;
+}
+
+
+md-input-container{
+  padding-bottom:9px!important;
+}
+
+/* Write */
+#writeTitle > input{
+  padding-bottom: 5px;
+}
+
+
+md-toolbar{
+  min-height:50px !important;
+  height: 50px;
+}
+
+
+.md-char-counter{
+  margin-right:15px;
+}
