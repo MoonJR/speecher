@@ -2,7 +2,7 @@
 //var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-progress']);
 var app = angular.module('myApp');
 
-app.controller('indexCtrl', function($scope) {
+app.controller('indexCtrl', function($scope, $mdDialog) {
   $scope.texts = [{
     what: 'Brunch this weekend?',
     who: 'Min Li Chan',
@@ -21,4 +21,20 @@ app.controller('indexCtrl', function($scope) {
       count: 4
     }
   ];
+
+
+
+
+  $scope.showWordDlg = function(content) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .clickOutsideToClose(true)
+        .title("DetailWord")
+        .content(content)
+        .ariaLabel(content)
+        .ok('Close')
+    );
+  };
 });
+
+

@@ -9,7 +9,7 @@ var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-pro
       }).
       when('/write', {
         templateUrl: '/partials/write',
-        //controller: 'BookController',
+        controller: 'writeCtrl',
       }).
       otherwise({
         redirectTo: '/index'

@@ -17,15 +17,17 @@
             div.md-ripple-container
               md-divider
 
+
+
   #box-words.border.box(layout='column', ng-cloak='')
     md-toolbar.md-theme-light
       h3.md-toolbar-tools
-        span 자주 틀리는 단어
+        span#dlgOpen 자주 틀리는 단어
 
-    md-chips(ng-repeat='item in words')
-      md-chip(id="{{item.id}}")
-        div(layout="row", layout-wrap="")
-          md-button.md-primary.md-raised(ng-click="showAlert($event)",flex="",flex-md="100") {{item.word}}({{item.count}})
+    md-chips(ng-repeat='item in words', ng-keydown="$mdChipsCtrl.chipKeydown($event)", ng-class="{ 'md-focused': $mdChipsCtrl.hasFocus()}" )
+      md-chip(id="{{item.id}}",ng-click="showWordDlg(item.word)") {{item.word}}({{item.count}})
+
+
 
 
   code($mdDialog.clickOutsideToClose(true))
