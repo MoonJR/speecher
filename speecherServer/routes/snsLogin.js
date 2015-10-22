@@ -13,7 +13,6 @@ exports.facebookLogin = function (req, res) {
 
   getFaceBookData(facebookToken, function (response) {
     response.route = 'facebook';
-    response.id = 11111;
 
     var resData = {};
     resData.response = response;
