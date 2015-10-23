@@ -1,7 +1,0 @@
-tmp
-node_module
-node_modules
-.idea
-*.sass-cache
-tmp/
-reports/

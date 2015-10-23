@@ -15,9 +15,9 @@ describe('로그인 테스트', function () {
     });
     facebook = $facebook;
 
-    var deferred = $q.defer();
-    deferred.resolve('refresh()');
-    spyOn(facebook, 'login').andReturn(deferred.promise);
+    //var deferred = $q.defer();
+    //deferred.resolve('refresh()');
+    //spyOn(facebook, 'login').andReturn(deferred.promise);
   }));
 
   it('처음 방문자는 로그인이 안 되어있다.', function () {
@@ -42,11 +42,11 @@ describe('로그인 테스트', function () {
     expect(facebook.login).toHaveBeenCalled();
   });
 */
-  it('프라미스를 테스트해보자', function () {
-    scope.login();
-    scope.$apply();
-    expect(facebook.login).toHaveBeenCalled();
-  });
+  // it('프라미스를 테스트해보자', function () {
+  //   scope.login();
+  //   scope.$apply();
+  //   expect(facebook.login).toHaveBeenCalled();
+  // });
 
   /*
   it('로그인을 하면 isLoggedIn이 true가 된다', function () {
