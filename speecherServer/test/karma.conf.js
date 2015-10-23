@@ -31,16 +31,14 @@ module.exports = function(config) {
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-material/angular-material.js',
-      //// endbower
-      "public/angularjs/*.js",
-      "public/angularjs/controllers/*.js",
-      ////"test/mock/**/*.js",
+      'bower_components/ng-facebook/ngFacebook.js',
+
+      // endbower
       //"js/roundProgress.js",
       'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
-      //"test/angularjs/*.js",
-      'test/angularjs/controllers/*.js',
-
-
+      "public/angularjs/**/*.js",
+      "test/mock/**/*.js",
+      "test/angularjs/**/*.js"
     ],
 
     // list of files / patterns to exclude
@@ -78,7 +76,7 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'],
 
     preprocessors: {
-      'public/angularjs/*.js' : ['coverage']
+      'public/angularjs/**/*.js' : ['coverage']
     },
 
     coverageReporter: {

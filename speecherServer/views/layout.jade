@@ -4,18 +4,15 @@ html(lang='kr', ng-app="myApp")
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title= title
-
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='/css/base.css')
     link(rel="stylesheet", href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css")
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic')
     block css
-
     block js
     if ENV_DEVELOPMENT
       script(src='http://localhost:35729/livereload.js')
   body(layout="column")
-
     header
       p.logo.left SPEECHER
       .top-menu.right
@@ -27,31 +24,17 @@ html(lang='kr', ng-app="myApp")
         p 반상현
   main
     block content
-
   footer
-
-
-
     //Angular Material Dependencies
-    script(src='/angular/angular.min.js')
-    script(src='/angular-mocks/angular-mocks.js')
+    script(src='angular/angular.min.js')
     script(src='angular-animate/angular-animate.min.js')
     script(src='angular-aria/angular-aria.min.js')
-    script(src='/angular-route/angular-route.min.js')
+    script(src='angular-route/angular-route.min.js')
     script(src='angular-material/angular-material.min.js')
+    script(src='ng-facebook/ngFacebook.js')
     script(src='angular-svg-round-progressbar/build/roundProgress.min.js')
-    //script(src='js/roundProgress.js')
-
-
-
-
-
-    //script(src='https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js')
     script(src='angularjs/app.js')
+    script(src='angularjs/controllers/loginCtrl.js')
     script(src='angularjs/controllers/indexCtrl.js')
     script(src='angularjs/controllers/writeCtrl.js')
-
-
-
-
-
+    //script(src='js/roundProgress.js')
