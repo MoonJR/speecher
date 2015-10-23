@@ -17,6 +17,9 @@
 		<error line="11" column="14" severity="warning" message="&apos;inject&apos; is not defined." source="jshint.W117" />
 		<error line="19" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
 		<error line="20" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
+		<error line="25" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="37" column="5" severity="warning" message="&apos;spyOn&apos; is not defined." source="jshint.W117" />
+		<error line="40" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
 	</file>
 	<file name="../test/min/header-controller-min.js">
 		<error line="1" column="161" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
@@ -33,5 +36,61 @@
 	</file>
 	<file name="../test/min/karma.conf-min.js">
 		<error line="1" column="1067" severity="warning" message="Missing semicolon." source="jshint.W033" />
+	</file>
+	<file name="../test/readScript.js">
+		<error line="9" column="3" severity="error" message="Missing &quot;use strict&quot; statement." source="jshint.E007" />
+		<error line="24" column="30" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="46" column="30" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="8" column="1" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="9" column="3" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="13" column="5" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="35" column="5" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+	</file>
+	<file name="../test/saveScript.js">
+		<error line="9" column="3" severity="error" message="Missing &quot;use strict&quot; statement." source="jshint.E007" />
+		<error line="33" column="28" severity="warning" message="Expected &apos;!==&apos; and instead saw &apos;!=&apos;." source="jshint.W116" />
+		<error line="33" column="61" severity="warning" message="Expected &apos;!==&apos; and instead saw &apos;!=&apos;." source="jshint.W116" />
+		<error line="36" column="45" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="38" column="59" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="40" column="62" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="42" column="57" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="59" column="29" severity="warning" message="Expected &apos;!==&apos; and instead saw &apos;!=&apos;." source="jshint.W116" />
+		<error line="59" column="61" severity="warning" message="Expected &apos;!==&apos; and instead saw &apos;!=&apos;." source="jshint.W116" />
+		<error line="62" column="46" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="64" column="60" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="66" column="63" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="68" column="62" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="70" column="58" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="8" column="1" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="9" column="3" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="27" column="5" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="54" column="5" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+	</file>
+	<file name="../test/snsLogin.js">
+		<error line="8" column="3" severity="error" message="Missing &quot;use strict&quot; statement." source="jshint.E007" />
+		<error line="12" column="23" severity="warning" message="Expected &apos;!==&apos; and instead saw &apos;!=&apos;." source="jshint.W116" />
+		<error line="12" column="49" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="14" column="38" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="16" column="44" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="18" column="42" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="34" column="23" severity="warning" message="Expected &apos;!==&apos; and instead saw &apos;!=&apos;." source="jshint.W116" />
+		<error line="34" column="49" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="35" column="38" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="37" column="44" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="39" column="42" severity="warning" message="Expected &apos;===&apos; and instead saw &apos;==&apos;." source="jshint.W116" />
+		<error line="7" column="1" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="8" column="3" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="9" column="5" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="30" column="5" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+	</file>
+	<file name="../test/spec/testsTest.js">
+		<error line="8" column="3" severity="error" message="Missing &quot;use strict&quot; statement." source="jshint.E007" />
+		<error line="22" column="26" severity="warning" message="Expected an assignment or function call and instead saw an expression." source="jshint.W030" />
+		<error line="7" column="1" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="8" column="3" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="9" column="5" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="17" column="3" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="18" column="7" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="20" column="13" severity="warning" message="&apos;wordLimit&apos; is defined but never used." source="jshint.W098" />
 	</file>
 </checkstyle>

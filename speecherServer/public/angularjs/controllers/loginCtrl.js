@@ -44,7 +44,6 @@ angular.module('myApp')
       $facebook.api("/me").then(
         function(response) {
           $scope.isLoggedIn = true;
-
           console.log(response);
         },
         function(err) {
