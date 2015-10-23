@@ -41,13 +41,11 @@ angular.module('myApp')
 
       $facebook.api("/me").then(
         function(response) {
-          $scope.welcomeMsg = "Welcome " + response.name;
           $scope.isLoggedIn = true;
 
           console.log(response);
         },
         function(err) {
-          $scope.welcomeMsg = "Please log in";
         }
       );
     }

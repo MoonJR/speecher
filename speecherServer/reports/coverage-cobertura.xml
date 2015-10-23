@@ -1,32 +1,32 @@
 <?xml version="1.0" ?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage lines-valid="12"  lines-covered="12"  line-rate="1"  branches-valid="2"  branches-covered="1"  branch-rate="0.5"  timestamp="1445556061828" complexity="0" version="0.1">
+<coverage lines-valid="12"  lines-covered="12"  line-rate="1"  branches-valid="2"  branches-covered="2"  branch-rate="1"  timestamp="1445565074068" complexity="0" version="0.1">
 <sources>
 	<source>/Users/jaisonoh/WebstormProjects/speecher0.4/speecher/speecherServer</source>
 </sources>
 <packages>
-	<package name="angularjs"  line-rate="1"  branch-rate="0.5" >
+	<package name="angularjs"  line-rate="1"  branch-rate="1" >
 	<classes>
-		<class name="app.js"  filename="public/angularjs/app.js"  line-rate="1"  branch-rate="0.5" >
+		<class name="app.js"  filename="public/angularjs/app.js"  line-rate="1"  branch-rate="1" >
 		<methods>
-			<method name="(anonymous_1)"  hits="1"  signature="()V" >
-				<lines><line number="8"  hits="1" /></lines>
+			<method name="(anonymous_1)"  hits="2"  signature="()V" >
+				<lines><line number="8"  hits="2" /></lines>
 			</method>
-			<method name="(anonymous_2)"  hits="1"  signature="()V" >
-				<lines><line number="25"  hits="1" /></lines>
+			<method name="(anonymous_2)"  hits="2"  signature="()V" >
+				<lines><line number="25"  hits="2" /></lines>
 			</method>
-			<method name="(anonymous_3)"  hits="1"  signature="()V" >
-				<lines><line number="27"  hits="1" /></lines>
+			<method name="(anonymous_3)"  hits="2"  signature="()V" >
+				<lines><line number="27"  hits="2" /></lines>
 			</method>
 		</methods>
 		<lines>
 			<line number="3"  hits="1"  branch="false" />
-			<line number="9"  hits="1"  branch="false" />
-			<line number="18"  hits="1"  branch="false" />
-			<line number="20"  hits="1"  branch="false" />
-			<line number="22"  hits="1"  branch="false" />
-			<line number="27"  hits="1"  branch="false" />
-			<line number="29"  hits="1"  branch="true"  condition-coverage="50% (1/2)" />
+			<line number="9"  hits="2"  branch="false" />
+			<line number="18"  hits="2"  branch="false" />
+			<line number="20"  hits="2"  branch="false" />
+			<line number="22"  hits="2"  branch="false" />
+			<line number="27"  hits="2"  branch="false" />
+			<line number="29"  hits="2"  branch="true"  condition-coverage="100% (2/2)" />
 			<line number="32"  hits="1"  branch="false" />
 			<line number="35"  hits="1"  branch="false" />
 			<line number="36"  hits="1"  branch="false" />
