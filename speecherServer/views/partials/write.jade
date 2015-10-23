@@ -1,0 +1,16 @@
+.flex
+  .box-main.border(ng-cloak='' )
+    md-input-container.flex#writeTitle
+      label.black(for="title")
+      input.ng-pristine.ng-valid.md-input.ng-touched(ng-model="user.address", id="title", aria-invalid="false", placeholder="Script Title")
+
+    md-input-container.flex(style="height: auto;")
+      label.black(for="text")
+      textarea#text.ng-pristine.ng-valid.md-input.ng-valid-md-maxlength.ng-touched(style="height:400px;", placeholder="Script Text.",ng-model="user.biography", columns="1", md-maxlength="3000",rows="1" , ng-trim="false",  aria-multiline="true", aria-invalid="false", aria-label)
+
+    div.right.dark(style="margin:15px;")
+      button.md-raised.md-button.md-default-theme(style="margin-right:0px;") IMPORT
+      button.md-raised.md-button.md-default-theme SAVE
+
+
+

@@ -11,6 +11,8 @@ angular.module('myApp')
     }
 
     $scope.login = function() {
+      //$facebook.loing -> module. Not yours.
+      //$facebook.login, logout -> Always working and return value;
       $facebook.login().then(function() {
         refresh();
       });
@@ -24,7 +26,7 @@ angular.module('myApp')
          */
         function(response) {
           console.log(response.authResponse.accessToken);
-
+          /*
           $http({
             method: 'GET',
             url: '/login/facebook',
@@ -34,12 +36,33 @@ angular.module('myApp')
           }, function errorCallback(response) {
 
           });
+          */
+
+          connectToFacebook(refresh());
 
         },
         function(err) {
 
         }
       );
+
+      function connectToFacebook (fSsuccessCallback) {
+        $http({
+          method: 'GET',
+          url: '/login/facebook',
+          params: {token: response.authResponse.accessToken}
+        }).then(function successCallback(response) {
+          console.log(response.data);
+        }, function errorCallback(response) {
+
+        });
+      };
+
+      function isLoggedIn () {
+
+        return $scope.isLoggedIn;
+      };
+
 
       $facebook.api("/me").then(
         function(response) {

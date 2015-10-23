@@ -47,6 +47,11 @@ router.get('/:name', function (req, res) {
   //res.redirect('/',{'hashbang':'angular-route-url'});
   res.redirect('/'+'#/'+name);
 });
+router.get('/login/facebook', login.facebookLogin);
+router.get('/login/google', login.googleLogin);
+router.get('/main/scriptSave', saveScript.saveScriptExpress);
+router.get('/main/scriptList', readScript.readScriptList);
+router.get('/scriptDetail/scripContent', readScript.readScriptDetail);
 
 router.get('/login/facebook', facebook.facebookLogin)
 

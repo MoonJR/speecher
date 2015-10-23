@@ -1,4 +1,5 @@
 'use strict';
+var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-progress']);
 
 angular.module('myApp', [
   'ngRoute',
@@ -10,9 +11,17 @@ angular.module('myApp', [
       .when('/login', {
         templateUrl: '/partials/login',
         controller: 'loginCtrl'
+      })
+      .when('/index', {
+        templateUrl: '/partials/index',
+        controller: 'indexCtrl'
+      }).
+      when('/write', {
+        templateUrl: '/partials/write',
+        controller: 'writeCtrl',
       }).
       otherwise({
-        redirectTo: '/login'
+        redirectTo: '/index'
       });
 
     $facebookProvider.setAppId('1386879811618975');
@@ -20,6 +29,12 @@ angular.module('myApp', [
     $facebookProvider.setVersion("v2.5");
 
     $facebookProvider.setPermissions('email');
+
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
+    });
+
 
   })
   .run(function($rootScope) {

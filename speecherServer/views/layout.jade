@@ -16,8 +16,10 @@ html(lang='kr', ng-app="myApp")
     header
       p.logo.left SPEECHER
       .top-menu.right
-        button.md-raised.md-button.md-default-theme() 대본작성
-        button.md-raised.md-button.md-default-theme() 대본목록
+        a(href="/#write")
+          button.md-raised.md-button.md-default-theme() 대본작성
+        a(ng-href="/#index")
+          button.md-raised.md-button.md-default-theme() 대본목록
         img(alt="프로필 이미지", src="/images/default_profile_image.png")
         p 반상현
   main
@@ -30,5 +32,9 @@ html(lang='kr', ng-app="myApp")
     script(src='angular-route/angular-route.min.js')
     script(src='angular-material/angular-material.min.js')
     script(src='ng-facebook/ngFacebook.js')
+    script(src='angular-svg-round-progressbar/build/roundProgress.min.js')
     script(src='angularjs/app.js')
     script(src='angularjs/controllers/loginCtrl.js')
+    script(src='angularjs/controllers/indexCtrl.js')
+    script(src='angularjs/controllers/writeCtrl.js')
+    //script(src='js/roundProgress.js')

@@ -26,7 +26,7 @@ module.exports = function(config) {
       'bower_components/angular-cookies/angular-cookies.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-sanitize/angular-sanitize.js',
+      //'bower_components/angular-sanitize/angular-sanitize.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-aria/angular-aria.js',
@@ -34,11 +34,11 @@ module.exports = function(config) {
       'bower_components/ng-facebook/ngFacebook.js',
 
       // endbower
+      //"js/roundProgress.js",
+      'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
       "public/angularjs/**/*.js",
       "test/mock/**/*.js",
-      "test/angularjs/*.js",
-
-
+      "test/angularjs/**/*.js"
     ],
 
     // list of files / patterns to exclude
