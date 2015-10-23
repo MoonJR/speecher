@@ -10,6 +10,7 @@ module.exports = function (grunt) {
 
   var reloadPort = 35729, files;
 
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     develop: {
@@ -26,7 +27,8 @@ module.exports = function (grunt) {
     plato: {
       task: {
         files: {
-          'reports/report-plato': ['plato/**/*.js']
+          'reports/report-plato': ['public/angularjs/*.js', 'public/angularjs/controllers/*.js']
+
         }
       }
     },
@@ -97,6 +99,6 @@ module.exports = function (grunt) {
     //'develop',
     //'watch',
     'karma',
-    //'plato'
+    'plato'
   ]);
 };
