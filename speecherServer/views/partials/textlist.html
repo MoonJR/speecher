@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="kr" ng-app="StarterApp">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  </head>
+  <body layout="column">
+    <header ng-controller="HeaderCtrl">
+      <p class="logo left">SPEECHER</p>
+      <div class="top-menu right">
+        <button class="md-raised md-button md-default-theme">대본작성</button>
+        <button class="md-raised md-button md-default-theme">대본목록</button><img alt="프로필 이미지" src="/images/default_profile_image.png">
+        <p>반상현</p>
+      </div>
+    </header>
+    <main>
+      <div ng-controller="AppCtrl" layout="column" ng-cloak>
+        <md-toolbar class="md-warn">
+          <div class="md-toolbar-tools">
+            <h2 class="md-flex">TEST</h2>
+          </div>
+        </md-toolbar>
+        <md-content flex layout-padding>
+          <p>TEST</p>
+        </md-content>
+      </div>
+    </main>
+    <footer></footer>
+    <!--Angular Material Dependencies-->
+    <script src="/components/angular/angular.min.js"></script>
+    <script src="/components/angular-animate/angular-animate.min.js"></script>
+    <script src="/components/angular-aria/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"></script>
+    <script src="/angularjs/header-controller.js"></script>
+    <script src="/angularjs/textlist.js"></script>
+  </body>
+</html>

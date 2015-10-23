@@ -10,11 +10,26 @@ module.exports = function (grunt) {
 
   var reloadPort = 35729, files;
 
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     develop: {
       server: {
         file: 'bin/www'
+      }
+    }, // Test settings
+    karma: {
+        unit: {
+          configFile: 'test/karma.conf.js',
+          singleRun: true
+        }
+    },
+    plato: {
+      task: {
+        files: {
+          'reports/report-plato': ['public/angularjs/*.js', 'public/angularjs/controllers/*.js']
+
+        }
       }
     },
     watch: {
@@ -42,6 +57,8 @@ module.exports = function (grunt) {
           livereload: reloadPort
         }
       },
+
+
       css: {
         files: [
           'public/css/*.css'
@@ -79,7 +96,9 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', [
-    'develop',
-    'watch'
+    //'develop',
+    //'watch',
+    'karma',
+    'plato'
   ]);
 };

@@ -1,0 +1,57 @@
+{
+  "name": "plato",
+  "description": "JavaScript source analysis and visualizer",
+  "version": "1.4.0",
+  "homepage": "https://github.com/es-analysis/plato",
+  "author": {
+    "name": "Jarrod Overson",
+    "email": "jsoverson@gmail.com",
+    "url": "http://jarrodoverson.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/es-analysis/plato.git"
+  },
+  "bugs": {
+    "url": "https://github.com/es-analysis/plato/issues"
+  },
+  "bin": "bin/plato",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/es-analysis/plato/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "lib/plato",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-casper": "~0.4.0",
+    "grunt-contrib-jshint": "~0.10",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "keywords": [
+    "halstead",
+    "visualize",
+    "cyclomatic",
+    "complexity",
+    "report",
+    "analysis",
+    "analyze"
+  ],
+  "dependencies": {
+    "escomplex-js": "~1.2.0",
+    "fs-extra": "^0.3.2",
+    "glob": "~4.4.1",
+    "jshint": "~2.6.3",
+    "lodash": "^3.3.1",
+    "posix-getopt": "~1.1.0"
+  }
+}

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - controllers/loginControllers.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet">
+  <link href="../../assets/css/plato.css" rel="stylesheet">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="http://github.com/es-analysis/plato">Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>controllers/loginControllers.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">81.20</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">149</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">10.93</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.56</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">var app = angular.module(&#039;plunker&#039;, [&#039;ezfb&#039;, &#039;hljs&#039;])
+
+  .config(function (ezfbProvider) {
+    /**
+     * Basic setup
+     *
+     * https://github.com/pc035860/angular-easyfb#configuration
+     */
+    ezfbProvider.setInitParams({
+      appId: &#039;1386879811618975&#039;
+    });
+  })
+
+  .controller(&#039;MainCtrl&#039;, function($scope, ezfb, $window, $location, $q) {
+
+    updateMe();
+
+    updateLoginStatus()
+      .then(updateApiCall);
+
+    /**
+     * Subscribe to &#039;auth.statusChange&#039; event to response to login/logout
+     */
+    ezfb.Event.subscribe(&#039;auth.statusChange&#039;, function (statusRes) {
+      $scope.loginStatus = statusRes;
+
+      updateMe();
+      updateApiCall();
+    });
+
+    $scope.login = function () {
+      /**
+       * Calling FB.login with required permissions specified
+       * https://developers.facebook.com/docs/reference/javascript/FB.login/v2.0
+       */
+      ezfb.login(null, {scope: &#039;email,user_likes&#039;});
+
+      /**
+       * In the case you need to use the callback
+       *
+       * ezfb.login(function (res) {
+     *   // Executes 1
+     * }, {scope: &#039;email,user_likes&#039;})
+       * .then(function (res) {
+     *   // Executes 2
+     * })
+       *
+       * Note that the `res` result is shared.
+       * Changing the `res` in 1 will also change the one in 2
+       */
+    };
+
+    $scope.logout = function () {
+      /**
+       * Calling FB.logout
+       * https://developers.facebook.com/docs/reference/javascript/FB.logout
+       */
+      ezfb.logout();
+
+      /**
+       * In the case you need to use the callback
+       *
+       * ezfb.logout(function (res) {
+     *   // Executes 1
+     * })
+       * .then(function (res) {
+     *   // Executes 2
+     * })
+       */
+    };
+
+    $scope.share = function () {
+      var no = 1,
+        callback = function (res) {
+          console.log(&#039;FB.ui callback execution&#039;, no++);
+          console.log(&#039;response:&#039;, res);
+        };
+
+      ezfb.ui(
+        {
+          method: &#039;feed&#039;,
+          name: &#039;angular-easyfb API demo&#039;,
+          picture: &#039;http://plnkr.co/img/plunker.png&#039;,
+          link: &#039;http://plnkr.co/edit/qclqht?p=preview&#039;,
+          description: &#039;angular-easyfb is an AngularJS module wrapping Facebook SDK.&#039; +
+          &#039; Facebook integration in AngularJS made easy!&#039; +
+          &#039; Please try it and feel free to give feedbacks.&#039;
+        },
+        callback
+      )
+        .then(callback);
+    };
+
+    /**
+     * For generating better looking JSON results
+     */
+    var autoToJSON = [&#039;loginStatus&#039;, &#039;apiRes&#039;];
+    angular.forEach(autoToJSON, function (varName) {
+      $scope.$watch(varName, function (val) {
+        $scope[varName + &#039;JSON&#039;] = JSON.stringify(val, null, 2);
+      }, true);
+    });
+
+    /**
+     * Update api(&#039;/me&#039;) result
+     */
+    function updateMe () {
+      ezfb.getLoginStatus()
+        .then(function (res) {
+          // res: FB.getLoginStatus response
+          // https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
+          return ezfb.api(&#039;/me&#039;);
+        })
+        .then(function (me) {
+          // me: FB.api(&#039;/me&#039;) response
+          // https://developers.facebook.com/docs/javascript/reference/FB.api
+          $scope.me = me;
+        });
+    }
+
+    /**
+     * Update loginStatus result
+     */
+    function updateLoginStatus () {
+      return ezfb.getLoginStatus()
+        .then(function (res) {
+          // res: FB.getLoginStatus response
+          // https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
+          $scope.loginStatus = res;
+        });
+    }
+
+    /**
+     * Update demostration api calls result
+     */
+    function updateApiCall () {
+      return $q.all([
+        ezfb.api(&#039;/me&#039;),
+        ezfb.api(&#039;/me/likes&#039;)
+      ])
+        .then(function (resList) {
+          // Runs after both api calls are done
+          // resList[0]: FB.api(&#039;/me&#039;) response
+          // resList[1]: FB.api(&#039;/me/likes&#039;) response
+          $scope.apiRes = resList;
+        });
+
+    }
+  });</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
