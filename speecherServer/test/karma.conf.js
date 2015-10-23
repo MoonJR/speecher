@@ -76,7 +76,7 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'],
 
     preprocessors: {
-      'public/angularjs/*.js' : ['coverage']
+      'public/angularjs/**/*.js' : ['coverage']
     },
 
     coverageReporter: {

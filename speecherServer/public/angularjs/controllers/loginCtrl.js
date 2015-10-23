@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
   .controller('loginCtrl', function($scope, $facebook, $http){
     $scope.isLoggedIn = false;

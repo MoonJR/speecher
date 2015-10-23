@@ -26,7 +26,7 @@ module.exports = function (grunt) {
     plato: {
       task: {
         files: {
-          'reports/report-plato': ['plato/**/*.js']
+          'reports/report-plato': ['public/**/*.js']
         }
       }
     },
@@ -71,6 +71,32 @@ module.exports = function (grunt) {
           livereload: reloadPort
         }
       }
+    },
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc',
+        reporter: require('jshint-jenkins-checkstyle-reporter'),
+        reporterOutput: 'reports/report-jshint-checkstyle.xml'
+      },
+      all: {
+        src: [
+          'Gruntfile.js',
+          'public/**/*.js',
+          'test/**/*.js'
+        ]
+      },
+      test: {
+        options: {
+          jshintrc: 'test/.jshintrc'
+        },
+        src: ['test/**/*.js']
+      }
+    },
+    sloccount: {
+      options: {
+        reportPath: 'reports/sloc.sc'
+      },
+      src: ['public/**/*.js', 'test/**/*.js', 'views/**/*.html',]
     }
   });
 
@@ -99,6 +125,9 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('test', [
-    'karma'
+    'karma',
+    'plato',
+    'sloccount',
+    'jshint:all'
   ]);
 };

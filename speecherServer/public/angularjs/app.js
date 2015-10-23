@@ -25,8 +25,6 @@ angular.module('myApp', [
   .run(function($rootScope) {
     // Load the facebook SDK asynchronously
     (function(){
-      // If we've already installed the SDK, we're done
-      if (document.getElementById('facebook-jssdk')) {return;}
 
       // Get the first script element, which we'll use to find the parent node
       var firstScriptElement = document.getElementsByTagName('script')[0];
