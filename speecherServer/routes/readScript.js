@@ -11,14 +11,12 @@ exports.readScriptList = function (req, res) {
   var sendData = {};
 
   collection.scriptCollection.find(query).toArray(function (err, result) {
-    if (err) {
+    if (err || result == null) {
       sendData.success = 0;
-      sendData.result = result;
     } else {
       sendData.success = 1;
-      sendData.result = result;
     }
-
+    sendData.result = result;
     res.send(sendData);
   });
 
@@ -34,14 +32,12 @@ exports.readScriptDetail = function (req, res) {
 
 
   collection.scriptCollection.findOne(query, function (err, result) {
-    if (err) {
+    if (err || result == null) {
       sendData.success = 0;
-      sendData.result = result;
     } else {
       sendData.success = 1;
-      sendData.result = result;
     }
-
+    sendData.result = result;
     res.send(sendData);
   });
 

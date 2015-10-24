@@ -6,6 +6,7 @@ var session = require('express-session');
 var login = require('./snsLogin');
 var saveScript = require('./saveScript');
 var readScript = require('./readScript');
+var testHistory= require('./testHistory');
 /* GET home page. */
 
 //세션 사용
@@ -37,6 +38,7 @@ router.get('/login/google', login.googleLogin);
 router.get('/main/scriptSave', saveScript.saveScriptExpress);
 router.get('/main/scriptList', readScript.readScriptList);
 router.get('/scriptDetail/scripContent', readScript.readScriptDetail);
+router.get('/scriptDetail/scriptGrapeScores',testHistory.testHistory);
 
 //Angular 의  Html5Mode 를  true 로 설정하면, ajax로 요청한 페이지를 해시뱅으로 httpResponse인척 속이는 것을 넘어서서,  Ajax 요청한 것을 해시뱅이 사라진 실주소같은 형태로 만들어버린다.
 // 이 때, 해시뱅 없이 만들어진  URL 로도 접근할 수 있게 하려면, 결국  # 이 없어진 url로 접속시  기본 인덱스 페이지를 redirect 해주고, data parameter 에 속성값을 넣어  JS로 응답해줄 수 있을 것 같다
