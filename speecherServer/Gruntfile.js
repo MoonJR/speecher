@@ -95,10 +95,12 @@ module.exports = function (grunt) {
     }, 500);
   });
 
-  grunt.registerTask('default', [
+  grunt.registerTask('test', [
     //'develop',
     //'watch',
     'karma',
     'plato'
   ]);
+
+
 };

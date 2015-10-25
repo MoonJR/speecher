@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
   res.render('index', {title: 'Express'});
 });
 
-<<<<<<< HEAD
+
 //   Angular의 router를 사용할 경우,해시뱅으로 원하는 부분의 뷰를 변경하게 되는데,  이 때 뷰 파일을(html)요청하기 위한 node 단의  static file load  URL
 router.get('/partials/:name', function(req, res, next) {
   console.log("========path:"+path);
@@ -42,13 +42,13 @@ router.get('/:name', function (req, res) {
   //res.redirect('/',{'hashbang':'angular-route-url'});
   res.redirect('/'+'#/'+name);
 });
-=======
+
 router.get('/login/facebook', login.facebookLogin);
 router.get('/login/google', login.googleLogin);
 router.get('/main/scriptSave', saveScript.saveScriptExpress);
 router.get('/main/scriptList', readScript.readScriptList);
 router.get('/scriptDetail/scripContent', readScript.readScriptDetail);
->>>>>>> origin/master
+
 
 //router.get('/login/facebook', facebook.facebookLogin)
 
