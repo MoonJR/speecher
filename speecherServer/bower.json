@@ -1,9 +1,32 @@
 {
-  "name": "speecherserver",
-  "version": "0.0.1",
+  "name": "speecherServer",
+  "version": "0.0.0",
+  "homepage": "https://github.com/minkikim89/speecher",
+  "authors": [
+    "jaisonoh <jaisonoh@naver.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
-    "components"
-  ]
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-cookies": "~1.4.7",
+    "angular-resource": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "angular-sanitize": "~1.4.7",
+    "angular-touch": "~1.4.7",
+    "angular-aria": "~1.4.7",
+    "angular-material": "~0.11.4",
+    "angular-svg-round-progressbar": "~0.3.8",
+    "angular-mocks": "~1.4.7",
+    "ng-facebook": "~0.1.6"
+  }
 }

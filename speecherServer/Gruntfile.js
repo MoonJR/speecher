@@ -10,11 +10,25 @@ module.exports = function (grunt) {
 
   var reloadPort = 35729, files;
 
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     develop: {
       server: {
         file: 'bin/www'
+      }
+    }, // Test settings
+    karma: {
+        unit: {
+          configFile: 'test/karma.conf.js',
+          singleRun: true
+        }
+    },
+    plato: {
+      task: {
+        files: {
+          'reports/report-plato': ['public/**/*.js']
+        }
       }
     },
     watch: {
@@ -42,6 +56,8 @@ module.exports = function (grunt) {
           livereload: reloadPort
         }
       },
+
+
       css: {
         files: [
           'public/css/*.css'
@@ -56,6 +72,32 @@ module.exports = function (grunt) {
           livereload: reloadPort
         }
       }
+    },
+    jshint: {
+      options: {
+        jshintrc: '.jshintrc',
+        reporter: require('jshint-jenkins-checkstyle-reporter'),
+        reporterOutput: 'reports/report-jshint-checkstyle.xml'
+      },
+      all: {
+        src: [
+          'Gruntfile.js',
+          'public/**/*.js',
+          'test/**/*.js'
+        ]
+      },
+      test: {
+        options: {
+          jshintrc: 'test/.jshintrc'
+        },
+        src: ['test/**/*.js']
+      }
+    },
+    sloccount: {
+      options: {
+        reportPath: 'reports/sloc.sc'
+      },
+      src: ['public/**/*.js', 'test/**/*.js', 'views/**/*.html',]
     }
   });
 
@@ -81,5 +123,12 @@ module.exports = function (grunt) {
   grunt.registerTask('default', [
     'develop',
     'watch'
+  ]);
+
+  grunt.registerTask('test', [
+    'karma',
+    'plato',
+    'sloccount',
+    'jshint:all'
   ]);
 };
