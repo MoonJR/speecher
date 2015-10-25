@@ -1,18 +1,19 @@
 'use strict';
-var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-progress']);
 
 angular.module('myApp', [
   'ngRoute',
   'ngMaterial',
-  'ngFacebook'
+  'ngFacebook',
+  'angular-svg-round-progress',
+  'googleplus'
 ])
-  .config(function($routeProvider, $locationProvider, $facebookProvider) {
+  .config(function($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
     $routeProvider
       .when('/login', {
         templateUrl: '/partials/login',
         controller: 'loginCtrl'
       })
-      .when('/index', {
+      .when('/', {
         templateUrl: '/partials/index',
         controller: 'indexCtrl'
       }).
@@ -21,7 +22,7 @@ angular.module('myApp', [
         controller: 'writeCtrl',
       }).
       otherwise({
-        redirectTo: '/index'
+        redirectTo: '/login'
       });
 
     $facebookProvider.setAppId('1386879811618975');
@@ -29,6 +30,15 @@ angular.module('myApp', [
     $facebookProvider.setVersion("v2.5");
 
     $facebookProvider.setPermissions('email');
+
+    GooglePlusProvider.init({
+      clientId: '280233748418-v4s1qjeknmb0lp6to142bblv4ab0rjcv.apps.googleusercontent.com',
+      apiKey: 'AIzaSyDcLpimE6IcAL-jSDPMuWKB1i8VnxpN9Zo'
+    });
+
+    GooglePlusProvider.enableServerSide({
+
+    });
 
     $locationProvider.html5Mode({
       enabled: true,

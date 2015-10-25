@@ -1,79 +1,77 @@
 'use strict';
 
 angular.module('myApp')
-  .controller('loginCtrl', function($scope, $facebook, $http){
-    $scope.isLoggedIn = false;
+    .controller('loginCtrl', function($scope, $facebook, GooglePlus, $http, $location){
 
-    $scope.logout = function () {
-      $facebook.logout().then(function() {
-        $scope.isLoggedIn = false;
-      });
-    }
+      // init login status
+      (function initController() {
+        $scope.logout;
+      })();
 
-    $scope.login = function() {
-      //$facebook.loing -> module. Not yours.
-      //$facebook.login, logout -> Always working and return value;
-      $facebook.login().then(function() {
-        refresh();
-      });
-    };
+      // APIs
+      $scope.loginStatus = null;
+      $scope.facebookLogin = facebookLogin;
+      $scope.googleLogin = googleLogin;
+      $scope.logout = logout;
 
-    function refresh() {
-      $facebook.getLoginStatus().then(
+      function facebookLogin() {
+        $facebook.login().then(
+            successFacebookLogin,
+            errorHandler('Error: facebookLogin')
+        );
+      }
 
-        /**
-         * @param {{authResponse.accessToken:string}} data
-         */
-        function(response) {
-          console.log(response.authResponse.accessToken);
-          /*
-          $http({
-            method: 'GET',
-            url: '/login/facebook',
-            params: {token: response.authResponse.accessToken}
-          }).then(function successCallback(response) {
-            console.log(response.data);
-          }, function errorCallback(response) {
+      function googleLogin() {
+        GooglePlus.login().then(
+            successGoogleLogin,
+            errorHandler('Error: googleLogin')
+        );
+      }
 
-          });
-          */
-
-          connectToFacebook(refresh());
-
-        },
-        function(err) {
-
+      function logout() {
+        if ($scope.loginStatus === 'facebook') {
+          $facebook.logout();
         }
-      );
+        else if ($scope.loginStatus === 'google') {
+          GooglePlus.logout();
+        }
+        $scope.loginStatus = null;
+      }
 
-      function connectToFacebook (fSsuccessCallback) {
+      // private functions
+      function successFacebookLogin () {
+        $facebook.getLoginStatus().then(
+            function (response) {
+              var token = response.authResponse.accessToken;
+              $scope.loginStatus = 'facebook';
+              sendToken(token, $scope.loginStatus);
+            },
+            errorHandler('Error: getLoginStatus')
+        );
+      }
+
+      function successGoogleLogin (response) {
+        var token = response.id_token;
+        $scope.loginStatus = 'google';
+        sendToken(token, $scope.loginStatus);
+      }
+
+      function sendToken (token, url) {
         $http({
           method: 'GET',
-          url: '/login/facebook',
-          params: {token: response.authResponse.accessToken}
-        }).then(function successCallback(response) {
-          console.log(response.data);
-        }, function errorCallback(response) {
+          url: '/login/' + url,
+          params: {token: token}
+        }).then(
+            function (response) {
+              $location.path('/index');
+              console.log(response.data);
+            },
+            errorHandler('Error: sendToken')
+        );
+      }
 
-        });
-      };
-
-      function isLoggedIn () {
-
-        return $scope.isLoggedIn;
-      };
-
-
-      $facebook.api("/me").then(
-        function(response) {
-          $scope.isLoggedIn = true;
-          console.log(response);
-        },
-        function(err) {
-        }
-      );
-    }
-
-    refresh();
-  });
+      function errorHandler (error) {
+        return { success: false, message: error };
+      }
+    });
 
