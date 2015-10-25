@@ -33,7 +33,7 @@ exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
 exports.totalFailWord = function(user_id, wordLimit, callback){
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({"user_id":user_id}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+      collection.find({}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
         callback(err, items);
         db.close();
       })
