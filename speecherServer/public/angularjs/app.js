@@ -1,10 +1,9 @@
 'use strict';
-var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-progress']);
-
 angular.module('myApp', [
   'ngRoute',
   'ngMaterial',
-  'ngFacebook'
+  'ngFacebook',
+  'angular-svg-round-progress'
 ])
   .config(function($routeProvider, $locationProvider, $facebookProvider) {
     $routeProvider
