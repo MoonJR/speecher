@@ -12,22 +12,17 @@
 //  return origFn.apply(browser.driver.controlFlow(), args);
 //};
 
-describe('angularjs homepage todo list', function() {
+describe('indexController test', function() {
 
   it('단어 리스트 아이템 클릭시 다이얼로그 ', function() {
 
     browser.get('http://127.0.0.1:3000');
 
     var words = element.all(by.css('#box-words md-chips'));
-
-
-    // Find the element with ng-model="words"
-    //console.log(element(by.model('words')).html());
-    expect(element(by.model('words')).count()).toBe(2);
-
-    //expect(wordsModel.count()).toBe(2);
-    //expect(words.count()).toBe(2);
-
+    //Model 검색이 인식이 안되는데, 이후 다시 찾아보고  model.count 와 비교하고,
+    //클릭시  Dialog 열리는것도 추가
+    //expect(element(by.model('words')).count()).toBe(2);
+    expect(words.count()).toBe(2);
 
   });
 
