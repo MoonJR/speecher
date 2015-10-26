@@ -64,28 +64,10 @@ angular.module('myApp')
         return loginService.sendCredentials(url, token, function(response) {
           if(response.data.success) {
             loginService.setCredentials(response.data.response.email);
+            $location.path('/');
           }
         });
       }
-
-
-      //function sendToken (token, url) {
-      //  $http({
-      //    method: 'GET',
-      //    url: '/login/' + url,
-      //    params: {token: token}
-      //  }).then(
-      //      function (response) {
-      //        console.log(response);
-      //        if(response.status === 200) {
-      //          loginService.setCredentials(response.data.email);
-      //          $location.path('/');
-      //          console.log(response.data);
-      //        }
-      //      },
-      //      errorHandler('Error: sendToken')
-      //  );
-      //}
 
       function errorHandler (error) {
         return { success: false, message: error };

@@ -46,10 +46,10 @@ angular.module('myApp', [
 
 
     })
-    .run(function ($rootScope) {
+    .run(function ($rootScope, $location, $cookieStore, $http) {
       // Load the facebook SDK asynchronously
-      (function () {
 
+      (function () {
         // Get the first script element, which we'll use to find the parent node
         var firstScriptElement = document.getElementsByTagName('script')[0];
 
@@ -63,4 +63,21 @@ angular.module('myApp', [
         // Insert the Facebook JS SDK into the DOM
         firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
       }());
+
+      // keep user logged in after page refresh
+
+      $rootScope.globals = $cookieStore.get('globals') || {};
+      if ($rootScope.globals.currentUser) {
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+      }
+
+      $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        // redirect to login page if not logged in and trying to access a restricted page
+        //var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
+        var loggedIn = $rootScope.globals.currentUser;
+        if (!loggedIn) {
+          $location.path('/login');
+        }
+      });
+
     });
