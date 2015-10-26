@@ -1,12 +1,11 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('loginCtrl', function($scope, $facebook, GooglePlus, loginService, $location){
+    .controller('loginCtrl', function($rootScope, $scope, $facebook, GooglePlus, loginService, $location){
 
       // init login status
 
       // APIs
-      $scope.loginStatus = null;
       $scope.facebookLogin = facebookLogin;
       $scope.googleLogin = googleLogin;
       $scope.logout = logout;
@@ -28,14 +27,18 @@ angular.module('myApp')
       }
 
       function logout() {
-        if ($scope.loginStatus === 'facebook') {
-          $facebook.logout();
+        var loggedIn = $rootScope.globals.currentUser;
+
+        if (loggedIn) {
+          loginService.clearCredentials();
+
+          if (loggedIn.oauthType === 'facebook') {
+            //$facebook.logout();
+          }
+          else if (loggedIn.oauthType === 'google') {
+            //GooglePlus.logout();
+          }
         }
-        else if ($scope.loginStatus === 'google') {
-          GooglePlus.logout();
-        }
-        $scope.loginStatus = null;
-        loginService.clearCredentials();
       }
 
       // private functions
@@ -44,9 +47,7 @@ angular.module('myApp')
             function (response) {
               if(response.authResponse) {
                 console.log(response);
-                var token = response.authResponse.accessToken;
-                $scope.loginStatus = 'facebook';
-                loginToServer($scope.loginStatus, token)
+                loginToServer('facebook', response.authResponse.accessToken);
               }
             },
             errorHandler('Error: getLoginStatus')
@@ -55,15 +56,13 @@ angular.module('myApp')
 
       function successGoogleLogin (response) {
         console.log(response);
-        var token = response.id_token;
-        $scope.loginStatus = 'google';
-        sendToken(token, $scope.loginStatus);
+        loginToServer('google', response.id_token);
       }
 
       function loginToServer(url, token) {
         return loginService.sendCredentials(url, token, function(response) {
           if(response.data.success) {
-            loginService.setCredentials(response.data.response.email);
+            loginService.setCredentials(url, response.data.response.email);
             $location.path('/');
           }
         });

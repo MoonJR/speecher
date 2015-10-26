@@ -7,6 +7,8 @@
 
   loginService.$inject = ['$http', '$cookieStore', '$rootScope'];
   function loginService($http, $cookieStore, $rootScope) {
+
+    // APIs
     var service = {};
 
     service.sendCredentials = sendCredentials;
@@ -28,26 +30,21 @@
           },
           errorHandler('Error: sendCredentials')
       );
-
-      //$http.post('/api/authenticate', { username: username, password: password })
-      //    .success(function (response) {
-      //        callback(response);
-      //    });
-
     }
 
-    function setCredentials(email) {
-      var authdata = Base64.encode(email);
+    function setCredentials(oauthType, email) {
+      var authData = Base64.encode(email);
 
       $rootScope.globals = {
         currentUser: {
           username: email,
-          authdata: authdata
+          oauthType: oauthType,
+          authData: authData
         }
       };
       console.log($rootScope.globals);
 
-      $http.defaults.headers.common['Authorization'] = 'Basic ' + authdata; // jshint ignore:line
+      $http.defaults.headers.common['Authorization'] = 'Basic ' + authData; // jshint ignore:line
       $cookieStore.put('globals', $rootScope.globals);
     }
 
@@ -58,11 +55,12 @@
     }
   }
 
+  // private functions
   function errorHandler (error) {
     return { success: false, message: error };
   }
 
-  // Base64 encoding service used by AuthenticationService
+  // Base64 encoding service
   var Base64 = {
 
     keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
