@@ -14,10 +14,10 @@ describe('script', function () {
 
       setTimeout(function () {
         //목 만들기
-        var req = {query: {}};
+        var req = {body: {}};
 
-        req.query.id = id;
-        req.query.script_id = script_id;
+        req.body.id = id;
+        req.body.script_id = script_id;
 
         var res = {};
         res.send = function (json) {
@@ -38,8 +38,8 @@ describe('script', function () {
         //목 만들기
         var req = {query: {}};
 
-        req.query.id = id;
-        req.query.script_id = script_id;
+        req.body.id = id;
+        req.body.script_id = script_id;
 
         var res = {};
         res.send = function (json) {
