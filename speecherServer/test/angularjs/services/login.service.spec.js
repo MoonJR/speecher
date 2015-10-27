@@ -12,31 +12,31 @@
 
 describe('로그인 서비스는 사용자 정보를 서버로부터 받고 이를 저장하거나 삭제한다', function() {
 
-  var loginService, httpBackend;
+  var loginServiceMock, httpBackendMock;
   var cookieStoreMock, httpHeaderMock, rootScopeMock;
 
   beforeEach(module('myApp'));
 
-  beforeEach(inject(function ($injector, $cookieStore, $http, $rootScope) {
-    loginService = $injector.get('loginService');
-    httpBackend = $injector.get('$httpBackend');
+  beforeEach(inject(function (_$injector_, _$cookieStore_, _$http_, _$rootScope_) {
+    loginServiceMock = _$injector_.get('loginService');
+    httpBackendMock = _$injector_.get('$httpBackend');
 
     var response = { data: { email: 'jaisonoh@naver.com' }, success: 1 };
 
-    httpBackend
+    httpBackendMock
         .when('GET', '/login/facebook')
         .respond(200, response);
 
-    cookieStoreMock = $cookieStore;
+    cookieStoreMock = _$cookieStore_;
     spyOn(cookieStoreMock, 'put');
     spyOn(cookieStoreMock, 'remove');
 
-    httpHeaderMock = $http;
-    rootScopeMock = $rootScope;
+    httpHeaderMock = _$http_;
+    rootScopeMock = _$rootScope_;
   }));
 
   it ('sendCredentials : 서버로 인증 정보를 보내면 사용자 정보를 반환한다', function () {
-    loginService.sendCredentials('facebook', 'token', function (response) {
+    loginServiceMock.sendCredentials('facebook', 'token', function (response) {
       expect(response.data.email).toBe('jaisonoh@naver.com');
       expect(response.success).toBe(1);
     });
@@ -47,7 +47,7 @@ describe('로그인 서비스는 사용자 정보를 서버로부터 받고 이�
     expect(httpHeaderMock.defaults.headers.common.Authorization).toBeUndefined();
 
     // Behaviors After setCredentials()
-    loginService.setCredentials('facebook', 'jaisonoh@naver.com');
+    loginServiceMock.setCredentials('facebook', 'jaisonoh@naver.com');
     console.log(httpHeaderMock.defaults.headers.common.Authorization);
 
     expect(cookieStoreMock.put).toHaveBeenCalled();
@@ -61,12 +61,12 @@ describe('로그인 서비스는 사용자 정보를 서버로부터 받고 이�
   });
 
   it ('clearCredentials : window scope, http 헤더, 쿠키의 사용자 정보를 초기화한다', function () {
-    loginService.setCredentials('facebook', 'jaisonoh@naver.com');
+    loginServiceMock.setCredentials('facebook', 'jaisonoh@naver.com');
     expect(cookieStoreMock.put).toHaveBeenCalled();
     expect(httpHeaderMock.defaults.headers.common.Authorization).toEqual('Basic amFpc29ub2hAbmF2ZXIuY29t');
 
     // Behaviors After clearCredentials()
-    loginService.clearCredentials();
+    loginServiceMock.clearCredentials();
     expect(cookieStoreMock.remove).toHaveBeenCalled();
     expect(httpHeaderMock.defaults.headers.common.Authorization).toBeDefined();
     expect(httpHeaderMock.defaults.headers.common.Authorization).toEqual('Basic ');

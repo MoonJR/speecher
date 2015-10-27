@@ -28,14 +28,14 @@ Computing results.
 29	jscm	public/js	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/public/js/roundProgress.js.cm
 41	js	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/indexCtrl.js
 14	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/indexCtrl.js.cm
-0	js	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/login.controller.spec.js
-79	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/login.controller.spec.js.cm
+34	js	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/login.controller.spec.js
+17	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/login.controller.spec.js.cm
 12	js	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/writeCtrl.js
 0	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/controllers/writeCtrl.js.cm
 42	js	test/angularjs/services	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/services/login.service.spec.js
 16	jscm	test/angularjs/services	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/angularjs/services/login.service.spec.js.cm
 54	js	test	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/karma.conf.js
-34	jscm	test	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/karma.conf.js.cm
+36	jscm	test	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/karma.conf.js.cm
 36	js	test	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/readScript.js
 8	jscm	test	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/readScript.js.cm
 66	js	test	/Users/jaisonoh/WebstormProjects/speecher0.7/speecher/speecherServer/test/saveScript.js

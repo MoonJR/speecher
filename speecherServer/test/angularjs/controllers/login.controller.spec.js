@@ -1,79 +1,64 @@
-//'use strict';
-//
-////Epic
-////사용자는 SNS 계정 사용하여 로그인 할 수 있다.
-//
-////User Story
-////0. 사용자가 로그인 하지 않은 상태면 로그인 단추를 표시한다.
-////1. 사용자는 구글 계정을 사용하여 로그인 할 수 있다
-////2. 사용자는 페이스북 계정을 사용하여 로그인 할 수 있다
-////3. 사용자가 존재하지 않은 계정을 사용하면 로그인 할 수 없다.
-////4. 사용자가 틀린 암호를 입력하면 로그인 할 수 없다.
-//
-//describe('로그인 테스트', function () {
-//
-//  var loginCtrl, scope, facebook;
-//
-//  // loginCtrl 컨트롤러의 모듈 로딩
-//  beforeEach(module('myApp'));
-//
-//  // loginCtrl 컨트롤러 초기화
-//  beforeEach(inject(function ($controller, $rootScope, $facebook, $q) {
-//    scope = $rootScope.$new();
-//    loginCtrl = $controller('loginCtrl', {
-//      $scope: scope
-//    });
-//    facebook = $facebook;
-//
-//    //var deferred = $q.defer();
-//    //deferred.resolve('refresh()');
-//    //spyOn(facebook, 'login').andReturn(deferred.promise);
-//  }));
-//
-//  it('처음 방문자는 로그인이 안 되어있다.', function () {
-//    expect(scope.isLoggedIn).toBe(false);
-//  });
-//
-//  it ('1. 사용자는 구글 계정을 사용하여 로그인 할 수 있다', function () {
-//
-//  });
-//
-//  it ('2. 사용자는 페이스북 계정을 사용하여 로그인 할 수 있다 ', function () {
-//
-//  });
-//
-//  it ('3. 사용자가 존재하지 않은 계정을 사용하면 로그인 할 수 없다.', function () {
-//
-//  });
-//
-///*
-//  // spy issue
-//  it('로그인을 버튼을 누르면 $facebook 객체의 login 메서드가 실행된다', function () {
-//
-//    // undefined error
-//    //spyOn(facebook, "getLoginStatus").andCallFake(function (callback) {
-//    //    callback(
-//    //      {
-//    //        status: 'connected',
-//    //        authResponse: {accessToken : 'access_token'}
-//    //      }
-//    //    );
-//    //});
-//
-//    // 프라미스 문제
-//    scope.login();
-//    expect(facebook.login).toHaveBeenCalled();
-//  });
-//*/
-//  // it('프라미스를 테스트해보자', function () {
-//  //   scope.login();
-//  //   scope.$apply();
-//  //   expect(facebook.login).toHaveBeenCalled();
-//  // });
-//
-//  /*
-//  it('로그인을 하면 isLoggedIn이 true가 된다', function () {
-//    scope.isLoggedIn = true;
-//    expect(scope.isLoggedIn).toBe(true);
-//  });*/
-//});
+'use strict';
+
+/**
+ * Epic
+ * 사용자는 SNS 계정 사용하여 로그인 할 수 있다
+ *
+ * User Story
+ * 1. 사용자가 로그인 하지 않은 상태면 로그인 단추를 표시한다 - Routing과 함께 E2E테스트로
+ * 2. 사용자는 페이스북 계정을 사용하여 로그인 할 수 있다
+ * 3. 사용자는 구글 계정을 사용하여 로그인 할 수 있다
+ * 4. 사용자가 존재하지 않은 계정을 사용하면 로그인 할 수 없다
+ * 5. 사용자가 틀린 암호를 입력하면 로그인 할 수 없다
+ * 6. 사용자가 로그인하면 다른 페이지로 전환된다 - $location 객체 호출
+ */
+
+describe('사용자는 SNS 계정 사용하여 로그인 할 수 있다', function () {
+
+  var rootScopeMock, loginControllerMock, loginServiceMock, locationMock;
+  var facebookMock, googleMock;
+
+
+  beforeEach(module('myApp'));
+
+  beforeEach(inject(function (_$rootScope_, _$controller_, _$q_, _$facebook_,
+                              _GooglePlus_, _loginService_, _$location_) {
+
+    rootScopeMock = _$rootScope_;
+    facebookMock = _$facebook_;
+    googleMock = _GooglePlus_;
+    loginServiceMock = _loginService_;
+    locationMock = _$location_;
+
+    var deferred = _$q_.defer();
+    deferred.resolve('success');
+
+    spyOn(facebookMock, 'login').and.returnValue(deferred.promise);
+    spyOn(facebookMock, 'getLoginStatus').and.returnValue(deferred.promise);
+    spyOn(googleMock, 'login').and.returnValue(deferred.promise);
+
+    loginControllerMock = _$controller_('loginController', {
+      $rootScope: rootScopeMock,
+      $facebook: facebookMock,
+      GooglePlus: googleMock,
+      loginService: loginServiceMock,
+      $location: locationMock
+    });
+  }));
+
+  it ('2. 사용자는 페이스북 계정을 사용하여 로그인 할 수 있다', function () {
+    loginControllerMock.facebookLogin();
+    expect(facebookMock.login).toHaveBeenCalled();
+
+    /**
+     * expect(facebookMock.getLoginStatus()).toHaveBeenCalled(); 은 error
+     * facebookMock.login에서 올바른 응답이 리턴되어야 하지만
+     * 이는 페이스북 서버와의 인증이 필요하므로 아직 Mock 구현이 안됨
+     */
+  });
+
+  it ('3. 사용자는 구글 계정을 사용하여 로그인 할 수 있다', function () {
+    loginControllerMock.googleLogin();
+    expect(googleMock.login).toHaveBeenCalled();
+  });
+});

@@ -22,15 +22,15 @@
 
     function facebookLogin() {
       $facebook.login().then(
-          _successFacebookLogin,
-          _errorHandler('Error: facebookLogin')
+          _successFacebookLogin_,
+          _errorHandler_('Error: facebookLogin')
       );
     }
 
     function googleLogin() {
       GooglePlus.login().then(
-          _successGoogleLogin,
-          _errorHandler('Error: googleLogin')
+          _successGoogleLogin_,
+          _errorHandler_('Error: googleLogin')
       );
     }
 
@@ -50,24 +50,24 @@
     }
 
     // private _functions
-    function _successFacebookLogin() {
+    function _successFacebookLogin_() {
       $facebook.getLoginStatus().then(
           function (response) {
             if (response.authResponse) {
               console.log(response);
-              _loginToServer('facebook', response.authResponse.accessToken);
+              _loginToServer_('facebook', response.authResponse.accessToken);
             }
           },
-          _errorHandler('Error: getLoginStatus')
+          _errorHandler_('Error: getLoginStatus')
       );
     }
 
-    function _successGoogleLogin(response) {
+    function _successGoogleLogin_(response) {
       console.log(response);
-      _loginToServer('google', response.id_token);
+      _loginToServer_('google', response.id_token);
     }
 
-    function _loginToServer(url, token) {
+    function _loginToServer_(url, token) {
       return loginService.sendCredentials(url, token, function (response) {
         if (response.data.success) {
           loginService.setCredentials(url, response.data.response.email);
@@ -76,7 +76,7 @@
       });
     }
 
-    function _errorHandler(error) {
+    function _errorHandler_(error) {
       return {success: false, message: error};
     }
   }

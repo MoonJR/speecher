@@ -37,9 +37,12 @@ module.exports = function(config) {
 
       // endbower
       //"js/roundProgress.js",
-      "public/angularjs/**/*.js",
-      "test/mock/**/*.js",
-      "test/angularjs/**/*.js"
+      'public/angularjs/**/*.js',
+      'test/mock/**/*.js',
+      'test/angularjs/**/*.js'
+
+      // jade - not to be parsed
+      //'views/partials/login.jade'
     ],
 
     // list of files / patterns to exclude

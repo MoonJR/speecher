@@ -28,7 +28,7 @@
             //console.log(response);
             callback(response);
           },
-          _errorHandler('Error: sendCredentials')
+          _errorHandler_('Error: sendCredentials')
       );
     }
 
@@ -56,7 +56,7 @@
   }
 
   // private functions
-  function _errorHandler (error) {
+  function _errorHandler_ (error) {
     return { success: false, message: error };
   }
 
