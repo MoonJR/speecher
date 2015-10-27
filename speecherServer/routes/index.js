@@ -24,6 +24,14 @@ router.get('/', function (req, res) {
   res.render('index', {title: 'Express'});
 });
 
+
+// 페이지 아이디로 새로고침시  get 파라미터 있는경우 어째서인지 노드로 링크됨, 아직 미완성
+router.get('/partials/choice/:pageId', function (req, res, next) {
+  console.log("========path:" + path);
+  console.log("========pageId:" + req.params.pageId);
+  res.render(path + '/views/partials/choice',{pageId:req.params.pageId});
+});
+
 //   Angular의 router를 사용할 경우,해시뱅으로 원하는 부분의 뷰를 변경하게 되는데,  이 때 뷰 파일을(html)요청하기 위한 node 단의  static file load  URL
 router.get('/partials/:name', function(req, res, next) {
   console.log("========path:"+path);
