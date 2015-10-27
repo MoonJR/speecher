@@ -14,7 +14,8 @@
             h4 {{item.text}}
             p {{item.type}}
           button.md-raised.md-button.md-ink-ripple(style="margin-top: 25px;")
-            span.ng-scope 테스트하기
+            a(ng-href="/#choice/{{item.id}}", style="text-decoration: none; color:black")
+              span.ng-scope 테스트하기
             div.md-ripple-container
           md-divider
 

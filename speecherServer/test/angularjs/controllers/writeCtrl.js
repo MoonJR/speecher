@@ -8,11 +8,11 @@ describe('writeCtrl - Edit or Save that Writing or Importing Script.', function 
   });
 
 
-  it('Load Words', function () {
+  it('Writing title and Script', function () {
     expect("1").toBe("1");
   });
 
-  it('Load Scripts', function () {
+  it('Load Title and Script', function () {
     expect("1").toBe("1");
   });
 

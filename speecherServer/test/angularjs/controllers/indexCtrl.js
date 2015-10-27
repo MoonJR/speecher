@@ -40,7 +40,6 @@ describe('indexCtrl', function() {
       var controller = $controller('indexCtrl', { $scope: $scope });
       //stub
       //$scope.words = words;
-      console.log($scope.words);
       expect($scope.words[0]).not.toBe(null);
       expect($scope.words[0].id).not.toBe(null);
 

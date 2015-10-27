@@ -1,5 +1,6 @@
 'use strict';
 
+
 angular.module('myApp', [
   'ngRoute',
   'ngMaterial',
@@ -23,6 +24,10 @@ angular.module('myApp', [
             templateUrl: '/partials/write',
             controller: 'writeCtrl'
           })
+          .when('/choice/:scriptId', {
+            templateUrl: '/partials/choice',
+            controller: 'choiceCtrl',
+          })
           .otherwise({
             redirectTo: '/'
           });
@@ -36,6 +41,7 @@ angular.module('myApp', [
       GooglePlusProvider.init({
         clientId: '280233748418-v4s1qjeknmb0lp6to142bblv4ab0rjcv.apps.googleusercontent.com',
         apiKey: 'AIzaSyDcLpimE6IcAL-jSDPMuWKB1i8VnxpN9Zo'
+
       });
 
       GooglePlusProvider.enableServerSide({});
