@@ -1,0 +1,18 @@
+<div class="container">
+
+  <div ng-if="isLoggedIn">
+    <button ng-click="vm.logout()">Logout</button>
+  </div>
+
+  <div ng-if="!isLoggedIn">
+    <div class="jumbotron">
+      <h2><i class="ion-images"></i> You Can Speech</h2>
+      <p>그동안 영어 대본 머릿속에서 외우기만 하셨죠. <strong>스피처</strong>와 함께 영어 말하기를 연습해보세</p>
+      <p>
+        <button ng-click="vm.facebookLogin()">Sign in with facebook</button>
+      </p>
+    </div>
+  </div>
+
+</div>
+
