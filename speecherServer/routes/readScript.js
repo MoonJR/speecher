@@ -6,7 +6,7 @@ var collection = require('../models/dbCollection');
 exports.readScriptList = function (req, res) {
 
   var query = {
-    id: req.query.id,
+    id: req.session.user_id
   };
   var sendData = {};
 
@@ -25,8 +25,8 @@ exports.readScriptList = function (req, res) {
 exports.readScriptDetail = function (req, res) {
 
   var query = {
-    id: req.query.id,
-    script_id: req.query.script_id
+    id: req.session.user_id,
+    script_id: req.body.script_id
   };
   var sendData = {};
 

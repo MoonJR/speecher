@@ -38,10 +38,10 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
 
   try {
     var script = {
-      id: req.session.id,
+      id: req.session.user_id,
       script_id: uuid.v1(),
-      script_title: req.query.title,
-      script_content: req.query.content,
+      script_title: req.body.title,
+      script_content: req.body.content,
       reg_date: new Date()
     };
     saveScript(script);

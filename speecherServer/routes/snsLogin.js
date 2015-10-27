@@ -20,6 +20,7 @@ exports.facebookLogin = function (req, res) {
     if (typeof response.id != 'undefined') {
       db.login(response, function (err, result) {
         resData.success = 1;
+        req.session.user_id = response.id;
         res.send(resData);
       });
     } else {
@@ -44,6 +45,7 @@ exports.googleLogin = function (req, res) {
     if (typeof response.id != 'undefined') {
       db.login(response, function (err, result) {
         resData.success = 1;
+        req.session.user_id = response.id;
         res.send(resData);
       });
     } else {
