@@ -6,8 +6,8 @@ var collection = require('../models/dbCollection');
 exports.testHistory = function (req, res) {
 
   var query = {
-    id: req.query.id,
-    script_id: req.query.script_id
+    id: req.session.user_id,
+    script_id: req.body.script_id
   };
 
   var sendData = {};

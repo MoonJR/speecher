@@ -6,7 +6,7 @@ var session = require('express-session');
 var login = require('./snsLogin');
 var saveScript = require('./saveScript');
 var readScript = require('./readScript');
-var testHistory= require('./testHistory');
+var testHistory = require('./testHistory');
 /* GET home page. */
 
 //세션 사용
@@ -25,20 +25,20 @@ router.get('/', function (req, res) {
 });
 
 //   Angular의 router를 사용할 경우,해시뱅으로 원하는 부분의 뷰를 변경하게 되는데,  이 때 뷰 파일을(html)요청하기 위한 node 단의  static file load  URL
-router.get('/partials/:name', function(req, res, next) {
-  console.log("========path:"+path);
-  console.log("========name:"+req.params.name);
+router.get('/partials/:name', function (req, res, next) {
+  console.log("========path:" + path);
+  console.log("========name:" + req.params.name);
   //res.render(path+'/templates/partials/'+req.params.name);
-  res.render(path+'/views/partials/'+req.params.name);
+  res.render(path + '/views/partials/' + req.params.name);
 });
 
 
 router.get('/login/facebook', login.facebookLogin);
 router.get('/login/google', login.googleLogin);
-router.get('/main/scriptSave', saveScript.saveScriptExpress);
-router.get('/main/scriptList', readScript.readScriptList);
-router.get('/scriptDetail/scripContent', readScript.readScriptDetail);
-router.get('/scriptDetail/scriptGrapeScores',testHistory.testHistory);
+router.post('/main/scriptSave', saveScript.saveScriptExpress);
+router.post('/main/scriptList', readScript.readScriptList);
+router.post('/scriptDetail/scripContent', readScript.readScriptDetail);
+router.post('/scriptDetail/scriptGrapeScores', testHistory.testHistory);
 
 //Angular 의  Html5Mode 를  true 로 설정하면, ajax로 요청한 페이지를 해시뱅으로 httpResponse인척 속이는 것을 넘어서서,  Ajax 요청한 것을 해시뱅이 사라진 실주소같은 형태로 만들어버린다.
 // 이 때, 해시뱅 없이 만들어진  URL 로도 접근할 수 있게 하려면, 결국  # 이 없어진 url로 접속시  기본 인덱스 페이지를 redirect 해주고, data parameter 에 속성값을 넣어  JS로 응답해줄 수 있을 것 같다
@@ -47,12 +47,6 @@ router.get('/scriptDetail/scriptGrapeScores',testHistory.testHistory);
 router.get('/:name', function (req, res) {
   var name = req.params.name;
   //res.redirect('/',{'hashbang':'angular-route-url'});
-  res.redirect('/'+'#/'+name);
+  res.redirect('/' + '#/' + name);
 });
-router.get('/login/facebook', login.facebookLogin);
-router.get('/login/google', login.googleLogin);
-router.get('/main/scriptSave', saveScript.saveScriptExpress);
-router.get('/main/scriptList', readScript.readScriptList);
-router.get('/scriptDetail/scripContent', readScript.readScriptDetail);
-
 module.exports = router;
