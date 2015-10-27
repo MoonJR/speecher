@@ -2,22 +2,16 @@
   div(ng-cloak='')
     md-content
       md-tabs(md-dynamic-height='', md-border-bottom='')
-        md-tab(label='one')
+        md-tab(label='대본읽기')
           md-content.md-padding
-            h1.md-display-2 Tab One
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi.
-        md-tab(label='two')
+            p 등록한 대본을 보면서 읽는 테스트입니다.등록한 대본을 보면서 읽는 테스트입니다.등록한 대본을 보면서 읽는 테스트입니다.등록한 대본을 보면서 읽는 테스트입니다.등록한 대본을 보면서 읽는 테스트입니다.
+        md-tab(label="빈칸테스트")
           md-content.md-padding
-            h1.md-display-2 Tab Two
-            p
-              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.
-            p
-              | Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.
-            p
-              | Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.
-        md-tab(label='three')
+            p  등록한 대본의 일부를 랜덤 빈칸으로 비워둔 상태로 테스트를 진행합니다  등록한 대본의 일부를 랜덤 빈칸으로 비워둔 상태로 테스트를 진행합니다  등록한 대본의 일부를 랜덤 빈칸으로 비워둔 상태로 테스트를 진행합니다
+        md-tab(label='실전테스트')
           md-content.md-padding
-            h1.md-display-2 Tab Three
-            p
-              | Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.
+            p 등록한 대본을 이용한 마지막 실전 테스트입니다. 대본의 내용을 보지 않고 테스트를 진행합니다
+
+
+    p.md-padding 발표시간 설정
+    md-switch.md-primary(md-no-ink='', aria-label='발표시간 설정하기', ng-model='data.cb5')
