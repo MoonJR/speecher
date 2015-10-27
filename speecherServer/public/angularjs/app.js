@@ -19,6 +19,10 @@ angular.module('myApp', [
         templateUrl: '/partials/write',
         controller: 'writeCtrl',
       }).
+      when('/choice/:scriptId', {
+        templateUrl: '/partials/choice',
+        controller: 'choiceCtrl',
+      }).
       otherwise({
         redirectTo: '/index'
       });
