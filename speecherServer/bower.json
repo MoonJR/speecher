@@ -27,6 +27,7 @@
     "angular-material": "~0.11.4",
     "angular-svg-round-progressbar": "~0.3.8",
     "angular-mocks": "~1.4.7",
-    "ng-facebook": "~0.1.6"
+    "ng-facebook": "~0.1.6",
+    "angular-google-plus": "~0.1.3"
   }
 }

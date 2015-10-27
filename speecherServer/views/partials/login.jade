@@ -1,7 +1,5 @@
 .container
-  div(ng-if='isLoggedIn')
-    button(ng-click='logout()') Logout
-  div(ng-if='!isLoggedIn')
+  div
     .jumbotron
       h2
         i.ion-images
@@ -12,4 +10,6 @@
         | 와 함께 연습해보세요.
 
       p
-        button(ng-click='login()') Sign in with facebook
+        button(ng-click='vm.facebookLogin()') Sign in with facebook
+      p
+        button(ng-click='vm.googleLogin()') Sign in with google
