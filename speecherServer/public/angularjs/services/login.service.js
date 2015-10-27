@@ -25,10 +25,10 @@
         params: {token: token}
       }).then(
           function (response) {
-            console.log(response);
+            //console.log(response);
             callback(response);
           },
-          errorHandler('Error: sendCredentials')
+          _errorHandler('Error: sendCredentials')
       );
     }
 
@@ -42,7 +42,7 @@
           authData: authData
         }
       };
-      console.log($rootScope.globals);
+      //console.log($rootScope.globals);
 
       $http.defaults.headers.common['Authorization'] = 'Basic ' + authData; // jshint ignore:line
       $cookieStore.put('globals', $rootScope.globals);
@@ -56,7 +56,7 @@
   }
 
   // private functions
-  function errorHandler (error) {
+  function _errorHandler (error) {
     return { success: false, message: error };
   }
 

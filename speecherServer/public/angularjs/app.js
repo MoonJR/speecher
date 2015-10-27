@@ -16,11 +16,12 @@ angular.module('myApp', [
           })
           .when('/login', {
             templateUrl: '/partials/login',
-            controller: 'loginCtrl'
+            controller: 'loginController',
+            controllerAs: 'vm'
           })
           .when('/write', {
             templateUrl: '/partials/write',
-            controller: 'writeCtrl',
+            controller: 'writeCtrl'
           })
           .otherwise({
             redirectTo: '/'
@@ -74,6 +75,7 @@ angular.module('myApp', [
       $rootScope.$on('$locationChangeStart', function (event, next, current) {
         // redirect to login page if not logged in and trying to access a restricted page
         //var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
+
         var loggedIn = $rootScope.globals.currentUser;
         if (!loggedIn) {
           $location.path('/login');

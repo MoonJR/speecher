@@ -32,10 +32,11 @@ module.exports = function(config) {
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/ng-facebook/ngFacebook.js',
+      'bower_components/angular-google-plus/dist/angular-google-plus.min.js',
+      'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
 
       // endbower
       //"js/roundProgress.js",
-      'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
       "public/angularjs/**/*.js",
       "test/mock/**/*.js",
       "test/angularjs/**/*.js"
