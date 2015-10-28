@@ -5,18 +5,15 @@
       .module('myApp')
       .controller('writeController', writeController);
 
-  writeController.$inject = [];
-  function writeController() {
+  writeController.$inject = ['$scope'];
+  function writeController($scope) {
 
-    var vm = this;
-
-    // APIs
-    vm.content;
-    vm.showContent = showContent;
-
-    function showContent($fileContent) {
-      vm.content = $fileContent;
-    }
+    $scope.readFile = function($file){
+      $scope.title = $file.title;
+      console.log($scope.title);
+      $scope.content = $file.content;
+      console.log($scope.content);
+    };
   }
 })();
 
