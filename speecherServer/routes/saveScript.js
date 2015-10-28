@@ -38,17 +38,21 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
 
   try {
     var script = {
-      id: req.session.id,
+      id: req.session.user_id,
       script_id: uuid.v1(),
-      script_title: req.query.title,
-      script_content: req.query.content,
+      script_title: req.body.title,
+      script_content: req.body.content,
       reg_date: new Date()
     };
+
     saveScript(script);
     var paragraphJsonArray = scriptToParagraphJsonArray(script);
     saveParagraph(paragraphJsonArray);
     for (var i = 0; i < paragraphJsonArray.length; i++) {
       var morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
+      if(morphemeJsonArray.length==0){
+        continue;
+      }
       saveMorpheme(morphemeJsonArray);
     }
     response.success = 1;

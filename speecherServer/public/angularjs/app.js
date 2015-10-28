@@ -14,6 +14,7 @@ angular.module('myApp', [
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
+
         .when('/', {
           templateUrl: '/partials/index',
           controller: 'indexCtrl'
@@ -25,7 +26,8 @@ angular.module('myApp', [
         })
         .when('/write', {
           templateUrl: '/partials/write',
-          controller: 'writeCtrl'
+          controller: 'writeController',
+          controllerAs: 'vm'
         })
         .when('/choice/:scriptId', {
           templateUrl: function(params){

@@ -34,7 +34,7 @@ module.exports = function(config) {
       'bower_components/ng-facebook/ngFacebook.js',
       'bower_components/angular-google-plus/dist/angular-google-plus.min.js',
       'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
-
+      'bower_components/jquery/dist/jquery.min.js',
       // endbower
       //"js/roundProgress.js",
       'public/angularjs/**/*.js',
