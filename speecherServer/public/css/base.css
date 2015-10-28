@@ -207,3 +207,14 @@ md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-ta
 md-tabs{
   color: #e1e1e1;
 }
+
+
+.p-margin{
+  padding-right:10px;
+  padding-left:10px;
+}
+
+
+.border-bottom{
+  border-bottom: 1px solid #888888;
+}

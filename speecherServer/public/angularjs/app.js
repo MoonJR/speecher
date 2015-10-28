@@ -2,12 +2,15 @@
 
 
 angular.module('myApp', [
+
   'ngRoute',
   'ngMaterial',
   'ngCookies',
   'ngFacebook',
   'angular-svg-round-progress',
   'googleplus'
+
+
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
