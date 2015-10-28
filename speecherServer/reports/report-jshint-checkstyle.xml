@@ -17,6 +17,8 @@
 	</file>
 	<file name="../public/angularjs/controllers/write.controller.js">
 		<error line="9" column="27" severity="warning" message="&apos;writeController&apos; was used before it was defined." source="jshint.W003" />
+		<error line="11" column="14" severity="warning" message="Possible strict violation." source="jshint.W040" />
+		<error line="16" column="25" severity="warning" message="&apos;saveScript&apos; was used before it was defined." source="jshint.W003" />
 	</file>
 	<file name="../public/angularjs/directives/write.directive.js">
 		<error line="9" column="22" severity="warning" message="&apos;ngFileRead&apos; was used before it was defined." source="jshint.W003" />
@@ -26,7 +28,7 @@
 	<file name="../public/angularjs/services/login.service.js">
 		<error line="9" column="24" severity="warning" message="&apos;loginService&apos; was used before it was defined." source="jshint.W003" />
 		<error line="20" column="5" severity="warning" message="Inner functions should be listed at the top of the outer function." source="jshint.W026" />
-		<error line="20" column="29" severity="warning" message="&apos;sendCredentials&apos; was used before it was defined." source="jshint.W003" />
+		<error line="20" column="30" severity="warning" message="&apos;sendCredentials&apos; was used before it was defined." source="jshint.W003" />
 		<error line="35" column="28" severity="warning" message="&apos;setCredentials&apos; was used before it was defined." source="jshint.W003" />
 		<error line="51" column="30" severity="warning" message="&apos;clearCredentials&apos; was used before it was defined." source="jshint.W003" />
 		<error line="79" column="21" severity="warning" message="Unexpected use of &apos;&gt;&gt;&apos;." source="jshint.W016" />
@@ -110,14 +112,16 @@
 		<error line="60" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
 		<error line="62" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
 	</file>
-	<file name="../test/angularjs/controllers/writeCtrl.js">
-		<error line="4" column="1" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
-		<error line="6" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
-		<error line="7" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
-		<error line="11" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
-		<error line="12" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
-		<error line="15" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
-		<error line="16" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
+	<file name="../test/angularjs/controllers/write.controller.spec.js">
+		<error line="13" column="1" severity="warning" message="&apos;describe&apos; is not defined." source="jshint.W117" />
+		<error line="18" column="3" severity="warning" message="&apos;beforeEach&apos; is not defined." source="jshint.W117" />
+		<error line="20" column="3" severity="warning" message="&apos;beforeEach&apos; is not defined." source="jshint.W117" />
+		<error line="20" column="14" severity="warning" message="&apos;inject&apos; is not defined." source="jshint.W117" />
+		<error line="42" column="5" severity="warning" message="&apos;spyOn&apos; is not defined." source="jshint.W117" />
+		<error line="45" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="47" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
+		<error line="53" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
+		<error line="56" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
 	</file>
 	<file name="../test/angularjs/directives/write.directive.spec.js">
 		<error line="18" column="3" severity="error" message="Missing &quot;use strict&quot; statement." source="jshint.E007" />
@@ -132,8 +136,8 @@
 		<error line="44" column="5" severity="warning" message="&apos;expect&apos; is not defined." source="jshint.W117" />
 		<error line="47" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
 		<error line="49" column="5" severity="warning" message="&apos;spyOn&apos; is not defined." source="jshint.W117" />
-		<error line="55" column="25" severity="warning" message="&apos;$&apos; is not defined." source="jshint.W117" />
-		<error line="67" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
+		<error line="56" column="25" severity="warning" message="&apos;$&apos; is not defined." source="jshint.W117" />
+		<error line="63" column="3" severity="warning" message="&apos;it&apos; is not defined." source="jshint.W117" />
 	</file>
 	<file name="../test/angularjs/services/login.service.spec.js">
 		<error line="73" column="5" severity="warning" message="Missing semicolon." source="jshint.W033" />

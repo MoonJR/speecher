@@ -39,23 +39,22 @@ describe('사용자는 파일 선택 버튼을 눌러 텍스트 파일을 선택
 
     // 파일을 읽은 후에는 대본 제목과 내용이 생성된다
     var fileStub = { title: 'title', content: 'content' };
-    scopeMock.readFile(fileStub);
+    scopeMock.readScript(fileStub);
     expect(scopeMock.title).toEqual('title');
     expect(scopeMock.content).toEqual('content');
   });
 
   it ('3. 사용자가 파일을 선택하면 그 파일 이름, 내용을 대본 제목, 내용으로 갖고 온다', function () {
 
-    spyOn(scopeMock, 'readFile');
+    spyOn(scopeMock, 'readScript');
 
     // ng-read-file directive piece
     var element = compileMock(angular.element('<input type="file" ng-file-read="readFile($file)">'))(scopeMock);
     scopeMock.$digest();
 
     // onchange event
-    var change = $.Event('change', {
-    });
-    element.triggerHandler(change);
+    var onChangeEvent = $.Event('change', {});
+    element.triggerHandler(onChangeEvent);
 
     //Dummy file load
     //expect(scopeMock.readFile()).toHaveBeenCalled();

@@ -5,36 +5,47 @@
       .module('myApp')
       .controller('writeController', writeController);
 
-  writeController.$inject = ['$rootScope', '$scope'];
-  function writeController($rootScope, $scope) {
+  writeController.$inject = ['$rootScope', '$scope', '$http'];
+  function writeController($rootScope, $scope, $http) {
 
-    //var vm = this;
-    //
-    //vm.title = null;
-    //vm.content = null;
-    //vm.readFile = readFile;
-    //
-    //function readFile(element) {
-    //  console.log('files:', element.files);
-    //  var reader = new FileReader();
-    //  //var file = onChangeEvent.target.files[0];
-    //
-    //  reader.onload = function(element) {
-    //    $rootScope.$apply(function() {
-    //      vm.title = file.name;
-    //      vm.content = onLoadEvent.target.result;
-    //    });
-    //  };
-    //  //
-    //  //reader.readAsText(file);
-    //  console.log(vm.title);
-    //  console.log(vm.content);
-    //}
+    var vm = this;
 
-    $scope.readFile = function($file){
+    vm.response = 0;
+    vm.saveScript = saveScript;
+
+    function saveScript () {
+
+      if($scope.title && $scope.content) {
+        var data = {
+          title: $scope.title,
+          content: $scope.content
+        };
+
+        $http.post('/main/scriptSave', data).then(
+            function (response) {
+              console.log(response);
+              vm.response = response.data.success;
+
+              if(response.data.success){
+                return response;
+              } else {
+                _errorHandler_('Error: saveScript success:0');
+              }
+            },
+            _errorHandler_('Error: saveScript')
+        );
+      }
+    }
+
+    $scope.readScript = function($file){
       $scope.title = $file.title;
       $scope.content = $file.content;
     };
+
+    // private functions
+    function _errorHandler_ (error) {
+      return { success: false, message: error };
+    }
   }
 })();
 

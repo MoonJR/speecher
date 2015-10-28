@@ -24,8 +24,8 @@ Computing results.
 2	jscm	public/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/controllers/indexCtrl.js.cm
 64	js	public/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/controllers/login.controller.js
 5	jscm	public/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/controllers/login.controller.js.cm
-13	js	public/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/controllers/write.controller.js
-22	jscm	public/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/controllers/write.controller.js.cm
+39	js	public/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/controllers/write.controller.js
+1	jscm	public/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/controllers/write.controller.js.cm
 28	js	public/angularjs/directives	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/directives/write.directive.js
 0	jscm	public/angularjs/directives	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/directives/write.directive.js.cm
 109	js	public/angularjs/services	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/public/angularjs/services/login.service.js
@@ -36,8 +36,8 @@ Computing results.
 14	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/controllers/indexCtrl.js.cm
 34	js	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/controllers/login.controller.spec.js
 17	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/controllers/login.controller.spec.js.cm
-12	js	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/controllers/writeCtrl.js
-0	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/controllers/writeCtrl.js.cm
+39	js	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/controllers/write.controller.spec.js
+12	jscm	test/angularjs/controllers	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/controllers/write.controller.spec.js.cm
 33	js	test/angularjs/directives	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/directives/write.directive.spec.js
 18	jscm	test/angularjs/directives	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/directives/write.directive.spec.js.cm
 42	js	test/angularjs/services	/Users/jaisonoh/WebstormProjects/speecher0.9/speecher/speecherServer/test/angularjs/services/login.service.spec.js
