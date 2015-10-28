@@ -3,11 +3,11 @@
     textarea {{ title }}
     md-input-container.flex#writeTitle
       label.black(for="title")
-      input.ng-pristine.ng-valid.md-input.ng-touched(ng-model="user.address", id="title", aria-invalid="false", placeholder="Script Title")
+      //input.ng-pristine.ng-valid.md-input.ng-touched(ng-model="user.address", id="title", aria-invalid="false", placeholder="Script Title") {{ title }}
 
     md-input-container.flex(style="height: auto;")
       label.black(for="text")
-      //textarea#text.ng-pristine.ng-valid.md-input.ng-valid-md-maxlength.ng-touched(placeholder="Script Text", ng-model="user.biography", columns="1", md-maxlength="3000", rows="1" , ng-trim="false",  aria-multiline="true", aria-invalid="false") {{ vm.content }}
+      //textarea#text.ng-pristine.ng-valid.md-input.ng-valid-md-maxlength.ng-touched(placeholder=xw"Script Text", ng-model="user.biography", columns="1", md-maxlength="3000", rows="1" , ng-trim="false",  aria-multiline="true", aria-invalid="false") {{ content }}
       textarea(style="min-height:400px;", placeholder="Script Text") {{ content }}
 
     div.right.dark(style="margin:15px;")
