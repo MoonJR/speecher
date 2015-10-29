@@ -1,32 +1,28 @@
 'use strict';
-//var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-progress']);
-var app = angular.module('myApp');
+angular
+  .module('myApp')
+  .controller('indexCtrl', indexCtrl);
+indexCtrl.$inject = ['$scope','$rootScope', 'choiceService', '$location', '$http'];
 
-app.controller('indexCtrl', function($scope, $http, $mdDialog,$cookieStore) {
+
+function indexCtrl($scope, $rootScope, choiceService, $location,$http) {
   // 서버쪽 완성되면 요청해서 실데이터  ajax 매칭
-
   $scope.texts = {};
   $scope.words = {};
-  /* AJAX 통신 처리 */
 
+  //choice  view page 에 데이터 담아 이동하는 버튼 클릭리스너
+  $scope.moveChoice = function($script_id){
+
+    //id 만 넣었음 필요시 script_id 로 재요청하기
+    choiceService.script_id = $script_id;
+
+    $location.path('/choice');
+  }
+
+  /* AJAX 통신 처리 */
   _postModel('/main/scriptList',callbackTexts)
   //api  완성되면 활성화
   //_postModel('/main/totalFailList',callbackWords)
-
-
-  //$scope.texts = [{
-  //  id: '1',
-  //  title: 'Brunch this weekend?',
-  //  point: '84',
-  //  type: 'Blind Test',
-  //  text: " I'll be in your neighborhood doing errands"
-  //},{
-  //  id: '2',
-  //  title: 'Brunch this weekend?',
-  //  point: '70',
-  //  type: 'Blind Test',
-  //  text: " I'll be in your neighborhood doing errands"
-  //}];
 
   //api  완성되면 비활성화
   $scope.words = [
@@ -69,6 +65,8 @@ app.controller('indexCtrl', function($scope, $http, $mdDialog,$cookieStore) {
       });
   }
 
+
+
   // 텍스트 요청 콜백
   function callbackTexts(data) {
     if(data) {
@@ -98,6 +96,6 @@ app.controller('indexCtrl', function($scope, $http, $mdDialog,$cookieStore) {
       alert("자주 틀린 단어 불러오기 중 데이터가 넘어오지 않습니다.");
     }
   }
-});
+};
 
 

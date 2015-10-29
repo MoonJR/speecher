@@ -29,19 +29,12 @@ angular.module('myApp', [
           controller: 'writeController',
           controllerAs: 'vm'
         })
-        .when('/choice/:scriptId', {
+        .when('/choice', {
           templateUrl: function(params){
-
-            return '/partials/choice/'+params.scriptId;
+            return '/partials/choice/';
           },
           controller: 'choiceCtrl',
         })
-        //.when('/choice/:scriptId', {
-        //  templateUrl: function(params){
-        //    return '/partials/choice/'+params.scriptId;
-        //  },
-        //  controller: 'choiceCtrl',
-        //})
         .when('/test', {
           templateUrl: function(params){
             return '/partials/test';
@@ -68,7 +61,7 @@ angular.module('myApp', [
 
       ///xx/xx  처리시 새로고침하면#choice/scriptId 를 인식하지 못해서 임시로 꺼둠
       $locationProvider.html5Mode({
-        enabled: false,
+        enabled: true,
         requireBase: false
       });
 

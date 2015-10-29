@@ -13,8 +13,10 @@
             h4 {{item.script_content}}
             p {{item.reg_date}}
           button.md-raised.md-button.md-ink-ripple(style="margin-top: 25px;")
-            a(ng-href="/#choice/{{item.id}}", style="text-decoration: none; color:black")
+            span(ng-click="moveChoice(item.script_id)", style="text-decoration: none; color:black")
               span.ng-scope 테스트하기
+            //a(id="{{item.script_id}}", ng-href="/#choice", style="text-decoration: none; color:black")
+            //  span.ng-scope 테스트하기
             div.md-ripple-container
           md-divider
 

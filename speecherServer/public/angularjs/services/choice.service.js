@@ -7,16 +7,13 @@
 
   choiceService.$inject = ['$http', '$cookieStore', '$rootScope'];
   function choiceService($http, $cookieStore, $rootScope) {
-
     var test = {};
     test = {
-      id: '1',
-      title: 'Brunch this weekend?',
+      script_id: '0',
+      script_title: 'Example Title',
       point: '84',
-      type: 'Blind Test',
-      text: " I'll be in your neighborhood doing errands",
-      timerStatus: 1,
-      timer:5
+      script_content: " I'll be in your neighborhood doing errands",
+      reg_date: 2015/11/19
     }
     return test;
   }
