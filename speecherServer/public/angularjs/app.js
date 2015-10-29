@@ -31,10 +31,17 @@ angular.module('myApp', [
         })
         .when('/choice/:scriptId', {
           templateUrl: function(params){
+
             return '/partials/choice/'+params.scriptId;
           },
           controller: 'choiceCtrl',
         })
+        //.when('/choice/:scriptId', {
+        //  templateUrl: function(params){
+        //    return '/partials/choice/'+params.scriptId;
+        //  },
+        //  controller: 'choiceCtrl',
+        //})
         .when('/test', {
           templateUrl: function(params){
             return '/partials/test';
@@ -59,47 +66,48 @@ angular.module('myApp', [
 
       GooglePlusProvider.enableServerSide({});
 
+      ///xx/xx  처리시 새로고침하면#choice/scriptId 를 인식하지 못해서 임시로 꺼둠
       $locationProvider.html5Mode({
-        enabled: true,
+        enabled: false,
         requireBase: false
       });
 
 
-    });
+    })
 
-    //.run(function ($rootScope, $location, $cookieStore, $http) {
-    //  // Load the facebook SDK asynchronously
-    //
-    //  (function () {
-    //    // Get the first script element, which we'll use to find the parent node
-    //    var firstScriptElement = document.getElementsByTagName('script')[0];
-    //
-    //    // Create a new script element and set its id
-    //    var facebookJS = document.createElement('script');
-    //    facebookJS.id = 'facebook-jssdk';
-    //
-    //    // Set the new script's source to the source of the Facebook JS SDK
-    //    facebookJS.src = '//connect.facebook.net/en_US/all.js';
-    //
-    //    // Insert the Facebook JS SDK into the DOM
-    //    firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-    //  }());
-    //
-    //  // keep user logged in after page refresh
-    //
-    //  $rootScope.globals = $cookieStore.get('globals') || {};
-    //  if ($rootScope.globals.currentUser) {
-    //    $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
-    //  }
-    //
-    //  $rootScope.$on('$locationChangeStart', function (event, next, current) {
-    //    // redirect to login page if not logged in and trying to access a restricted page
-    //    //var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
-    //
-    //    var loggedIn = $rootScope.globals.currentUser;
-    //    if (!loggedIn) {
-    //      $location.path('/login');
-    //    }
-    //  });
-    //
-    //});
+    .run(function ($rootScope, $location, $cookieStore, $http) {
+      // Load the facebook SDK asynchronously
+
+      (function () {
+        // Get the first script element, which we'll use to find the parent node
+        var firstScriptElement = document.getElementsByTagName('script')[0];
+
+        // Create a new script element and set its id
+        var facebookJS = document.createElement('script');
+        facebookJS.id = 'facebook-jssdk';
+
+        // Set the new script's source to the source of the Facebook JS SDK
+        facebookJS.src = '//connect.facebook.net/en_US/all.js';
+
+        // Insert the Facebook JS SDK into the DOM
+        firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
+      }());
+
+      // keep user logged in after page refresh
+
+      $rootScope.globals = $cookieStore.get('globals') || {};
+      if ($rootScope.globals.currentUser) {
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
+      }
+
+      $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        // redirect to login page if not logged in and trying to access a restricted page
+        //var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
+
+        var loggedIn = $rootScope.globals.currentUser;
+        if (!loggedIn) {
+          $location.path('/login');
+        }
+      });
+
+    });

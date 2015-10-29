@@ -2,8 +2,8 @@
   'use strict';
 
   angular
-      .module('myApp')
-      .controller('loginController', loginController);
+    .module('myApp')
+    .controller('loginController', loginController);
 
   loginController.$inject = ['$rootScope', '$facebook', 'GooglePlus', 'loginService', '$location'];
   function loginController($rootScope, $facebook, GooglePlus, loginService, $location) {
@@ -22,15 +22,15 @@
 
     function facebookLogin() {
       $facebook.login().then(
-          _successFacebookLogin_,
-          _errorHandler_('Error: facebookLogin')
+        _successFacebookLogin_,
+        _errorHandler_('Error: facebookLogin')
       );
     }
 
     function googleLogin() {
       GooglePlus.login().then(
-          _successGoogleLogin_,
-          _errorHandler_('Error: googleLogin')
+        _successGoogleLogin_,
+        _errorHandler_('Error: googleLogin')
       );
     }
 
@@ -52,13 +52,13 @@
     // private _functions
     function _successFacebookLogin_() {
       $facebook.getLoginStatus().then(
-          function (response) {
-            if (response.authResponse) {
-              console.log(response);
-              _loginToServer_('facebook', response.authResponse.accessToken);
-            }
-          },
-          _errorHandler_('Error: getLoginStatus')
+        function (response) {
+          if (response.authResponse) {
+            console.log(response);
+            _loginToServer_('facebook', response.authResponse.accessToken);
+          }
+        },
+        _errorHandler_('Error: getLoginStatus')
       );
     }
 

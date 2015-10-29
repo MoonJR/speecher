@@ -30,6 +30,8 @@ router.get('/partials/choice/:pageId', function (req, res, next) {
   console.log("========path:" + path);
   console.log("========pageId:" + req.params.pageId);
   res.render(path + '/views/partials/choice',{pageId:req.params.pageId});
+  // 아래와같이  response  데이터로 보내도  앵귤러뷰 변환에서는 인식 안되는 것 같음 페이지는 그대로라
+  //res.render(path + '/views/partials/choice',{pageId:req.params.pageId});
 });
 
 //   Angular의 router를 사용할 경우,해시뱅으로 원하는 부분의 뷰를 변경하게 되는데,  이 때 뷰 파일을(html)요청하기 위한 node 단의  static file load  URL

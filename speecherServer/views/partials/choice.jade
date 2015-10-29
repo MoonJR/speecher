@@ -12,6 +12,20 @@
           md-content.md-padding
             p 등록한 대본을 이용한 마지막 실전 테스트입니다. 대본의 내용을 보지 않고 테스트를 진행합니다
 
+    .flex(style="height:30px;")
+      p(style="margin: 6px 5px 0px 15px;") 발표시간 설정
+      input(type="number",placeholder="minute", value="5",style="width:50px;")
+      p(style="margin: 6px 15px 0px 1px;") 분
 
-    p.md-padding 발표시간 설정
-    md-switch.md-primary(md-no-ink='', aria-label='발표시간 설정하기', ng-model='data.cb5')
+    .flex(style="margin: 6px 0 0px 15px;")
+      md-switch.md-primary(md-no-ink='', aria-checked="true",aria-label='발표시간 설정하기', ng-model='data.cb1',style="margin:0 0px 0px 15px;")
+      div.btn-group(role='group', aria-label='First group', style="margin-left:22px;")
+        button.btn.btn-default(type='button') 1분
+        button.btn.btn-default(type='button') 3분
+        button.btn.btn-default(type='button') 5분
+        button.btn.btn-default(type='button') 10분
+
+    .border-top(width:100%; ,style="margin:20px 0 20px 0 ;")
+      p page id : {{ test.scriptId }}
+      center
+        a.center.btn.btn-primary.btn-lg(href="test/", role="button", style="margin-top:15px;") 시작
