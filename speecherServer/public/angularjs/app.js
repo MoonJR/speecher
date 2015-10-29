@@ -22,7 +22,8 @@ angular.module('myApp', [
           })
           .when('/write', {
             templateUrl: '/partials/write',
-            controller: 'writeCtrl'
+            controller: 'writeController',
+            controllerAs: 'vm'
           })
           .when('/choice/:scriptId', {
             templateUrl: '/partials/choice',

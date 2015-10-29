@@ -44,11 +44,15 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
       script_content: req.body.content,
       reg_date: new Date()
     };
+
     saveScript(script);
     var paragraphJsonArray = scriptToParagraphJsonArray(script);
     saveParagraph(paragraphJsonArray);
     for (var i = 0; i < paragraphJsonArray.length; i++) {
       var morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
+      if(morphemeJsonArray.length==0){
+        continue;
+      }
       saveMorpheme(morphemeJsonArray);
     }
     response.success = 1;
