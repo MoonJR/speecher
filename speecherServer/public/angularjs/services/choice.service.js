@@ -9,7 +9,15 @@
   function choiceService($http, $cookieStore, $rootScope) {
 
     var test = {};
-    test.scriptId = 2;
+    test = {
+      id: '1',
+      title: 'Brunch this weekend?',
+      point: '84',
+      type: 'Blind Test',
+      text: " I'll be in your neighborhood doing errands",
+      timerStatus: 1,
+      timer:5
+    }
     return test;
   }
 

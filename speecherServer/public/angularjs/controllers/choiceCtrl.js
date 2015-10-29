@@ -10,4 +10,8 @@ choiceController.$inject = ['$rootScope', 'choiceService', '$location'];
 
 function choiceController($rootScope, choiceService, $location) {
   $rootScope.test = choiceService;
+
+
 };
+
+
