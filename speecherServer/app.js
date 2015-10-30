@@ -39,6 +39,7 @@ app.use(session({
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
+app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', routes);
 app.use('/users', users);
