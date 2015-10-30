@@ -9,6 +9,8 @@ var readScript = require('./readScript');
 var testHistory = require('./testHistory');
 /* GET home page. */
 
+
+
 //세션 사용
 router.use(session({
   secret: 'Soma',
