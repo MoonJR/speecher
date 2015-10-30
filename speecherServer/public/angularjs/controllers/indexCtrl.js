@@ -51,9 +51,6 @@ function indexCtrl($scope, $rootScope, choiceService, httpService, $location,$ht
   };
 
 
-
-
-
   // 텍스트 요청 콜백
   function callbackTexts(data) {
     console.log("callbackTexts");
