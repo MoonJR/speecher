@@ -54,16 +54,22 @@ exports.googleLogin = function (req, res) {
     }
 
     getGooglePlusData(googleToken, function (response) {
-      response.route = 'google';
+
+      var responseParse = {
+        route: 'google',
+        id: response.sub,
+        email: response.email,
+        name: response.email.split('@')[0]
+      };
 
       var resData = {};
-      resData.response = response;
+      resData.response = responseParse;
 
-      if (typeof response.id != 'undefined') {
-        db.login(response, function (err, result) {
+      if (typeof responseParse.id != 'undefined') {
+        db.login(responseParse, function (err, result) {
           resData.success = error.successCode.success;
           resData.msg = error.successMsg.success;
-          req.session.user_id = response.id;
+          req.session.user_id = responseParse.id;
           res.send(resData);
         });
       } else {
