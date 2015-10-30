@@ -2,22 +2,31 @@
 
 
 angular.module('myApp', [
+
   'ngRoute',
   'ngMaterial',
   'ngCookies',
   'ngFacebook',
   'angular-svg-round-progress',
-  'googleplus'
+  'googleplus',
+  'ngWebSpeech',
+  'diff'
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
           .when('/', {
             templateUrl: '/partials/index',
-            controller: 'indexCtrl'
+            controller: 'indexController',
+            controllerAs: 'vm'
           })
           .when('/login', {
             templateUrl: '/partials/login',
             controller: 'loginController',
+            controllerAs: 'vm'
+          })
+          .when('/speech', {
+            templateUrl: '/partials/speech',
+            controller: 'speechController',
             controllerAs: 'vm'
           })
           .when('/write', {
@@ -25,10 +34,19 @@ angular.module('myApp', [
             controller: 'writeController',
             controllerAs: 'vm'
           })
-          .when('/choice/:scriptId', {
-            templateUrl: '/partials/choice',
+          .when('/choice', {
+            templateUrl: function(params){
+              return '/partials/choice/';
+            },
             controller: 'choiceCtrl',
           })
+          .when('/test', {
+            templateUrl: function(params){
+              return '/partials/test';
+            },
+            controller: 'testCtrl',
+          })
+
           .otherwise({
             redirectTo: '/'
           });
@@ -47,6 +65,7 @@ angular.module('myApp', [
 
       GooglePlusProvider.enableServerSide({});
 
+      ///xx/xx  처리시 새로고침하면#choice/scriptId 를 인식하지 못해서 임시로 꺼둠
       $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
@@ -54,6 +73,7 @@ angular.module('myApp', [
 
 
     })
+
     .run(function ($rootScope, $location, $cookieStore, $http) {
       // Load the facebook SDK asynchronously
 

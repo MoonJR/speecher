@@ -35,6 +35,8 @@ module.exports = function(config) {
       'bower_components/angular-google-plus/dist/angular-google-plus.min.js',
       'bower_components/angular-svg-round-progressbar/build/roundProgress.min.js',
       'bower_components/jquery/dist/jquery.min.js',
+      'bower_components/angular-webspeech-directive/dist/angular-webspeech-directive.js',
+      'bower_components/angular-diff/angular-diff.js',
       // endbower
       //"js/roundProgress.js",
       'public/angularjs/**/*.js',
