@@ -2,10 +2,10 @@
 angular
   .module('myApp')
   .controller('indexCtrl', indexCtrl);
-indexCtrl.$inject = ['$scope','$rootScope', 'choiceService', '$location', '$http'];
+indexCtrl.$inject = ['$scope','$rootScope', 'choiceService','httpService', '$location', '$http'];
 
 
-function indexCtrl($scope, $rootScope, choiceService, $location,$http) {
+function indexCtrl($scope, $rootScope, choiceService, httpService, $location,$http) {
   // 서버쪽 완성되면 요청해서 실데이터  ajax 매칭
   $scope.texts = {};
   $scope.words = {};
@@ -20,7 +20,8 @@ function indexCtrl($scope, $rootScope, choiceService, $location,$http) {
   }
 
   /* AJAX 통신 처리 */
-  _postModel('/main/scriptList',callbackTexts)
+  httpService.postModel('/main/scriptList',callbackTexts);
+
   //api  완성되면 활성화
   //_postModel('/main/totalFailList',callbackWords)
 
@@ -51,29 +52,18 @@ function indexCtrl($scope, $rootScope, choiceService, $location,$http) {
 
 
 
-  function _postModel(url,callback){
-    $http({
-      method: 'POST', //방식
-      url: url, /* 통신할 URL */
-      headers: {'Content-Type': 'application/json; charset=utf-8'} //헤더
-    })
-      .success(callback)
-      .error(function(data, status) {
-        /* 서버와의 연결이 정상적이지 않을 때 처리 */
-        console.log(status);
-        alert("네트워크 오류가 발생했습니다. error code:"+status);
-      });
-  }
-
 
 
   // 텍스트 요청 콜백
   function callbackTexts(data) {
+    console.log("callbackTexts");
     if(data) {
       if(data['success']==1){
         $scope.texts = data['result'];
+
       }else{
       }
+       ㅎ
       /* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
     }
     else {
