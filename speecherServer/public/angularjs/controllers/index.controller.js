@@ -5,8 +5,8 @@
     .module('myApp')
     .controller('indexController', indexController);
 
-  indexController.$inject = ['$rootScope', '$mdDialog', 'scriptService'];
-  function indexController($rootScope, $mdDialog, scriptService) {
+  indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService'];
+  function indexController($rootScope, $mdDialog, $location, scriptService, choiceService) {
 
     var vm = this;
 
@@ -16,6 +16,7 @@
     vm.showScriptList = showScriptList;
     vm.showWrongWordAll = showWrongWordAll;
     vm.showWrongWordDialog = showWrongWordDialog;
+
 
     vm.wordsDummy = [
       {
@@ -83,5 +84,17 @@
     function _errorHandler_(error) {
       return { success: false, message: error };
     }
+
+
+    // 코드리뷰 검토 후 선언과 초기화  상하단으로 분리하겠음
+    // index 단에서부터 test data 를 가지고 있어야 할 것 같음
+
+    vm.moveChoice = moveChoice;
+    // checking current selected test`s infomation and data
+    function moveChoice(scriptData){
+      choiceService.saveItem(scriptData);
+      $location.path('/choice');
+    }
+
   }
 })();

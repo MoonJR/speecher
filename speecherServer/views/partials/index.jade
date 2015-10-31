@@ -13,7 +13,7 @@
             h3 {{item.script_title}}
             h4 {{item.script_content}}
             p {{item.reg_date}}
-          button.md-raised.md-button.md-ink-ripple(ng-click="moveChoice(item.script_id)",style="margin-top: 25px;")
+          button.md-raised.md-button.md-ink-ripple(ng-click="vm.moveChoice(item)",style="margin-top: 25px;")
             span( style="text-decoration: none; color:black")
               span.ng-scope 테스트하기
             //a(id="{{item.script_id}}", ng-href="/#choice", style="text-decoration: none; color:black")
