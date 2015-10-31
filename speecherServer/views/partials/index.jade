@@ -7,15 +7,16 @@
       md-list
         md-list-item.md-3-line(ng-repeat='item in texts')
           .roundtest(style="margin-top:15px; margin-right:15px; opacity:item.opacity",round-progress,max="100",current="item.point",color="#45ccce",bgcolor="#eaeaea",radius="30",stroke="7",semi="false",  rounded="true",  clockwise="false",  responsive="false",  duration="2000",  animation="easeInOutQuart")
-          span.point {{item.point}}%
+          span.point 00%
           .md-list-item-text(id="{{item.id}}")
-            h3 {{item.title}}
-              //span []
-            h4 {{item.text}}
-            p {{item.type}}
+            h3 {{item.script_title}}
+            h4 {{item.script_content}}
+            p {{item.reg_date}}
           button.md-raised.md-button.md-ink-ripple(style="margin-top: 25px;")
-            a(ng-href="/#choice/{{item.id}}", style="text-decoration: none; color:black")
+            span(ng-click="moveChoice(item.script_id)", style="text-decoration: none; color:black")
               span.ng-scope 테스트하기
+            //a(id="{{item.script_id}}", ng-href="/#choice", style="text-decoration: none; color:black")
+            //  span.ng-scope 테스트하기
             div.md-ripple-container
           md-divider
 

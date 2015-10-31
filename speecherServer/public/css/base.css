@@ -13,7 +13,7 @@ header {
   width: 100%;
   height: 70px;
   box-shadow: 0px 3px 15px #888888;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
   background-color:#323232;
 }
 
@@ -190,4 +190,35 @@ md-toolbar{
   position: absolute;
   top:36px;
   left:30px;
+}
+
+
+
+
+md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]){
+  color:rgb(100, 100, 100);
+}
+
+md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused{
+  color:rgb(50, 50, 50);
+
+}
+
+md-tabs{
+  color: #e1e1e1;
+}
+
+
+.p-margin{
+  padding-right:10px;
+  padding-left:10px;
+}
+
+
+.border-bottom{
+  border-bottom: 1px solid #888888;
+}
+
+.border-top{
+  border-top: 1px solid rgb(224,224,224);
 }

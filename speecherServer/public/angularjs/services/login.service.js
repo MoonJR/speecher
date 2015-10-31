@@ -17,12 +17,12 @@
 
     return service;
 
-    function sendCredentials(url, token, callback) {
+    function sendCredentials (url, token, callback) {
 
       $http({
         method: 'GET',
         url: '/login/' + url,
-        params: {token: token}
+        params: { token: token }
       }).then(
           function (response) {
             //console.log(response);

@@ -4,10 +4,15 @@ html(lang='kr', ng-app="myApp")
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
     title= title
-    link(rel='stylesheet', href='/css/style.css')
-    link(rel='stylesheet', href='/css/base.css')
+    link(rel='stylesheet', href='../css/style.css')
+    link(rel='stylesheet', href='../css/base.css')
     link(rel="stylesheet", href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css")
     link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic')
+    link(rel='stylesheet', href='../bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='../bootstrap/dist/css/bootstrap-theme.css')
+
+
+    //|<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-responsive.css">
     block css
     block js
     if ENV_DEVELOPMENT
@@ -26,19 +31,41 @@ html(lang='kr', ng-app="myApp")
     block content
   footer
     //Angular Material Dependencies
-    script(src='angular/angular.min.js')
-    script(src='angular-animate/angular-animate.min.js')
-    script(src='angular-aria/angular-aria.min.js')
-    script(src='angular-route/angular-route.min.js')
-    script(src='angular-cookies/angular-cookies.min.js')
-    script(src='angular-material/angular-material.min.js')
-    script(src='ng-facebook/ngFacebook.js')
-    script(src='angular-google-plus/dist/angular-google-plus.min.js')
-    script(src='angular-svg-round-progressbar/build/roundProgress.min.js')
-    script(src='angularjs/app.js')
-    script(src='angularjs/controllers/login.controller.js')
-    script(src='angularjs/services/login.service.js')
-    script(src='angularjs/controllers/indexCtrl.js')
-    script(src='angularjs/controllers/writeCtrl.js')
-    script(src='angularjs/controllers/choiceCtrl.js')
+    script(src='../angular/angular.min.js')
+    script(src='../angular-animate/angular-animate.min.js')
+    script(src='../angular-aria/angular-aria.min.js')
+    script(src='../angular-route/angular-route.min.js')
+    script(src='../angular-cookies/angular-cookies.min.js')
+    script(src='../angular-material/angular-material.min.js')
+
+    script(src='../jquery/dist/jquery.min.js')
+    script(src='../bootstrap/dist/js/bootstrap.min.js')
+    script(src='../momentjs/min/moment.min.js')
+    script(src='../momentjs/min/locales.min.js')
+    script(src='../humanize-duration/humanize-duration.js')
+    script(src='../angular-timer/dist/angular-timer.min.js')
+    script(src='../angular-timer/dist/assets/js/angular-timer-all.min.js')
+
+    script(src='../ng-facebook/ngFacebook.js')
+    script(src='../angular-google-plus/dist/angular-google-plus.min.js')
+    script(src='../angular-svg-round-progressbar/build/roundProgress.min.js')
+    script(src='../js/timer.js')
+
+
+
+
+
+    script(src='../angularjs/app.js')
+    script(src='../angularjs/controllers/login.controller.js')
+    script(src='../angularjs/controllers/write.controller.js')
+    script(src='../angularjs/controllers/indexCtrl.js')
+    script(src='../angularjs/controllers/choiceCtrl.js')
+
+    script(src='../angularjs/controllers/testCtrl.js')
+
+    script(src='../angularjs/services/login.service.js')
+    script(src='../angularjs/services/choice.service.js')
+    script(src='../angularjs/directives/write.directive.js')
+
+
     //script(src='js/roundProgress.js')
