@@ -9,10 +9,7 @@
   function choiceService($http, $cookieStore, $rootScope) {
     var test = {};
 
-    //default data
-    test = {
-
-    }
+    test = $cookieStore.get('test');
 
     //function
     test.addTimer = addTimer;
@@ -38,6 +35,8 @@
           test[key] = obj;
         }
       }
+
+      $cookieStore.put('test', $rootScope.test);
     }
   }
 

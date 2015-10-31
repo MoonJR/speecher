@@ -6,12 +6,16 @@ angular
   .module('myApp')
   .controller('choiceCtrl', choiceController);
 
-choiceController.$inject = ['$scope', '$rootScope', 'choiceService', '$location'];
+choiceController.$inject = ['$scope', '$rootScope','$cookieStore', 'choiceService', '$location'];
 
-function choiceController($scope, $rootScope, choiceService, $location) {
+function choiceController($scope, $rootScope, $cookieStore, choiceService, $location) {
 
   $rootScope.test = choiceService;
 
+  // init latest test data status
+  (function initController() {
+    var favoriteCookie = $cookieStore.get('test');
+  })();
 
   var timer;
   $scope.counter = 0;
