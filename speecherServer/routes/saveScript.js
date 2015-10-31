@@ -102,7 +102,6 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
         res.send(error.db_save_error);
         return;
       }
-
     }
     sendData.success = error.successCode.success;
     sendData.msg = error.successMsg.success;

@@ -5,11 +5,12 @@
       .module('myApp')
       .controller('writeController', writeController);
 
-  writeController.$inject = ['$rootScope', '$scope', '$http'];
-  function writeController($rootScope, $scope, $http) {
+  writeController.$inject = ['$scope', '$http'];
+  function writeController($scope, $http) {
 
     var vm = this;
 
+    // APIs
     vm.response = 0;
     vm.saveScript = saveScript;
 
@@ -27,9 +28,10 @@
               vm.response = response.data.success;
 
               if(response.data.success){
+                console.log("save script");
                 return response;
               } else {
-                _errorHandler_('Error: saveScript success:0');
+                _errorHandler_('Error: saveScript success 0');
               }
             },
             _errorHandler_('Error: saveScript')

@@ -16,7 +16,7 @@
     vm.logout = logout;
 
     // init login status
-    (function initContoller() {
+    (function initController() {
       logout();
     })();
 
