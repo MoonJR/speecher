@@ -45,7 +45,7 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
       script_content: req.body.content,
       reg_date: new Date()
     };
-<<<<<<< HEAD
+
     if (typeof script.id == 'undefined') {
       res.send(error.no_session);
       return;
@@ -102,18 +102,7 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
         res.send(error.db_save_error);
         return;
       }
-=======
 
-    saveScript(script);
-    var paragraphJsonArray = scriptToParagraphJsonArray(script);
-    saveParagraph(paragraphJsonArray);
-    for (var i = 0; i < paragraphJsonArray.length; i++) {
-      var morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
-      if(morphemeJsonArray.length==0){
-        continue;
-      }
-      saveMorpheme(morphemeJsonArray);
->>>>>>> 085414258f018cf4e2af19b5abe32764c07e5444
     }
     sendData.success = error.successCode.success;
     sendData.msg = error.successMsg.success;
