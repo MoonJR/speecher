@@ -1,5 +1,6 @@
 .flex
-  #box-texts.border.box(ng-cloak='' )
+
+  #box-texts.left.border.box(ng-cloak='' )
     md-toolbar.md-theme-light
       h3.md-toolbar-tools
         span 대본 목록
@@ -12,17 +13,14 @@
             h3 {{item.script_title}}
             h4 {{item.script_content}}
             p {{item.reg_date}}
-          button.md-raised.md-button.md-ink-ripple(style="margin-top: 25px;")
-            span(ng-click="moveChoice(item.script_id)", style="text-decoration: none; color:black")
+          button.md-raised.md-button.md-ink-ripple(ng-click="moveChoice(item.script_id)",style="margin-top: 25px;")
+            span( style="text-decoration: none; color:black")
               span.ng-scope 테스트하기
             //a(id="{{item.script_id}}", ng-href="/#choice", style="text-decoration: none; color:black")
             //  span.ng-scope 테스트하기
             div.md-ripple-container
           md-divider
-
-
-
-  #box-words.border.box(layout='column', ng-cloak='')
+  #box-words.right.border.box(layout='column', ng-cloak='')
     md-toolbar.md-theme-light
       h3.md-toolbar-tools
         span#dlgOpen 자주 틀리는 단어
@@ -30,5 +28,9 @@
     md-chips(ng-repeat='item in vm.wordsDummy', ng-keydown="$mdChipsCtrl.chipKeydown($event)", ng-class="{ 'md-focused': $mdChipsCtrl.hasFocus()}" )
       md-chip(id="{{item.id}}",ng-click="vm.showWrongWordDialog(item.word)") {{item.word}}({{item.count}})
 
-  code($mdDialog.clickOutsideToClose(true))
+
+
+
+
+code($mdDialog.clickOutsideToClose(true))
 

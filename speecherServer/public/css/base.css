@@ -98,10 +98,13 @@ md-toolbar:not(.md-menu-toolbar){
 
 #box-words{
   width:300px;
+  min-width:300px;
+
 }
 
 #box-texts{
   width:100%;
+  max-width:980px;
   margin-right:15px;
 }
 

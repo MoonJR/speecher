@@ -8,6 +8,8 @@
   choiceService.$inject = ['$http', '$cookieStore', '$rootScope'];
   function choiceService($http, $cookieStore, $rootScope) {
     var test = {};
+
+    //default data
     test = {
       script_id: '0',
       timer_status:true,
@@ -19,22 +21,28 @@
       point: '84',
       script_content: " I'll be in your neighborhood doing errands",
       reg_date: 2015/11/19,
-      //add_timer: _addTimer,
+
     }
+
+    //function
+    test.addTimer = addTimer;
+    test.saveItem = saveItem;
+
     return test;
 
-    //function _addTimer($min){
-    //  if(choiceService.timer_value < 0){
-    //    choiceService.timer_value = 0;
-    //  } else{
-    //    choiceService.timer_value += $min;
-    //  }
-    //  choiceService.timer_seconds = choiceService.timer_value * 60;
-    //  choiceService.timer_percent = choiceService.current_seconds/choiceService.timer_seconds;
-    //}
+    function addTimer(min){
+      if(choiceService.timer_value < 0){
+        choiceService.timer_value = 0;
+      } else{
+        choiceService.timer_value += min;
+      }
+      choiceService.timer_seconds = choiceService.timer_value * 60;
+      choiceService.timer_percent = choiceService.current_seconds/choiceService.timer_seconds;
+    }
+
+    function saveItem(itemname, item){
+      choiceService[itemname] = item;
+    }
   }
-
-
-
 
 })();

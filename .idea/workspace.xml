@@ -2,620 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6f201522-41a3-4e4d-91cf-b67062dfb6e0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/media/Modernizr 2 Logo.ai" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/media/Modernizr 2 Logo.eps" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/media/Modernizr 2 Logo.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/media/Modernizr 2 Logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/Windsong-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/Windsong-webfont.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/Windsong-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/Windsong-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/alpha.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/apng_test.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/before-after.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/docs/images/forkme.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/green5x5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/mathml_ref.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/mic-animate.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/mic-slash.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/mic.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/png_alpha_result.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/red30x30.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/ruby.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/stroked-text.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/svg-html-blur.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/svg_blur.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/table.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/text-shadow1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/text-shadow2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/windsong_font.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/.csscomb.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/.csslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/.jscsrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/test/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/grunt/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/data/Data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/Gruntfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/HISTORY.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/MIT-LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/media/Modernizr 2 Logo.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/Moment.js.nuspec" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/meteor/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/src/Speech.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/dist/Speech.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/src/Speech.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/effects/Tween.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/Windsong-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/manipulation/_evalUrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/app/js/_timer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/a-download.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/data/accepts.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/core/access.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/addGetHookIf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/af.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/affix.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/event/ajax.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/alert.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/alerts.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/alerts.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/event/alias.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/exports/amd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/angular-diff.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/angular-diff.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/dist/angular-google-plus.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/src/angular-google-plus.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/dist/angular-google-plus.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/assets/js/angular-timer-all.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/assets/css/angular-timer-bower.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/assets/js/angular-timer-bower.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/angular-timer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/angular-timer.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/src/angular-webspeech-directive.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/dist/angular-webspeech-directive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/src/angular-webspeech-directive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/test/spec/angular-webspeech-directive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/dist/angular-webspeech-directive.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/angularjs-add-countdown-seconds.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/angularjs-add-countdown-seconds.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/angularjs-multiple-timers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/angularjs-multiple-timers.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/angularjs-polling-timer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/angularjs-polling-timer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/angularjs-reset-timer" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/angularjs-reset-timer" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/angularjs-single-timer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/angularjs-single-timer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/effects/animatedSelector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/app.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/docs/application.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ar-ma.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ar-sa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ar-tn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/arr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/attributes/attr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/attributes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/audio-audiodata-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/audio-webaudio-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/az.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/background-variant.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/badges.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/basic.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/basic.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/battery-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/battery-level.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/be.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/bg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/blob-constructor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/bn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/bo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/css/bootstrap-theme.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/css/bootstrap-theme.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/css/bootstrap.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/bootstrap.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/border-radius.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/breadcrumbs.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/grunt/bs-commonjs-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/grunt/bs-glyphicons-data-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/grunt/bs-lessdoc-parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/grunt/bs-raw-files-generator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/bs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/button-groups.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/buttons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/buttons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/callbacks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/canvas-todataurl-type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/carousel.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/carousel.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/center-block.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/class2type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/attributes/classes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/clearfix.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/benchmarks/clone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/close.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/code.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/collapse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/component-animations.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/concat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/grunt/configBridge.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/contenteditable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/contentsecuritypolicy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/contextmenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/cookies.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/cors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/cs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-backgroundposition-shorthand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-backgroundposition-xy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-backgroundrepeat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-backgroundsizecover.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-boxsizing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-calc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-cubicbezierrange.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-displayrunin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-displaytable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-filters.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-hyphens.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-lastchild.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-mask.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-mediaqueries.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-objectfit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-overflow-scrolling.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-pointerevents.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-positionsticky.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-regions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-remunit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-resize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-scrollbars.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-shapes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-subpixelfont.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-supports.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-userselect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-vhunit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-vmaxunit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-vminunit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/css-vwunit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/var/cssExpand.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/curCSS.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/custom-protocol-handler.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/cv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/cy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/da.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/dart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/data/var/data_priv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/data/var/data_user.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/dataview-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/de-at.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/defaultDisplay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/deferred.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/queue/delay.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/deprecated.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/lib/detect-global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/src/diff.filter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/dimensions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/test/unit/directivesSpec.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/docs/css/docs.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/docs/docs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/dom-classlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/dom-createElement-attrs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/dom-dataset.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/dom-microdata.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/dropdown.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/dropdowns.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/dumpdata.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/effects.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/el.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/elem-datalist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/elem-details.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/elem-output.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/elem-progress-meter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/elem-ruby.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/elem-time.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/elem-track.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/emoji.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/en-au.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/en-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/en-gb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/eo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/routes/error.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/es5-strictmode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/et.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/eu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/event-deviceorientation-motion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/event.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/exif-orientation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/meteor/export.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/fa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/fi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/file-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/file-filesystem.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/traversing/findFilter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/fo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/form_validation.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/forms-fileinput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/forms-formattribute.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/forms-inputnumber-l10n.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/forms-placeholder.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/forms-speechinput.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/forms-validation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/forms.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/forms.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/fr-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/fullscreen-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/fy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/ga.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/gamepad.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/var/getStyles.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/getusermedia.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/gl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/exports/global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/glyphicons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/gradients.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/grid-framework.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/grid.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/grid.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/grunt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/hasOwn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/hashchange.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/hi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/hiddenVisibleSelectors.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/hide-text.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/hr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/humanize-duration.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/hy-am.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/app/js/i18nService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/ie8compat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/iframe-sandbox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/iframe-seamless.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/iframe-srcdoc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/image.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/img-apng.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/img-webp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/index.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/index.tpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/indexOf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/core/init.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/input-groups.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/intro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/is.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/var/isHidden.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ja.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/lib/jquery-1.7b2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/jquery-timer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/jquery-timer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/dist/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/dist/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/dist/jquery.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/src/jsSpeechFactory.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/jsbin.URixUne.15.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/jsonp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/lib/jsonselect.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/jumbotron.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ka.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/config/karma-e2e.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/config/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/km.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ko.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/labels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/labels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/lb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/list-group.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/list-group.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/lists-reversed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/load.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/min/locales.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/min/locales.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/lt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/lv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/manipulation.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/mathml.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/mathml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/media.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/mk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/modals.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/modernizr-1.7.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/modernizr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/min/moment-with-locales.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/min/moment-with-locales.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/moment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/min/moment.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/mr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ms-my.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/my.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/nav-divider.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/nav-vertical-align.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/navbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/navbar.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/navbar.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/navs.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/nb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ne.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/network-connection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/network-eventsource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/network-xhr2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/nn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/var/nonce.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/normalize.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/notification.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/dist/js/npm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/scripts/npm_prepublish.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/offset.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/opacity.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/outro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/package.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-diff/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-google-plus/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/humanize-duration/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/pager.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/pagination.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/pagination.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/panels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/panels.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/core/parseHTML.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/parseJSON.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/parseXML.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/performance.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/pl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/plain-javascript.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/plain-javascript.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/pnum.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/pointerlock-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/lib/polyfills.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/popover.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/popovers.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/docs/css/prettify.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/docs/prettify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/print.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/progress-bar.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/progress-bars.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/app/js/progressBarService.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/attributes/prop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/pt-br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/pt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/push.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/pushstate.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/queue.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/qunit/qunit.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/qunit/qunit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/quota-management-api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/manipulation/var/rcheckableType.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/core/ready.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/requestanimationframe.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/reset-filter.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/reset-text.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/resize.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/responsive-embed.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/responsive-utilities.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/responsive-visibility.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/var/rmargin.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/traversing/var/rneedsContext.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/rnotwhite.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/var/rnumnonpx.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/var/rquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/core/var/rsingleTag.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/qunit/run-qunit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/test/e2e/runner.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/grunt/sauce_browsers.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/scaffolding.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/test/e2e/scenarios.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/script-async.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/script-defer.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/script.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/services/script.service.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/scrollspy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/selector-native.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/selector-sizzle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/selector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/serialize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/setup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/size.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/sizzle/dist/sizzle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/sizzle/dist/sizzle.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/sizzle/dist/sizzle.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/sl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/slice.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/speech.controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/views/partials/speech.jade" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/sq.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/sr-cyrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/sr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/strundefined.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/style-scoped.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/www/styles.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/attributes/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/event/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/manipulation/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/support.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/sv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/svg-filters.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/svg-img.svg.1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/svg-img.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/css/swap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/ta.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/tab-focus.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/table-row.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/tables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/src/test.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/meteor/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/text-emphasis.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/text-overflow.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/th.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/theme.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/thumbnails.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/dist/examples/timer-with-autostart-false-and-starttime.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/examples/timer-with-autostart-false-and-starttime.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-timer/test/unit/timerSetTimeTest.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/tl-ph.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/angular-webspeech-directive/src/tmpl.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/var/toString.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/tooltip.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/js/transition.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/traversing.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/type.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/tzm-latn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/tzm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/lib/uaparser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/unicode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/unit-caniuse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/js/unit.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/url-data-uri.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/userdata.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/utilities.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/uz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/attributes/val.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/mixins/vendor-prefixes.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/vi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/vibration.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/web-intents.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/webgl-extensions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/websockets-binary.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/bootstrap/less/wells.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/window-framed.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/workers-blobworkers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/workers-dataworkers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/feature-detects/workers-sharedworkers.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/wrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/jquery/src/ajax/xhr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/modernizer/test/caniuse_files/xhtml.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/speecherServer/bower_components/momentjs/locale/zh-tw.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/speecherServer/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/speecherServer/npm-debug.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/.gitignore" afterPath="$PROJECT_DIR$/speecherServer/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/app.js" afterPath="$PROJECT_DIR$/speecherServer/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/angularjs/app.js" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/bower.json" afterPath="$PROJECT_DIR$/speecherServer/bower.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/report-plato/display.html" afterPath="$PROJECT_DIR$/speecherServer/reports/report-plato/display.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/report-plato/index.html" afterPath="$PROJECT_DIR$/speecherServer/reports/report-plato/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/css/base.css" afterPath="$PROJECT_DIR$/speecherServer/public/css/base.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/angularjs/services/choice.service.js" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/services/choice.service.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/index.controller.js" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/index.controller.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/views/partials/index.jade" afterPath="$PROJECT_DIR$/speecherServer/views/partials/index.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/routes/index.js" afterPath="$PROJECT_DIR$/speecherServer/routes/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/test/karma.conf.js" afterPath="$PROJECT_DIR$/speecherServer/test/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/views/layout.jade" afterPath="$PROJECT_DIR$/speecherServer/views/layout.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/login.controller.js" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/login.controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/angularjs/services/login.service.js" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/services/login.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/package.json" afterPath="$PROJECT_DIR$/speecherServer/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/routes/readScript.js" afterPath="$PROJECT_DIR$/speecherServer/routes/readScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/report-jshint-checkstyle.xml" afterPath="$PROJECT_DIR$/speecherServer/reports/report-jshint-checkstyle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.history.js" afterPath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.history.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.history.json" afterPath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.history.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.js" afterPath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.json" afterPath="$PROJECT_DIR$/speecherServer/reports/report-plato/report.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/routes/saveScript.js" afterPath="$PROJECT_DIR$/speecherServer/routes/saveScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/reports/sloc.sc" afterPath="$PROJECT_DIR$/speecherServer/reports/sloc.sc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/routes/snsLogin.js" afterPath="$PROJECT_DIR$/speecherServer/routes/snsLogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/css/style.css" afterPath="$PROJECT_DIR$/speecherServer/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/write.controller.js" afterPath="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/write.controller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="speecher.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -639,9 +30,21 @@
       <file leaf-file-name="choice.service.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/choice.service.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.037037">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            <state vertical-scroll-proportion="-17.074074">
+              <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.jade" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/speecherServer/views/index.jade">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1445967981000" expanded="true" signature="21:44" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -649,50 +52,8 @@
       <file leaf-file-name="indexCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/indexCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.444445">
-              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/speecherServer/views/partials/test.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.2777778">
-              <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-              <folding>
-                <marker date="1446204096000" expanded="true" signature="4:104" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="testCtrl.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/testCtrl.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.814815">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/speecherServer/public/css/base.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.481482">
-              <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.jade" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/speecherServer/views/layout.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.278443">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state vertical-scroll-proportion="-3.8888888">
+              <caret line="19" column="3" selection-start-line="13" selection-start-column="2" selection-end-line="19" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -701,8 +62,58 @@
       <file leaf-file-name="index.jade" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speecherServer/views/partials/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.6666666">
-              <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+            <state vertical-scroll-proportion="-5.8333335">
+              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/speecherServer/public/css/base.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3321918">
+              <caret line="99" column="10" selection-start-line="99" selection-start-column="10" selection-end-line="99" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/login.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.7777777">
+              <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/login.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.3888888">
+              <caret line="5" column="7" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.service.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/script.service.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.333333">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.controller.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/index.controller.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.388889">
+              <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -711,41 +122,9 @@
       <file leaf-file-name="choiceCtrl.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/choiceCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.851852">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+            <state vertical-scroll-proportion="-6.703704">
+              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="www" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/speecherServer/bin/www">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.4444447">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choice.jade" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/speecherServer/views/partials/choice.jade">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0185184">
-              <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
-              <folding>
-                <marker date="1446205791000" expanded="true" signature="11:1834" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="59:509" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="98:509" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="156:263" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="191:263" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="278:380" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="314:380" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="395:509" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="431:509" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="743:982" placeholder="..." />
-                <marker date="1446205791000" expanded="true" signature="1181:1577" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -764,18 +143,19 @@
         <option value="$PROJECT_DIR$/speecherServer/public/js/base.js" />
         <option value="$PROJECT_DIR$/speecherServer/public/angularjs/services/write.service.js" />
         <option value="$PROJECT_DIR$/speecherServer/routes/index.js" />
-        <option value="$PROJECT_DIR$/speecherServer/views/partials/index.jade" />
         <option value="$PROJECT_DIR$/speecherServer/public/angularjs/app.js" />
         <option value="$PROJECT_DIR$/speecherServer/public/angularjs/services/ajax.service.js" />
         <option value="$PROJECT_DIR$/speecherServer/public/angularjs/services/http.service.js" />
-        <option value="$PROJECT_DIR$/speecherServer/public/css/base.css" />
         <option value="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/indexCtrl.js" />
         <option value="$PROJECT_DIR$/speecherServer/views/partials/test.jade" />
-        <option value="$PROJECT_DIR$/speecherServer/public/angularjs/services/choice.service.js" />
         <option value="$PROJECT_DIR$/speecherServer/views/partials/choice.jade" />
         <option value="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/testCtrl.js" />
         <option value="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/choiceCtrl.js" />
         <option value="$PROJECT_DIR$/speecherServer/views/layout.jade" />
+        <option value="$PROJECT_DIR$/speecherServer/public/angularjs/services/choice.service.js" />
+        <option value="$PROJECT_DIR$/speecherServer/public/angularjs/controllers/index.controller.js" />
+        <option value="$PROJECT_DIR$/speecherServer/views/partials/index.jade" />
+        <option value="$PROJECT_DIR$/speecherServer/public/css/base.css" />
       </list>
     </option>
   </component>
@@ -788,8 +168,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1276" />
-    <option name="height" value="777" />
+    <option name="width" value="1238" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -902,24 +282,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speecher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speecher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="speecherServer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -942,7 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -960,7 +322,63 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speecher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speecher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speecherServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="services" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speecher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speecher" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="speecherServer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="angularjs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1029,14 +447,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1276" height="777" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1238" height="1027" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4124294" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30480167" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25470218" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2625202" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1067,42 +485,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/login.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/views/partials/choice.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
-          <folding>
-            <marker date="1446205791000" expanded="true" signature="11:1834" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="59:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="98:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="156:263" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="191:263" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="278:380" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="314:380" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="395:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="431:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="743:982" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="1181:1577" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/speecherServer/public/js/roundProgress.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1174,17 +556,17 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="67" selection-start-line="28" selection-start-column="67" selection-end-line="28" selection-end-column="67" />
           <folding>
-            <marker date="1446205791000" expanded="true" signature="11:1834" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="59:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="98:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="156:263" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="191:263" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="278:380" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="314:380" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="395:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="431:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="743:982" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="1181:1577" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1375,42 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/login.controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-29.444445">
           <caret line="53" column="31" selection-start-line="53" selection-start-column="31" selection-end-line="53" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/login.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.7065868">
-          <caret line="38" column="19" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/http.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3333333">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/css/base.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.481482">
-          <caret line="224" column="0" selection-start-line="224" selection-start-column="0" selection-end-line="224" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1420,26 +770,18 @@
         <state vertical-scroll-proportion="-2.0185184">
           <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
           <folding>
-            <marker date="1446205791000" expanded="true" signature="11:1834" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="59:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="98:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="156:263" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="191:263" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="278:380" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="314:380" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="395:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="431:509" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="743:982" placeholder="..." />
-            <marker date="1446205791000" expanded="true" signature="1181:1577" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1446205791000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/indexCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.444445">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1451,28 +793,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/choice.service.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.037037">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/views/partials/index.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.6666666">
-          <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/speecherServer/views/partials/test.jade">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.2777778">
           <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
           <folding>
-            <marker date="1446204096000" expanded="true" signature="4:104" placeholder="..." />
+            <marker date="1446204096000" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1485,18 +811,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/choiceCtrl.js">
+    <entry file="file://$PROJECT_DIR$/speecherServer/views/layout.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.851852">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        <state vertical-scroll-proportion="-20.277779">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speecherServer/views/layout.jade">
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/http.service.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.278443">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state vertical-scroll-proportion="-12.777778">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/login.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3888888">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/choiceCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.703704">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/script.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.333333">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/login.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7777777">
+          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/services/choice.service.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.074074">
+          <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/views/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1445967981000" expanded="true" signature="21:44" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/indexCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.8888888">
+          <caret line="19" column="3" selection-start-line="13" selection-start-column="2" selection-end-line="19" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/angularjs/controllers/index.controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.388889">
+          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/views/partials/index.jade">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8333335">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speecherServer/public/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321918">
+          <caret line="99" column="10" selection-start-line="99" selection-start-column="10" selection-end-line="99" selection-end-column="10" />
           <folding />
         </state>
       </provider>
