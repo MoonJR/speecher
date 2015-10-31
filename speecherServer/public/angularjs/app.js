@@ -8,42 +8,48 @@ angular.module('myApp', [
   'ngCookies',
   'ngFacebook',
   'angular-svg-round-progress',
-  'googleplus'
-
-
+  'googleplus',
+  'ngWebSpeech',
+  'diff'
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
+          .when('/', {
+            templateUrl: '/partials/index',
+            controller: 'indexController',
+            controllerAs: 'vm'
+          })
+          .when('/login', {
+            templateUrl: '/partials/login',
+            controller: 'loginController',
+            controllerAs: 'vm'
+          })
+          .when('/speech', {
+            templateUrl: '/partials/speech',
+            controller: 'speechController',
+            controllerAs: 'vm'
+          })
+          .when('/write', {
+            templateUrl: '/partials/write',
+            controller: 'writeController',
+            controllerAs: 'vm'
+          })
+          .when('/choice', {
+            templateUrl: function(params){
+              return '/partials/choice/';
+            },
+            controller: 'choiceCtrl',
+          })
+          .when('/test', {
+            templateUrl: function(params){
+              return '/partials/test';
+            },
+            controller: 'testCtrl',
+          })
 
-        .when('/', {
-          templateUrl: '/partials/index',
-          controller: 'indexCtrl'
-        })
-        .when('/login', {
-          templateUrl: '/partials/login',
-          controller: 'loginController',
-          controllerAs: 'vm'
-        })
-        .when('/write', {
-          templateUrl: '/partials/write',
-          controller: 'writeController',
-          controllerAs: 'vm'
-        })
-        .when('/choice', {
-          templateUrl: function(params){
-            return '/partials/choice/';
-          },
-          controller: 'choiceCtrl',
-        })
-        .when('/test', {
-          templateUrl: function(params){
-            return '/partials/test';
-          },
-          controller: 'testCtrl',
-        })
-        .otherwise({
-          redirectTo: '/'
-        });
+          .otherwise({
+            redirectTo: '/'
+          });
 
       $facebookProvider.setAppId('1386879811618975');
 

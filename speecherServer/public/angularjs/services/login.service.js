@@ -53,11 +53,11 @@
       $cookieStore.remove('globals');
       $http.defaults.headers.common.Authorization = 'Basic ';
     }
-  }
 
-  // private functions
-  function _errorHandler_ (error) {
-    return { success: false, message: error };
+    // private functions
+    function _errorHandler_ (error) {
+      return { success: false, message: error };
+    }
   }
 
   // Base64 encoding service

@@ -9,6 +9,8 @@ var readScript = require('./readScript');
 var testHistory = require('./testHistory');
 /* GET home page. */
 
+
+
 //세션 사용
 router.use(session({
   secret: 'Soma',
@@ -37,7 +39,7 @@ router.get('/login/facebook', login.facebookLogin);
 router.get('/login/google', login.googleLogin);
 router.post('/main/scriptSave', saveScript.saveScriptExpress);
 router.post('/main/scriptList', readScript.readScriptList);
-router.post('/scriptDetail/scripContent', readScript.readScriptDetail);
+router.post('/scriptDetail/scriptContent', readScript.readScriptDetail);
 router.post('/scriptDetail/scriptGrapeScores', testHistory.testHistory);
 
 //Angular 의  Html5Mode 를  true 로 설정하면, ajax로 요청한 페이지를 해시뱅으로 httpResponse인척 속이는 것을 넘어서서,  Ajax 요청한 것을 해시뱅이 사라진 실주소같은 형태로 만들어버린다.

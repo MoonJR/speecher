@@ -4,56 +4,83 @@
 
 
 var db = require('../models/dbSnsLogin');
+var error = require('./error');
 
 
 var http = require('https');
 exports.facebookLogin = function (req, res) {
 
-  var facebookToken = req.query.token;
+  try {
+    var facebookToken = req.query.token;
 
-  getFaceBookData(facebookToken, function (response) {
-    response.route = 'facebook';
-
-    var resData = {};
-    resData.response = response;
-
-    if (typeof response.id != 'undefined') {
-      db.login(response, function (err, result) {
-        resData.success = 1;
-        req.session.user_id = response.id;
-        res.send(resData);
-      });
-    } else {
-      resData.success = 0;
-      res.send(resData)
+    if (typeof facebookToken == 'undefined') {
+      res.send(error.short_parameter);
+      return;
     }
 
+    getFaceBookData(facebookToken, function (response) {
+      response.route = 'facebook';
 
-  });
+      var resData = {};
+      resData.response = response;
+
+      if (typeof response.id != 'undefined') {
+        db.login(response, function (err, result) {
+          resData.success = error.successCode.success;
+          resData.msg = error.successMsg.success;
+          req.session.user_id = response.id;
+          res.send(resData);
+        });
+      } else {
+        res.send(error.external_error);
+      }
+
+    });
+  } catch (e) {
+    console.log(e);
+    res.send(error.unknown_error);
+  }
+
 
 };
 
 exports.googleLogin = function (req, res) {
-  var googleToken = req.query.token;
+  try {
+    var googleToken = req.query.token;
 
-  getGooglePlusData(googleToken, function (response) {
-    response.route = 'google';
-
-    var resData = {};
-    resData.response = response;
-
-    if (typeof response.id != 'undefined') {
-      db.login(response, function (err, result) {
-        resData.success = 1;
-        req.session.user_id = response.id;
-        res.send(resData);
-      });
-    } else {
-      resData.success = 0;
-      res.send(resData)
+    if (typeof googleToken == 'undefined') {
+      res.send(error.short_parameter);
+      return;
     }
 
-  });
+    getGooglePlusData(googleToken, function (response) {
+
+      var responseParse = {
+        route: 'google',
+        id: response.sub,
+        email: response.email,
+        name: response.email.split('@')[0]
+      };
+
+      var resData = {};
+      resData.response = responseParse;
+
+      if (typeof responseParse.id != 'undefined') {
+        db.login(responseParse, function (err, result) {
+          resData.success = error.successCode.success;
+          resData.msg = error.successMsg.success;
+          req.session.user_id = responseParse.id;
+          res.send(resData);
+        });
+      } else {
+        res.send(error.external_error);
+      }
+    });
+  } catch (e) {
+    console.log(e);
+    res.send(error.unknown_error);
+  }
+
 };
 
 

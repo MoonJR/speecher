@@ -5,10 +5,10 @@
         span 대본 목록
     md-content
       md-list
-        md-list-item.md-3-line(ng-repeat='item in texts')
+        md-list-item.md-3-line(ng-repeat='item in vm.scriptList')
           .roundtest(style="margin-top:15px; margin-right:15px; opacity:item.opacity",round-progress,max="100",current="item.point",color="#45ccce",bgcolor="#eaeaea",radius="30",stroke="7",semi="false",  rounded="true",  clockwise="false",  responsive="false",  duration="2000",  animation="easeInOutQuart")
-          span.point 00%
-          .md-list-item-text(id="{{item.id}}")
+          span.point 30%
+          .md-list-item-text(id="{{item.script_id}}")
             h3 {{item.script_title}}
             h4 {{item.script_content}}
             p {{item.reg_date}}
@@ -27,11 +27,8 @@
       h3.md-toolbar-tools
         span#dlgOpen 자주 틀리는 단어
 
-    md-chips(ng-repeat='item in words', ng-keydown="$mdChipsCtrl.chipKeydown($event)", ng-class="{ 'md-focused': $mdChipsCtrl.hasFocus()}" )
-      md-chip(id="{{item.id}}",ng-click="showWordDlg(item.word)") {{item.word}}({{item.count}})
-
-
-
+    md-chips(ng-repeat='item in vm.wordsDummy', ng-keydown="$mdChipsCtrl.chipKeydown($event)", ng-class="{ 'md-focused': $mdChipsCtrl.hasFocus()}" )
+      md-chip(id="{{item.id}}",ng-click="vm.showWrongWordDialog(item.word)") {{item.word}}({{item.count}})
 
   code($mdDialog.clickOutsideToClose(true))
 
