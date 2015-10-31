@@ -51,6 +51,9 @@ function indexCtrl($scope, $rootScope, choiceService, httpService, $location,$ht
   };
 
 
+
+
+
   // 텍스트 요청 콜백
   function callbackTexts(data) {
     console.log("callbackTexts");
@@ -60,7 +63,7 @@ function indexCtrl($scope, $rootScope, choiceService, httpService, $location,$ht
 
       }else{
       }
-       ㅎ
+
       /* 성공적으로 결과 데이터가 넘어 왔을 때 처리 */
     }
     else {
