@@ -35,7 +35,7 @@ describe('dbTest', function() {
     });
   });
   describe('.totalFailWord(scriptId)', function() {
-    var testWord = 'area';
+    var testWord = 'tetetetet';
     var user_id = 1;
     var wordLimit = 10;
     it('모든 틀린 형태소에 대한 데이터가 받아와져야 한다.', function(done) {
