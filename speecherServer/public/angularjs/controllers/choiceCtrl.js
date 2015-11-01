@@ -14,11 +14,13 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
 
   // init latest test data status
   (function initController() {
-    var favoriteCookie = $cookieStore.get('test');
+
+    $rootScope.test.counter = 5;
+
   })();
 
-  var timer;
-  $scope.counter = 0;
+
+
   $scope.stopCounter = function() {
     $timeout.cancel(timer);
   };
@@ -29,20 +31,14 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
     $scope.counter++;
     timer = $timeout(updateCounter, 1000);
   };
-  //updateCounter();
-  //$rootScope.setTimer = setTimer;
-  //
-  //function setTimer($min,$type){
-  //  if($rootScope.test.timer_value < 1){
-  //    $rootScope.test.timer_value = 1;
-  //  } else if($type == 'add'){
-  //    $rootScope.test.timer_value += $min;
-  //  } else if($type == 'set'){
-  //    $rootScope.test.timer_value = $min;
-  //  }
-  //  $rootScope.test.timer_seconds = $rootScope.test.timer_value * 60;
-  //  $rootScope.test.timer_percent = $rootScope.test.current_seconds/test.timer_seconds;
-  //}
+
+
+  // Timer Setting 값을 저장하고, 테스트 페이지로 이동
+  $rootScope.test.startTest = startTest;
+  function startTest(){
+    //choiceService.saveItem(scriptData);
+    $location.path('/test');
+  }
 
 
 };

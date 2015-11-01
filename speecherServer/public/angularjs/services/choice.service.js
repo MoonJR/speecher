@@ -8,23 +8,27 @@
   choiceService.$inject = ['$http', '$cookieStore', '$rootScope'];
   function choiceService($http, $cookieStore, $rootScope) {
     var test = {};
+    //default timer counter
+    test.counter = 5;
 
     test = $cookieStore.get('test');
 
     //function
     test.addTimer = addTimer;
     test.saveItem = saveItem;
+    test.setTimer = setTimer;
+
 
     return test;
 
     function addTimer(min){
-      if(choiceService.timer_value < 0){
-        choiceService.timer_value = 0;
+      if(test.timer_value < 0){
+        test.timer_value = 0;
       } else{
-        choiceService.timer_value += min;
+        test.timer_value += min;
       }
-      choiceService.timer_seconds = choiceService.timer_value * 60;
-      choiceService.timer_percent = choiceService.current_seconds/choiceService.timer_seconds;
+      test.timer_seconds = test.timer_value * 60;
+      test.timer_percent = test.current_seconds/test.timer_seconds;
     }
 
     function saveItem(item){
@@ -35,8 +39,19 @@
           test[key] = obj;
         }
       }
-
       $cookieStore.put('test', $rootScope.test);
+    }
+
+    function setTimer($min,$type){
+      if($rootScope.test.counter < 1){
+        $rootScope.test.counter = 1;
+      } else if($type == 'add'){
+        $rootScope.test.counter += $min;
+      } else if($type == 'set'){
+        $rootScope.test.counter = $min;
+      }
+      $rootScope.test.timer_seconds = $rootScope.test.timer_value * 60;
+      $rootScope.test.timer_percent = $rootScope.test.current_seconds/$rootScope.test.timer_seconds;
     }
   }
 

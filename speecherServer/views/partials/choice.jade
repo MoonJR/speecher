@@ -14,21 +14,21 @@
 
     .flex(style="height:30px;")
       p(style="margin: 6px 5px 0px 15px;") 발표시간 설정
-      input(type="number",placeholder="minute", ng-model="test.timer_value",style="width:50px;")
+      input(type="number",placeholder="minute", ng-model="test.counter",style="width:50px;")
       p(style="margin: 6px 0px 0px 1px;") 분
       div.btn-group(role='group', aria-label='First group', style="margin-left:11px;")
-        button.btn.btn-default(type='button', ng-click="setTimer(1,'add')") UP
-        button.btn.btn-default(type='button', ng-click="setTimer(-1,'add')") DOWN
+        button.btn.btn-default(type='button', ng-click="test.setTimer(1,'add')") UP
+        button.btn.btn-default(type='button', ng-click="test.setTimer(-1,'add')") DOWN
 
     .flex(style="margin: 6px 0 0px 15px;")
       md-switch.md-primaryg(md-no-ink='', aria-checked="true",aria-label='발표시간 설정하기', ng-model='test.timer_status',style="margin:0 0px 0px 15px;")
       div.btn-group(role='group', aria-label='First group', style="margin-left:22px;")
-        button.btn.btn-default(type='button', ng-click="setTimer(1,'set')") 1분
-        button.btn.btn-default(type='button', ng-click="setTimer(3,'set')") 3분
-        button.btn.btn-default(type='button', ng-click="setTimer(5,'set')") 5분
-        button.btn.btn-default(type='button', ng-click="setTimer(10,'set')") 10분
+        button.btn.btn-default(type='button', ng-click="test.setTimer(1,'set')") 1분
+        button.btn.btn-default(type='button', ng-click="test.setTimer(3,'set')") 3분
+        button.btn.btn-default(type='button', ng-click="test.setTimer(5,'set')") 5분
+        button.btn.btn-default(type='button', ng-click="test.setTimer(10,'set')") 10분
 
     .border-top(width:100%; ,style="margin:20px 0 20px 0 ;")
       p page id : {{ test.script_id }} // 기본값으로 choice 접근하면(새로고침 포함) base 로이동하게 처리하기
       center
-        a.center.btn.btn-primary.btn-lg(href="test/", role="button", style="margin-top:15px;") 시작
+        a.center.btn.btn-primary.btn-lg(ng-click="startTest()", role="button", style="margin-top:15px;") 시작
