@@ -17,12 +17,12 @@
 
     return service;
 
-    function sendCredentials(url, token, callback) {
+    function sendCredentials (url, token, callback) {
 
       $http({
         method: 'GET',
         url: '/login/' + url,
-        params: {token: token}
+        params: { token: token }
       }).then(
           function (response) {
             //console.log(response);
@@ -53,11 +53,11 @@
       $cookieStore.remove('globals');
       $http.defaults.headers.common.Authorization = 'Basic ';
     }
-  }
 
-  // private functions
-  function _errorHandler_ (error) {
-    return { success: false, message: error };
+    // private functions
+    function _errorHandler_ (error) {
+      return { success: false, message: error };
+    }
   }
 
   // Base64 encoding service

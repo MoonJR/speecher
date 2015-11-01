@@ -45,6 +45,7 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
       script_content: req.body.content,
       reg_date: new Date()
     };
+
     if (typeof script.id == 'undefined') {
       res.send(error.no_session);
       return;

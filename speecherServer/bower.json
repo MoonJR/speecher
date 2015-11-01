@@ -28,6 +28,10 @@
     "angular-svg-round-progressbar": "~0.3.8",
     "angular-mocks": "~1.4.7",
     "ng-facebook": "~0.1.6",
-    "angular-google-plus": "~0.1.3"
+    "angular-google-plus": "~0.1.3",
+    "angular-webspeech-directive": "*",
+    "angular-timer": "~1.3.3",
+    "bootstrap":"~3.3.5",
+    "jquery": "~2.1.4"
   }
 }
