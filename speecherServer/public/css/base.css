@@ -1,11 +1,26 @@
 body{
   margin:auto !important;
 }
+.body-bg {
+  background-color: #f5f8fa;
+}
 .left {
   float: left;
 }
 .right {
   float: right;
+}
+.menu-left {
+  float: left;
+  line-height: 60px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+}
+.menu-right {
+  float: right;
+  line-height: 60px;
+  margin-bottom: 0px;
+  margin-left: 10px;
 }
 header {
   width: 100%;
@@ -23,11 +38,11 @@ main{
   font-weight: bold;
   font-style: italic;
   font-size: 24px;
-  margin: 16px 16px 16px 0px;
+  display:inline-block;
+  margin-right: 40px;
 }
 .top-menu {
   float: right;
-  margin: 16px 76px 16px 16px;
 }
 .top-menu img {
   position: absolute;
@@ -221,6 +236,9 @@ md-tabs{
   border-top: 1px solid rgb(224,224,224);
 }
 
+.main-padding {
+  padding: 100px;
+}
 /* login page */
 
 .login-header {
@@ -241,8 +259,7 @@ md-tabs{
 .login-box1 {
   background-size: cover;
   background-image:url('../images/login-bg.png');
-  padding-top: 50px;
-  padding-bottom: 70px;
+  padding: 50px 0px 70px 6햣0px;
   box-shadow: 0px 3px 2px -3px #c3c3c3;
 }
 
@@ -263,4 +280,14 @@ md-tabs{
 
 .icon-margin {
   margin-right: 8px;
+}
+
+/* write page */
+
+.script-title {
+  margin-top: 20px;
+}
+
+.script-content {
+  min-height: 400px;
 }

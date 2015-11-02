@@ -9,25 +9,27 @@ html(lang='kr', ng-app="myApp")
     link(data-require='bootstrap-css@3.0.0', data-semver='3.0.0', rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
     link(data-require='font-awesome@4.3.0', data-semver='4.3.0', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
     link(rel="stylesheet", href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css")
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic')
-    link(rel='stylesheet', href='../bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='../bootstrap/dist/css/bootstrap-theme.css')
-
+    link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='bootstrap/dist/css/bootstrap-theme.css')
 
     //|<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-responsive.css">
     block css
     block js
     if ENV_DEVELOPMENT
       script(src='http://localhost:35729/livereload.js')
-  body(layout="column")
-    header.container
-      p.logo.left You Can Speech
-      .top-menu.right
-        a(ng-href="/#write", ng-if="globals.currentUser")
-          button 대본작성
-        a(ng-href="/#index", ng-if="globals.currentUser")
-          button 대본목록
-  main
+  body(layout="column").body-bg
+    header.navbar-header
+      .container
+        p.logo.menu-left You Can Speech
+        a.menu-left(ng-href="/#write", ng-if="globals.currentUser")
+          |대본작성
+        a.menu-left(ng-href="/#index", ng-if="globals.currentUser")
+          |대본목록
+        a.menu-right(ng-href="/#login", ng-if="globals.currentUser")
+          |로그아웃
+        p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
+
+  main.main-padding
     block content
   footer
     //Angular Material Dependencies
