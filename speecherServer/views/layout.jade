@@ -1,5 +1,5 @@
 doctype html
-html(lang='kr', ng-app="myApp")
+html(lang='kr', ng-app="myApp", ng-controller="headerController")
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
@@ -20,15 +20,13 @@ html(lang='kr', ng-app="myApp")
     if ENV_DEVELOPMENT
       script(src='http://localhost:35729/livereload.js')
   body(layout="column")
-    header
-      p.logo.left SPEECHER
+    header.container
+      p.logo.left You Can Speech
       .top-menu.right
-        a(href="/#write")
-          button.md-raised.md-button.md-default-theme() 대본작성
-        a(ng-href="/#index")
-          button.md-raised.md-button.md-default-theme() 대본목록
-        img(alt="프로필 이미지", src="/images/default_profile_image.png")
-        p 반상현
+        a(ng-href="/#write", ng-if="$rootScope.globals.currentUser")
+          button 대본작성
+        a(ng-href="/#index", ng-if="$rootScope.globals.currentUser")
+          button 대본목록
   main
     block content
   footer

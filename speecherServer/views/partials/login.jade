@@ -1,15 +1,16 @@
 .container
-  div
-    .jumbotron
-      h2
-        i.ion-images
-        |  You Can Speech
+  div.login-box1
+      h2.login-header
+        |  Don't Look The Paper
+      p.login-content
+        | You Can Speech와 함께 정확하게 말하는 연습을 해보세요
+        br
+        | 이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
       p
-        | 그동안 머릿속으로만 외웠던 영어 대본. 이젠
-        strong Speecher
-        | 와 함께 연습해보세요.
-
+        button.login-facebook.btn.btn-raised(ng-click='vm.facebookLogin()')
+          i.fa.fa-facebook-square.icon-margin
+          |Facebook으로 시작하기
       p
-        button(ng-click='vm.facebookLogin()') Sign in with facebook
-      p
-        button(ng-click='vm.googleLogin()') Sign in with google
+        button.login-google.btn.btn-raised(ng-click='vm.googleLogin()')
+          i.fa.fa-google-plus.icon-margin
+          |Google+로 시작하기
