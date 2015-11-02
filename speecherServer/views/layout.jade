@@ -1,5 +1,5 @@
 doctype html
-html(lang='kr', ng-app="myApp", ng-controller="headerController")
+html(lang='kr', ng-app="myApp")
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width')
@@ -23,9 +23,9 @@ html(lang='kr', ng-app="myApp", ng-controller="headerController")
     header.container
       p.logo.left You Can Speech
       .top-menu.right
-        a(ng-href="/#write", ng-if="$rootScope.globals.currentUser")
+        a(ng-href="/#write", ng-if="globals.currentUser")
           button 대본작성
-        a(ng-href="/#index", ng-if="$rootScope.globals.currentUser")
+        a(ng-href="/#index", ng-if="globals.currentUser")
           button 대본목록
   main
     block content
