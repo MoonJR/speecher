@@ -9,19 +9,10 @@ body{
 }
 .right {
   float: right;
+  overflow:hidden;
+  height:auto;
 }
-.menu-left {
-  float: left;
-  line-height: 60px;
-  margin-bottom: 0px;
-  margin-right: 20px;
-}
-.menu-right {
-  float: right;
-  line-height: 60px;
-  margin-bottom: 0px;
-  margin-left: 10px;
-}
+
 header {
   width: 100%;
   box-shadow: 0px 3px 2px -3px #c3c3c3;
@@ -237,9 +228,23 @@ md-tabs{
 }
 
 .main-padding {
-  padding: 100px;
+  padding: 90px;
 }
+
 /* login page */
+
+.menu-left {
+  float: left;
+  line-height: 60px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+}
+.menu-right {
+  float: right;
+  line-height: 60px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
 
 .login-header {
   font-family: 'Helvetica Neue';
@@ -259,13 +264,12 @@ md-tabs{
 .login-box1 {
   background-size: cover;
   background-image:url('../images/login-bg.png');
-  padding: 50px 0px 70px 6햣0px;
+  padding: 50px 0px 70px 40px;
   box-shadow: 0px 3px 2px -3px #c3c3c3;
 }
 
 .login-facebook {
   width: 280px;
-  border-radius: 0px;
   color: white;
   background-color:#3b5998;
   margin-top: 40px;
@@ -273,7 +277,6 @@ md-tabs{
 
 .login-google {
   width: 280px;
-  border-radius: 0px;
   color: white;
   background-color:#d34836;
 }
@@ -289,5 +292,68 @@ md-tabs{
 }
 
 .script-content {
-  min-height: 400px;
+  width: 100%;
+  min-height: 480px;
+  margin-bottom: 15px;
+}
+
+.write-box {
+  background-color: #FFFFFF;
+  box-shadow: 0px 3px 2px -3px #c3c3c3;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.noresize {
+  resize: none;
+}
+
+.vresize {
+  resize: vertical;
+}
+
+.hresize {
+  resize: horizontal;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 20px;
+  text-align: right;
+  cursor: inherit;
+  display: block;
+}
+
+.write-btn {
+  height: 34px;
+  float: right;
+}
+
+.btn-hidden {
+  visibility: hidden;
+  margin-bottom: 15px;
+}
+
+.btn-save {
+  float: right;
+  color: #51A7F9;
+  background-color: white;
+  border: 1px solid #51A7F9 !important;
+}
+
+.btn-test {
+  float: right;
+  color: #51A7F9;
+  background-color: white;
+  border: 1px solid #51A7F9 !important;
+  margin-left: 15px;
 }

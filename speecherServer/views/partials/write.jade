@@ -1,13 +1,13 @@
 .container
-  pre.bs-example.bs-example-padded-bottom
-    textarea.form-control.noresize.script-title(placeholder="제목을 지어주세요", ng-model="title", rows="1")
-
-  pre.code sd
-    textarea.form-control(placeholder="내용을 넣어주세요", ng-model="content")
-
-    //div.right
-    //  input(type='file', ng-file-read='readScript($file)')
-    //  button(ng-click='vm.saveScript()') SAVE
-    //
+  .write-box
+    .input-group
+      input.form-control(type='text', placeholder="제목을 지어주세요", ng-model="title")
+      span.input-group-addon.btn-file 텍스트파일 불러오기
+         input(type='file', ng-file-read='readScript($file)')
+  .write-box
+    textarea.form-control.noresize.script-content(placeholder="내용을 넣어주세요", ng-model="content")
+    button.btn-hidden
+    button.btn.btn-raised.btn-test(ng-click='vm.saveScript()') 테스트 시작하기
+    button.btn.btn-save(ng-click='vm.saveScript()') 대본 저장하기
 
 
