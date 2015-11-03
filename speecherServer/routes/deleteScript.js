@@ -3,8 +3,6 @@
  */
 
 var error = require('./error');
-var tokenizer = new natural.TreebankWordTokenizer();
-
 var collection = require('../models/dbCollection');
 
 
