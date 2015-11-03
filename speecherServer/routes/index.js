@@ -6,6 +6,7 @@ var session = require('express-session');
 var login = require('./snsLogin');
 var saveScript = require('./saveScript');
 var readScript = require('./readScript');
+var deleteScript = require('./deleteScript');
 var testHistory = require('./testHistory');
 var getRecord = require('./getRecord');
 /* GET home page. */
@@ -40,6 +41,7 @@ router.get('/login/facebook', login.facebookLogin);
 router.get('/login/google', login.googleLogin);
 router.post('/main/scriptSave', saveScript.saveScriptExpress);
 router.post('/main/scriptList', readScript.readScriptList);
+router.post('/main/scriptDelete', deleteScript.deleteScriptExpress);
 router.post('/scriptDetail/scriptContent', readScript.readScriptDetail);
 router.post('/scriptDetail/scriptGrapeScores', testHistory.testHistory);
 router.post('/test/getRecordPath', getRecord.getRecord);
