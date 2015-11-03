@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 
-
 var login = require('./snsLogin');
 var saveScript = require('./saveScript');
 var readScript = require('./readScript');

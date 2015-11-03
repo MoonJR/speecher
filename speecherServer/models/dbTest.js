@@ -40,3 +40,15 @@ exports.totalFailWord = function(user_id, wordLimit, callback){
     });
   });
 }
+
+//테스트 폼에 따라 변경 필요
+exports.saveTest = function(user_id, script_id, paragraph_id, callback){
+  //db.open(function(err, db) {
+  //  db.collection('record', function (err, collection) {
+  //    collection.find({}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+  //      callback(err, items);
+  //      db.close();
+  //    })
+  //  });
+  //});
+}
