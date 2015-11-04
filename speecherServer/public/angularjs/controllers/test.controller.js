@@ -24,8 +24,8 @@ function testCtrl($scope, $rootScope,$location, choiceService, $timeout) {
         choiceService.timer_percent = 100;
         finishTest(true);
       }else{
-        $timeout(_addCount, 30);
-        //$timeout(_addCount, 1000);
+        //$timeout(_addCount, 30);
+        $timeout(_addCount, 1000);
       }
     }
 
