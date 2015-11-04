@@ -10,6 +10,14 @@ function testCtrl($scope, $rootScope,$location, choiceService, $timeout) {
   // 서버쪽 완성되면 요청해서 실데이터  ajax 매칭
   choiceService.current_seconds = 1;
 
+  $scope.speech = {
+    "maxResults": 25,
+      "continuous": true,
+      "interimResults": true,
+      "recognizing": false
+  }
+
+
   $scope.startTest = startTest();
 
   function startTest(){
