@@ -13,6 +13,8 @@ span(style="position:absolute; right:50%; ")
 
 .flex(style="width:100%;margin-top:10px;")
   js-speech(ng-model="speech")
+.flex(style="width:100%;margin-top:10px;")
+  div(ng-bind-html="oldText|diff:newText")
 
 
 

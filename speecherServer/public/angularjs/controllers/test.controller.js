@@ -4,11 +4,16 @@
 angular
   .module('myApp')
   .controller('testCtrl', testCtrl);
-testCtrl.$inject = ['$scope','$rootScope','$location', 'choiceService', '$timeout'];
+testCtrl.$inject = ['$scope','$rootScope','$location', 'choiceService', 'scriptService', '$timeout'];
 
-function testCtrl($scope, $rootScope,$location, choiceService, $timeout) {
+function testCtrl($scope, $rootScope, $location, choiceService, scriptService, $timeout) {
   // 서버쪽 완성되면 요청해서 실데이터  ajax 매칭
   choiceService.current_seconds = 1;
+
+  $scope.oldText = 'The red fox is scuttling away.';
+  $scope.newText = 'The old red fox is running away from the dog';
+
+
 
   $scope.speech = {
     "maxResults": 25,

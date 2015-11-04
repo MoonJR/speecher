@@ -12,6 +12,10 @@ function testCtrl($scope, $rootScope,$location, choiceService, $timeout) {
 
   $scope.startTest = startTest();
 
+  $rootScope.oldText = 'The red fox is scuttling away.';
+  $rootSscope.newText = 'The old red fox is running away from the dog';
+
+
   function startTest(){
     _addCount();
 
