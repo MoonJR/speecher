@@ -12,10 +12,15 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
 
   $rootScope.test = choiceService;
 
-  // init latest test data status
+  // init latest test data status(새로고침 해도 저장된 데이터 불러오도록하기)
   (function initController() {
 
-    $rootScope.test.counter = 5;
+    //var testCookie = $cookieStore.get('test');
+    //console.log("called test cookie id:"+testCookie["id"]);
+    //$rootScope.test.counter = 5;
+    //
+    //$rootScope.test.timer_status = true;
+
 
   })();
 
@@ -34,11 +39,13 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
 
 
   // Timer Setting 값을 저장하고, 테스트 페이지로 이동
-  $rootScope.test.startTest = startTest;
-  function startTest(){
-    //choiceService.saveItem(scriptData);
-    $location.path('/test');
-  }
+  //$rootScope.test.startTest = startTest;
+  //function startTest(){
+  //  choiceService.saveItem(scriptData);
+  //  $cookieStore.put('test', $rootScope.test);
+  //  //아직 저장 상태는 어느시점으로할지 생각
+  //  $location.path('/test');
+  //}
 
 
 };

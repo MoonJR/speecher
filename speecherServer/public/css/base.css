@@ -99,6 +99,7 @@ md-toolbar:not(.md-menu-toolbar){
 #box-words{
   width:300px;
   min-width:300px;
+  float: right;
 
 }
 

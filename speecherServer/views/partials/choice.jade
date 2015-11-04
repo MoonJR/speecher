@@ -29,6 +29,6 @@
         button.btn.btn-default(type='button', ng-click="test.setTimer(10,'set')") 10분
 
     .border-top(width:100%; ,style="margin:20px 0 20px 0 ;")
-      p page id : {{ test.script_id }} // 기본값으로 choice 접근하면(새로고침 포함) base 로이동하게 처리하기
+      p page id : {{ test.script_id }}
       center
-        a.center.btn.btn-primary.btn-lg(ng-click="startTest()", role="button", style="margin-top:15px;") 시작
+        a.center.btn.btn-primary.btn-lg(ng-click="test.startTest()", role="button", style="margin-top:15px;") 시작

@@ -36,13 +36,14 @@
       //showWrongWordAll();
     })();
 
-    function showScriptList() {
+    function showScriptList(){
       scriptService.getScriptList().then(
         function (response) {
           if (response.data.success) {
+            console.log(response.data);
             if (response.data.result.length > 0) {
               vm.scriptList = response.data.result;
-              //console.log(response.data.result);
+              console.log(response.data.result);
             }
             console.log(response);
           }
@@ -92,9 +93,9 @@
     vm.moveChoice = moveChoice;
     // checking current selected test`s infomation and data
     function moveChoice(scriptData){
+      console.log("MOVE ID:"+scriptData["id"]);
       choiceService.saveItem(scriptData);
       $location.path('/choice');
     }
-
   }
 })();
