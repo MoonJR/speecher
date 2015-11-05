@@ -27,7 +27,7 @@
           b.margin-top(ng-class="{false:'gray', true:'black','':''}[test.timer_status]") ON
 
           p.margin-top(style="padding-left:15px;")
-          input(type="number",placeholder="minute", ng-model="test.counter",style="width:50px;height: 26px;margin-top: 22px;")
+          input(type="number",min=0,placeholder="minute", ng-model="test.counter",style="width:50px;height: 26px;margin-top: 22px;")
           p.margin-top 분
 
 

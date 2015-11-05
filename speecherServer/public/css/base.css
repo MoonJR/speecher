@@ -430,3 +430,8 @@ md-switch.md-default-theme.md-checked, md-switch.md-checked .md-bar {
 .padding-bottom{
   padding-bottom:20px;
 }
+
+
+.p-menu{
+  padding: 10px 5px 0px 5px;
+}

@@ -1,10 +1,18 @@
 .container
 
+  div(style="top:20%; left:50%; position:absolute;")
+    button.btn.btn-warning(style="left: -50%; width:300px; height:200px; z-index: 1; position:relative;") 테스트 시작
   .write-box
     .input-group
       span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
-        p TIMER ON
-      input.form-control(type='text', placeholder="{{ test.script_title }}" , ng-model="title",disabled )
+        p.p-menu 테스트타입: {{ test.type }}
+      span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
+        p.p-menu 남은시간: {{test.remain_seconds}} 초
+      span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
+        p.p-menu 단락번호: 111
+      span.input-group-addon(style="margin:0px; padding:0px;")
+        p.p-menu 타이틀: {{ test.script_title }}
+
     span(style="position:absolute; right:50%; ")
       p.p-timer {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
     .progress(style="width:100%; margin:0px; 0px 0px 0px")
@@ -16,16 +24,20 @@
       textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px")
       textarea.form-control.noresize#speech(ng-model="speech.value", placeholder="내용을 넣어주세요", style="width:50%;height:400px")
 
+  .write-box
+    .flex
+      button.btn.btn-save(type='button', ng-click="test.startTest()", ng-class="{true:'hidden','':''}[test.testnow]") 테스트 시작
+      button.btn.btn-save(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") 테스트 종료
 
-  .flex(style="width:100%;margin-top:10px;")
-    div(ng-bind-html="test.script_content|diff:speech.value")
+  .write-box
+    .flex(style="width:100%;margin-top:10px;")
+      div(ng-bind-html="test.script_content|diff:speech.value")
 
-  .flex(style="width:100%;margin-top:10px;")
-    div(ng-bind-html="test.script_content|diff:speech.value")
-      p.border test.script: {{test.script_content}}
-      p speech.value: {{speech.value}}
+    .flex(style="width:100%;margin-top:10px;")
+      div(ng-bind-html="test.script_content|diff:speech.value")
+        p.border test.script: {{test.script_content}}
+        p speech.value: {{speech.value}}
 
 
-  button.btn.btn-info.btn-sm(type='button', ng-click="test.startTest()", ng-class="{true:'hidden','':''}[test.testnow]") 테스트 시작
-  button.btn.btn-warning.btn-sm(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") 테스트 종료
+
 
