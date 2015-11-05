@@ -19,8 +19,8 @@
     js-speech(ng-model="speech")
   .write-box
     .flex
-      textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px")
-      textarea.form-control.noresize#speech(ng-model="speech.value", placeholder="내용을 넣어주세요", style="width:50%;height:400px")
+      textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px",disabled)
+      textarea.form-control.noresize#speech(ng-model="speech.value", placeholder="내 발음 데이터", style="width:50%;height:400px",disabled)
 
   .write-box
     .flex

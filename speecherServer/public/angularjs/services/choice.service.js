@@ -94,6 +94,7 @@
       test.testnow = true;
       startCount();
       startRecord();
+      test.speech.recognizing = true;
 
     }
 
@@ -105,10 +106,10 @@
         test.status = "WAIT";
 
       }
+      test.speech.recognizing = false;
       stopCount();
       $location.path('/result');
     };
-
 
     function startCount(){
       if(!test.testnow) {

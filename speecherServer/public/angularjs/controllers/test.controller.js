@@ -10,18 +10,11 @@
   function testController($scope, $rootScope, $location ,$cookieStore, choiceService, scriptService) {
 
     $rootScope.test = choiceService;
-
-
-
-
-
-
-
     (function initController() {
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
 
-      $rootScope.test = testCookie;
+      //$rootScope.test = testCookie;
 
       scriptService.getScript({script_id:$rootScope.test.script_id}).then(
         function (response) {
@@ -50,12 +43,10 @@
       "value":""
     }
 
+
+
     //$rootScope.test.script =  test 의  script_content;
-    $rootScope.test.speech = '';
-    $rootScope.test.interSpeech = $scope.speech['interimResults'];
-
-
-
+    $rootScope.test.speech = $scope.speech;
   }
 })();
 
