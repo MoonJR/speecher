@@ -4,6 +4,7 @@
 
 var natural = require('natural');
 var uuid = require('node-uuid');
+var error = require('./error');
 var tokenizer = new natural.TreebankWordTokenizer();
 
 //var db = require('../models/dbSaveScript');
@@ -34,7 +35,7 @@ var collection = require('../models/dbCollection');
 
 exports.saveScriptExpress = function saveScriptExpress(req, res) {
 
-  var response = {};
+  var sendData = {};
 
   try {
     var script = {
@@ -44,20 +45,72 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
       script_content: req.body.content,
       reg_date: new Date()
     };
-    saveScript(script);
-    var paragraphJsonArray = scriptToParagraphJsonArray(script);
-    saveParagraph(paragraphJsonArray);
-    for (var i = 0; i < paragraphJsonArray.length; i++) {
-      var morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
-      saveMorpheme(morphemeJsonArray);
+
+    if (typeof script.id == 'undefined') {
+      res.send(error.no_session);
+      return;
+    } else if (typeof script.script_content == 'undefined' || typeof script.script_id == 'undefined'
+      || typeof script.script_title == 'undefined') {
+      res.send(error.short_parameter);
+      return;
+
     }
-    response.success = 1;
+
+
+    try {
+      saveScript(script);
+    } catch (e) {
+      console.log(e);
+      res.send(error.db_save_error);
+      return;
+    }
+
+    var paragraphJsonArray;
+    try {
+      paragraphJsonArray = scriptToParagraphJsonArray(script);
+    } catch (e) {
+      console.log(e);
+      res.send(error.inner_error);
+      return;
+    }
+
+    try {
+      saveParagraph(paragraphJsonArray);
+    } catch (e) {
+      console.log(e);
+      res.send(error.db_save_error);
+      return;
+    }
+
+    for (var i = 0; i < paragraphJsonArray.length; i++) {
+      var morphemeJsonArray;
+      try {
+        morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
+      } catch (e) {
+        console.log(e);
+        res.send(error.inner_error);
+        return;
+      }
+
+      if (morphemeJsonArray.length == 0) {
+        continue;
+      }
+      try {
+        saveMorpheme(morphemeJsonArray);
+      } catch (e) {
+        console.log(e);
+        res.send(error.db_save_error);
+        return;
+      }
+    }
+    sendData.success = error.successCode.success;
+    sendData.msg = error.successMsg.success;
+    res.send(sendData);
   } catch (e) {
     console.log(e);
-    response.success = 0;
+    res.send(error.unknown_error);
   }
 
-  res.send(response);
 
 }
 

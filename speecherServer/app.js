@@ -10,8 +10,6 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
-var tests = require('./routes/tests');
-var main = require('./routes/main');
 
 var app = express();
 
@@ -42,8 +40,6 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/test', tests);
-app.use('/main', main);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {

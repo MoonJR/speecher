@@ -1,0 +1,10 @@
+.container
+  js-speech(ng-model='vm.speech')
+  p
+    | Script
+    br
+    textarea(rows='5', ng-model='vm.script')
+  p
+    | With ng-bind-html:
+    br
+    span(ng-bind-html='vm.speech.value|diff:vm.script')
