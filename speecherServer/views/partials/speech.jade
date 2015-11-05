@@ -3,8 +3,13 @@
   p
     | Script
     br
+    textarea(rows='5', ng-model='vm.a')
+  p
+    | Script
+    br
     textarea(rows='5', ng-model='vm.script')
   p
     | With ng-bind-html:
     br
-    span(ng-bind-html='vm.speech.value|diff:vm.script')
+    span(ng-bind-html='vm.a|diff:vm.script')
+    p {{vm.a|diff:vm.script}}

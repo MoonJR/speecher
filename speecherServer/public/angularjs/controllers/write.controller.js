@@ -29,7 +29,7 @@
 
               if(response.data.success){
                 console.log("save script");
-                $location.path('/index');
+                $location.path('/#/index');
                 return response;
               } else {
                 _errorHandler_('Error: saveScript success 0');
