@@ -19,7 +19,7 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
     $rootScope.test.counter = 5;
     $rootScope.test.timer_status = true;
     $rootScope.test.status = "WAIT";
-    $rootScope.test.type = "READ";
+
 
     //저장해 둔 데이터 로드
     $rootScope.test.saveItem(testCookie);
@@ -42,6 +42,8 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
       }
     });
   })();
+
+
 };
 
 

@@ -8,6 +8,9 @@
   choiceService.$inject = ['$http', '$cookieStore', '$rootScope','$location', '$timeout'];
   //가장 최근에 선택된 test 글로벌 값을 관리한다
   function choiceService($http, $cookieStore, $rootScope, $location, $timeout) {
+
+    var typeText =["등록한 대본을 보면서 읽을 수 있도록, 대본을 보여주는 상태로 테스트를 진행합니다","등록한 대본의 일부를 랜덤 빈칸으로 비워둔 상태로 테스트를 진행합니다.", "등록한 대본을 이용한 마지막 실전 테스트입니다. 대본의 내용을 보지 않고 테스트를 진행합니다"];
+    var types =["대본읽기", "빈칸테스트","실전테스트"];
     var test = {};
     //function
     test.moveTest = moveTest;
@@ -18,6 +21,7 @@
     test.saveItem = saveItem;
     test.setTimer = setTimer;
     test.setType = setType;
+    test.types = types;
 
     test.counter = 5;
     test.timer_status = true;
@@ -25,19 +29,15 @@
     test.current_seconds = 0;
     test.timer_percent = 0;
     test.status = "WAIT";
-    test.type = "READ";//READ, BLANK, REAL
+    test.type = types[0];
     test.testnow = false;
+    test.typeText = typeText[0];
 
     return test;
 
     function setType(type){
-      if(type == 1){
-        test.type = "READ";
-      }else if(type == 2){
-        test.type = "BLANK";
-      }else if(type == 3){
-        test.type = "REAL";
-      }
+      test.type = types[type];
+      test.typeText = typeText[type];
     }
     //  indexPage 에서 테스트 버튼 클릭시 관련 스크립트의 데이터를 rootScope 의 test에서 쓸 수 있도록 저장한다
     function saveItem(item){
