@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('writeController', writeController);
 
-  writeController.$inject = ['$scope', '$http'];
-  function writeController($scope, $http) {
+  writeController.$inject = ['$scope', '$http', '$location'];
+  function writeController($scope, $http, $location) {
 
     var vm = this;
 
@@ -29,6 +29,7 @@
 
               if(response.data.success){
                 console.log("save script");
+                $location.path('/index');
                 return response;
               } else {
                 _errorHandler_('Error: saveScript success 0');

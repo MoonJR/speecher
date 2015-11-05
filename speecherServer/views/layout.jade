@@ -16,7 +16,7 @@ html(lang='kr', ng-app="myApp")
     block js
     if ENV_DEVELOPMENT
       script(src='http://localhost:35729/livereload.js')
-  body(layout="column").body-bg
+  body(layout="column")
     header.navbar-header
       .container
         p.logo.menu-left You Can Speech
@@ -28,7 +28,7 @@ html(lang='kr', ng-app="myApp")
           |로그아웃
         p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
 
-  main.main-padding
+  main.body-bg
     block content
   footer
     //Angular Material Dependencies
