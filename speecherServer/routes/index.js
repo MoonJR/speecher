@@ -44,6 +44,7 @@ router.get('/login/facebook', login.facebookLogin);
 router.get('/login/google', login.googleLogin);
 router.post('/main/scriptSave', saveScript.saveScriptExpress);
 router.post('/main/scriptList', readScript.readScriptList);
+router.post('/main/paragraphList', readScript.readParagraph);
 router.post('/main/scriptDelete', deleteScript.deleteScriptExpress);
 router.post('/scriptDetail/scriptContent', readScript.readScriptDetail);
 router.post('/scriptDetail/scriptGrapeScores', testHistory.testHistory);
