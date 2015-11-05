@@ -11,10 +11,35 @@
 
     $rootScope.test = choiceService;
 
+
+
+
+
+
+
     (function initController() {
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
-      $rootScope.test.test
+
+      $rootScope.test = testCookie;
+
+      scriptService.getScript({script_id:$rootScope.test.script_id}).then(
+        function (response) {
+          if (response.data.success) {
+            console.log("response.data.result");
+            console.log(response.data.result);
+            //if (response.data.result.length > 0) {
+            $rootScope.test.script_content = response.data.result.script_content;
+            //}
+            console.log(response);
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        function () {
+        }
+      );
     })();
 
     $scope.speech = {
@@ -28,6 +53,8 @@
     //$rootScope.test.script =  test 의  script_content;
     $rootScope.test.speech = '';
     $rootScope.test.interSpeech = $scope.speech['interimResults'];
+
+
 
   }
 })();

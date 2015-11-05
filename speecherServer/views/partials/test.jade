@@ -1,20 +1,18 @@
 .container
 
-  div(style="top:20%; left:50%; position:absolute;")
-    button.btn.btn-warning(style="left: -50%; width:300px; height:200px; z-index: 1; position:relative;") 테스트 시작
+  //div(style="top:20%; left:50%; position:absolute;")
+    //button.btn.btn-warning(style="left: -50%; width:300px; height:200px; z-index: 1; position:relative;") 테스트 시작
   .write-box
     .input-group
       span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
         p.p-menu 테스트타입: {{ test.type }}
-      span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
-        p.p-menu 남은시간: {{test.remain_seconds}} 초
-      span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
-        p.p-menu 단락번호: 111
       span.input-group-addon(style="margin:0px; padding:0px;")
         p.p-menu 타이틀: {{ test.script_title }}
+      span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
+        p.p-menu 남은시간: {{test.remain_seconds}} 초
 
     span(style="position:absolute; right:50%; ")
-      p.p-timer {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
+      p.p-timer(style="position:relative; right:-50%; ") {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
     .progress(style="width:100%; margin:0px; 0px 0px 0px")
       .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
       span.sr-only {{test.timer_percent}}% Complete
