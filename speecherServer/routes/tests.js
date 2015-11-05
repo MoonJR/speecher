@@ -2,17 +2,21 @@
  * Created by kimminki on 2015. 10. 12..
  */
 var dbTest = require('../models/dbTest');
+var error = require('../routes/error');
 
-/* GET users listing. */
 exports.testList = function(req, res) {
-  var scriptId = Number(req.query.script_id);
+  var userId = req.session.user_id;
+  var scriptId = req.query.script_id;
 
-  dbTest.testList(scriptId, function(err, data){
-    if(err) throw err;
+  dbTest.testList(userId, scriptId, function(err, data){
+    if(err){
+      res.send(error.db_load_error);
+    }
+
     if(data){
-      res.json({ success:1, msg:"성공적으로 수행되었습니다.", result:data });
+      res.send({success: error.success.success, msg: error.success.msg, result: data});
     }else{
-      res.json({ success:0, msg:"수행도중 에러가 발생했습니다." });
+      res.send(error.unknown_error);
     }
   });
 };

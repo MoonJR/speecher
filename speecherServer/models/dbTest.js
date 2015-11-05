@@ -3,10 +3,11 @@
  */
 var db = require('./dbConn');
 
-exports.testList = function(scriptId, callback){
+exports.testList = function(userId, scriptId, callback){
+
   db.open(function(err, db) {
     db.collection('test', function (err, collection) {
-      collection.find({"script_id":scriptId}, function (err, cursor) {
+      collection.find({"id":userId, "script_id":scriptId}, function (err, cursor) {
         cursor.toArray(function (err, items) {
           callback(err, items);
           db.close();
@@ -16,13 +17,11 @@ exports.testList = function(scriptId, callback){
   });
 };
 
-exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
-  console.log(scriptId);
-  console.log(wordLimit);
+exports.wrongWordsInScript = function(userId, scriptId, wordLimit, callback){
 
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({"script_id":scriptId}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+      collection.find({"id": userId, "script_id":scriptId}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
           callback(err, items);
           db.close();
       })
@@ -33,7 +32,7 @@ exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
 exports.totalFailWord = function(user_id, wordLimit, callback){
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+      collection.find({"id":user_id}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
         callback(err, items);
         db.close();
       })
