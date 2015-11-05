@@ -1,33 +1,31 @@
-span(style="position:absolute; right:50%; ")
-  p.p-timer {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
+.container
+
+  .write-box
+    .input-group
+      span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
+        p TIMER ON
+      input.form-control(type='text', placeholder="{{ test.script_title }}" , ng-model="title",disabled )
+    span(style="position:absolute; right:50%; ")
+      p.p-timer {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
+    .progress(style="width:100%; margin:0px; 0px 0px 0px")
+      .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
+      span.sr-only {{test.timer_percent}}% Complete
+    js-speech(ng-model="speech")
+  .write-box
+    .flex
+      textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px")
+      textarea.form-control.noresize#speech(ng-model="speech.value", placeholder="내용을 넣어주세요", style="width:50%;height:400px")
 
 
-.progress(style="width:100%; margin:7px; 0px 0px 0px")
-  .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
-    span.sr-only {{test.timer_percent}}% Complete
+  .flex(style="width:100%;margin-top:10px;")
+    div(ng-bind-html="test.script_content|diff:speech.value")
+
+  .flex(style="width:100%;margin-top:10px;")
+    div(ng-bind-html="test.script_content|diff:speech.value")
+      p.border test.script: {{test.script_content}}
+      p speech.value: {{speech.value}}
 
 
-.flex(style="width:100%;margin-top:10px;")
-  .left(style="margin:0 10px 0 10px; width:50%;")
-    button.btn.btn-default(type='button', ng-click="test.startTest()", ng-class="{true:'hidden','':''}[test.testnow]") Start
-    button.btn.btn-default(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") Stop
-
-.flex(style="width:100%;margin-top:10px;")
-  textarea#script(ng-model="test.script_content", style="width:50%;min-height:200px;")
-  textarea#speech(ng-model="speech.value", style="width:50%;")
-
-.flex(style="width:100%;margin-top:10px;")
-  js-speech(ng-model="speech")
-.flex(style="width:100%;margin-top:10px;")
-  div(ng-bind-html="test.script_content|diff:speech.value")
-
-
-
-.flex(style="width:100%;margin-top:10px;")
-  div(ng-bind-html="test.script_content|diff:speech.value")
-    p.border test.script: {{test.script_content}}
-    p speech.value: {{speech.value}}
-
-
-
+  button.btn.btn-info.btn-sm(type='button', ng-click="test.startTest()", ng-class="{true:'hidden','':''}[test.testnow]") 테스트 시작
+  button.btn.btn-warning.btn-sm(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") 테스트 종료
 
