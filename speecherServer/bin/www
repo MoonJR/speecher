@@ -29,8 +29,9 @@ io.sockets.on('connection', function (socket) {
 
 
 function writeToDisk(dataURL, fileName) {
+  console.log();
   var fileExtension = fileName.split('.').pop(),
-    fileRootNameWithBase = '../public/uploads/' + fileName,
+    fileRootNameWithBase = __dirname+'/../public/uploads/' + fileName,
     filePath = fileRootNameWithBase,
     fileID = 2,
     fileBuffer;
