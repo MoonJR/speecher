@@ -14,7 +14,7 @@
   .write-box
     textarea.form-control.noresize.script-content(placeholder="{{vm.scriptContent}}", ng-model="vm.scriptContent", ng-readonly="!vm.scriptIsModifing")
     button.btn-hidden
-    button.btn.btn-test(ng-click='vm.saveScript()', ng-show='vm.scriptIsModifing') 완료
+    button.btn.btn-complete(ng-click='vm.saveScript()', ng-show='vm.scriptIsModifing') 완료
     button.btn.btn-test(ng-click='vm.modifyScript(false)', ng-show='vm.scriptIsModifing') 취소
     button.btn.btn-test(ng-click='vm.deleteScript()' ng-show='!vm.scriptIsModifing') 삭제
     button.btn.btn-save(ng-click='vm.modifyScript(true)' ng-show='!vm.scriptIsModifing') 수정
