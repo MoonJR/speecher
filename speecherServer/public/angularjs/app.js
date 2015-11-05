@@ -46,10 +46,9 @@ angular.module('myApp', [
             },
             controller: 'testCtrl',
           })
-          //
-          //.otherwise({
-          //  redirectTo: '/'
-          //});
+          .otherwise({
+            redirectTo: '/'
+          });
 
       $facebookProvider.setAppId('1386879811618975');
 
