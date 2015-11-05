@@ -423,4 +423,9 @@ h4 {
 }
 
 /* detail page */
+.detail-btn-history, .detail-btn-test {
+  background-color: #ffffff !important;
+  border-color: #51A7F9 !important;
+  color: #51A7F9 !important;
+}
 

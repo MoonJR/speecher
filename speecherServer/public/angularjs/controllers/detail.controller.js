@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('detailController', detailController);
 
-  detailController.$inject = ['$http', '$routeParams', 'scriptService'];
-  function detailController($http, $routeParams, scriptService) {
+  detailController.$inject = ['$http', '$routeParams', 'scriptService', '$location'];
+  function detailController($http, $routeParams, scriptService, $location) {
 
     var vm = this;
 
@@ -14,7 +14,11 @@
     vm.scriptId = { script_id : $routeParams.scriptId };
     vm.scriptTitle = null;
     vm.scriptContent = null;
+    vm.scriptIsModifing = false;
     vm.showScript = showScript;
+    vm.modifyScript = modifyScript;
+    vm.saveScript = saveScript;
+    vm.deleteScript = deleteScript;
 
     vm.wordsDummy = [
       {
@@ -42,26 +46,45 @@
 
               console.log(response.data.result);
             }
-            else {
-              _errorHandler_('Error: success 0');
-            }
           },
           _errorHandler_('Error: showScript')
       );
     }
 
-
-    // private functions
-
-    function _successHandler_(response) {
-      if(response.data.success) {
-        console.log(response);
-        return response;
-      } else {
-        _errorHandler_('Error: success 0');
-      }
+    function modifyScript(boolean) {
+      vm.scriptIsModifing = boolean;
     }
 
+    function saveScript() {
+      var data = {
+        title: vm.scriptTitle,
+        content: vm.scriptContent
+      };
+
+      scriptService.saveScript(data).then(
+          function (response) {
+            console.log(response.data);
+            if (response.data.success) {
+              deleteScript();
+            }
+          },
+          _errorHandler_('Error: saveScript')
+      );
+    }
+
+    function deleteScript() {
+      scriptService.deleteScript(vm.scriptId).then(
+          function (response) {
+            if (response.data.success) {
+              console.log(response);
+              $location.path('/#/index');
+            }
+          },
+          _errorHandler_('Error: deleteScript')
+      );
+    }
+
+    // private functions
     function _errorHandler_ (error) {
       return { success: false, message: error };
     }

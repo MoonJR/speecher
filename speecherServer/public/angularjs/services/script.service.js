@@ -13,6 +13,7 @@
     // APIs
     service.scriptList = null;
     service.saveScript = saveScript;
+    service.deleteScript = deleteScript;
     service.getScript = getScript;
     service.getWrongWord = getWrongWord;
     service.getScriptList = getScriptList;
@@ -22,6 +23,10 @@
 
     function saveScript(script) {
       return $http.post('/main/scriptSave', script).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
+    }
+
+    function deleteScript(scriptId) {
+      return $http.post('main/scriptDelete', scriptId).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
     }
 
     function getScript(scriptId) {

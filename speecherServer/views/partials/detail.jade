@@ -1,7 +1,7 @@
 .container
   .write-box
     .input-group
-      input.form-control(type='text', placeholder="{{vm.scriptTitle}}", ng-model="title", readonly)
+      input.form-control(type='text', placeholder="{{vm.scriptTitle}}", ng-model="vm.scriptTitle", ng-readonly="!vm.scriptIsModifing")
       a.input-group-addon.detail-btn-history(href='/#/') 테스트 기록보기
       a.input-group-addon.detail-btn-test(href='/#/') 테스트하기
   .write-box(ng-show="vm.wordsDummy")
@@ -12,9 +12,11 @@
           | {{item.word}}
           span.badge {{item.count}}
   .write-box
-    textarea.form-control.noresize.script-content(placeholder="{{vm.scriptContent}}", ng-model="content", readonly)
+    textarea.form-control.noresize.script-content(placeholder="{{vm.scriptContent}}", ng-model="vm.scriptContent", ng-readonly="!vm.scriptIsModifing")
     button.btn-hidden
-    button.btn.btn-test(ng-click='') 삭제
-    button.btn.btn-save(ng-click='') 수정
+    button.btn.btn-test(ng-click='vm.saveScript()', ng-show='vm.scriptIsModifing') 완료
+    button.btn.btn-test(ng-click='vm.modifyScript(false)', ng-show='vm.scriptIsModifing') 취소
+    button.btn.btn-test(ng-click='vm.deleteScript()' ng-show='!vm.scriptIsModifing') 삭제
+    button.btn.btn-save(ng-click='vm.modifyScript(true)' ng-show='!vm.scriptIsModifing') 수정
 
 
