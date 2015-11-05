@@ -8,7 +8,8 @@
           span.badge {{item.count}}
   .row
     .col-sm-3.col-md-3(ng-repeat='item in vm.scriptList')
-      a(href='/testlist?script_id={{item.script_id}}', style="text-decoration: none !important; color:#333;")
+      a(href='/#/detail/{{item.script_id}}', style="text-decoration: none !important; color:#333;")
         .script-box(style="margin:10px;")
           h4 {{item.script_title}}
           p {{item.script_content}}
+          button.btn-test test

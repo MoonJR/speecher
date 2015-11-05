@@ -20,11 +20,11 @@ html(lang='kr', ng-app="myApp")
     header.navbar-header
       .container
         p.logo.menu-left You Can Speech
-        a.menu-left(ng-href="/#write", ng-if="globals.currentUser")
+        a.menu-left(ng-href="/#/write", ng-if="globals.currentUser")
           |대본작성
-        a.menu-left(ng-href="/#", ng-if="globals.currentUser")
+        a.menu-left(ng-href="/#/", ng-if="globals.currentUser")
           |대본목록
-        a.menu-right(ng-href="/#login", ng-if="globals.currentUser")
+        a.menu-right(ng-href="/#/login", ng-if="globals.currentUser")
           |로그아웃
         p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
 
@@ -59,6 +59,7 @@ html(lang='kr', ng-app="myApp")
     script(src='angularjs/controllers/write.controller.js')
     script(src='angularjs/controllers/index.controller.js')
     script(src='angularjs/controllers/speech.controller.js')
+    script(src='angularjs/controllers/detail.controller.js')
     script(src='angularjs/controllers/choiceCtrl.js')
     script(src='../angularjs/controllers/testCtrl.js')
     script(src='../angularjs/controllers/choiceCtrl.js')

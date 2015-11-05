@@ -5,12 +5,13 @@
       .module('myApp')
       .factory('scriptService', scriptService);
 
-  scriptService.$inject = ['$http'];
-  function scriptService($http) {
+  scriptService.$inject = ['$http', '$cacheFactory'];
+  function scriptService($http, $cacheFactory) {
 
     var service = {};
 
     // APIs
+    service.scriptList = null;
     service.saveScript = saveScript;
     service.getScript = getScript;
     service.getWrongWord = getWrongWord;
@@ -33,6 +34,7 @@
 
     function getScriptList() {
       return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getScriptList'));
+
     }
 
     function getWrongWordAll() {
