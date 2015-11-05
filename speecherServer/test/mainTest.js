@@ -25,7 +25,7 @@ describe('main', function() {
       var script = 'Script.';
       res.send = function (json) {
         if (json.success == 1) {
-          if(json.result[0].content == script){
+          if(json.result[0]._id == script){
             done();
           }
         }

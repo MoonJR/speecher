@@ -32,10 +32,16 @@ exports.wrongWordsInScript = function(userId, scriptId, wordLimit, callback){
 exports.totalFailWord = function(user_id, wordLimit, callback){
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({"id":user_id}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
-        callback(err, items);
-        db.close();
-      })
+      collection.aggregate(
+        [
+          { $group: { "_id": "$content", wrongCount: {$sum : "$wrongCount"}}},
+          { $sort: {wrongCount: -1}},
+          { $limit: 10}
+        ]
+      ).toArray(function(err, result) {
+          callback(err,result);
+          db.close();
+      });
     });
   });
 }
