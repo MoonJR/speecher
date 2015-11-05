@@ -1,33 +1,40 @@
 body{
-  max-width:1300px;
   margin:auto !important;
-
+}
+.body-bg {
+  padding: 45px 0px 0px 0px!important;
+  background-color: #f5f8fa;
 }
 .left {
   float: left;
 }
 .right {
   float: right;
+  overflow:hidden;
+  height:auto;
 }
+
 header {
   width: 100%;
-  height: 70px;
-  box-shadow: 0px 3px 15px #888888;
-  margin-bottom: 6px;
-  background-color:#323232;
+  box-shadow: 0px 3px 2px -3px #c3c3c3;
+  margin-bottom: 1px;
+  background-color:#ffffff;
 }
 
 main{
 
 }
 .logo {
-  color: #cdcdcd;
-  font-size: 30px;
-  margin: 16px;
+  color: #51A7F9;
+  font-family: 'Helvetica Neue';
+  font-weight: bold;
+  font-style: italic;
+  font-size: 24px;
+  display:inline-block;
+  margin-right: 40px;
 }
 .top-menu {
   float: right;
-  margin: 16px 76px 16px 16px;
 }
 .top-menu img {
   position: absolute;
@@ -114,12 +121,9 @@ md-toolbar:not(.md-menu-toolbar){
   margin:0px;
 }
 
-
-
 .border{
   border: 1px solid rgb(224,224,224);
 }
-
 
 a.md-button.md-primary.md-raised, a.md-button.md-primary.md-fab, .md-button.md-primary.md-raised, .md-button.md-primary.md-fab,
 a.md-button.md-primary.md-raised:hover, a.md-button.md-primary.md-fab:hover, .md-button.md-primary.md-raised:hover, .md-button.md-primary.md-fab:hover{
@@ -196,16 +200,12 @@ md-toolbar{
   left:30px;
 }
 
-
-
-
 md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]){
   color:rgb(100, 100, 100);
 }
 
 md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-active, md-toolbar.md-warn > md-tabs.md-default-theme, md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:not([disabled]).md-focused{
   color:rgb(50, 50, 50);
-
 }
 
 md-tabs{
@@ -228,7 +228,165 @@ md-tabs{
 }
 
 
+/* login page */
+
+.menu-left {
+  float: left;
+  line-height: 60px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+}
+.menu-right {
+  float: right;
+  line-height: 60px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+.login-header {
+  font-family: 'Helvetica Neue';
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 45px;
+  margin-top: 40px;
+}
+
+.login-content {
+  font-family: 'Helvetica Neue';
+  font-weight: lighter;
+  font-size: 20px;
+  margin-top: 30px;
+}
+
+.login-box1 {
+  background-size: cover;
+  background-image:url('../images/speecher-login-background.png');
+  padding: 50px 0px 70px 40px;
+  box-shadow: 0px 3px 2px -3px #c3c3c3;
+  margin-bottom: 15px;
+}
+
+.login-facebook {
+  width: 280px;
+  color: white;
+  background-color:#3b5998;
+  margin-top: 40px;
+}
+
+.login-google {
+  width: 280px;
+  color: white;
+  background-color:#d34836;
+}
+
+.icon-margin {
+  margin-right: 8px;
+}
+
+/* write page */
+
+.script-title {
+  margin: 10px;
+}
+
+.script-content {
+  width: 300px;
+  min-height: 500px;
+  margin-bottom: 10px;
+}
+
+.write-box {
+  background-color: #FFFFFF;
+  box-shadow: 0px 3px 2px -3px #c3c3c3;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.noresize {
+  resize: none;
+}
+
+.vresize {
+  resize: vertical;
+}
+
+.hresize {
+  resize: horizontal;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 20px;
+  text-align: right;
+  cursor: inherit;
+  display: block;
+}
+
+.write-btn {
+  height: 34px;
+  float: right;
+}
+
+.btn-hidden {
+  visibility: hidden;
+  margin-bottom: 15px;
+}
+
+.btn-save {
+  float: right;
+  color: #51A7F9;
+  background-color: white;
+  border: 1px solid #51A7F9 !important;
+}
+
+.btn-test {
+  float: right;
+  color: #51A7F9;
+  background-color: white;
+  border: 1px solid #51A7F9 !important;
+  margin-left: 15px;
+}
+
+/* index page */
+
+h4 {
+  margin-top: 0px !important;
+}
+
+.badge {
+  margin-left: 7px !important;
+  background-color: #51A7F9 !important;
+}
+
+.btn-word {
+  float: right;
+  background-color: #eee;
+}
+
+.script-box {
+  background-color: #FFFFFF;
+  box-shadow: 0px 3px 2px -3px #c3c3c3;
+  padding: 15px;
+  height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.col-sm-3.col-md-3 {
+  padding: 5px !important;
+
+}
+
+
 .border{
   border: 1px solid rgb(224,224,224);
   border-radius: 5px;
-}

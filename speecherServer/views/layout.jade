@@ -6,13 +6,10 @@ html(lang='kr', ng-app="myApp")
     title= title
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='/css/base.css')
-    link(data-require='bootstrap-css@3.0.0', data-semver='3.0.0', rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
     link(data-require='font-awesome@4.3.0', data-semver='4.3.0', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
     link(rel="stylesheet", href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css")
-    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic')
-    link(rel='stylesheet', href='../bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='../bootstrap/dist/css/bootstrap-theme.css')
-
+    link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='bootstrap/dist/css/bootstrap-theme.css')
 
     //|<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-responsive.css">
     block css
@@ -20,16 +17,18 @@ html(lang='kr', ng-app="myApp")
     if ENV_DEVELOPMENT
       script(src='http://localhost:35729/livereload.js')
   body(layout="column")
-    header
-      p.logo.left SPEECHER
-      .top-menu.right
-        a(href="/#write")
-          button.md-raised.md-button.md-default-theme() 대본작성
-        a(ng-href="/#index")
-          button.md-raised.md-button.md-default-theme() 대본목록
-        img(alt="프로필 이미지", src="/images/default_profile_image.png")
-        p 반상현
-  main
+    header.navbar-header
+      .container
+        p.logo.menu-left You Can Speech
+        a.menu-left(ng-href="/#write", ng-if="globals.currentUser")
+          |대본작성
+        a.menu-left(ng-href="/#", ng-if="globals.currentUser")
+          |대본목록
+        a.menu-right(ng-href="/#login", ng-if="globals.currentUser")
+          |로그아웃
+        p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
+
+  main.body-bg
     block content
   footer
     //Angular Material Dependencies
