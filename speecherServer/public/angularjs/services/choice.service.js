@@ -5,29 +5,39 @@
     .module('myApp')
     .factory('choiceService', choiceService);
 
-  choiceService.$inject = ['$http', '$cookieStore', '$rootScope','$location'];
+  choiceService.$inject = ['$http', '$cookieStore', '$rootScope','$location', '$timeout'];
   //가장 최근에 선택된 test 글로벌 값을 관리한다
-  function choiceService($http, $cookieStore, $rootScope, $location) {
+  function choiceService($http, $cookieStore, $rootScope, $location, $timeout) {
     var test = {};
     //function
+    test.moveTest = moveTest;
     test.startTest = startTest;
+    test.finishTest = finishTest;
+    test.resetCount = resetCount;
     test.saveItem = saveItem;
     test.setTimer = setTimer;
+    test.setType = setType;
+
     test.counter = 5;
     test.timer_status = true;
     test.timer_seconds = 300;
     test.current_seconds = 0;
     test.timer_percent = 0;
     test.status = "WAIT";
-
-    //init value
-
+    test.type = "READ";//READ, BLANK, REAL
+    test.testnow = false;
 
     return test;
 
-
-
-
+    function setType(type){
+      if(type == 1){
+        test.type = "READ";
+      }else if(type == 2){
+        test.type = "BLANK";
+      }else if(type == 3){
+        test.type = "REAL";
+      }
+    }
     //  indexPage 에서 테스트 버튼 클릭시 관련 스크립트의 데이터를 rootScope 의 test에서 쓸 수 있도록 저장한다
     function saveItem(item){
       for (var key in item) {
@@ -55,10 +65,71 @@
       //$cookieStore.put('test', $rootScope.test);
     }
 
-    function startTest(scriptData){
+    //function startTest(scriptData){
+    //  //위의 set까지는 cookie 세이브가아닌 페이지 내에서의 저장
+    //  saveItem(scriptData);
+    //  $location.path('/test');
+    //}
+    function moveTest(scriptData){
+      //위의 set까지는 cookie 세이브가아닌 페이지 내에서의 저장
       saveItem(scriptData);
-      //아직 저장 상태는 어느시점으로할지 생각
+      stopCount();//뒤로가기 후 앞으로가기등 상황 대비 리셋용
       $location.path('/test');
     }
+
+    //Test  시작 버튼,  Timer 시작 및,  Record 시작
+    function startTest(){
+      test.testnow = true;
+      startCount();
+      startRecord();
+
+    }
+
+    function finishTest(isTimeFinished){
+      if(isTimeFinished){
+        test.status = "FINISH";
+
+      }else{
+        test.status = "WAIT";
+
+      }
+      stopCount();
+      $location.path('/result');
+    };
+
+
+    function startCount(){
+      test.current_seconds++;
+      test.timer_percent = test.current_seconds/test.timer_seconds * 100;
+
+      $timeout(startCount, 1000);
+
+      if(test.timer_percent >= 100){
+
+
+      }
+
+    }
+    function stopCount(){
+      resetCount();
+      test.testnow = false;
+      $timeout.cancel(startCount);
+    }
+
+    function resetCount(){
+      test.current_seconds = 0;
+      test.timer_percent = 0;
+    }
+
+
+    function startRecord(){}
+    function stopRecord(){}
+
+
+
+
+
+
+
   }
 })();

@@ -1,20 +1,32 @@
 span(style="position:absolute; right:50%; ")
-  p.p-timer {{test.current_seconds}}/{{test.timer_seconds}}
+  p.p-timer {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
 
-.progress(style="width:100%; margin:7px; 5px 0px 5px")
-  .progress-bar.progress-bar-info.progress-bar-striped.active(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: {{test.timer_percent}}%;')
-    span.sr-only 20% Complete
+
+.progress(style="width:100%; margin:7px; 0px 0px 0px")
+  .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
+    span.sr-only {{test.timer_percent}}% Complete
 
 
 .flex(style="width:100%;margin-top:10px;")
   .left(style="margin:0 10px 0 10px; width:50%;")
-    button.btn.btn-default(type='button', ng-click="test.startTest()") Start
-    button.btn.btn-default.hidden(type='button', ng-click="") Stop
+    button.btn.btn-default(type='button', ng-click="test.startTest()", ng-class="{true:'hidden','':''}[test.testnow]") Start
+    button.btn.btn-default(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") Stop
 
 .flex(style="width:100%;margin-top:10px;")
   js-speech(ng-model="speech")
+
+
+  textarea#script(ng-model="test.script", style="width:50%;")
+  textarea#speech(ng-model="speech.value", style="width:50%;")
+
+  div(ng-bind-html="test.script|diff:speech.value")
+
+
+
 .flex(style="width:100%;margin-top:10px;")
-  div(ng-bind-html="oldText|diff:newText")
+  div(ng-bind-html="test.script|diff:speech.value")
+    p test.script: {{test.script}}
+    p speech.value: {{speech.value}}
 
 
 

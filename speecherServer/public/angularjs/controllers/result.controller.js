@@ -7,8 +7,8 @@
 
   resultController.$inject = ['$scope', '$http'];
   function resultController($scope, $http) {
-
-
+    result = {};
+    return result;
   }
 })();
 
