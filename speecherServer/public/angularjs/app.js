@@ -46,7 +46,6 @@ angular.module('myApp', [
             },
             controller: 'testCtrl',
           })
-
           .otherwise({
             redirectTo: '/'
           });
