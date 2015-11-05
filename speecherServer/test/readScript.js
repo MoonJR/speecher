@@ -54,6 +54,28 @@ describe('script', function () {
 
     });
 
+    it('db에서 특정 대본 문단별 불러오기', function (done) {
+
+      setTimeout(function () {
+        //목 만들기
+        var req = {query: {}};
+
+        req.body.id = id;
+        req.body.script_id = script_id;
+
+        var res = {};
+        res.send = function (json) {
+          if (json.success == 1) {
+            done();
+          }
+        };
+
+        readScript.readParagraph(req, res);
+
+      }, 100);
+
+    });
+
 
   });
 
