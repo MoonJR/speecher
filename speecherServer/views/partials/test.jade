@@ -13,19 +13,19 @@ span(style="position:absolute; right:50%; ")
     button.btn.btn-default(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") Stop
 
 .flex(style="width:100%;margin-top:10px;")
-  js-speech(ng-model="speech")
-
-
-  textarea#script(ng-model="test.script", style="width:50%;")
+  textarea#script(ng-model="test.script_content", style="width:50%;min-height:200px;")
   textarea#speech(ng-model="speech.value", style="width:50%;")
 
-  div(ng-bind-html="test.script|diff:speech.value")
+.flex(style="width:100%;margin-top:10px;")
+  js-speech(ng-model="speech")
+.flex(style="width:100%;margin-top:10px;")
+  div(ng-bind-html="test.script_content|diff:speech.value")
 
 
 
 .flex(style="width:100%;margin-top:10px;")
-  div(ng-bind-html="test.script|diff:speech.value")
-    p test.script: {{test.script}}
+  div(ng-bind-html="test.script_content|diff:speech.value")
+    p.border test.script: {{test.script_content}}
     p speech.value: {{speech.value}}
 
 

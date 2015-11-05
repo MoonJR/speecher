@@ -38,7 +38,7 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
         //back 새로고침시 갱신 데이터
         $rootScope.test.testnow = false;
         $rootScope.test.resetCount();
-        $rootScope.test.stopCounter();
+        $rootScope.test.stopCount();
       }
     });
   })();

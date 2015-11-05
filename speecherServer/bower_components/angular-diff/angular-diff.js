@@ -25,8 +25,10 @@ angular.module('diff', [])
   }
 
   function diffString( o, n ) {
+    console.log("start Old:"+o+", New:"+n);
     o = o.replace(/\s+$/, '');
     n = n.replace(/\s+$/, '');
+
 
     var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/) );
     var str = '';
@@ -69,7 +71,7 @@ angular.module('diff', [])
         }
       }
     }
-
+    console.log("End:"+o+", New:"+n);
     return str;
   }
 
@@ -81,7 +83,7 @@ angular.module('diff', [])
 
   function diffString2( o, n ) {
     var i;
-
+    console.log("start2 Old:"+o+", New:"+n);
     o = o.replace(/\s+$/, '');
     n = n.replace(/\s+$/, '');
 
@@ -123,10 +125,12 @@ angular.module('diff', [])
       }
     }
 
+    console.log("end2 Old:"+o+", New:"+n);
     return { o : os , n : ns };
   }
 
   function diff( o, n ) {
+    console.log("start3 Old:"+o+", New:"+n);
     var ns = {};
     var os = {};
     var i;
@@ -168,6 +172,7 @@ angular.module('diff', [])
       }
     }
 
+    console.log("end3 Old:"+o+", New:"+n);
     return { o: o, n: n };
   }
 

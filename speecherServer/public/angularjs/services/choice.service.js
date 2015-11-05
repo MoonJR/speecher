@@ -14,6 +14,7 @@
     test.startTest = startTest;
     test.finishTest = finishTest;
     test.resetCount = resetCount;
+    test.stopCount = stopCount;
     test.saveItem = saveItem;
     test.setTimer = setTimer;
     test.setType = setType;
@@ -99,16 +100,15 @@
 
 
     function startCount(){
-      test.current_seconds++;
-      test.timer_percent = test.current_seconds/test.timer_seconds * 100;
-
-      $timeout(startCount, 1000);
-
-      if(test.timer_percent >= 100){
-
-
+      if(!test.testnow) {
+        stopCount();
+      }else{
+        test.current_seconds++;
+        test.timer_percent = test.current_seconds/test.timer_seconds * 100;
+        $timeout(startCount, 1000);
+        if(test.timer_percent >= 100){
+        }
       }
-
     }
     function stopCount(){
       resetCount();
@@ -121,15 +121,8 @@
       test.timer_percent = 0;
     }
 
-
     function startRecord(){}
     function stopRecord(){}
-
-
-
-
-
-
 
   }
 })();
