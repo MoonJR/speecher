@@ -12,28 +12,15 @@
 
     // APIs
     vm.scriptList = null;
-    vm.wordAll = null;
+    vm.wrongWordAll = null;
     vm.showScriptList = showScriptList;
     vm.showWrongWordAll = showWrongWordAll;
     vm.showWrongWordDialog = showWrongWordDialog;
 
-
-    vm.wordsDummy = [
-      {
-        id: '1',
-        word: 'Must',
-        count: '5'
-      }, {
-        id: '2',
-        word: 'Should',
-        count: '4'
-      }
-    ];
-
     // init script list & words
     (function initController() {
       showScriptList();
-      //showWrongWordAll();
+      showWrongWordAll();
     })();
 
     function showScriptList(){
@@ -45,7 +32,7 @@
                 scriptService.scriptList = vm.scriptList;
                 //console.log(response.data.result);
               }
-              console.log(response);
+              //console.log(response);
             }
             else {
               _errorHandler_('Error: success 0');
@@ -58,9 +45,10 @@
     function showWrongWordAll() {
       scriptService.getWrongWordAll().then(
         function (response) {
+          console.log(response);
           if(response.data.success) {
-            vm.wordAll = response.data.result;
-            //console.log(response.data.result);
+            vm.wrongWordAll = response.data.result;
+            console.log(vm.wrongWordAll[0]._id);
           }
           else {
             _errorHandler_('Error: success 0');

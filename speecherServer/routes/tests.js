@@ -27,11 +27,11 @@ exports.testList = function(req, res) {
 
 exports.save = function(req, res){
   var userId = req.session.user_id;
-  var testId = req.query.test_id;
-  var scriptId = req.query.script_id;
-  var testType = req.query.test_type;
-  var testTime = req.query.test_time;
-  var testScript = req.query.script_result;
+  var testId = req.body.test_id;
+  var scriptId = req.body.script_id;
+  var testType = req.body.test_type;
+  var testTime = req.body.test_time;
+  var testScript = req.body.script_result;
   var testDate = new Date();
 
 

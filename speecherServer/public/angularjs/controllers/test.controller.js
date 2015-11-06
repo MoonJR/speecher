@@ -14,26 +14,8 @@
     (function initController() {
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
-
       $rootScope.test = testCookie;
 
-      //scriptService.getScript({script_id:$rootScope.test.script_id}).then(
-      //    function (response) {
-      //      if (response.data.success) {
-      //        //console.log("response.data.result");
-      //        //console.log(response.data.result);
-      //        ////if (response.data.result.length > 0) {
-      //        //$rootScope.test.script_content = response.data.result.script_content;
-      //        //}
-      //        //console.log(response);
-      //      }
-      //      else {
-      //        _errorHandler_('Error: success 0');
-      //      }
-      //    },
-      //    function () {
-      //    }
-      //);
     })();
 
     $scope.speech = {
@@ -68,7 +50,7 @@
     function saveTestResult() {
 
       vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
-      //console.log(vm.scriptResult);
+      console.log(vm.scriptResult);
       //console.log($scope.speech.value);
       //console.log($rootScope.test.script_content);
 
@@ -83,16 +65,13 @@
       testService.saveTestResult(testResult).then(
           function (response) {
             if (response.data.success) {
-              console.log("response.data.result");
-              console.log(response.data.result);
-              $rootScope.test.script_content = response.data.result.script_content;
               console.log(response);
             }
             else {
               _errorHandler_('Error: success 0');
             }
           },
-          _errorHandler_()
+          _errorHandler_('Error: saveTestResult')
       );
     }
 

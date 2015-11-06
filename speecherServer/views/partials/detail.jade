@@ -4,13 +4,13 @@
       input.form-control(type='text', placeholder="{{vm.scriptTitle}}", ng-model="vm.scriptTitle", ng-readonly="!vm.scriptIsModifing")
       a.input-group-addon.detail-btn-history(href='/#/') 테스트 기록보기
       a.input-group-addon.detail-btn-test(href='/#/') 테스트하기
-  .write-box(ng-show="vm.wordsDummy")
+  .write-box(ng-show="vm.wrongWord")
     h4 자주 틀리는 단어
     ul.nav.nav-pills(role='tablist')
-      li(role='presentation', ng-repeat='item in vm.wordsDummy')
+      li(role='presentation', ng-repeat='item in vm.wrongWord')
         a.btn-word(href='/#/')
-          | {{item.word}}
-          span.badge {{item.count}}
+          | {{item._id}}
+          span.badge {{item.wrongCount}}
   .write-box
     textarea.form-control.noresize.script-content(placeholder="{{vm.scriptContent}}", ng-model="vm.scriptContent", ng-readonly="!vm.scriptIsModifing")
     button.btn-hidden
