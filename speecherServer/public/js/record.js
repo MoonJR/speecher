@@ -63,16 +63,13 @@ function stopRecordingFunc () {
       if (mediaStream) mediaStream.stop();
     });
   });
-
-  socketio.on('finished', function (fileName) {
-    var href = (location.href.split('/').pop().length
-            ? location.href.replace(location.href.split('/').pop(), '')
-            : location.href
-    );
-    console.log('got file ' + fileName);
-
-    return href = href + 'uploads/' + fileName;
-  });
 }
 
-
+socketio.on('finished', function (fileName) {
+  var href = (location.href.split('/').pop().length
+          ? location.href.replace(location.href.split('/').pop(), '')
+          : location.href
+  );
+  href = href + 'uploads/' + fileName;
+  console.log('got file ' + href);
+});

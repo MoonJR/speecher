@@ -27,7 +27,6 @@
       o = o.replace(/\s+$/, '');
       n = n.replace(/\s+$/, '');
 
-
       var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/));
       var str = '';
       var i;

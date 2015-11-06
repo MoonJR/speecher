@@ -23,11 +23,6 @@ angular.module('myApp', [
             controller: 'loginController',
             controllerAs: 'vm'
           })
-          .when('/speech', {
-            templateUrl: '/partials/speech',
-            controller: 'speechController',
-            controllerAs: 'vm'
-          })
           .when('/write', {
             templateUrl: '/partials/write',
             controller: 'writeController',
