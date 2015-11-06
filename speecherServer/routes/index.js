@@ -32,7 +32,7 @@ router.get('/partials/:name', function (req, res, next) {
   console.log("========name:" + req.params.name);
   //res.render(path+'/templates/partials/'+req.params.name);
   res.render(path + '/views/partials/' + req.params.name);
-});
+  });
 
 
 router.get('/login/facebook', login.facebookLogin);

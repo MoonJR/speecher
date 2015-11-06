@@ -25,8 +25,10 @@ angular.module('diff', [])
   }
 
   function diffString( o, n ) {
+    console.log("start Old:"+o+", New:"+n);
     o = o.replace(/\s+$/, '');
     n = n.replace(/\s+$/, '');
+
 
     var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/) );
     var str = '';
@@ -69,18 +71,66 @@ angular.module('diff', [])
         }
       }
     }
-
+    console.log("End:"+o+", New:"+n);
     return str;
   }
 
   function randomColor() {
-    //return 'rgb(' + (Math.random() * 100) + '%, ' +
-    //                (Math.random() * 100) + '%, ' +
-    //                (Math.random() * 100) + '%)';
-    return 'rgb(83, 171, 255)'
+    return 'rgb(' + (Math.random() * 100) + '%, ' +
+                    (Math.random() * 100) + '%, ' +
+                    (Math.random() * 100) + '%)';
+  }
+
+  function diffString2( o, n ) {
+    var i;
+    console.log("start2 Old:"+o+", New:"+n);
+    o = o.replace(/\s+$/, '');
+    n = n.replace(/\s+$/, '');
+
+    var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/) );
+
+    var oSpace = o.match(/\s+/g);
+    if (!oSpace) {
+      oSpace = ['\n'];
+    } else {
+      oSpace.push('\n');
+    }
+    var nSpace = n.match(/\s+/g);
+    if (!nSpace) {
+      nSpace = ['\n'];
+    } else {
+      nSpace.push('\n');
+    }
+
+    var os = '';
+    var colors = [];
+    for (i = 0; i < out.o.length; i++) {
+      colors[i] = randomColor();
+
+      if (out.o[i].text) {
+        os += '<span style="background-color: ' +colors[i]+ '">' +
+              escape(out.o[i].text) + oSpace[i] + '</span>';
+      } else {
+        os += '<del>' + escape(out.o[i]) + oSpace[i] + '</del>';
+      }
+    }
+
+    var ns = '';
+    for (i = 0; i < out.n.length; i++) {
+      if (out.n[i].text) {
+        ns += '<span style="background-color: ' +colors[out.n[i].row]+ '">' +
+              escape(out.n[i].text) + nSpace[i] + '</span>';
+      } else {
+        ns += '<ins>' + escape(out.n[i]) + nSpace[i] + '</ins>';
+      }
+    }
+
+    console.log("end2 Old:"+o+", New:"+n);
+    return { o : os , n : ns };
   }
 
   function diff( o, n ) {
+    console.log("start3 Old:"+o+", New:"+n);
     var ns = {};
     var os = {};
     var i;
@@ -122,6 +172,7 @@ angular.module('diff', [])
       }
     }
 
+    console.log("end3 Old:"+o+", New:"+n);
     return { o: o, n: n };
   }
 

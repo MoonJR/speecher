@@ -12,6 +12,8 @@ angular.module('myApp', [
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
+
+
           .when('/', {
             templateUrl: '/partials/index',
             controller: 'indexController',
@@ -48,7 +50,13 @@ angular.module('myApp', [
               return '/partials/test';
             },
             controller: 'testCtrl',
-          })
+          }).when('/result', {
+        templateUrl: function(params){
+          return '/partials/result';
+        },
+        controller: 'resultCtrl',
+      })
+
           .otherwise({
             redirectTo: '/'
           });

@@ -2,11 +2,11 @@
   'use strict';
 
   angular
-      .module('myApp')
-      .controller('indexController', indexController);
+    .module('myApp')
+    .controller('indexController', indexController);
 
-  indexController.$inject = ['$mdDialog', 'scriptService'];
-  function indexController($mdDialog, scriptService) {
+  indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService'];
+  function indexController($rootScope, $mdDialog, $location, scriptService, choiceService) {
 
     var vm = this;
 
@@ -16,6 +16,7 @@
     vm.showScriptList = showScriptList;
     vm.showWrongWordAll = showWrongWordAll;
     vm.showWrongWordDialog = showWrongWordDialog;
+
 
     vm.wordsDummy = [
       {
@@ -35,7 +36,7 @@
       //showWrongWordAll();
     })();
 
-    function showScriptList() {
+    function showScriptList(){
       scriptService.getScriptList().then(
           function (response) {
             if (response.data.success) {
@@ -56,33 +57,45 @@
 
     function showWrongWordAll() {
       scriptService.getWrongWordAll().then(
-          function (response) {
-            if(response.data.success) {
-              vm.wordAll = response.data.result;
-              //console.log(response.data.result);
-            }
-            else {
-              _errorHandler_('Error: success 0');
-            }
-          },
-          _errorHandler_('Error: showWrongWordAll')
+        function (response) {
+          if(response.data.success) {
+            vm.wordAll = response.data.result;
+            //console.log(response.data.result);
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        _errorHandler_('Error: showWrongWordAll')
       );
     }
 
     function showWrongWordDialog(content) {
       $mdDialog.show(
-          $mdDialog.alert()
-              .clickOutsideToClose(true)
-              .title("DetailWord")
-              .content(content)
-              .ariaLabel(content)
-              .ok('Close')
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title("DetailWord")
+          .content(content)
+          .ariaLabel(content)
+          .ok('Close')
       );
     }
 
     // private functions
     function _errorHandler_(error) {
       return { success: false, message: error };
+    }
+
+
+    // 코드리뷰 검토 후 선언과 초기화  상하단으로 분리하겠음
+    // index 단에서부터 test data 를 가지고 있어야 할 것 같음
+
+    vm.moveChoice = moveChoice;
+    // checking current selected test`s infomation and data
+    function moveChoice(scriptData){
+      console.log("MOVE ID:"+scriptData["id"]);
+      choiceService.saveItem(scriptData);
+      $location.path('/choice');
     }
   }
 })();

@@ -12,4 +12,4 @@
         .script-box(style="margin:10px;")
           h4 {{item.script_title}}
           p {{item.script_content}}
-          button.btn-test test
+          button.btn-test(ng-click="vm.moveChoice(item)") test

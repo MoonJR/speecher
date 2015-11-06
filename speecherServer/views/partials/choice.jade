@@ -1,34 +1,79 @@
-.flex
-  div(ng-cloak='',style="width:100%;")
-    md-content(style="margin-top:4px;")
-      md-tabs(md-dynamic-height='', md-border-bottom='')
-        md-tab(label='대본읽기')
-          md-content.md-padding
-            p 등록한 대본을 보면서 읽을 수 있도록, 대본을 보여주는 상태로 테스트를 진행합니다.
-        md-tab(label="빈칸테스트")
-          md-content.md-padding
-            p  등록한 대본의 일부를 랜덤 빈칸으로 비워둔 상태로 테스트를 진행합니다.
-        md-tab(label='실전테스트')
-          md-content.md-padding
-            p 등록한 대본을 이용한 마지막 실전 테스트입니다. 대본의 내용을 보지 않고 테스트를 진행합니다
+.container(style="min-height:600px;")
+  div(role='tabpanel')
+    // Nav tabs
+    ul.nav.nav-tabs(role='tablist')
+      li(role='presentation', ng-class="{true:'active','':'active'}[test.type == test.types[0]]")
+        a(ng-click="test.setType(0)", aria-controls='home', role='tab', data-toggle='tab')
+          b 대본연습
+      li(role='presentation', ng-class="{true:'active','':''}[test.type == test.types[1]]")
+        a(ng-click="test.setType(1)", aria-controls='profile', role='tab', data-toggle='tab')
+          b 빈칸테스트
+      li(role='presentation', ng-class="{true:'active','':''}[test.type == test.types[2]]")
+        a(ng-click="test.setType(2)", aria-controls='messages', role='tab', data-toggle='tab')
+          b 실전테스트
 
-    .flex(style="height:30px;")
-      p(style="margin: 6px 5px 0px 15px;") 발표시간 설정
-      input(type="number",placeholder="minute", ng-model="test.timer_value",style="width:50px;")
-      p(style="margin: 6px 0px 0px 1px;") 분
-      div.btn-group(role='group', aria-label='First group', style="margin-left:11px;")
-        button.btn.btn-default(type='button', ng-click="addTimer(1)") UP
-        button.btn.btn-default(type='button', ng-click="addTimer(-1)") DOWN
+    // Tab panes
+    div.no-border-top.tab-box
+      b {{test.typeText}}
 
-    .flex(style="margin: 6px 0 0px 15px;")
-      md-switch.md-primary(md-no-ink='', aria-checked="true",aria-label='발표시간 설정하기', ng-model='test.timer_status',style="margin:0 0px 0px 15px;")
-      div.btn-group(role='group', aria-label='First group', style="margin-left:22px;")
-        button.btn.btn-default(type='button', ng-click="setTimer(1)") 1분
-        button.btn.btn-default(type='button', ng-click="setTimer(3)") 3분
-        button.btn.btn-default(type='button', ng-click="setTimer(5)") 5분
-        button.btn.btn-default(type='button', ng-click="setTimer(10)") 10분
 
-    .border-top(width:100%; ,style="margin:20px 0 20px 0 ;")
-      p page id : {{ test.script_id }} // 기본값으로 choice 접근하면(새로고침 포함) base 로이동하게 처리하기
-      center
-        a.center.btn.btn-primary.btn-lg(href="test/", role="button", style="margin-top:15px;") 시작
+    div.tab-box
+      p
+        b.margin-bottom 타이머 사용 설정
+      .border-top
+        .flex
+          b.margin-top(ng-class="{false:'black', true:'gray','':''}[test.timer_status]") OFF
+          md-switch.md-primaryg(md-no-ink='', aria-checked="true",aria-label='발표시간 설정하기', ng-model='test.timer_status',style="margin:15px 0px 0px 0px;")
+          b.margin-top(ng-class="{false:'gray', true:'black','':''}[test.timer_status]") ON
+
+          p.margin-top(style="padding-left:15px;")
+          input(type="number",min=0,placeholder="minute", ng-model="test.counter",style="width:50px;height: 26px;margin-top: 22px;")
+          p.margin-top 분
+
+
+    center
+      a.center.btn.btn-primary.btn-lg(ng-click="test.moveTest()", role="button", style="margin-top:15px;") 시작
+
+
+
+
+
+
+
+
+
+
+//.flex
+//  div(ng-cloak='',style="width:100%;")
+//    md-content(style="margin-top:4px;")
+//      md-tabs(md-dynamic-height='', md-border-bottom='')
+//        md-tab(label='대본읽기')
+//          md-content.md-padding
+//            p 등록한 대본을 보면서 읽을 수 있도록, 대본을 보여주는 상태로 테스트를 진행합니다.
+//        md-tab(label="빈칸테스트")
+//          md-content.md-padding
+//            p  등록한 대본의 일부를 랜덤 빈칸으로 비워둔 상태로 테스트를 진행합니다.
+//        md-tab(label='실전테스트')
+//          md-content.md-padding
+//            p 등록한 대본을 이용한 마지막 실전 테스트입니다. 대본의 내용을 보지 않고 테스트를 진행합니다
+//
+//    .flex(style="height:30px;")
+//      p(style="margin: 6px 5px 0px 15px;") 발표시간 설정
+//      input(type="number",placeholder="minute", ng-model="test.counter",style="width:50px;")
+//      p(style="margin: 6px 0px 0px 1px;") 분
+//      div.btn-group(role='group', aria-label='First group', style="margin-left:11px;")
+//        button.btn.btn-default(type='button', ng-click="test.setTimer(1,'add')") UP
+//        button.btn.btn-default(type='button', ng-click="test.setTimer(-1,'add')") DOWN
+//
+//    .flex(style="margin: 6px 0 0px 15px;")
+//      md-switch.md-primaryg(md-no-ink='', aria-checked="true",aria-label='발표시간 설정하기', ng-model='test.timer_status',style="margin:0 0px 0px 15px;")
+//      div.btn-group(role='group', aria-label='First group', style="margin-left:22px;")
+//        button.btn.btn-default(type='button', ng-click="test.setTimer(1,'set')") 1분
+//        button.btn.btn-default(type='button', ng-click="test.setTimer(3,'set')") 3분
+//        button.btn.btn-default(type='button', ng-click="test.setTimer(5,'set')") 5분
+//        button.btn.btn-default(type='button', ng-click="test.setTimer(10,'set')") 10분
+//
+//    .border-top(width:100%; ,style="margin:20px 0 20px 0 ;")
+//      p page id : {{ test.script_id }}
+//      center
+//        a.center.btn.btn-primary.btn-lg(ng-click="test.moveTest()", role="button", style="margin-top:15px;") 시작
