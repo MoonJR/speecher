@@ -7,7 +7,7 @@ var error = require('./error');
 
 exports.failList = function(req, res){
   var userId = req.session.user_id;
-  var scriptId = req.query.script_id;
+  var scriptId = req.body.script_id;
 
   var wordLimit = 10;
 
