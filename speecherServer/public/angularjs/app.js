@@ -47,10 +47,8 @@ angular.module('myApp', [
             controller: 'testCtrl',
             controllerAs: 'vm'
           })
-          .when('/result', {
-            templateUrl: function(params){
-              return '/partials/result';
-            },
+          .when('/result/:scriptId', {
+            templateUrl: '/partials/result',
             controller: 'resultController',
             controllerAs: 'vm'
           })

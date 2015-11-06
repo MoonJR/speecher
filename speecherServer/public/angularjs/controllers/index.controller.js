@@ -73,6 +73,7 @@
 
     // private functions
     function _errorHandler_(error) {
+      console.log(error);
       return { success: false, message: error };
     }
 

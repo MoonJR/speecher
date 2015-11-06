@@ -15,7 +15,6 @@
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
       $rootScope.test = testCookie;
-
     })();
 
     $scope.speech = {
@@ -67,7 +66,6 @@
 
       testService.saveTestResult(testResult).then(
           function (response) {
-            console.log('!! ' + response);
             if (response.data.success) {
               $location.path('/result');
             }
@@ -77,7 +75,7 @@
           },
           _errorHandler_('Error: saveTestResult')
       );
-      $location.path('/result');
+      $location.path('/result/' + vm.scriptId);
     }
 
     // private functions
