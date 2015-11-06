@@ -11,7 +11,6 @@ choiceController.$inject = ['$scope', '$rootScope','$cookieStore', 'choiceServic
 function choiceController($scope, $rootScope, $cookieStore, choiceService, $location) {
   $rootScope.test = choiceService;
 
-
   // init latest test data status(새로고침 해도 저장된 데이터 불러오도록하기)
   (function initController() {
     var testCookie = $cookieStore.get('test');
@@ -42,6 +41,9 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
       }
     });
   })();
+
+
+
 
 
 };

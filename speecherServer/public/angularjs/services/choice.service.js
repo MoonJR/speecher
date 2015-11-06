@@ -28,7 +28,6 @@
 
 
     (function initController() {
-
       test.counter = 5;
       test.timer_status = true;
       test.timer_seconds = 300;
@@ -77,11 +76,7 @@
       //$cookieStore.put('test', $rootScope.test);
     }
 
-    //function startTest(scriptData){
-    //  //위의 set까지는 cookie 세이브가아닌 페이지 내에서의 저장
-    //  saveItem(scriptData);
-    //  $location.path('/test');
-    //}
+
     function moveTest(){
       //위의 set까지는 cookie 세이브가아닌 페이지 내에서의 저장
 
@@ -91,6 +86,8 @@
 
       $location.path('/test');
     }
+
+
 
     //Test  시작 버튼,  Timer 시작 및,  Record 시작
     function startTest(){
@@ -121,7 +118,7 @@
         test.current_seconds++;
         test.timer_percent = test.current_seconds/test.timer_seconds * 100;
         test.remain_seconds = test.timer_seconds - test.current_seconds;
-        $timeout(startCount, 1000);
+        $timeout(startCount, 100);
 
       }
     }

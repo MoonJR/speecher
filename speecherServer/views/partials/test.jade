@@ -5,11 +5,14 @@
   .write-box
     .input-group
       span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
-        p.p-menu 테스트타입: {{ test.type }}
+        p.p-menu
+          b 테스트타입: {{ test.type }}
       span.input-group-addon(style="margin:0px; padding:0px;")
-        p.p-menu 타이틀: {{ test.script_title }}
+        p.p-menu
+          b 타이틀: {{ test.script_title }}
       span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
-        p.p-menu 남은시간: {{test.remain_seconds}} 초
+        p.p-menu
+          b 남은시간: {{test.remain_seconds}} 초
 
     span(style="position:absolute; right:50%; ")
       p.p-timer(style="position:relative; right:-50%; ") {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
@@ -17,10 +20,23 @@
       .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
       span.sr-only {{test.timer_percent}}% Complete
 
-  .write-box
+  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
     .flex
       textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px",disabled)
-      textarea.form-control.noresize#speech(ng-model="speech.value", placeholder="내 발음 데이터", style="width:50%;height:400px",disabled)
+      div.noresize.form-control#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:50%;height:400px",disabled)
+      //div.noresize.form-control#speech(ng-bind-html="speech.value|diff:test.script_content",style="width:50%;height:400px",disabled)
+
+  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[1]]")
+    .flex
+      // 커스텀한 빈칸 스트립트를 보여주기
+      textarea.form-control.noresize#script(ng-model="test.script_content_blank", placeholder="",  style="width:50%;height:400px",disabled)
+      div.noresize.form-control#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:50%;height:400px",disabled)
+
+  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[2]]")
+    .flex
+      textarea.form-control.noresize#script(ng-model="speech.value" ,placeholder="테스트를 시작하면, 실시간으로 텍스트를 보여줍니다",   style="width:100%;height:400px",disabled)
+
+
 
   .write-box
     .flex
@@ -30,6 +46,7 @@
 
   .write-box
     .flex(style="width:100%;margin-top:10px;")
+      div(ng-bind-html="speech.value|diff:test.script_content")
       div(ng-bind-html="test.script_content|diff:speech.value")
 
     .flex(style="width:100%;margin-top:10px;")

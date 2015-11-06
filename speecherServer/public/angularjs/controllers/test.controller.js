@@ -26,6 +26,7 @@
             console.log(response.data.result);
             //if (response.data.result.length > 0) {
             $rootScope.test.script_content = response.data.result.script_content;
+            $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
             //}
             console.log(response);
           }
@@ -48,18 +49,37 @@
 
 
 
+    // Script 를  Blank화해서 저장한 후 보여준다  (구현중)
+    function getBlankScript(script){
+      var split = script.split(" ");
+      var blank = "[         ]";
+      for(var i = 0; i< split.length/10 ; i++){
+        var random = Math.floor(Math.random() * split.length) + 1;
+        if(split[random].length <= 3 || split[random] == blank){
+
+        }else{
+          split[random] = blank;
+        }
+
+      }
+      return split.join(" ");
+    }
+
 
     ////$rootScope.test.script =  test 의  script_content;
     //$rootScope.test.speech = $scope.speech;
 
     function startTest(){
       $rootScope.test.startTest();
+
     }
 
     function finishTest(){
       //$scope.speech.recognizing = false;
       $rootScope.test.finishTest();
     }
+
+
   }
 })();
 

@@ -174,13 +174,7 @@
               return setIcon('blocked');
             }
           };
-
-
-
-
           return init();
-
-
         }
       };
     }
