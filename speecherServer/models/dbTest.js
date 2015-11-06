@@ -3,10 +3,11 @@
  */
 var db = require('./dbConn');
 
-exports.testList = function(scriptId, callback){
+exports.testList = function(userId, scriptId, callback){
+
   db.open(function(err, db) {
     db.collection('test', function (err, collection) {
-      collection.find({"script_id":scriptId}, function (err, cursor) {
+      collection.find({"id":userId, "script_id":scriptId}, function (err, cursor) {
         cursor.toArray(function (err, items) {
           callback(err, items);
           db.close();
@@ -16,13 +17,11 @@ exports.testList = function(scriptId, callback){
   });
 };
 
-exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
-  console.log(scriptId);
-  console.log(wordLimit);
+exports.wrongWordsInScript = function(userId, scriptId, wordLimit, callback){
 
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({"script_id":scriptId}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+      collection.find({"id": userId, "script_id":scriptId}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
           callback(err, items);
           db.close();
       })
@@ -33,10 +32,28 @@ exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
 exports.totalFailWord = function(user_id, wordLimit, callback){
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
-        callback(err, items);
-        db.close();
-      })
+      collection.aggregate(
+        [
+          { $group: { "_id": "$content", wrongCount: {$sum : "$wrongCount"}}},
+          { $sort: {wrongCount: -1}},
+          { $limit: 10}
+        ]
+      ).toArray(function(err, result) {
+          callback(err,result);
+          db.close();
+      });
     });
   });
+}
+
+//테스트 폼에 따라 변경 필요
+exports.saveTest = function(user_id, script_id, paragraph_id, callback){
+  //db.open(function(err, db) {
+  //  db.collection('record', function (err, collection) {
+  //    collection.find({}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+  //      callback(err, items);
+  //      db.close();
+  //    })
+  //  });
+  //});
 }
