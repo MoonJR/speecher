@@ -2,20 +2,14 @@
   'use strict';
 
   angular
-    .module('myApp')
-    .controller('testCtrl', testController);
+      .module('myApp')
+      .controller('testCtrl', testController);
 
 
-  testController.$inject = ['$scope','$rootScope','$location' ,'$cookieStore', 'choiceService', 'scriptService'];
-  function testController($scope, $rootScope, $location ,$cookieStore, choiceService, scriptService) {
+  testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'scriptService', 'testService'];
+  function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, scriptService, testService) {
 
     $rootScope.test = choiceService;
-
-
-
-
-
-
 
     (function initController() {
       var testCookie = $cookieStore.get('test');
@@ -23,23 +17,23 @@
 
       $rootScope.test = testCookie;
 
-      scriptService.getScript({script_id:$rootScope.test.script_id}).then(
-        function (response) {
-          if (response.data.success) {
-            console.log("response.data.result");
-            console.log(response.data.result);
-            //if (response.data.result.length > 0) {
-            $rootScope.test.script_content = response.data.result.script_content;
-            //}
-            console.log(response);
-          }
-          else {
-            _errorHandler_('Error: success 0');
-          }
-        },
-        function () {
-        }
-      );
+      //scriptService.getScript({script_id:$rootScope.test.script_id}).then(
+      //    function (response) {
+      //      if (response.data.success) {
+      //        //console.log("response.data.result");
+      //        //console.log(response.data.result);
+      //        ////if (response.data.result.length > 0) {
+      //        //$rootScope.test.script_content = response.data.result.script_content;
+      //        //}
+      //        //console.log(response);
+      //      }
+      //      else {
+      //        _errorHandler_('Error: success 0');
+      //      }
+      //    },
+      //    function () {
+      //    }
+      //);
     })();
 
     $scope.speech = {
@@ -56,15 +50,55 @@
 
 
 
+    // Made by Sojin
+
+    var vm = this;
+
+    // APIs
+    vm.testInfo = $rootScope.test;
+    vm.scriptId = $rootScope.test.script_id;
+    vm.scriptResult = null;
+    vm.testType = $rootScope.test.type;
+    vm.testTime = $rootScope.test.counter;
+    vm.testId = 123;
+
+    vm.saveTestResult = saveTestResult;
+
+
+    function saveTestResult() {
+
+      vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
+      //console.log(vm.scriptResult);
+      //console.log($scope.speech.value);
+      //console.log($rootScope.test.script_content);
+
+      var testResult = {
+        script_id: vm.scriptId,
+        script_result : vm.scriptResult,
+        test_type: vm.testType,
+        test_time: vm.testTime,
+        test_id: vm.testId
+      };
+
+      testService.saveTestResult(testResult).then(
+          function (response) {
+            if (response.data.success) {
+              console.log("response.data.result");
+              console.log(response.data.result);
+              $rootScope.test.script_content = response.data.result.script_content;
+              console.log(response);
+            }
+            else {
+              _errorHandler_('Error: success 0');
+            }
+          },
+          _errorHandler_()
+      );
+    }
+
+    // private functions
+    function _errorHandler_(error) {
+      return { success: false, message: error };
+    }
   }
 })();
-
-
-
-
-
-
-
-
-
-

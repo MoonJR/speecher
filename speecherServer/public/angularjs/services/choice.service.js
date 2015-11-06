@@ -39,7 +39,7 @@
       test.typeText = typeText[0];
       var testCookie = $cookieStore.get('test');
       test.saveItem(testCookie);
-    });
+    })();
 
 
     return test;
@@ -53,13 +53,13 @@
       for (var key in item) {
         if (item.hasOwnProperty(key)) {
           var obj = item[key];
-          console.log(key+","+obj);
+          //console.log(key+","+obj);
           test[key] = obj;
         }
       }
       $cookieStore.put("test", test);
       var cookie = $cookieStore.get("test");
-      console.log("cookie:"+cookie["script_id"]);
+      //console.log("cookie:"+cookie["script_id"]);
     }
 
 

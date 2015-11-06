@@ -13,7 +13,6 @@ angular.module('myApp', [
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
 
-
           .when('/', {
             templateUrl: '/partials/index',
             controller: 'indexController',
@@ -44,19 +43,22 @@ angular.module('myApp', [
               return '/partials/choice/';
             },
             controller: 'choiceCtrl',
+            controllerAs: 'vm'
           })
           .when('/test', {
             templateUrl: function(params){
               return '/partials/test';
             },
             controller: 'testCtrl',
-          }).when('/result', {
-        templateUrl: function(params){
-          return '/partials/result';
-        },
-        controller: 'resultCtrl',
-      })
-
+            controllerAs: 'vm'
+          })
+          .when('/result', {
+            templateUrl: function(params){
+              return '/partials/result';
+            },
+            controller: 'resultCtrl',
+            controllerAs: 'vm'
+          })
           .otherwise({
             redirectTo: '/'
           });
