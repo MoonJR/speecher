@@ -36,6 +36,11 @@ angular.module('myApp', [
             controller: 'writeController',
             controllerAs: 'vm'
           })
+          .when('/detail/:scriptId', {
+            templateUrl: '/partials/detail',
+            controller: 'detailController',
+            controllerAs: 'vm'
+          })
           .when('/choice', {
             templateUrl: function(params){
               return '/partials/choice/';
@@ -73,12 +78,10 @@ angular.module('myApp', [
       GooglePlusProvider.enableServerSide({});
 
       ///xx/xx  처리시 새로고침하면#choice/scriptId 를 인식하지 못해서 임시로 꺼둠
-      $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-      });
-
-
+      //$locationProvider.html5Mode({
+      //  enabled: true,
+      //  requireBase: false
+      //});
     })
 
     .run(function ($rootScope, $location, $cookieStore, $http) {

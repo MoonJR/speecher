@@ -75,11 +75,11 @@ angular.module('diff', [])
     return str;
   }
 
-  function randomColor() {
-    return 'rgb(' + (Math.random() * 100) + '%, ' +
-                    (Math.random() * 100) + '%, ' +
-                    (Math.random() * 100) + '%)';
-  }
+    function randomColor() {
+      return 'rgb(' + (Math.random() * 100) + '%, ' +
+        (Math.random() * 100) + '%, ' +
+        (Math.random() * 100) + '%)';
+    }
 
   function diffString2( o, n ) {
     var i;
@@ -127,6 +127,7 @@ angular.module('diff', [])
 
     console.log("end2 Old:"+o+", New:"+n);
     return { o : os , n : ns };
+
   }
 
   function diff( o, n ) {
@@ -136,17 +137,17 @@ angular.module('diff', [])
     var i;
 
     for (i = 0; i < n.length; i++ ) {
-      if ( !ns[ n[i] ] ) {
-        ns[ n[i] ] = { rows: [], o: null };
+      if ( !ns[ n[i].toLowerCase() ] ) {
+        ns[ n[i].toLowerCase() ] = { rows: [], o: null };
       }
-      ns[ n[i] ].rows.push( i );
+      ns[ n[i].toLowerCase() ].rows.push( i );
     }
 
     for (i = 0; i < o.length; i++ ) {
-      if ( !os[ o[i] ] ){
-        os[ o[i] ] = { rows: [], n: null };
+      if ( !os[ o[i].toLowerCase() ] ){
+        os[ o[i].toLowerCase() ] = { rows: [], n: null };
       }
-      os[ o[i] ].rows.push( i );
+      os[ o[i].toLowerCase() ].rows.push( i );
     }
 
     for (i in ns ) {
@@ -158,7 +159,7 @@ angular.module('diff', [])
 
     for (i = 0; i < n.length - 1; i++ ) {
       if ( n[i].text !== null && n[i+1].text === null && n[i].row + 1 < o.length && !o[ n[i].row + 1 ].text &&
-           n[i+1] === o[ n[i].row + 1 ] ) {
+          n[i+1].toLowerCase() === o[ n[i].row + 1 ].toLowerCase() ) {
         n[i+1] = { text: n[i+1], row: n[i].row + 1 };
         o[n[i].row+1] = { text: o[n[i].row+1], row: i + 1 };
       }
@@ -166,7 +167,7 @@ angular.module('diff', [])
 
     for (i = n.length - 1; i > 0; i-- ) {
       if ( n[i].text && !n[i-1].text && n[i].row > 0 && !o[ n[i].row - 1 ].text &&
-           n[i-1] === o[ n[i].row - 1 ] ) {
+          n[i-1].toLowerCase() === o[ n[i].row - 1 ].toLowerCase() ) {
         n[i-1] = { text: n[i-1], row: n[i].row - 1 };
         o[n[i].row-1] = { text: o[n[i].row-1], row: i - 1 };
       }

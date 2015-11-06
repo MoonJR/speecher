@@ -5,8 +5,8 @@
     .module('myApp')
     .controller('indexController', indexController);
 
-  indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService'];
-  function indexController($rootScope, $mdDialog, $location, scriptService, choiceService) {
+  indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService','$http'];
+  function indexController($rootScope, $mdDialog, $location, scriptService, choiceService, $http) {
 
     var vm = this;
 
@@ -38,13 +38,14 @@
 
     function showScriptList(){
       scriptService.getScriptList().then(
+
         function (response) {
           if (response.data.success) {
             console.log(response.data);
             if (response.data.result.length > 0) {
               vm.scriptList = response.data.result;
               console.log(response.data.result);
-            }
+             }
             console.log(response);
           }
           else {
@@ -99,18 +100,34 @@
     }
 
 
+    // 단어 데이터 받아온 후에, 다이얼로그 보여준다
     $rootScope.showAlert = function(item) {
 
-      $mdDialog.show(
-        $mdDialog.alert()
-          .parent(angular.element(document.querySelector('#popupContainer')))
-          .clickOutsideToClose(true)
-          .title(item.word+"("+item.count+")")
-          .content('You can specify some description text in here.')
-          .ariaLabel('Alert Dialog Demo')
-          .ok('Got it!')
+      $http.post('/main/wordDetail', {word:item.word}).then(
+        function (response){
 
+          if(response.data.success){
+            console.log("get word data");
+
+            $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title(item.word+"("+item.count+")")
+                .content('발음기호:'+ response.data.result.pronunciation.all)
+                .ok('닫기')
+
+            )
+
+            return response;
+          } else {
+            _errorHandler_('Error: detailWord success 0');
+          }
+        },
+        _errorHandler_('Error: detailWord')
       );
+
+
     };
 
 

@@ -1,38 +1,90 @@
 /**
  * Created by kimminki on 2015. 10. 12..
  */
-var express = require('express');
-var router = express.Router();
 var dbTest = require('../models/dbTest');
-var wordDetail = require('./wordDetail');
+var error = require('../routes/error');
+var natural = require('natural');
+var uuid = require('node-uuid');
+var scriptUtil = require('./saveScript');
+var tokenizer = new natural.TreebankWordTokenizer();
 
-/* GET users listing. */
-router.get('/testList', function(req, res) {
-  var scriptId = Number(req.query.script_id);
+exports.testList = function(req, res) {
+  var userId = req.session.user_id;
+  var scriptId = req.body.script_id;
 
-  dbTest.testList(scriptId, function(err, data){
-    if(err) throw err;
+  dbTest.testList(userId, scriptId, function(err, data){
+    if(err){
+      res.send(error.db_load_error);
+    }
+
     if(data){
-      res.json({ success:1, msg:"성공적으로 수행되었습니다.", result:data });
+      res.send({success: error.success.success, msg: error.success.msg, result: data});
     }else{
-      res.json({ success:0, msg:"수행도중 에러가 발생했습니다." });
+      res.send(error.unknown_error);
     }
   });
-});
+};
 
-//옮겨줘야함
-router.get('/scriptDetail/failList', function(req, res){
-  var scriptId = Number(req.query.script_id);
-  var wordLimit = 10;
+exports.save = function(req, res){
+  var userId = req.session.user_id;
+  var testId = req.query.test_id;
+  var scriptId = req.query.script_id;
+  var testType = req.query.test_type;
+  var testTime = req.query.test_time;
+  var testScript = req.query.script_result;
+  var testDate = new Date();
 
-  dbTest.wrongWordsInScript(scriptId, wordLimit, function(err, data){
-    if(err) throw err;
-    if(data){
-      res.json({ success:1, msg:"성공적으로 수행되었습니다.", result:data });
-    }else{
-      res.json({ success:0, msg:"수행도중 에러가 발생했습니다." });
-    }
+
+  var paragraphArr = scriptUtil.scriptToParagraphJsonArray({
+    id: userId,
+    script_id: scriptId,
+    script_content: testScript
   });
-});
 
-module.exports = router;
+  var score = 0;
+  var wrong = 0;
+  var morpheme_count = 0;
+  for(var i = 0; i < paragraphArr.length; i++){
+    var morpheme_array = tokenizer.tokenize(paragraphArr[i].content);
+    morpheme_count += morpheme_array.length;
+
+    //
+    var regexp = /<del>.+<\/ins>/g;
+
+    var failWords = paragraphArr[i].content.match(regexp);
+
+    //for(var j = 0; j < morpheme_array.length; j++) {
+    //  if(morpheme_array[j].indexOf('<ins>') > -1){
+    //    var content = morpheme_array[j].substring(5, morpheme_array[j].length-6);
+    //    console.log(content);
+    //    wrong+=1;
+    //    dbTest.saveWrongMorpheme(userId, j, i, scriptId, content, function(err, data){
+    //      //if(err){
+    //      //  res.send(error.db_load_error);
+    //      //}
+    //      //
+    //      //if(data){
+    //      //  res.send({success: error.success.success, msg: error.success.msg, result: data});
+    //      //}else{
+    //      //  res.send(error.unknown_error);
+    //      //}
+    //    });
+    //  }
+    //}
+    console.log(failWords);
+  }
+
+  //score = parseInt((morpheme_count-wrong)/morpheme_count*100);
+  //
+  //dbTest.saveTest(userId, testId, scriptId, testType, score, testDate, function(err, data){
+  //  if(err){
+  //    res.send(error.db_load_error);
+  //  }
+  //
+  //  if(data){
+  //    res.send({success: error.success.success, msg: error.success.msg, result: data});
+  //  }else{
+  //    res.send(error.unknown_error);
+  //  }
+  //});
+}

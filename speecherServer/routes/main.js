@@ -2,39 +2,43 @@
  * Created by kimminki on 2015. 10. 27..
  */
 
-var express = require('express');
-var router = express.Router();
 var dbTest = require('../models/dbTest');
 var wordDetail = require('./wordDetail');
+var error = require('./error');
 
-router.get('/totalFailList', function(req, res) {
-  //나중에 세션에 저장하는 코드랑 맞춰야함 네이밍
-  var user_id = req.session.userData.user_id;
+exports.totalFailList = function(req, res) {
+  var user_id = req.session.user_id;
   var wordLimit = 10;
 
   dbTest.totalFailWord(user_id, wordLimit, function (err, data) {
 
-    if (err) throw err;
+    if (err){
+      res.send({success: error.db_load_error.success , msg: error.db_load_error.msg});
+    }
+
     if (data) {
-      res.json({success: 1, msg: "성공적으로 수행되었습니다.", result: data});
+      res.send({success: error.successCode.success, msg: error.successMsg.success, result: data});
     } else {
-      res.json({success: 0, msg: "수행도중 에러가 발생했습니다."});
+      res.send({success: error.unknown_error.success, msg: error.unknown_error.msg});
     }
   });
-});
 
-router.get('/wordDetail', function(req, res) {
-  //나중에 세션에 저장하는 코드랑 맞춰야함 네이밍
-  var word = req.query.word;
+};
+
+exports.wordDetail = function(req, res) {
+  var word = req.body.word;
+
   wordDetail.wordDetailData(word, function (err, data) {
 
-    if (err) throw err;
-    if (data) {
-      res.json({success: 1, msg: "성공적으로 수행되었습니다.", result: data});
-    } else {
-      res.json({success: 0, msg: "수행도중 에러가 발생했습니다."});
+    if (err){
+      res.send(error.db_load_error);
     }
-  });
-});
 
-module.exports = router;
+    if (data) {
+      res.send({success: error.success.success, msg: error.success.msg, result: data});
+    } else {
+      res.send(error.unknown_error);
+    }
+
+  });
+};

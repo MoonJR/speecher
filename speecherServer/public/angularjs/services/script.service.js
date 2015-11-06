@@ -5,13 +5,15 @@
       .module('myApp')
       .factory('scriptService', scriptService);
 
-  scriptService.$inject = ['$http'];
-  function scriptService($http) {
+  scriptService.$inject = ['$http', '$cacheFactory'];
+  function scriptService($http, $cacheFactory) {
 
     var service = {};
 
     // APIs
+    service.scriptList = null;
     service.saveScript = saveScript;
+    service.deleteScript = deleteScript;
     service.getScript = getScript;
     service.getWrongWord = getWrongWord;
     service.getScriptList = getScriptList;
@@ -21,6 +23,10 @@
 
     function saveScript(script) {
       return $http.post('/main/scriptSave', script).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
+    }
+
+    function deleteScript(scriptId) {
+      return $http.post('main/scriptDelete', scriptId).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
     }
 
     function getScript(scriptId) {
@@ -33,11 +39,14 @@
 
     function getScriptList() {
       return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getScriptList'));
+
     }
 
     function getWrongWordAll() {
       return $http.post('/main/totalFailList').then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
     }
+
+
 
     // private functions
     function _successHandler_(response) {

@@ -1,0 +1,159 @@
+doctype html
+//
+  // Muaz Khan      - www.MuazKhan.com
+  // MIT License    - www.WebRTC-Experiment.com/licence
+  // Experiments    - github.com/muaz-khan/WebRTC-Experiment
+  // RecordRTC      - github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC
+  // RecordRTC over
+  // Socket.io      - github.com/muaz-khan/WebRTC-Experiment/tree/master/RecordRTC/RecordRTC-over-Socketio
+html
+  head
+    meta(charset='utf-8')
+    title RecordRTC over Socket.io
+    script.
+      if (location.href.indexOf('file:') == 0) {
+        document.write('<h1 style="color:red;">Please load this HTML file on HTTP or HTTPS.</h1>');
+      }
+    meta(http-equiv='content-type', content='text/html; charset=utf-8')
+    link(rel='author', type='text/html', href='https://plus.google.com/+MuazKhan')
+    meta(name='author', content='Muaz Khan')
+    script(src='https://www.webrtc-experiment.com/RecordRTC.js')
+    script(src='/socket.io/socket.io.js')
+    style.
+      html {
+        background-color: #f7f7f7;
+      }
+
+      body {
+        background-color: white;
+        border: 1px solid rgb(15, 158, 238);
+        margin: 1% 35%;
+        text-align: center;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid rgb(15, 158, 238);
+      }
+
+      a {
+        color: #2844FA;
+        text-decoration: none;
+      }
+
+      a:hover, a:focus {
+        color: #1B29A4;
+      }
+
+      a:active {
+        color: #000;
+      }
+  body
+    p
+      audio#audio-preview(style='border: 1px solid rgb(15, 158, 238); width: 94%;')
+    div
+      button#start-recording(disabled='') Start Recording
+      button#stop-recording(disabled='') Stop Recording
+
+    script.
+      // you can set it equal to "false" to record only audio
+      var recordVideoSeparately = false;
+      if (!!navigator.webkitGetUserMedia && !recordVideoSeparately) {
+        var cameraPreview = document.getElementById('audio-preview');
+        cameraPreview.parentNode.innerHTML = '<audio id="audio-preview" controls style="border: 1px solid rgb(15, 158, 238); width: 94%;"></audio> ';
+      }
+      var socketio = io();
+
+      var mediaStream = null;
+      socketio.on('connect', function () {
+        startRecording.disabled = false;
+      });
+      var startRecording = document.getElementById('start-recording');
+      var stopRecording = document.getElementById('stop-recording');
+      var cameraPreview = document.getElementById('audio-preview');
+      var recordAudio, recordVideo;
+      startRecording.onclick = function () {
+        startRecording.disabled = true;
+        navigator.getUserMedia({
+          audio: true,
+          video: false
+        }, function (stream) {
+          mediaStream = stream;
+          recordAudio = RecordRTC(stream, {
+            onAudioProcessStarted: function () {
+              recordVideoSeparately && recordVideo.startRecording();
+              cameraPreview.src = window.URL.createObjectURL(stream);
+              cameraPreview.play();
+              cameraPreview.muted = true;
+              cameraPreview.controls = false;
+            }
+          });
+          recordVideo = RecordRTC(stream, {
+            type: 'video'
+          });
+          recordAudio.startRecording();
+          stopRecording.disabled = false;
+        }, function (error) {
+          alert(JSON.stringify(error));
+        });
+      };
+      stopRecording.onclick = function () {
+        startRecording.disabled = false;
+        stopRecording.disabled = true;
+        // stop audio recorder
+        recordVideoSeparately && recordAudio.stopRecording(function () {
+          // stop video recorder
+          recordVideo.stopRecording(function () {
+            // get audio data-URL
+            recordAudio.getDataURL(function (audioDataURL) {
+              // get video data-URL
+              recordVideo.getDataURL(function (videoDataURL) {
+                var files = {
+                  audio: {
+                    type: recordAudio.getBlob().type || 'audio/wav',
+                    dataURL: audioDataURL
+                  },
+                  video: {
+                    type: recordVideo.getBlob().type || 'video/webm',
+                    dataURL: videoDataURL
+                  }
+                };
+                socketio.emit('message', files);
+                if (mediaStream) mediaStream.stop();
+              });
+            });
+            cameraPreview.src = '';
+            cameraPreview.poster = 'ajax-loader.gif';
+          });
+        });
+        // if firefox or if you want to record only audio
+        // stop audio recorder
+        !recordVideoSeparately && recordAudio.stopRecording(function () {
+          // get audio data-URL
+          recordAudio.getDataURL(function (audioDataURL) {
+            var files = {
+              audio: {
+                type: recordAudio.getBlob().type || 'audio/wav',
+                dataURL: audioDataURL
+              }
+            };
+            socketio.emit('message', files);
+            if (mediaStream) mediaStream.stop();
+          });
+          cameraPreview.src = '';
+          cameraPreview.poster = 'ajax-loader.gif';
+        });
+      };
+      socketio.on('finished', function (fileName) {
+        var href = (location.href.split('/').pop().length
+            ? location.href.replace(location.href.split('/').pop(), '')
+            : location.href
+        );
+        href = href + 'uploads/' + fileName;
+        console.log('got file ' + href);
+        cameraPreview.src = href
+        cameraPreview.play();
+        cameraPreview.muted = false;
+        cameraPreview.controls = true;
+        console.log(socketio.id);
+      });

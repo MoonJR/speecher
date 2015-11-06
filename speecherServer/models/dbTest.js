@@ -3,28 +3,25 @@
  */
 var db = require('./dbConn');
 
-exports.testList = function(scriptId, callback){
+exports.testList = function(userId, scriptId, callback){
+
   db.open(function(err, db) {
     db.collection('test', function (err, collection) {
-      collection.find({"script_id":scriptId}, function (err, cursor) {
+      collection.find({"id":userId, "script_id":scriptId}, function (err, cursor) {
         cursor.toArray(function (err, items) {
           callback(err, items);
-          db.close();
         })
       })
     });
   });
 };
 
-exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
-  console.log(scriptId);
-  console.log(wordLimit);
+exports.wrongWordsInScript = function(userId, scriptId, wordLimit, callback){
 
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({"script_id":scriptId}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
+      collection.find({"id": userId, "script_id":scriptId}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
           callback(err, items);
-          db.close();
       })
     });
   });
@@ -33,10 +30,59 @@ exports.wrongWordsInScript = function(scriptId, wordLimit, callback){
 exports.totalFailWord = function(user_id, wordLimit, callback){
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({}).limit(wordLimit).sort({wrongCount:-1}).toArray(function (err, items) {
-        callback(err, items);
-        db.close();
+      collection.aggregate(
+        [
+          { $group: { "_id": "$content", wrongCount: {$sum : "$wrongCount"}}},
+          { $sort: {wrongCount: -1}},
+          { $limit: 10}
+        ]
+      ).toArray(function(err, result) {
+          callback(err,result);
+      });
+    });
+  });
+}
+
+exports.saveTest = function(userId, testId, scriptId, testType, score, testDate, callback){
+  db.open(function(err, db) {
+    db.collection('test', function (err, collection) {
+      collection.insertOne({
+          id: userId,
+          test_id: testId,
+          script_id: scriptId,
+          test_type: testType,
+          score: score,
+          test_date: testDate
+        },
+        function(err, result) {
+          callback(err, result);
       })
+    });
+  });
+}
+
+exports.saveWrongMorpheme = function(user_id, morpheme_id, paragraph_id, script_id, content, callback){
+  var key = user_id+ "l" +paragraph_id+ "l" + morpheme_id;
+  db.open(function(err, db) {
+    db.collection('morpheme', function (err, collection) {
+      collection.insert({
+        _id: key,
+        id: user_id,
+        script_id: script_id,
+        paragraph_seq: paragraph_id,
+        morpheme_seq: morpheme_id,
+        content: content,
+        wrongCount: 1
+      },function(err, result){
+
+        if(err){
+          collection.update({
+            _id: key
+          },{$inc:{wrongCount:1}});
+        }
+
+        callback(err, result);
+      });
     });
   });
 }
