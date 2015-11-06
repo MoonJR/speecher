@@ -6,7 +6,7 @@ var should = require('should');
 var scriptDetail = require('../routes/scriptDetail');
 
 describe('test', function() {
-  describe('.failList(scriptId)', function () {
+  describe('.failList', function () {
 
     var userId = "885722828163340";
     var scriptId = "292258a0-7ff5-11e5-b4a9-dbe441537346";

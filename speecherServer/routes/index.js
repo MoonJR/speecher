@@ -47,6 +47,7 @@ router.get('/login/facebook', login.facebookLogin);
 router.get('/login/google', login.googleLogin);
 router.post('/main/scriptSave', saveScript.saveScriptExpress);
 router.post('/main/scriptList', readScript.readScriptList);
+router.post('/main/paragraphList', readScript.readParagraph);
 router.post('/main/scriptDelete', deleteScript.deleteScriptExpress);
 router.post('/scriptDetail/scriptContent', readScript.readScriptDetail);
 router.post('/scriptDetail/scriptGrapeScores', testHistory.testHistory);
@@ -54,6 +55,7 @@ router.post('/scriptDetail/failList', scriptDetail.failList);
 router.post('/test/getRecordPath', getRecord.getRecord);
 
 router.post('/test/testList', tests.testList);
+router.post('/test/save', tests.save);
 router.post('/main/totalFailList', main.totalFailList);
 router.post('/main/wordDetail', main.wordDetail);
 
