@@ -47,8 +47,10 @@
         function (response) {
           console.log(response);
           if(response.data.success) {
-            vm.wrongWordAll = response.data.result;
-            console.log(vm.wrongWordAll[0]._id);
+            if (response.data.result.length > 0) {
+              vm.wrongWordAll = response.data.result;
+              console.log(vm.wrongWordAll[0]._id);
+            }
           }
           else {
             _errorHandler_('Error: success 0');
