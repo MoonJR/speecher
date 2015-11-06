@@ -16,7 +16,7 @@
     .progress(style="width:100%; margin:0px; 0px 0px 0px")
       .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
       span.sr-only {{test.timer_percent}}% Complete
-    js-speech(ng-model="speech")
+
   .write-box
     .flex
       textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px",disabled)
@@ -24,8 +24,9 @@
 
   .write-box
     .flex
-      button.btn.btn-save(type='button', ng-click="test.startTest()", ng-class="{true:'hidden','':''}[test.testnow]") 테스트 시작
-      button.btn.btn-save(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") 테스트 종료
+      js-speech(ng-model="speech")
+      //button#startButton.btn.btn-save(type='button', ng-click="startTest()", ng-class="{true:'hidden','':''}[test.testnow]") 테스트 시작
+      //button#finishButton.btn.btn-save(type='button', ng-click="finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") 테스트 종료
 
   .write-box
     .flex(style="width:100%;margin-top:10px;")

@@ -22,7 +22,9 @@
     test.setTimer = setTimer;
     test.setType = setType;
     test.types = types;
-
+    test.type = types[0];
+    test.testnow = false;
+    test.typeText = typeText[0];
 
 
     (function initController() {
@@ -40,6 +42,7 @@
       var testCookie = $cookieStore.get('test');
       test.saveItem(testCookie);
     });
+
 
 
     return test;
@@ -94,7 +97,7 @@
       test.testnow = true;
       startCount();
       startRecord();
-      test.speech.recognizing = true;
+      //test.speech.recognizing = true;
 
     }
 
@@ -106,7 +109,7 @@
         test.status = "WAIT";
 
       }
-      test.speech.recognizing = false;
+      //test.speech.recognizing = false;
       stopCount();
       $location.path('/result');
     };

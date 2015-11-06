@@ -10,6 +10,9 @@
   function testController($scope, $rootScope, $location ,$cookieStore, choiceService, scriptService) {
 
     $rootScope.test = choiceService;
+    $scope.startTest = startTest;
+    $scope.finishTest = finishTest;
+
     (function initController() {
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
@@ -36,17 +39,27 @@
     })();
 
     $scope.speech = {
-      "maxResults": 3000,
+      "maxResults": 2200,
       "continuous": true,
       "interimResults": true,
-      "recognizing": false,
+      "recognizing": true,
       "value":""
     }
 
 
 
-    //$rootScope.test.script =  test 의  script_content;
-    $rootScope.test.speech = $scope.speech;
+
+    ////$rootScope.test.script =  test 의  script_content;
+    //$rootScope.test.speech = $scope.speech;
+
+    function startTest(){
+      $rootScope.test.startTest();
+    }
+
+    function finishTest(){
+      //$scope.speech.recognizing = false;
+      $rootScope.test.finishTest();
+    }
   }
 })();
 
