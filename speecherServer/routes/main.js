@@ -26,7 +26,7 @@ exports.totalFailList = function(req, res) {
 };
 
 exports.wordDetail = function(req, res) {
-  var word = req.query.word;
+  var word = req.body.word;
 
   wordDetail.wordDetailData(word, function (err, data) {
 

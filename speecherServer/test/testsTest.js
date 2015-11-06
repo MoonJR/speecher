@@ -30,7 +30,7 @@ describe('test', function() {
       var userId = '123';
       var testType = 1;
       var testId = 123451111;
-      var testScript = 'i am very smart <ins>and</ins> handsome\nfnfnfnfnfn <ins>eee</ins>';
+      var testScript = 'My <del>names </del><ins>name </ins> is  Jason My <del>names </del><ins>name </ins> is  Jason';
       var testTime = 3;
 
       var req = {
