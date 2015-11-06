@@ -3,8 +3,7 @@
     h4 자주 틀리는 단어
     ul.nav.nav-pills(role='tablist')
       li(role='presentation', ng-repeat='item in vm.wordsDummy')
-        a.btn-word(href='#')
-          | {{item.word}}
+        a.btn-word(ng-click="showAlert(item)") {{item.word}}
           span.badge {{item.count}}
   .row
     .col-sm-3.col-md-3(ng-repeat='item in vm.scriptList')
@@ -12,9 +11,6 @@
         .script-box(style="margin:10px;")
           h4 {{item.script_title}}
           p {{item.script_content}}
-
-
-
 
   .row
     md-content

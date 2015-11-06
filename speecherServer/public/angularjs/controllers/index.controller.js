@@ -97,5 +97,25 @@
       choiceService.saveItem(scriptData);
       $location.path('/choice');
     }
+
+
+    $rootScope.showAlert = function(item) {
+
+      $mdDialog.show(
+        $mdDialog.alert()
+          .parent(angular.element(document.querySelector('#popupContainer')))
+          .clickOutsideToClose(true)
+          .title(item.word+"("+item.count+")")
+          .content('You can specify some description text in here.')
+          .ariaLabel('Alert Dialog Demo')
+          .ok('Got it!')
+
+      );
+    };
+
+
+
+
   }
+
 })();
