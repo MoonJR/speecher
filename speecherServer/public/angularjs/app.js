@@ -4,6 +4,7 @@ angular.module('myApp', [
   'ngRoute',
   'ngMaterial',
   'ngCookies',
+  'ngSanitize',
   'ngFacebook',
   'angular-svg-round-progress',
   'googleplus',

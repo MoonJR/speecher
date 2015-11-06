@@ -61,8 +61,9 @@
         test_time: vm.testTime,
         test_id: vm.testId
       };
+      //console.log(testResult);
 
-      console.log(testResult);
+      testService.testResult = testResult;
 
       testService.saveTestResult(testResult).then(
           function (response) {
