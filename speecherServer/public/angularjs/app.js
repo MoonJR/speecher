@@ -51,7 +51,7 @@ angular.module('myApp', [
             templateUrl: function(params){
               return '/partials/result';
             },
-            controller: 'resultCtrl',
+            controller: 'resultController',
             controllerAs: 'vm'
           })
           .otherwise({

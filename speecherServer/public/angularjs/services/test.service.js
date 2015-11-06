@@ -12,6 +12,7 @@
 
     // APIs
     service.saveTestResult = saveTestResult;
+    service.getTestList = getTestList;
 
     return service;
 
@@ -19,6 +20,9 @@
       return $http.post('/test/save', testResult).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
     }
 
+    function getTestList(scriptId) {
+      return $http.post('/test/testList', scriptId).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
+    }
 
     // private functions
     function _successHandler_(response) {

@@ -6,8 +6,8 @@
       .controller('testCtrl', testController);
 
 
-  testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'scriptService', 'testService'];
-  function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, scriptService, testService) {
+  testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'testService'];
+  function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
 
     $rootScope.test = choiceService;
 
@@ -53,7 +53,7 @@
       stopRecording();
 
       vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
-      console.log(vm.scriptResult);
+      //console.log(vm.scriptResult);
 
       var testResult = {
         script_id: vm.scriptId,
@@ -63,10 +63,13 @@
         test_id: vm.testId
       };
 
+      console.log(testResult);
+
       testService.saveTestResult(testResult).then(
           function (response) {
+            console.log('!! ' + response);
             if (response.data.success) {
-              console.log(response);
+              $location.path('/result');
             }
             else {
               _errorHandler_('Error: success 0');
@@ -74,10 +77,12 @@
           },
           _errorHandler_('Error: saveTestResult')
       );
+      $location.path('/result');
     }
 
     // private functions
     function _errorHandler_(error) {
+      console.log(error);
       return { success: false, message: error };
     }
 
@@ -87,6 +92,9 @@
     var recordAudio, recordVideo;
 
     function startRecording() {
+      vm.testId = socketio.id;
+      console.log(vm.testId);
+
       navigator.getUserMedia({
         audio: true,
         video: false
@@ -147,15 +155,5 @@
         });
       });
     }
-
-    socketio.on('finished', function (fileName) {
-      var href = (location.href.split('/').pop().length
-              ? location.href.replace(location.href.split('/').pop(), '')
-              : location.href
-      );
-      vm.testId = socketio.id;
-      //console.log('socketio id: ' + vm.testId);
-    });
-
   }
 })();

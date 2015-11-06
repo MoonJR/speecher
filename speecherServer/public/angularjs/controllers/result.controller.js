@@ -5,10 +5,9 @@
       .module('myApp')
       .controller('resultController', resultController);
 
-  resultController.$inject = ['$scope', '$http'];
-  function resultController($scope, $http) {
-    result = {};
-    return result;
+  resultController.$inject = ['testService'];
+  function resultController(testService) {
+    var result = this;
   }
 })();
 
