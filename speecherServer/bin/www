@@ -15,7 +15,6 @@ var server = app.listen(app.get('port'), function() {
 
 var io = require('socket.io')(server);
 
-
 io.sockets.on('connection', function (socket) {
   socket.on('message', function (data) {
     var fileName = uuid.v1();
@@ -24,12 +23,12 @@ io.sockets.on('connection', function (socket) {
 
     // if it is firefox or if user is recording only audio
     socket.emit('finished', fileName + '.wav');
+    console.log(socket.id);
   });
 });
 
 
 function writeToDisk(dataURL, fileName) {
-  console.log();
   var fileExtension = fileName.split('.').pop(),
     fileRootNameWithBase = __dirname+'/../public/uploads/' + fileName,
     filePath = fileRootNameWithBase,
@@ -46,5 +45,5 @@ function writeToDisk(dataURL, fileName) {
   fileBuffer = new Buffer(dataURL, 'base64');
   fs.writeFileSync(filePath, fileBuffer);
 
-  console.log('filePath', filePath);
+
 }

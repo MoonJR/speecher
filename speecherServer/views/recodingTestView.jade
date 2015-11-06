@@ -63,6 +63,7 @@ html
         cameraPreview.parentNode.innerHTML = '<audio id="audio-preview" controls style="border: 1px solid rgb(15, 158, 238); width: 94%;"></audio> ';
       }
       var socketio = io();
+
       var mediaStream = null;
       socketio.on('connect', function () {
         startRecording.disabled = false;
@@ -154,4 +155,5 @@ html
         cameraPreview.play();
         cameraPreview.muted = false;
         cameraPreview.controls = true;
+        console.log(socketio.id);
       });

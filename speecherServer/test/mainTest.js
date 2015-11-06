@@ -6,7 +6,7 @@ var main = require('../routes/main');
 
 describe('main', function() {
 
-  describe('.totalFailList(scriptId)', function() {
+  describe('.totalFailList', function() {
     var req = {query: {}, session: {user_id: '885722828163340'}};
     var res = {};
 
@@ -35,7 +35,7 @@ describe('main', function() {
     });
   });
 
-  describe('.wrongWordDetail(scriptId)', function() {
+  describe('.wrongWordDetail', function() {
     var word = 'wind';
     var req = {query: {word: word}};
     var res = {};

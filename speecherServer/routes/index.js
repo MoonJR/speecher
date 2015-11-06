@@ -56,6 +56,7 @@ router.post('/scriptDetail/scriptGrapeScores', testHistory.testHistory);
 router.post('/scriptDetail/failList', scriptDetail.failList);
 router.post('/test/getRecordPath', getRecord.getRecord);
 router.post('/test/testList', tests.testList);
+router.post('/test/save', tests.save);
 router.post('/main/totalFailList', main.totalFailList);
 router.post('/main/wordDetail', main.wordDetail);
 
