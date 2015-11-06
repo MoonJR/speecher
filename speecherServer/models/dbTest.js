@@ -4,7 +4,6 @@
 var db = require('./dbConn');
 
 exports.testList = function(userId, scriptId, callback){
-
   db.open(function(err, db) {
     db.collection('test', function (err, collection) {
       collection.find({"id":userId, "script_id":scriptId}, function (err, cursor) {

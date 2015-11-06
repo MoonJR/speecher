@@ -43,48 +43,51 @@ exports.save = function(req, res){
 
   var score = 0;
   var wrong = 0;
-  var morpheme_count = 0;
-  for(var i = 0; i < paragraphArr.length; i++){
+  var totalMorpheme_count = 0;
+
+  for(var i = 0; i < paragraphArr.length; i++) {
+    var failWords = paragraphArr[i].content.match(/<ins>(.|\n)*?<\/ins>/g);
+
+    wrong = failWords.length;
+
+    for (var j = 0; j < failWords.length; j++) {
+      paragraphArr[i].content = paragraphArr[i].content.replace(/<del>(.|\n)*?<\/ins>/, '<location>');
+    }
+
+    console.log(paragraphArr[i].content);
     var morpheme_array = tokenizer.tokenize(paragraphArr[i].content);
-    morpheme_count += morpheme_array.length;
+    totalMorpheme_count += morpheme_array.length;
 
-    //
-    var regexp = /<del>.+<\/ins>/g;
-
-    var failWords = paragraphArr[i].content.match(regexp);
-
-    //for(var j = 0; j < morpheme_array.length; j++) {
-    //  if(morpheme_array[j].indexOf('<ins>') > -1){
-    //    var content = morpheme_array[j].substring(5, morpheme_array[j].length-6);
-    //    console.log(content);
-    //    wrong+=1;
-    //    dbTest.saveWrongMorpheme(userId, j, i, scriptId, content, function(err, data){
-    //      //if(err){
-    //      //  res.send(error.db_load_error);
-    //      //}
-    //      //
-    //      //if(data){
-    //      //  res.send({success: error.success.success, msg: error.success.msg, result: data});
-    //      //}else{
-    //      //  res.send(error.unknown_error);
-    //      //}
-    //    });
-    //  }
-    //}
-    console.log(failWords);
+    var wrongIdx = 0;
+    for(var j = 0; j < morpheme_array.length; j++) {
+      if(morpheme_array[j] === '<location>') {
+        var wrongMorpheme = failWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
+        dbTest.saveWrongMorpheme(userId, j, i, scriptId, wrongMorpheme, function (err, data) {
+          //if(err){
+          //  res.send(error.db_load_error);
+          //}
+          //
+          //if(data){
+          //  res.send({success: error.success.success, msg: error.success.msg, result: data});
+          //}else{
+          //  res.send(error.unknown_error);
+          //}
+        });
+      }
+    }
   }
 
-  //score = parseInt((morpheme_count-wrong)/morpheme_count*100);
-  //
-  //dbTest.saveTest(userId, testId, scriptId, testType, score, testDate, function(err, data){
-  //  if(err){
-  //    res.send(error.db_load_error);
-  //  }
-  //
-  //  if(data){
-  //    res.send({success: error.success.success, msg: error.success.msg, result: data});
-  //  }else{
-  //    res.send(error.unknown_error);
-  //  }
-  //});
+  score = parseInt((totalMorpheme_count-wrong)/totalMorpheme_count*100);
+
+  dbTest.saveTest(userId, testId, scriptId, testType, score, testDate, function(err, data){
+    if(err){
+      res.send(error.db_load_error);
+    }
+
+    if(data){
+      res.send({success: error.success.success, msg: error.success.msg, result: data});
+    }else{
+      res.send(error.unknown_error);
+    }
+  });
 }
