@@ -15,6 +15,7 @@ exports.readScriptList = function (req, res) {
       res.send(error.no_session);
       return;
     }
+    ;
 
 
     collection.scriptCollection.find(query).toArray(function (err, result) {
@@ -33,7 +34,7 @@ exports.readScriptList = function (req, res) {
     res.send(error.unknown_error);
   }
 
-}
+};
 
 exports.readScriptDetail = function (req, res) {
   var sendData = {};
@@ -67,8 +68,39 @@ exports.readScriptDetail = function (req, res) {
     console.log(e);
     res.send(error.unknown_error);
   }
-}
+};
 
+exports.readParagraph = function (req, res) {
+  var sendData = {};
+  try {
+    var query = {
+      script_id: req.body.script_id
+    };
+    if (typeof req.session.user_id == 'undefined') {
+      res.send(error.no_session);
+      return;
+    } else if (typeof query.script_id == 'undefined') {
+      res.send(error.short_parameter);
+      return;
+    }
+
+    collection.paragraphCollection.find(query).toArray(function (err, result) {
+      if (err || result == null) {
+        res.send(error.db_load_error);
+        return;
+      } else {
+        sendData.success = error.successCode.success;
+        sendData.msg = error.successMsg.success;
+      }
+      sendData.result = result;
+      res.send(sendData);
+    });
+
+  } catch (e) {
+    console.log(e);
+    res.send(error.unknown_error);
+  }
+};
 
 
 

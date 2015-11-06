@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('indexController', indexController);
 
-  indexController.$inject = ['$rootScope', '$mdDialog', 'scriptService'];
-  function indexController($rootScope, $mdDialog, scriptService) {
+  indexController.$inject = ['$mdDialog', 'scriptService'];
+  function indexController($mdDialog, scriptService) {
 
     var vm = this;
 
@@ -41,6 +41,7 @@
             if (response.data.success) {
               if (response.data.result.length > 0) {
                 vm.scriptList = response.data.result;
+                scriptService.scriptList = vm.scriptList;
                 //console.log(response.data.result);
               }
               console.log(response);
