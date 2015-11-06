@@ -55,7 +55,8 @@
           $scope.speech = {
             msg: jsSpeechFactory.messages.info_setup,
             icon: jsSpeechFactory.icons.start,
-            recognizing: false
+            recognizing: false,
+
           };
           scope.$watch('ngModel', function (newVal, oldVal) {
             return console.log(newVal);
