@@ -27,7 +27,7 @@ exports.testList = function(req, res) {
 
 exports.save = function(req, res){
   var userId = req.session.user_id;
-  var testId = req.query.test_id;
+  var recordId = req.query.test_id;
   var scriptId = req.query.script_id;
   var testType = req.query.test_type;
   var testTime = req.query.test_time;
@@ -79,7 +79,7 @@ exports.save = function(req, res){
 
   score = parseInt((totalMorpheme_count-wrong)/totalMorpheme_count*100);
 
-  dbTest.saveTest(userId, testId, scriptId, testType, score, testDate, function(err, data){
+  dbTest.saveTest(userId, recordId, scriptId, testType, score, testDate, function(err, data){
     if(err){
       res.send(error.db_load_error);
     }
