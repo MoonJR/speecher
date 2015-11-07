@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('detailController', detailController);
 
-  detailController.$inject = ['$http', '$routeParams', 'scriptService', '$location'];
-  function detailController($http, $routeParams, scriptService, $location) {
+  detailController.$inject = ['$routeParams', 'scriptService', '$location'];
+  function detailController($routeParams, scriptService, $location) {
 
     var vm = this;
 
@@ -15,26 +15,17 @@
     vm.scriptTitle = null;
     vm.scriptContent = null;
     vm.scriptIsModifing = false;
+    vm.wrongWord = null;
     vm.showScript = showScript;
+    vm.showWrongWord = showWrongWord;
     vm.modifyScript = modifyScript;
     vm.saveScript = saveScript;
     vm.deleteScript = deleteScript;
 
-    vm.wordsDummy = [
-      {
-        id: '1',
-        word: 'Must',
-        count: '5'
-      }, {
-        id: '2',
-        word: 'Should',
-        count: '4'
-      }
-    ];
-
     // init script title & content
     (function initController() {
       showScript();
+      showWrongWord();
     })();
 
     function showScript() {
@@ -43,11 +34,25 @@
             if (response.data.success) {
               vm.scriptTitle = response.data.result.script_title;
               vm.scriptContent = response.data.result.script_content;
-
-              console.log(response.data.result);
+              //console.log(response.data.result);
             }
           },
           _errorHandler_('Error: showScript')
+      );
+    }
+
+    function showWrongWord() {
+      scriptService.getWrongWordAll(vm.scriptId).then(
+          function (response) {
+            //console.log(response);
+            if(response.data.success) {
+              vm.wrongWord = response.data.result;
+            }
+            else {
+              _errorHandler_('Error: success 0');
+            }
+          },
+          _errorHandler_('Error: showWrongWordAll')
       );
     }
 

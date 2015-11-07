@@ -1,8 +1,6 @@
 'use strict';
 
-
 angular.module('myApp', [
-
   'ngRoute',
   'ngMaterial',
   'ngCookies',
@@ -14,6 +12,7 @@ angular.module('myApp', [
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
+
           .when('/', {
             templateUrl: '/partials/index',
             controller: 'indexController',
@@ -22,11 +21,6 @@ angular.module('myApp', [
           .when('/login', {
             templateUrl: '/partials/login',
             controller: 'loginController',
-            controllerAs: 'vm'
-          })
-          .when('/speech', {
-            templateUrl: '/partials/speech',
-            controller: 'speechController',
             controllerAs: 'vm'
           })
           .when('/write', {
@@ -44,12 +38,21 @@ angular.module('myApp', [
               return '/partials/choice/';
             },
             controller: 'choiceCtrl',
+            controllerAs: 'vm'
           })
           .when('/test', {
             templateUrl: function(params){
               return '/partials/test';
             },
             controller: 'testCtrl',
+            controllerAs: 'vm'
+          })
+          .when('/result', {
+            templateUrl: function(params){
+              return '/partials/result';
+            },
+            controller: 'resultController',
+            controllerAs: 'vm'
           })
           .otherwise({
             redirectTo: '/'
