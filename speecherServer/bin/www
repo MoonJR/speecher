@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 var app = require('../app');
+var dbTest = require('../models/dbTest');
 
 var http = require("http"),
   url = require("url"),
@@ -23,7 +24,12 @@ io.sockets.on('connection', function (socket) {
 
     // if it is firefox or if user is recording only audio
     socket.emit('finished', fileName + '.wav');
-    console.log(socket.id);
+
+    dbTest.saveRecodingData(socket.id, fileName, function(err, result){
+      if(err) {
+        console.log('레코드 저장 디비 연동 문제 발생');
+      }
+    });
   });
 });
 

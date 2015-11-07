@@ -4,7 +4,6 @@
 var db = require('./dbConn');
 
 exports.testList = function(userId, scriptId, callback){
-
   db.open(function(err, db) {
     db.collection('test', function (err, collection) {
       collection.find({"id":userId, "script_id":scriptId}, function (err, cursor) {
@@ -62,7 +61,7 @@ exports.saveTest = function(userId, testId, scriptId, testType, score, testDate,
 }
 
 exports.saveWrongMorpheme = function(user_id, morpheme_id, paragraph_id, script_id, content, callback){
-  var key = user_id+ "l" +paragraph_id+ "l" + morpheme_id;
+  var key = user_id+ "|" +paragraph_id+ "|" + morpheme_id;
   db.open(function(err, db) {
     db.collection('morpheme', function (err, collection) {
       collection.insert({
@@ -81,6 +80,19 @@ exports.saveWrongMorpheme = function(user_id, morpheme_id, paragraph_id, script_
           },{$inc:{wrongCount:1}});
         }
 
+        callback(err, result);
+      });
+    });
+  });
+}
+
+exports.saveRecodingData = function(recoding_id, filename, callback){
+  db.open(function(err, db) {
+    db.collection('record', function (err, collection) {
+      collection.insert({
+        record_id: recoding_id,
+        filename: filename
+      },function(err, result){
         callback(err, result);
       });
     });
