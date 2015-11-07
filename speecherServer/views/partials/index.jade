@@ -1,17 +1,14 @@
 .container
+
   .write-box(ng-show="vm.wrongWordAll")
     h4 자주 틀리는 단어
     ul.nav.nav-pills(role='tablist')
       li(role='presentation', ng-repeat='item in vm.wrongWordAll')
         //실데이터
-        //a.btn-word(ng-click="vm.showWrongWordDialog(item)")
-        //  | {{item._id}}
-        //  span.badge {{item.wrongCount}}
-
-        //TEST용
         a.btn-word(ng-click="vm.showWrongWordDialog(item)")
-          | {{item.word}}
+          | {{item._id}}
           span.badge {{item.wrongCount}}
+
 
   .row
     .col-sm-3.col-md-3(ng-repeat='item in vm.scriptList')
@@ -41,3 +38,6 @@
             div.md-ripple-container
           md-divider
       button.btn-test(ng-click="vm.moveChoice(item)") test
+
+
+  script(src='../js/tts.js')

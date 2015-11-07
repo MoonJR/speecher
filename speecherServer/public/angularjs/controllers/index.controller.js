@@ -23,17 +23,7 @@
       showScriptList();
       showWrongWordAll();
 
-      vm.wrongWordAll = [
-        {
-          id: '1',
-          word: 'Must',
-          count: '5'
-        }, {
-          id: '2',
-          word: 'Should',
-          count: '4'
-        }
-      ];
+
 
 
     })();
@@ -76,13 +66,15 @@
     }
 
     function showWrongWordDialog(item) {
-      var word = item.word.toLowerCase();;
+      var word = item._id.toLowerCase();
+      var tts = "http://translate.google.com/translate_tts?tl=en&q="+word;
+
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)
           .title("틀린단어 상세보기")
-          .content(word +"<br>"+
-          '<audio src="https://translate.google.com/translate_tts?ie=UTF-8&q='+word+'&tl=en" controls></audio>')
+          .content(word +"("+item.wrongCount+")<br>"+'<a href="http://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+word+'">TTS</a>')
+
           .ariaLabel("")
           .ok('Close')
       );

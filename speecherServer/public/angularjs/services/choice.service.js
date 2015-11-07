@@ -42,8 +42,6 @@
       test.saveItem(testCookie);
     })();
 
-
-
     return test;
 
     function setType(type){
