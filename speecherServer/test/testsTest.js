@@ -37,7 +37,7 @@ describe('test', function() {
 
       var req = {
         session:{user_id: userId},
-        query: {
+        body: {
           script_id: scriptId,
           user_id: userId,
           test_type: testType,

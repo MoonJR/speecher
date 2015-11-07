@@ -27,7 +27,7 @@ exports.testList = function(req, res) {
 
 exports.save = function(req, res){
   var userId = req.session.user_id;
-  var testId = req.body.test_id;
+  var recordId = req.body.test_id;
   var scriptId = req.body.script_id;
   var testType = req.body.test_type;
   var testTime = req.body.test_time;
