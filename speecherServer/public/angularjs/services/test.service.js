@@ -11,13 +11,19 @@
     var service = {};
 
     // APIs
+    service.testResult = null;
     service.saveTestResult = saveTestResult;
+    service.getTestResult = getTestResult;
     service.getTestList = getTestList;
 
     return service;
 
     function saveTestResult(testResult) {
       return $http.post('/test/save', testResult).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
+    }
+
+    function getTestResult(scriptId) {
+      return $http.post('/test/selectedTestResult', scriptId).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
     }
 
     function getTestList(scriptId) {

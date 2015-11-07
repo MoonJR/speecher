@@ -7,9 +7,7 @@
 
   indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService','$http'];
   function indexController($rootScope, $mdDialog, $location, scriptService, choiceService, $http) {
-
     var vm = this;
-
     // APIs
     vm.scriptList = null;
     vm.wrongWordAll = null;
@@ -17,10 +15,27 @@
     vm.showWrongWordAll = showWrongWordAll;
     vm.showWrongWordDialog = showWrongWordDialog;
 
+
+
+
     // init script list & words
     (function initController() {
       showScriptList();
       showWrongWordAll();
+
+      vm.wrongWordAll = [
+        {
+          id: '1',
+          word: 'Must',
+          count: '5'
+        }, {
+          id: '2',
+          word: 'Should',
+          count: '4'
+        }
+      ];
+
+
     })();
 
     function showScriptList(){
@@ -60,19 +75,35 @@
       );
     }
 
-    function showWrongWordDialog(content) {
+    function showWrongWordDialog(item) {
+      var word = item.word.toLowerCase();;
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)
-          .title("DetailWord")
-          .content(content)
-          .ariaLabel(content)
+          .title("틀린단어 상세보기")
+          .content(word +"<br>"+
+          '<audio src="https://translate.google.com/translate_tts?ie=UTF-8&q='+word+'&tl=en" controls></audio>')
+          .ariaLabel("")
           .ok('Close')
       );
     }
 
+    function DialogController($scope, $mdDialog) {
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+      $scope.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
+    }
+
+
     // private functions
     function _errorHandler_(error) {
+      console.log(error);
       return { success: false, message: error };
     }
 

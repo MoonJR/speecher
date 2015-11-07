@@ -2,17 +2,25 @@
   .write-box(ng-show="vm.wrongWordAll")
     h4 자주 틀리는 단어
     ul.nav.nav-pills(role='tablist')
-
       li(role='presentation', ng-repeat='item in vm.wrongWordAll')
-        a.btn-word(href='/#/')
-          | {{item._id}}
+        //실데이터
+        //a.btn-word(ng-click="vm.showWrongWordDialog(item)")
+        //  | {{item._id}}
+        //  span.badge {{item.wrongCount}}
+
+        //TEST용
+        a.btn-word(ng-click="vm.showWrongWordDialog(item)")
+          | {{item.word}}
           span.badge {{item.wrongCount}}
+
   .row
     .col-sm-3.col-md-3(ng-repeat='item in vm.scriptList')
       a(href='/#/detail/{{item.script_id}}', style="text-decoration: none !important; color:#333;")
         .script-box(style="margin:10px;")
           h4 {{item.script_title}}
           p {{item.script_content}}
+
+
 
 
   .row

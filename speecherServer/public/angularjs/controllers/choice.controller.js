@@ -41,11 +41,8 @@ function choiceController($scope, $rootScope, $cookieStore, choiceService, $loca
       }
     });
   })();
-
-
-
-
-
 };
+
+
 
 
