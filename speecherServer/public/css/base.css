@@ -374,6 +374,14 @@ input:read-only {
   border: 1px solid #51A7F9 !important;
 }
 
+.btn-complete {
+  float: right;
+  color: #ffffff;
+  background-color: #51A7F9;
+  border: 1px solid #51A7F9 !important;
+  margin-left: 15px;
+}
+
 .btn-test {
   float: right;
   color: #51A7F9;

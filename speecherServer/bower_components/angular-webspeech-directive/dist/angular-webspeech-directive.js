@@ -163,13 +163,14 @@
           $scope.toggleStartStop = function () {
             if ($scope.ngModel.recognizing) {
               recognition.stop();
-              $scope.$parent.$parent.test.finishTest();
+              $scope.$parent.$parent.test.saveTestResult();
 
               return reset();
             } else {
               recognition.start();
               $scope.ngModel.recognizing = true;
-              $scope.$parent.$parent.test.startTest();
+              //$scope.$parent.$parent.test.startTest();
+              $scope.$parent.$parent.test.startRecording();
               angular.element(document.querySelector('#startButton')).text("테스트 종료");
               return setIcon('blocked');
             }

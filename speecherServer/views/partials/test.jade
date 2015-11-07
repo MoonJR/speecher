@@ -1,7 +1,7 @@
 .container
 
   //div(style="top:20%; left:50%; position:absolute;")
-    //button.btn.btn-warning(style="left: -50%; width:300px; height:200px; z-index: 1; position:relative;") 테스트 시작
+  //  button.btn.btn-warning(style="left: -50%; width:300px; height:200px; z-index: 1; position:relative;") 테스트 시작
   .write-box
     .input-group
       span.input-group-addon.btn-file(style="margin:0px; padding:0px;")
@@ -41,6 +41,8 @@
   .write-box
     .flex
       js-speech(ng-model="speech")
+      //js-speech(ng-model="speech", ng-click="vm.startRecording(); ")
+      //js-speech(ng-model="speech", ng-click="vm.saveTestResult(); ")
       //button#startButton.btn.btn-save(type='button', ng-click="startTest()", ng-class="{true:'hidden','':''}[test.testnow]") 테스트 시작
       //button#finishButton.btn.btn-save(type='button', ng-click="finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") 테스트 종료
 
@@ -49,11 +51,30 @@
       div(ng-bind-html="speech.value|diff:test.script_content")
       div(ng-bind-html="test.script_content|diff:speech.value")
 
-    .flex(style="width:100%;margin-top:10px;")
-      div(ng-bind-html="test.script_content|diff:speech.value")
-        p.border test.script: {{test.script_content}}
-        p speech.value: {{speech.value}}
 
-
-
-
+  //.write-bow
+  //  p 여기에서분리
+  //
+  //
+  //
+  //
+  //  js-speech(ng-model="speech", ng-click="vm.startRecording()")
+  //.write-box
+  //  .flex
+  //    textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px")
+  //    textarea.form-control.noresize#speech(ng-model="speech.value", placeholder="실시간 결과", style="width:50%;height:400px")
+  //
+  //.write-box
+  //  .flex
+  //    button.btn.btn-save(type='button', ng-click="vm.saveTestResult()", ng-class="{true:'hidden','':''}[test.testnow]") 테스트 종료
+  //    button.btn.btn-save(type='button', ng-click="test.finishTest()", ng-class="{false:'hidden','':'hidden'}[test.testnow]") 테스트 종료
+  //
+  //.write-box
+  //  .flex(style="width:100%;margin-top:10px;")
+  //    p(ng-bind-html="test.script_content|diff:speech.value")
+  //
+  //
+  //  .flex(style="width:100%;margin-top:10px;")
+  //    p(ng-bind-html="speech.value|diff:test.script_content")
+  //      //p.border test.script: {{test.script_content}}
+  //      //p speech.value: {{speech.value}}

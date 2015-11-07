@@ -1,10 +1,12 @@
 .container
-  .write-box(ng-show="vm.wordsDummy")
+  .write-box(ng-show="vm.wrongWordAll")
     h4 자주 틀리는 단어
     ul.nav.nav-pills(role='tablist')
-      li(role='presentation', ng-repeat='item in vm.wordsDummy')
-        a.btn-word(ng-click="showAlert(item)") {{item.word}}
-          span.badge {{item.count}}
+
+      li(role='presentation', ng-repeat='item in vm.wrongWordAll')
+        a.btn-word(href='/#/')
+          | {{item._id}}
+          span.badge {{item.wrongCount}}
   .row
     .col-sm-3.col-md-3(ng-repeat='item in vm.scriptList')
       a(href='/#/detail/{{item.script_id}}', style="text-decoration: none !important; color:#333;")
@@ -30,3 +32,4 @@
             //  span.ng-scope 테스트하기
             div.md-ripple-container
           md-divider
+      button.btn-test(ng-click="vm.moveChoice(item)") test
