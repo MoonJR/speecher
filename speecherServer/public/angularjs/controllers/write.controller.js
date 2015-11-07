@@ -28,7 +28,7 @@
               vm.response = response.data.success;
 
               if(response.data.success){
-                console.log("save script");
+                //console.log("save script");
                 $location.path('/');
                 return response;
               } else {
@@ -47,6 +47,7 @@
 
     // private functions
     function _errorHandler_ (error) {
+      console.log(error);
       return { success: false, message: error };
     }
   }

@@ -1,1 +1,10 @@
-p finish
+.container
+  .write-box
+    h4 {{vm.testResult.test_type}} 결과
+    p(ng-bind-html="vm.testResult.script_result")
+  .row
+    .col-sm-3.col-md-3(ng-repeat='item in vm.testList')
+      a(href='#', style="text-decoration: none !important; color:#333;")
+        .script-box(style="margin:10px;")
+          h4 {{item.test_date}}
+          h4 {{item.score}}
