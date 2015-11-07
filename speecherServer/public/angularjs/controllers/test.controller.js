@@ -15,7 +15,6 @@
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
       $rootScope.test = testCookie;
-
     })();
 
     $scope.speech = {
@@ -62,12 +61,12 @@
         test_time: vm.testTime,
         test_id: vm.testId
       };
+      //console.log(testResult);
 
-      console.log(testResult);
+      testService.testResult = testResult;
 
       testService.saveTestResult(testResult).then(
           function (response) {
-            console.log('!! ' + response);
             if (response.data.success) {
               $location.path('/result');
             }
@@ -77,7 +76,7 @@
           },
           _errorHandler_('Error: saveTestResult')
       );
-      $location.path('/result');
+      $location.path('/result/' + vm.scriptId);
     }
 
     // private functions
