@@ -5,6 +5,8 @@ body{
   padding: 45px 0px 0px 0px!important;
   background-color: #f5f8fa;
 }
+
+
 .left {
   float: left;
 }
@@ -105,10 +107,14 @@ md-toolbar:not(.md-menu-toolbar){
 
 #box-words{
   width:300px;
+  min-width:300px;
+  float: right;
+
 }
 
 #box-texts{
   width:100%;
+  max-width:980px;
   margin-right:15px;
 }
 
@@ -222,6 +228,7 @@ md-tabs{
 .border-top{
   border-top: 1px solid rgb(224,224,224);
 }
+
 
 /* login page */
 
@@ -367,6 +374,14 @@ input:read-only {
   border: 1px solid #51A7F9 !important;
 }
 
+.btn-complete {
+  float: right;
+  color: #ffffff;
+  background-color: #51A7F9;
+  border: 1px solid #51A7F9 !important;
+  margin-left: 15px;
+}
+
 .btn-test {
   float: right;
   color: #51A7F9;
@@ -420,6 +435,55 @@ h4 {
 
 .col-sm-3.col-md-3 {
   padding: 5px !important;
+
+}
+
+
+.border {
+  border: 1px solid rgb(224, 224, 224);
+  border-radius: 5px;
+}
+.no-border-top {
+  border-top: 0px solid #c3c3c3 !important;
+}
+.tab-box {
+  background-color: #FFFFFF;
+  /*box-shadow: 0px 3px 2px -3px #c3c3c3;*/
+  border: 1px solid #e3e3e3;
+  padding: 15px;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom:10px;
+}
+
+
+.gray{
+  color: lightgray;
+}
+.black{
+  color: black;
+}
+
+md-switch.md-default-theme.md-checked, md-switch.md-checked .md-thumb {
+  background-color: #51A7F9;
+}
+
+md-switch.md-default-theme.md-checked, md-switch.md-checked .md-bar {
+  background-color: #73c9Fa;
+}
+
+.margin-top{
+  margin-top:25px;
+}
+
+.padding-bottom{
+  padding-bottom:20px;
+}
+
+
+.p-menu{
+  padding: 10px 5px 0px 5px;
 }
 
 /* detail page */
