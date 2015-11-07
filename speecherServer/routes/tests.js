@@ -34,6 +34,15 @@ exports.save = function(req, res){
   var testScript = req.body.script_result;
   var testDate = new Date();
 
+  console.log(userId+" "+recordId+" "+scriptId+" "+testType+" "+testTime+" "+testScript+" "+testDate);
+  console.log(encodeURI(testScript));
+
+  var preProc;
+
+  while((preProc = testScript.match(/<ins>[^(<ins>)]*(\s)?\n<\/ins>/)) != null) {
+      console.log("++++"+preProc);
+    testScript= testScript.replace(/<ins>[^(<ins>)]*(\s)?\n<\/ins>/, preProc[0].replace('\n', ''));
+  }
 
   var paragraphArr = scriptUtil.scriptToParagraphJsonArray({
     id: userId,
@@ -47,11 +56,11 @@ exports.save = function(req, res){
 
   for(var i = 0; i < paragraphArr.length; i++) {
     var failWords = paragraphArr[i].content.match(/<ins>(.|\n)*?<\/ins>/g);
-
+    console.log(failWords);
     wrong = failWords.length;
 
     for (var j = 0; j < failWords.length; j++) {
-      paragraphArr[i].content = paragraphArr[i].content.replace(/<del>(.|\n)*?<\/ins>/, '<location>');
+      paragraphArr[i].content = paragraphArr[i].content.replace(/<ins>(.|\n)*?<\/ins>/, '<location> ');
     }
 
     console.log(paragraphArr[i].content);
@@ -63,15 +72,9 @@ exports.save = function(req, res){
       if(morpheme_array[j] === '<location>') {
         var wrongMorpheme = failWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
         dbTest.saveWrongMorpheme(userId, j, i, scriptId, wrongMorpheme, function (err, data) {
-          //if(err){
-          //  res.send(error.db_load_error);
-          //}
-          //
-          //if(data){
-          //  res.send({success: error.success.success, msg: error.success.msg, result: data});
-          //}else{
-          //  res.send(error.unknown_error);
-          //}
+          if(err){
+            res.send(error.db_load_error);
+          }
         });
       }
     }
