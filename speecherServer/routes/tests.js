@@ -35,6 +35,7 @@ exports.save = function(req, res){
   var testDate = new Date();
 
 
+  console.log(recordId );
   var paragraphArr = scriptUtil.scriptToParagraphJsonArray({
     id: userId,
     script_id: scriptId,
@@ -61,6 +62,7 @@ exports.save = function(req, res){
     var wrongIdx = 0;
     for(var j = 0; j < morpheme_array.length; j++) {
       if(morpheme_array[j] === '<location>') {
+        console.log('???');
         var wrongMorpheme = failWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
         dbTest.saveWrongMorpheme(userId, j, i, scriptId, wrongMorpheme, function (err, data) {
           //if(err){
@@ -72,13 +74,14 @@ exports.save = function(req, res){
           //}else{
           //  res.send(error.unknown_error);
           //}
+          console.log('???');
+
         });
       }
     }
   }
 
   score = parseInt((totalMorpheme_count-wrong)/totalMorpheme_count*100);
-
   dbTest.saveTest(userId, recordId, scriptId, testType, score, testDate, function(err, data){
     if(err){
       res.send(error.db_load_error);

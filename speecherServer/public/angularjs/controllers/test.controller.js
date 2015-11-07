@@ -5,7 +5,6 @@
       .module('myApp')
       .controller('testCtrl', testController);
 
-
   testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'testService'];
   function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
 
@@ -61,7 +60,7 @@
         test_time: vm.testTime,
         test_id: vm.testId
       };
-      //console.log(testResult);
+      console.log(testResult);
 
       testService.testResult = testResult;
 
