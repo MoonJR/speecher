@@ -73,7 +73,8 @@
         $mdDialog.alert()
           .clickOutsideToClose(true)
           .title("틀린단어 상세보기")
-          .content(word +"("+item.wrongCount+")<br>"+'<a href="http://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+word+'">TTS</a>')
+          .content(word +"("+item.wrongCount+")<br>"+'<a href="http://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+word+'">TTS</a>'
+          +'<button class="play" value="'+word+'">듣기</button> <input type="text" class="voice" value=""/>')
 
           .ariaLabel("")
           .ok('Close')
