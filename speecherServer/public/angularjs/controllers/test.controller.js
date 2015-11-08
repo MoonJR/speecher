@@ -40,7 +40,7 @@
     vm.scriptResult = null;
     vm.testType = $rootScope.test.type;
     vm.testTime = $rootScope.test.counter;
-    vm.testId = null;
+    vm.filename = null;
 
     vm.saveTestResult = saveTestResult;
     vm.startRecording = startRecording;
@@ -50,32 +50,38 @@
 
       stopRecording();
 
-      vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
-      //console.log(vm.scriptResult);
+      socketio.on('finished', function (fileName) {
+        vm.filename =  fileName;
+        console.log('got file ' + fileName);
 
-      var testResult = {
-        script_id: vm.scriptId,
-        script_result : vm.scriptResult,
-        test_type: vm.testType,
-        test_time: vm.testTime,
-        test_id: vm.testId
-      };
-      console.log(testResult);
+        vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
+        //console.log(vm.scriptResult);
 
-      testService.testResult = testResult;
+        var testResult = {
+          script_id: vm.scriptId,
+          script_result : vm.scriptResult,
+          test_type: vm.testType,
+          test_time: vm.testTime,
+          filename: vm.filename
+        };
+        console.log(testResult);
 
-      testService.saveTestResult(testResult).then(
-          function (response) {
-            if (response.data.success) {
-              $location.path('/result');
-            }
-            else {
-              _errorHandler_('Error: success 0');
-            }
-          },
-          _errorHandler_('Error: saveTestResult')
-      );
-      $location.path('/result/' + vm.scriptId);
+        testService.testResult = testResult;
+
+        testService.saveTestResult(testResult).then(
+            function (response) {
+              if (response.data.success) {
+                $location.path('/result');
+              }
+              else {
+                _errorHandler_('Error: success 0');
+              }
+            },
+            _errorHandler_('Error: saveTestResult')
+        );
+        $location.path('/result/' + vm.scriptId);
+
+      });
     }
 
     // private functions
