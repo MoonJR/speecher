@@ -5,11 +5,9 @@
     .module('myApp')
     .controller('indexController', indexController);
 
-  indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService'];
-  function indexController($rootScope, $mdDialog, $location, scriptService, choiceService) {
-
+  indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService','$http'];
+  function indexController($rootScope, $mdDialog, $location, scriptService, choiceService, $http) {
     var vm = this;
-
     // APIs
     vm.scriptList = null;
     vm.wrongWordAll = null;
@@ -17,31 +15,38 @@
     vm.showWrongWordAll = showWrongWordAll;
     vm.showWrongWordDialog = showWrongWordDialog;
 
+
+
+
     // init script list & words
     (function initController() {
       showScriptList();
       showWrongWordAll();
+
+
+
+
     })();
 
     function showScriptList(){
       scriptService.getScriptList().then(
-          function (response) {
-            if (response.data.success) {
-              if (response.data.result.length > 0) {
-                vm.scriptList = response.data.result;
-                scriptService.scriptList = vm.scriptList;
-                //console.log(response.data.result);
-              }
-              //console.log(response);
-            }
-            else {
-              _errorHandler_('Error: success 0');
-            }
-          },
-          _errorHandler_('Error: showScriptList')
+        function (response) {
+          if (response.data.success) {
+            console.log(response.data);
+            if (response.data.result.length > 0) {
+              vm.scriptList = response.data.result;
+              console.log(response.data.result);
+             }
+            console.log(response);
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        _errorHandler_('Error: showScriptList')
+
       );
     }
-
     function showWrongWordAll() {
       scriptService.getWrongWordAll().then(
         function (response) {
@@ -60,16 +65,34 @@
       );
     }
 
-    function showWrongWordDialog(content) {
+    function showWrongWordDialog(item) {
+      var word = item._id.toLowerCase();
+      var tts = "http://translate.google.com/translate_tts?tl=en&q="+word;
+
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)
-          .title("DetailWord")
-          .content(content)
-          .ariaLabel(content)
+          .title("틀린단어 상세보기")
+          .content(word +"("+item.wrongCount+")<br>"+'<a href="http://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+word+'">TTS</a>'
+          +'<button class="play" value="'+word+'">듣기</button> <input type="text" class="voice" value=""/>')
+
+          .ariaLabel("")
           .ok('Close')
       );
     }
+
+    function DialogController($scope, $mdDialog) {
+      $scope.hide = function() {
+        $mdDialog.hide();
+      };
+      $scope.cancel = function() {
+        $mdDialog.cancel();
+      };
+      $scope.answer = function(answer) {
+        $mdDialog.hide(answer);
+      };
+    }
+
 
     // private functions
     function _errorHandler_(error) {
@@ -88,5 +111,41 @@
       choiceService.saveItem(scriptData);
       $location.path('/choice');
     }
+
+
+    // 단어 데이터 받아온 후에, 다이얼로그 보여준다
+    $rootScope.showAlert = function(item) {
+
+      $http.post('/main/wordDetail', {word:item.word}).then(
+        function (response){
+
+          if(response.data.success){
+            console.log("get word data");
+
+            $mdDialog.show(
+              $mdDialog.alert()
+                .parent(angular.element(document.querySelector('#popupContainer')))
+                .clickOutsideToClose(true)
+                .title(item.word+"("+item.count+")")
+                .content('발음기호:'+ response.data.result.pronunciation.all)
+                .ok('닫기')
+
+            )
+
+            return response;
+          } else {
+            _errorHandler_('Error: detailWord success 0');
+          }
+        },
+        _errorHandler_('Error: detailWord')
+      );
+
+
+    };
+
+
+
+
   }
+
 })();
