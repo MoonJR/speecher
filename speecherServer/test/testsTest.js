@@ -29,8 +29,8 @@ describe('test', function() {
       var scriptId = '7f34a270-8572-11e5-a009-4f6e7f9a024f';
       var userId = '901469693283252';
       var testType = "대본읽기";//
-      var testId = "IdtNLi6N1R4J2g3nAAAA";//
-      var testScript = '<ins>test </ins><ins>is </ins><ins>good. </ins><ins>but </ins><ins>not </ins><ins>good\n</ins>';
+      var filename = "IdtNLi6N1R4J2g3nAAAA.wav";//
+      var testScript = 'test <ins>is </ins><ins>good. </ins><ins>but </ins><ins>not </ins><ins>good\n</ins>';
       //var testScript = '<del></ins><del></ins>';
       //var testScript = 'hi my name is minki and minki good bye';
       var testTime = 3;
@@ -41,7 +41,7 @@ describe('test', function() {
           script_id: scriptId,
           user_id: userId,
           test_type: testType,
-          test_id: testId,
+          filename: filename,
           test_time: testTime,
           script_result: testScript
         }};

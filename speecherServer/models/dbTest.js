@@ -43,12 +43,12 @@ exports.totalFailWord = function(user_id, wordLimit, callback){
   });
 }
 
-exports.saveTest = function(userId, testId, scriptId, testType, score, testDate, callback){
+exports.saveTest = function(userId, recordFilename, scriptId, testType, score, testDate, callback){
   db.open(function(err, db) {
     db.collection('test', function (err, collection) {
       collection.insertOne({
           id: userId,
-          test_id: testId,
+          recordFilename: recordFilename,
           script_id: scriptId,
           test_type: testType,
           score: score,
@@ -103,17 +103,4 @@ exports.saveWrongMorpheme = function(user_id, morpheme_array, paragraph_id, scri
   //  },
   //  $set: {$inc: {wrongCount: 1}}
   //}
-}
-
-exports.saveRecodingData = function(recoding_id, filename, callback){
-  db.open(function(err, db) {
-    db.collection('record', function (err, collection) {
-      collection.insert({
-        record_id: recoding_id,
-        filename: filename
-      },function(err, result){
-        callback(err, result);
-      });
-    });
-  });
 }

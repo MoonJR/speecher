@@ -24,12 +24,6 @@ io.sockets.on('connection', function (socket) {
 
     // if it is firefox or if user is recording only audio
     socket.emit('finished', fileName + '.wav');
-
-    dbTest.saveRecodingData(socket.id, fileName, function(err, result){
-      if(err) {
-        console.log('레코드 저장 디비 연동 문제 발생');
-      }
-    });
   });
 });
 
