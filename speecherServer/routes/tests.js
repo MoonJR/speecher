@@ -40,10 +40,10 @@ exports.save = function(req, res){
   var preProc;
 
   while((preProc = testScript.match(/<ins>[^(<ins>)]*(\s)?\n<\/ins>/)) != null) {
-      console.log("++++"+preProc);
     testScript= testScript.replace(/<ins>[^(<ins>)]*(\s)?\n<\/ins>/, preProc[0].replace('\n', ''));
   }
 
+  console.log(recordId );
   var paragraphArr = scriptUtil.scriptToParagraphJsonArray({
     id: userId,
     script_id: scriptId,
@@ -68,20 +68,32 @@ exports.save = function(req, res){
     totalMorpheme_count += morpheme_array.length;
 
     var wrongIdx = 0;
+
     for(var j = 0; j < morpheme_array.length; j++) {
       if(morpheme_array[j] === '<location>') {
         var wrongMorpheme = failWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
         dbTest.saveWrongMorpheme(userId, j, i, scriptId, wrongMorpheme, function (err, data) {
+
           if(err){
             res.send(error.db_load_error);
           }
+
+          //if(err){
+          //  res.send(error.db_load_error);
+          //}
+          //
+          //if(data){
+          //  res.send({success: error.success.success, msg: error.success.msg, result: data});
+          //}else{
+          //  res.send(error.unknown_error);
+          //}
+
         });
       }
     }
   }
 
   score = parseInt((totalMorpheme_count-wrong)/totalMorpheme_count*100);
-
   dbTest.saveTest(userId, recordId, scriptId, testType, score, testDate, function(err, data){
     if(err){
       res.send(error.db_load_error);

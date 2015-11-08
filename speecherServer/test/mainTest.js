@@ -7,13 +7,14 @@ var main = require('../routes/main');
 describe('main', function() {
 
   describe('.totalFailList', function() {
-    var req = {query: {}, session: {user_id: '885722828163340'}};
+    var req = {query: {}, session: {user_id: '901469693283252'}};
     var res = {};
 
     it('모든 틀린 형태소에 대한 데이터가 받아와져야 한다.', function (done) {
       var script = 'Script.';
       res.send = function (json) {
         if (json.success == 1) {
+          console.log(json);
           done();
         }
       };
