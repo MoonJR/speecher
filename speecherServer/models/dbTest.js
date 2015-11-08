@@ -61,29 +61,48 @@ exports.saveTest = function(userId, testId, scriptId, testType, score, testDate,
   });
 }
 
-exports.saveWrongMorpheme = function(user_id, morpheme_id, paragraph_id, script_id, content, callback){
+exports.saveWrongMorpheme = function(user_id, morpheme_array, paragraph_id, script_id, fallWords, callback){
 
-  var key = user_id+ "|" +paragraph_id+ "|" + morpheme_id;
-  db.collection('morpheme', function (err, collection) {
-    collection.insert({
-      _id: key,
-      id: user_id,
-      script_id: script_id,
-      paragraph_seq: paragraph_id,
-      morpheme_seq: morpheme_id,
-      content: content,
-      wrongCount: 1
-    },function(err, result){
+  var wrongIdx = 0;
+  db.open(function(err, db) {
+      var collection = db.collection('morpheme');
+      var bulk = collection.initializeUnorderedBulkOp({useLegacyOps: true});
+      for (var j = 0; j < morpheme_array.length; j++) {
+        if (morpheme_array[j] === '<location>') {
+          //var wrongMorpheme = fallWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
+          var wrongMorpheme = fallWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
+          wrongMorpheme = wrongMorpheme.replace(/[^(a-zA-Z]/, "");
+          var key = user_id + "|" + script_id +"|"+ paragraph_id + "|" + j;
 
-      if(err){
-        collection.update({
-          _id: key
-        },{$inc:{wrongCount:1}});
+          bulk.find({_id: key}).upsert().updateOne({
+            $setOnInsert: {
+              id: user_id,
+              script_id: script_id,
+              paragraph_seq: paragraph_id,
+              morpheme_seq: j,
+              content: wrongMorpheme
+            },
+            $inc : {wrongCount:1}
+          });
+        }
       }
-
-      callback(err, result);
-    });
+      bulk.execute(function(err, result){
+        callback(err, result);
+      });
   });
+
+  //{
+  //  $setOnInsert: {
+  //    _id: key,
+  //      id: user_id,
+  //      script_id: script_id,
+  //      paragraph_seq: paragraph_id,
+  //      morpheme_seq: j,
+  //      content: wrongMorpheme,
+  //      wrongCount: 1
+  //  },
+  //  $set: {$inc: {wrongCount: 1}}
+  //}
 }
 
 exports.saveRecodingData = function(recoding_id, filename, callback){

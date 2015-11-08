@@ -56,7 +56,7 @@ exports.save = function(req, res){
 
   for(var i = 0; i < paragraphArr.length; i++) {
     var failWords = paragraphArr[i].content.match(/<ins>(.|\n)*?<\/ins>/g);
-    console.log(failWords);
+
     wrong = failWords.length;
 
     for (var j = 0; j < failWords.length; j++) {
@@ -69,28 +69,18 @@ exports.save = function(req, res){
 
     var wrongIdx = 0;
 
-    for(var j = 0; j < morpheme_array.length; j++) {
-      if(morpheme_array[j] === '<location>') {
-        var wrongMorpheme = failWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
-        dbTest.saveWrongMorpheme(userId, j, i, scriptId, wrongMorpheme, function (err, data) {
-
-          if(err){
-            res.send(error.db_load_error);
-          }
-
-          //if(err){
-          //  res.send(error.db_load_error);
-          //}
-          //
-          //if(data){
-          //  res.send({success: error.success.success, msg: error.success.msg, result: data});
-          //}else{
-          //  res.send(error.unknown_error);
-          //}
-
-        });
+    dbTest.saveWrongMorpheme(userId, morpheme_array, i, scriptId, failWords, function (err, data) {
+      if(err){
+        console.log(err);
+        res.send(error.db_load_error);
       }
-    }
+    });
+    //for(var j = 0; j < morpheme_array.length; j++) {
+    //  if(morpheme_array[j] === '<location>') {
+    //    var wrongMorpheme = failWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
+    //
+    //  }
+    //}
   }
 
   score = parseInt((totalMorpheme_count-wrong)/totalMorpheme_count*100);
