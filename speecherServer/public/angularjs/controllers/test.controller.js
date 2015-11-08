@@ -6,6 +6,7 @@
       .controller('testCtrl', testController);
 
   testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'testService'];
+
   function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
 
     $rootScope.test = choiceService;
@@ -27,6 +28,8 @@
       "recognizing": true,
       "value":""
     };
+
+
 
     // Script 를  Blank화해서 저장한 후 보여준다  (구현중)
     function getBlankScript(script){
@@ -112,7 +115,6 @@
 
       });
     }
-
 
     // private functions
     function _errorHandler_(error) {
