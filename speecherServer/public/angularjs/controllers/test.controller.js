@@ -6,28 +6,60 @@
       .controller('testCtrl', testController);
 
   testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'testService'];
+
   function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
 
     $rootScope.test = choiceService;
+    //$scope.startTest = startTest;
+    //$scope.finishTest = finishTest;
 
     (function initController() {
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
       $rootScope.test = testCookie;
+      $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
+
     })();
 
     $scope.speech = {
-      "maxResults": 3000,
+      "maxResults": 2200,
       "continuous": true,
       "interimResults": true,
-      "recognizing": false,
+      "recognizing": true,
       "value":""
     };
 
-    //$rootScope.test.script =  test 의  script_content;
-    $rootScope.test.speech = '';
-    $rootScope.test.interSpeech = $scope.speech['interimResults'];
 
+
+    // Script 를  Blank화해서 저장한 후 보여준다  (구현중)
+    function getBlankScript(script){
+      var split = script.split(" ");
+      var blank = "[         ]";
+      for(var i = 0; i< split.length/10 ; i++){
+        var random = Math.floor(Math.random() * split.length) + 1;
+        if(split[random].length <= 3 || split[random] == blank){
+
+        }else{
+          split[random] = blank;
+        }
+
+      }
+      return split.join(" ");
+    }
+
+
+    ////$rootScope.test.script =  test 의  script_content;
+    //$rootScope.test.speech = $scope.speech;
+
+    function startTest(){
+      $rootScope.test.startTest();
+
+    }
+
+    function finishTest(){
+      //$scope.speech.recognizing = false;
+      $rootScope.test.finishTest();
+    }
 
 
     // Made by Sojin
@@ -42,9 +74,9 @@
     vm.testTime = $rootScope.test.counter;
     vm.testId = null;
 
-    vm.saveTestResult = saveTestResult;
-    vm.startRecording = startRecording;
-    vm.stopRecording = stopRecording;
+    $rootScope.test.saveTestResult = saveTestResult;
+    $rootScope.test.startRecording = startRecording;
+    $rootScope.test.stopRecording = stopRecording;
 
     function saveTestResult() {
 
@@ -90,6 +122,7 @@
     var recordAudio, recordVideo;
 
     function startRecording() {
+
       vm.testId = socketio.id;
       console.log(vm.testId);
 
@@ -154,4 +187,10 @@
       });
     }
   }
+  angular
+      .module('myApp')
+      .controller('testCtrl', testController);
+
+
+  testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'testService'];
 })();

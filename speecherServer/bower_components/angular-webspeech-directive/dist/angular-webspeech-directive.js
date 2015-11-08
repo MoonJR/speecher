@@ -46,7 +46,8 @@
         transclude: true,
         require: '^ngModel',
         scope: { ngModel: '=' },
-        template: '<div class="jsSpeechFactory-container">\n<a href="" class="jsSpeechFactory-btn" ng-click="toggleStartStop()">\n\n  <i class="fa fa-microphone fa-2x" ng-hide="ngModel.recognizing"></i>\n  <i class="fa fa-microphone-slash fa-2x" ng-show="ngModel.recognizing"></i>\n\n</a>\n<input type="text" class="form-control" ng-model="ngModel.value"/>\n<p class="text-muted jsSpeechFactory-hint" ng-bind-html-unsafe="speech.msg"></p>\n</div>',
+        template: '<button id="startButton" type="button" ng-click="toggleStartStop()" class="btn btn-save">테스트 시작</button> ',
+        //template: '<a id="id_webspeech" href="" class="jsSpeechFactory-btn" ng-click="toggleStartStop(); ">\n\n  <i class="fa fa-microphone fa-2x" ng-hide="ngModel.recognizing">',
         link: function (scope, element, attrs, ngModel) {
           var $scope, init, onresult, onstart, recognition, recognizing, reset, safeApply, setIcon, setMsg, upgrade;
           $scope = scope;
@@ -83,6 +84,7 @@
             });
           };
           init = function () {
+
             reset();
             if ('webkitSpeechRecognition' in window) {
               recognition = new webkitSpeechRecognition();
@@ -112,14 +114,14 @@
               console.log('onerror', event, message);
               $scope.ngModel.recognizing = false;
               switch (event.error) {
-              case 'not-allowed':
-                return setMsg('info_blocked');
-              case 'no-speech':
-                return setMsg('info_no_speech');
-              case 'service-not-allowed':
-                return setMsg('info_denied');
-              default:
-                return console.log(event);
+                case 'not-allowed':
+                  return setMsg('info_blocked');
+                case 'no-speech':
+                  return setMsg('info_no_speech');
+                case 'service-not-allowed':
+                  return setMsg('info_denied');
+                default:
+                  return console.log(event);
               }
             };
           };
@@ -161,10 +163,15 @@
           $scope.toggleStartStop = function () {
             if ($scope.ngModel.recognizing) {
               recognition.stop();
+              $scope.$parent.$parent.test.saveTestResult();
+
               return reset();
             } else {
               recognition.start();
               $scope.ngModel.recognizing = true;
+              //$scope.$parent.$parent.test.startTest();
+              $scope.$parent.$parent.test.startRecording();
+              angular.element(document.querySelector('#startButton')).text("테스트 종료");
               return setIcon('blocked');
             }
           };
