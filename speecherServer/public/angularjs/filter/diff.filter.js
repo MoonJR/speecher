@@ -12,6 +12,7 @@
       return diffString(input, match);
     };
 
+
     function escape(s) {
       var n = s;
       n = n.replace(/&/g, '&amp;');
@@ -22,12 +23,11 @@
       return n;
     }
 
-    function diffString(o, n) {
-      //console.log("start Old:"+o+", New:"+n);
+    function diffString( o, n ) {
       o = o.replace(/\s+$/, '');
       n = n.replace(/\s+$/, '');
 
-      var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/));
+      var out = diff(o === '' ? [] : o.split(/\s+/), n === '' ? [] : n.split(/\s+/) );
       var str = '';
       var i;
 
@@ -46,29 +46,29 @@
 
       if (out.n.length === 0) {
         for (i = 0; i < out.o.length; i++) {
-          str += '<del>' + escape(out.o[i]) + oSpace[i] + '</del>';
+          //str += '<del>' + escape(out.o[i]) + oSpace[i] + '</del>';
         }
       } else {
         if (out.n[0].text === null) {
           for (n = 0; n < out.o.length && out.o[n].text === null; n++) {
-            str += '<del>' + escape(out.o[n]) + oSpace[n] + '</del>';
+            //str += '<del>' + escape(out.o[n]) + oSpace[n] + '</del>';
           }
         }
 
-        for (i = 0; i < out.n.length; i++) {
+        for (i = 0; i < out.n.length; i++ ) {
           if (!out.n[i].text) {
             str += '<ins>' + escape(out.n[i]) + nSpace[i] + '</ins>';
           } else {
             var pre = '';
 
-            for (n = out.n[i].row + 1; n < out.o.length && !out.o[n].text; n++) {
-              pre += '<del>' + escape(out.o[n]) + oSpace[n] + '</del>';
+            for (n = out.n[i].row + 1; n < out.o.length && !out.o[n].text; n++ ) {
+              //pre += '<del>' + escape(out.o[n]) + oSpace[n] + '</del>';
             }
             str += ' ' + out.n[i].text + nSpace[i] + pre;
           }
         }
       }
-      //console.log("End:"+o+", New:"+n);
+
       return str;
     }
 
@@ -99,9 +99,19 @@
       }
 
       for (i in ns) {
+        var j = i.replace('.', '');
+
         if (ns[i].rows.length === 1 && typeof(os[i]) !== 'undefined' && os[i].rows.length === 1) {
           n[ns[i].rows[0]] = {text: n[ns[i].rows[0]], row: os[i].rows[0]};
           o[os[i].rows[0]] = {text: o[os[i].rows[0]], row: ns[i].rows[0]};
+        }
+        else if ( ns[i].rows.length === 1 && typeof(os[j]) !== 'undefined' && os[j].rows.length === 1 ) {
+          n[ ns[i].rows[0] ] = { text: n[ ns[i].rows[0] ], row: os[j].rows[0] };
+          o[ os[j].rows[0] ] = { text: o[ os[j].rows[0] ], row: ns[i].rows[0] };
+        }
+        else if ( ns[i].rows.length === 1 && typeof(os[i+'.']) !== 'undefined' && os[i+'.'].rows.length === 1 ) {
+          n[ ns[i].rows[0] ] = { text: n[ ns[i].rows[0] ], row: os[i+'.'].rows[0] };
+          o[ os[i+'.'].rows[0] ] = { text: o[ os[i+'.'].rows[0] ], row: ns[i].rows[0] };
         }
       }
 

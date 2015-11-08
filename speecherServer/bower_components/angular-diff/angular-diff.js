@@ -149,9 +149,19 @@ angular.module('diff', [])
       }
 
       for (i in ns ) {
+        var j = i.replace('.', '');
+
         if ( ns[i].rows.length === 1 && typeof(os[i]) !== 'undefined' && os[i].rows.length === 1 ) {
           n[ ns[i].rows[0] ] = { text: n[ ns[i].rows[0] ], row: os[i].rows[0] };
           o[ os[i].rows[0] ] = { text: o[ os[i].rows[0] ], row: ns[i].rows[0] };
+        }
+        else if ( ns[i].rows.length === 1 && typeof(os[j]) !== 'undefined' && os[j].rows.length === 1 ) {
+          n[ ns[i].rows[0] ] = { text: n[ ns[i].rows[0] ], row: os[j].rows[0] };
+          o[ os[j].rows[0] ] = { text: o[ os[j].rows[0] ], row: ns[i].rows[0] };
+        }
+        else if ( ns[i].rows.length === 1 && typeof(os[i+'.']) !== 'undefined' && os[i+'.'].rows.length === 1 ) {
+          n[ ns[i].rows[0] ] = { text: n[ ns[i].rows[0] ], row: os[i+'.'].rows[0] };
+          o[ os[i+'.'].rows[0] ] = { text: o[ os[i+'.'].rows[0] ], row: ns[i].rows[0] };
         }
       }
 
