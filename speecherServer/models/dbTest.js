@@ -18,14 +18,24 @@ exports.testList = function (userId, scriptId, callback) {
 exports.wrongWordsInScript = function (userId, scriptId, wordLimit, callback) {
   db.open(function (err, db) {
     db.collection('morpheme', function (err, collection) {
-      collection.find({
-        "id": userId,
-        "script_id": scriptId
-      }).limit(wordLimit).sort({wrongCount: -1}).toArray(function (err, items) {
-        callback(err, items);
-      })
+      collection.aggregate([
+        {$match: {id: user_id, script_id: script_id}},
+        {$group: {"_id": "$content", wrongCount: {$sum: "$wrongCount"}}},
+        {$sort: {wrongCount: -1}}, {$limit: wordLimit}]).toArray(function (err, result) {
+        callback(err, result);
+      });
     });
   });
+  //db.open(function (err, db) {
+  //  db.collection('morpheme', function (err, collection) {
+  //    collection.find({
+  //      "id": userId,
+  //      "script_id": scriptId
+  //    }).limit(wordLimit).sort({wrongCount: -1}).toArray(function (err, items) {
+  //      callback(err, items);
+  //    })
+  //  });
+  //});
 };
 
 exports.totalFailWord = function (user_id, wordLimit, callback) {
