@@ -30,7 +30,7 @@
     "karma-phantomjs-launcher": "^0.2.1",
     "load-grunt-tasks": "^3.2.0",
     "mocha": "^2.3.3",
-    "mongodb": "^2.0.46",
+    "mongodb": "^2.0.48",
     "mongoose": "^4.1.10",
     "morgan": "^1.6.1",
     "natural": "^0.2.1",
