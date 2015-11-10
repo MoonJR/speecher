@@ -13,6 +13,14 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    deploy: {
+      server: {
+        file: 'bin/www'
+      },
+      options: {
+        environment: 'production'
+      },
+    },
     develop: {
       server: {
         file: 'bin/www'
