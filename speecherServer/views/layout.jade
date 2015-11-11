@@ -19,18 +19,18 @@ html(lang='kr', ng-app="myApp")
   body(layout="column")
     header.navbar-header
       .container
-        p.logo.menu-left You Can Speech
-        a.menu-left(ng-href="/#/write", ng-if="globals.currentUser")
-          |대본작성
-        a.menu-left(ng-href="/#/", ng-if="globals.currentUser")
-          |대본목록
+        p.logo You Can Speech
         a.menu-right(ng-href="/#/login", ng-if="globals.currentUser")
           |로그아웃
         p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
-
-  main.body-bg
-    block content
-  footer
+      .container
+        a.menu-left.active(ng-href="/#/", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/'}")
+          |대본목록
+        a.menu-left(ng-href="/#/write", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/write'}")
+          | 대본작성
+    main.body-bg
+      block content
+    footer
     //Angular Material Dependencies
     script(src='angular/angular.min.js')
     script(src='angular-animate/angular-animate.min.js')
@@ -62,12 +62,7 @@ html(lang='kr', ng-app="myApp")
     script(src='angularjs/controllers/login.controller.js')
     script(src='angularjs/controllers/write.controller.js')
     script(src='angularjs/controllers/index.controller.js')
-
-    script(src='angularjs/controllers/speech.controller.js')
     script(src='angularjs/controllers/detail.controller.js')
-
-
-
     script(src='angularjs/controllers/choice.controller.js')
     script(src='angularjs/controllers/result.controller.js')
     script(src='angularjs/controllers/test.controller.js')

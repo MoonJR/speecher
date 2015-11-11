@@ -8,36 +8,35 @@
   indexController.$inject = ['$rootScope', '$mdDialog','$location' ,'scriptService','choiceService','$http'];
   function indexController($rootScope, $mdDialog, $location, scriptService, choiceService, $http) {
     var vm = this;
+
     // APIs
+    vm.location = $location;
     vm.scriptList = null;
     vm.wrongWordAll = null;
     vm.showScriptList = showScriptList;
     vm.showWrongWordAll = showWrongWordAll;
     vm.showWrongWordDialog = showWrongWordDialog;
 
-
-
+    // UI handle
+    vm.number = 0;
+    vm.score = 0;
 
     // init script list & words
     (function initController() {
       showScriptList();
       showWrongWordAll();
-
-
-
-
     })();
 
     function showScriptList(){
       scriptService.getScriptList().then(
         function (response) {
           if (response.data.success) {
-            console.log(response.data);
+            //console.log(response.data);
             if (response.data.result.length > 0) {
               vm.scriptList = response.data.result;
-              console.log(response.data.result);
+              //console.log(response.data.result);
              }
-            console.log(response);
+            //console.log(response);
           }
           else {
             _errorHandler_('Error: success 0');
@@ -50,11 +49,11 @@
     function showWrongWordAll() {
       scriptService.getWrongWordAll().then(
         function (response) {
-          console.log(response);
+          //console.log(response);
           if(response.data.success) {
             if (response.data.result.length > 0) {
               vm.wrongWordAll = response.data.result;
-              console.log(vm.wrongWordAll[0]._id);
+              //console.log(vm.wrongWordAll[0]._id);
             }
           }
           else {
@@ -93,10 +92,9 @@
       };
     }
 
-
     // private functions
     function _errorHandler_(error) {
-      console.log(error);
+      //console.log(error);
       return { success: false, message: error };
     }
 
@@ -111,7 +109,6 @@
       choiceService.saveItem(scriptData);
       $location.path('/choice');
     }
-
 
     // 단어 데이터 받아온 후에, 다이얼로그 보여준다
     $rootScope.showAlert = function(item) {
@@ -129,8 +126,7 @@
                 .title(item.word+"("+item.count+")")
                 .content('발음기호:'+ response.data.result.pronunciation.all)
                 .ok('닫기')
-
-            )
+            );
 
             return response;
           } else {
@@ -139,13 +135,7 @@
         },
         _errorHandler_('Error: detailWord')
       );
-
-
     };
-
-
-
-
   }
 
 })();
