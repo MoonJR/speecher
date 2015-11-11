@@ -82,27 +82,27 @@ exports.saveScriptExpress = function saveScriptExpress(req, res) {
       return;
     }
 
-    for (var i = 0; i < paragraphJsonArray.length; i++) {
-      var morphemeJsonArray;
-      try {
-        morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
-      } catch (e) {
-        console.log(e);
-        res.send(error.inner_error);
-        return;
-      }
+  // for (var i = 0; i < paragraphJsonArray.length; i++) {
+  //    var morphemeJsonArray;
+  //    try {
+  //      morphemeJsonArray = paragraphToMorphemeJsonArray(paragraphJsonArray[i]);
+  //    } catch (e) {
+  //      console.log(e);
+  //      res.send(error.inner_error);
+  //      return;
+  //    }
 
-      if (morphemeJsonArray.length == 0) {
-        continue;
-      }
-      try {
-        saveMorpheme(morphemeJsonArray);
-      } catch (e) {
-        console.log(e);
-        res.send(error.db_save_error);
-        return;
-      }
-    }
+  //    if (morphemeJsonArray.length == 0) {
+  //      continue;
+  //    }
+  //    try {
+  //      saveMorpheme(morphemeJsonArray);
+  //    } catch (e) {
+  //      console.log(e);
+  //      res.send(error.db_save_error);
+  //      return;
+  //    }
+  //  }
     sendData.success = error.successCode.success;
     sendData.msg = error.successMsg.success;
     res.send(sendData);
