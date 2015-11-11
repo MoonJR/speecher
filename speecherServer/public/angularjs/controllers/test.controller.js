@@ -35,15 +35,20 @@
     function getBlankScript(script){
       var split = script.split(" ");
       var blank = "[         ]";
-      for(var i = 0; i< split.length/10 ; i++){
-        var random = Math.floor(Math.random() * split.length) + 1;
-        if(split[random].length <= 3 || split[random] == blank){
+      try{
+        for(var i = 0; i< split.length/10 ; i++){
+          var random = Math.floor(Math.random() * split.length) + 1;
+          if(split[random].length <= 3 || split[random] == blank){
 
-        }else{
-          split[random] = blank;
+          }else{
+            split[random] = blank;
+          }
+
         }
-
+      }catch(e){
+        return "wait....";
       }
+
       return split.join(" ");
     }
 

@@ -22,8 +22,8 @@ exports.facebookLogin = function (req, res) {
       response.route = 'facebook';
 
       var resData = {};
+      response._id = response.id;
       resData.response = response;
-
       if (typeof response.id != 'undefined') {
         db.login(response, function (err, result) {
           resData.success = error.successCode.success;
@@ -56,6 +56,7 @@ exports.googleLogin = function (req, res) {
     getGooglePlusData(googleToken, function (response) {
 
       var responseParse = {
+        _id: response.sub,
         route: 'google',
         id: response.sub,
         email: response.email,
@@ -124,6 +125,3 @@ function getGooglePlusData(token, varFunction) {
 };
 
 exports.getGooglePlusData = getGooglePlusData;
-
-
-
