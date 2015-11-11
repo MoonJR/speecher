@@ -10,6 +10,7 @@
     var vm = this;
 
     // APIs
+    vm.test = choiceService;
     vm.location = $location;
     vm.scriptList = null;
     vm.wrongWordAll = null;
@@ -96,18 +97,6 @@
     function _errorHandler_(error) {
       //console.log(error);
       return { success: false, message: error };
-    }
-
-
-    // 코드리뷰 검토 후 선언과 초기화  상하단으로 분리하겠음
-    // index 단에서부터 test data 를 가지고 있어야 할 것 같음
-
-    vm.moveChoice = moveChoice;
-    // checking current selected test`s infomation and data
-    function moveChoice(scriptData){
-      console.log("MOVE ID:"+scriptData["id"]);
-      choiceService.saveItem(scriptData);
-      $location.path('/choice');
     }
 
     // 단어 데이터 받아온 후에, 다이얼로그 보여준다

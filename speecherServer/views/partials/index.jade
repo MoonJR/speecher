@@ -6,7 +6,7 @@
           .script-list-content-box
             p.script-list-content {{item.script_content}}
           hr.none
-        a(href='', ng-click="vm.moveChoice(item)")
+        a(ng-click="vm.test.saveItem(item)" data-toggle='modal', data-target='#myModal')
           .summary-box
             .summary-script-box
               h5 {{item.script_title}}
@@ -30,3 +30,33 @@
           | {{item._id}}
           span.badge {{item.wrongCount}}
   script(src='../js/tts.js')
+
+
+#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+        span#myModalLabel.modal-title(style="margin-right: 50px;") 테스트 종류
+        .btn-group(data-toggle='buttons')
+          input(type='radio', name="type", ng-click="vm.test.setType(0)", checked='checked')
+          span.modal-test-type 따라읽기
+          input(type='radio', name="type", ng-click="vm.test.setType(1)")
+          span.modal-test-type 빈칸 맞추기
+          input(type='radio', name="type", ng-click="vm.test.setType(2)")
+          span.modal-test-type 실전 말하기
+      .modal-body
+        span#myModalLabel.modal-title(style="margin-right: 50px;") 타이머 설정
+        label.btn.btn-timer-none
+          input.btn-timer-time(type='number', value='3', ng-model="vm.test.counter")
+          | 분
+        .btn-group(data-toggle='buttons')
+          label.btn.btn-default.btn-timer.active
+            input(type='radio', name='timer', checked='checked', value='true')
+            |  켜기
+          label.btn.btn-default.btn-timer
+            input(type='radio', name='timer', value='false')
+            |  끄기
+      .modal-footer(style="text-align: center;")
+        button.btn.btn-simple(type='button', data-dismiss='modal', aria-label='Close', ng-click="vm.test.moveTest()") 테스트 시작

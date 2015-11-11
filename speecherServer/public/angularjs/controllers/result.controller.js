@@ -25,8 +25,8 @@
         vm.testResult = testService.testResult;
         console.log(vm.testResult.script_result);
       }
-      //showTestResult();
-      //showTestList();
+      showTestResult();
+      showTestList();
     })();
 
     function showTestResult () {

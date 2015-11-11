@@ -46,8 +46,6 @@
       return $http.post('/main/totalFailList').then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
     }
 
-
-
     // private functions
     function _successHandler_(response) {
       if(response.data.success) {

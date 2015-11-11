@@ -26,9 +26,8 @@
     test.testnow = false;
     test.typeText = typeText[0];
 
-
     (function initController() {
-      test.counter = 5;
+      test.counter = 3;
       test.timer_status = true;
       test.timer_seconds = 300;
       test.current_seconds = 0;
@@ -39,7 +38,7 @@
       test.testnow = false;
       test.typeText = typeText[0];
       var testCookie = $cookieStore.get('test');
-      test.saveItem(testCookie);
+      //test.saveItem(testCookie);
     })();
 
     return test;
@@ -52,16 +51,11 @@
     function saveItem(item){
       for (var key in item) {
         if (item.hasOwnProperty(key)) {
-          var obj = item[key];
-          //console.log(key+","+obj);
-          test[key] = obj;
+          test[key] = item[key];
         }
       }
       $cookieStore.put("test", test);
-      var cookie = $cookieStore.get("test");
-      //console.log("cookie:"+cookie["script_id"]);
     }
-
 
     function setTimer($min){
       if(test.counter < 1){
@@ -71,7 +65,6 @@
       test.timer_seconds = test.counter * 60;
       test.timer_percent = test.current_seconds/test.timer_seconds;
       test.remain_seconds = test.timer_seconds - test.current_seconds;
-      //$cookieStore.put('test', $rootScope.test);
     }
 
 
@@ -105,7 +98,7 @@
       //test.speech.recognizing = false;
       stopCount();
       $location.path('/result');
-    };
+    }
 
     function startCount(){
       if(!test.testnow) {
@@ -118,8 +111,8 @@
 
       }
     }
-    function stopCount(){
 
+    function stopCount(){
       resetCount();
       test.remain_seconds = test.timer_seconds;
       test.testnow = false;
@@ -131,12 +124,5 @@
       test.current_seconds = 0;
       test.timer_percent = 0;
     }
-
-    function startRecord(){}
-    function stopRecord(){}
-
-
-
-
   }
 })();

@@ -10,8 +10,6 @@
   function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
 
     $rootScope.test = choiceService;
-    //$scope.startTest = startTest;
-    //$scope.finishTest = finishTest;
 
     (function initController() {
       var testCookie = $cookieStore.get('test');
@@ -29,15 +27,13 @@
       "value":""
     };
 
-
-
     // Script 를  Blank화해서 저장한 후 보여준다  (구현중)
     function getBlankScript(script){
       var split = script.split(" ");
       var blank = "[         ]";
       try{
         for(var i = 0; i< split.length/10 ; i++){
-          var random = Math.floor(Math.random() * split.length) + 1;
+          var random = Math.floor(Math.random() * split.length);
           if(split[random].length <= 3 || split[random] == blank){
 
           }else{
@@ -51,10 +47,6 @@
 
       return split.join(" ");
     }
-
-
-    ////$rootScope.test.script =  test 의  script_content;
-    //$rootScope.test.speech = $scope.speech;
 
     function startTest(){
       $rootScope.test.startTest();
