@@ -18,7 +18,7 @@ exports.readScriptList = function (req, res) {
     ;
 
 
-    collection.scriptCollection.find(query).toArray(function (err, result) {
+    collection.scriptCollection.find(query).sort({reg_date: -1}).toArray(function (err, result) {
       if (err || result == null) {
         res.send(error.db_load_error);
         return;
