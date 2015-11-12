@@ -26,14 +26,14 @@ describe('test', function() {
 
   describe('.testSave', function() {
     it('테스트를 정보를 저장한다.', function(done) {
-      var scriptId = '7f34a270-8572-11e5-a009-4f6e7f9a024f';
-      var userId = '901469693283252';
+      var scriptId = 'fbe22d00-8924-11e5-8dc3-219951de5373';
+      var userId = '885722828163340';
       var testType = "대본읽기";//
-      var filename = "IdtNLi6N1R4J2g3nAAAA.wav";//
-      var testScript = 'test <ins>is </ins><ins>good. </ins><ins>but </ins><ins>not </ins><ins>good\n</ins>';
+      var filename = "d48e2250-8928-11e5-8dc3-219951de5373.wav";//
+      var testScript = '<ins>Test </ins><ins>Test \n</ins>';
       //var testScript = '<del></ins><del></ins>';
       //var testScript = 'hi my name is minki and minki good bye';
-      var testTime = 3;
+      var testTime = 1;
 
       var req = {
         session:{user_id: userId},
