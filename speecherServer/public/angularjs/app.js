@@ -41,6 +41,11 @@ angular.module('myApp', [
             controller: 'choiceCtrl',
             controllerAs: 'vm'
           })
+          .when('/testResultList/:scriptId', {
+            templateUrl: '/partials/testResultList',
+            controller: 'testResultlistController',
+            controllerAs: 'vm'
+          })
           .when('/test', {
             templateUrl: function(params){
               return '/partials/test';
@@ -52,6 +57,9 @@ angular.module('myApp', [
             templateUrl: '/partials/result',
             controller: 'resultController',
             controllerAs: 'vm'
+          })
+          .when('/dump', {
+            templateUrl: '/partials/dump'
           })
           .otherwise({
             redirectTo: '/'

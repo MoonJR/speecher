@@ -1,0 +1,71 @@
+style(type='text/css').
+  .parallaxParent {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .parallaxParent > * {
+    height: 200%;
+    position: relative;
+    top: -100%;
+  }
+
+#content-wrapper
+  #example-wrapper
+    .scrollContent
+      section#titlechart(style="")
+        #description
+          h1.badge.gsap(title='This example requires the the Greensock Animation Platform.') Parallax Sections
+          h2 The most common parallax application
+          p
+            | To create a classic parallax page effect simply add elements that contain the parallax background.
+            br
+            | 							Then use scenes to animate the child element's position.
+          p
+            | The DOM is very straight forward and consists of consecutive containers.
+          a.viewsource(href='#') view source
+      section.demo
+        style(type='text/css').
+          .parallaxParent {
+            height: 100vh;
+            overflow: hidden;
+          }
+          .parallaxParent > * {
+            height: 200%;
+            position: relative;
+            top: -100%;
+          }
+        .spacer.s0
+        #parallax1.parallaxParent
+          div(style='transform: matrix(1, 0, 0, 1, 0, 0); background-image: url(http://scrollmagic.io/img/example_parallax_bg1.png);')
+        .spacer.s1
+          .box2.blue
+            p Content 1
+            a.viewsource(href='#') view source
+        .spacer.s0
+        #parallax2.parallaxParent
+          div(style='background-image: url(http://scrollmagic.io/img/example_parallax_bg2.png);')
+        .spacer.s1
+          .box2.blue
+            p Content 2
+            a.viewsource(href='#') view source
+        .spacer.s0
+        #parallax3.parallaxParent
+          div(style='background-image: url(http://scrollmagic.io/img/example_parallax_bg3.png);')
+        .spacer.s2
+        script.
+          // init controller
+          var controller = new ScrollMagic.Controller({globalSceneOptions: {triggerHook: "onEnter", duration: "200%"}});
+          // build scenes
+          new ScrollMagic.Scene({triggerElement: "#parallax1"})
+            .setTween("#parallax1 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+          new ScrollMagic.Scene({triggerElement: "#parallax2"})
+            .setTween("#parallax2 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+          new ScrollMagic.Scene({triggerElement: "#parallax3"})
+            .setTween("#parallax3 > div", {y: "80%", ease: Linear.easeNone})
+            .addIndicators()
+            .addTo(controller);
+      .spacer.s_viewport

@@ -6,5 +6,7 @@
     .col-sm-3.col-md-3(ng-repeat='item in vm.testList')
       a(href='#', style="text-decoration: none !important; color:#333;")
         .script-box(style="margin:10px;")
+          h4 {{item.test_type}}
+          a(href="{{item.recordFilename}}") voice
           h4 {{item.test_date}}
           h4 {{item.score}}

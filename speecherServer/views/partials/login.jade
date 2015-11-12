@@ -1,18 +1,86 @@
-.container
-  .login-box1
-      h2.login-header
-        |  Don't Look The Paper
-      p.login-content
-        | You Can Speech와 함께 정확하게 말하는 연습을 해보세요
-        br
-        | 이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
-      p
-        button.login-facebook.btn(ng-click='vm.facebookLogin()')
-          i.fa.fa-facebook-square.icon-margin
-          |Facebook으로 시작하기
-      p
-        button.login-google.btn(ng-click='vm.googleLogin()')
-          i.fa.fa-google-plus.icon-margin
-          |Google+로 시작하기
+link(rel='stylesheet', type='text/css', href='http://mmkjony.github.io/enllax.js/stylesheets/normalize.css', media='screen')
+link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700', rel='stylesheet', type='text/css')
+link(rel='stylesheet', type='text/css', href='http://mmkjony.github.io/enllax.js/stylesheets/stylesheet.css', media='screen')
+link(rel='stylesheet', type='text/css', href='http://mmkjony.github.io/enllax.js/stylesheets/github-light.css', media='screen')
+link(rel='stylesheet', type='text/css', href='../css/enllax.css', media='screen')
 
-  tts(tts-text='Hello world', tts-lang='en')
+div#scrollpage(style="background:#202124")
+  section.page-header
+    img.logo
+    h1(style="margin-top:150px; font-size:40sp") You Can Speech
+    h2 You Can Speech와 함께 정확하게 말하는 연습을 해보세요<br>이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
+
+    p
+      button.login-facebook.btn(ng-click='vm.facebookLogin()')
+        i.fa.fa-facebook-square.icon-margin
+        |Facebook으로 시작하기
+    p
+      button.login-google.btn(ng-click='vm.googleLogin()')
+        i.fa.fa-google-plus.icon-margin
+        |Google+로 시작하기
+  section.main-content
+    .text-center(style="margin-top:30px;")
+      h1(style="font-size:40px; color:#009FFF;") Functions
+  .p50
+    .dem1.bgExample(data-enllax-ratio='.5', data-enllax-direction='horizontal')
+    .dem1.bg3.text-center(data-enllax-ratio='.7', style='color: #fff;')
+      h1(data-enllax-ratio='1.4', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FF373D;") SCRIPT MANAGEMENT
+      h1(data-enllax-ratio='.1', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FF6600;") TALKING TEST
+      h1(data-enllax-ratio='-4.1', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FFAC00;") RECORDING<BR>AND<BR>LISTENING
+    .dem1.bg4(style="height:100px;", data-enllax-ratio='1.5')
+      h1.text-center(style='color: #FFFFFF; margin-top:-150px;', data-enllax-ratio='-.2', data-enllax-type='foreground') ADVANTAGE
+
+
+  .demo
+    .box
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore doloremque libero, asperiores perspiciatis, nulla fuga hic expedita fugit veritatis iure natus deserunt aliquam et atque inventore quae soluta laudantium omnis illum corrupti ullam officiis. Voluptates, nemo veniam laudantium sed magnam, distinctio consequatur, ipsum, nulla expedita voluptate labore. Animi, porro, officia?
+
+    .box.b2.text-center(data-enllax-ratio='-.3', data-enllax-type='foreground')
+      h2 Moving Box
+      br
+      |                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia nemo, labore quaerat! Sit fugit explicabo veniam unde molestias nemo, natus nostrum, voluptate eaque. Consectetur nesciunt magnam molestias velit minus cum!
+    .box
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia nemo, labore quaerat! Sit fugit explicabo veniam unde molestias nemo, natus nostrum, voluptate eaque. Consectetur nesciunt magnam molestias velit minus cum!
+  .dl
+  section.main-content
+    footer.site-footer
+      span.site-footer-owner
+        | Copyright © 2015,
+        a(href='https://github.com/mmkjony') MMK Jony
+        | .
+      span.site-footer-credits
+
+
+  script(src='http://mmkjony.github.io/enllax.js/jquery.enllax.min.js')
+  script(src='../js/enllax.js')
+//script.
+//  (function($){
+//    //Plugin activation
+////    $('#some-id').enllax();
+//    //            $('#some-id').enllax();
+//    //            $('selector').enllax({
+//    //                type: 'background', // 'foreground'
+//    //                ratio: 0.5,
+//    //                direction: 'vertical' // 'horizontal'
+//    //            });
+//  })(jQuery);
+
+
+//.container
+//  .login-box1
+//      h2.login-header
+//        |  Don't Look The Paper
+//      p.login-content
+//        | You Can Speech와 함께 정확하게 말하는 연습을 해보세요
+//        br
+//        | 이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
+//      p
+//        button.login-facebook.btn(ng-click='vm.facebookLogin()')
+//          i.fa.fa-facebook-square.icon-margin
+//          |Facebook으로 시작하기
+//      p
+//        button.login-google.btn(ng-click='vm.googleLogin()')
+//          i.fa.fa-google-plus.icon-margin
+//          |Google+로 시작하기
+//
+//  tts(tts-text='Hello world', tts-lang='en')

@@ -37,16 +37,15 @@
       var blank = "[         ]";
       try{
         for(var i = 0; i< split.length/10 ; i++){
-          var random = Math.floor(Math.random() * split.length) + 1;
+          var random = Math.floor(Math.random() * split.length);
           if(split[random].length <= 3 || split[random] == blank){
-
           }else{
             split[random] = blank;
           }
 
         }
       }catch(e){
-        return "wait....";
+        return script;
       }
 
       return split.join(" ");

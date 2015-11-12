@@ -1,0 +1,49 @@
+* { margin: 0; padding: 0; }
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  line-height: 1.4;
+  overflow-x: hidden;
+  background: url(http://subtlepatterns.com/patterns/geometry2.png);
+}
+.text-center {
+  text-align: center;
+}
+.p50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.dem1 {
+  height: 400px;
+  background-size: cover;
+  box-sizing: border-box;
+  padding: 100px;
+}.bg1 {
+   background: url(http://www.mrwallpaper.com/wallpapers/AUtumn-Yellow-Park-1680x1050.jpg);
+ }.bg2 {
+    background: url(http://madisonmemorial.org/wp-content/uploads/2013/09/mountain-river-autumn-nature.jpg);
+  }.bg3 {
+     background: url(http://www.listofimages.com/wp-content/uploads/2012/05/nature-photography-fields-sunflowers-yellow-flowers.jpg);
+   }.bg4 {
+      background: url(../images/nightsky.jpeg);
+    }.box {
+       width: 90%;
+       margin: 0 auto;
+       background: #efefef;
+       padding: 100px;
+       box-sizing: border-box;
+       border: 1px solid #ddd;
+       box-shadow: 0 0 1px #777;
+       margin-bottom: 15px;
+     }.b2 {
+        background: #dedede;
+      }.dl {
+         margin-top: 200px;
+         padding: 100px;
+       }
+.fork-mmk {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 99999;
+}

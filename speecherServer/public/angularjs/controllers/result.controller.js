@@ -25,8 +25,9 @@
         vm.testResult = testService.testResult;
         console.log(vm.testResult.script_result);
       }
+
       //showTestResult();
-      //showTestList();
+      showTestList();
     })();
 
     function showTestResult () {
@@ -35,6 +36,9 @@
             console.log(response);
             if (response.data.success) {
               vm.testResult = response.data.result;
+              vm.scriptTitle = response.data.result.script_title;
+              vm.scriptContent = response.data.result.script_content;
+
             }
           },
           _errorHandler_('Error: showTestList')
@@ -45,8 +49,13 @@
       testService.getTestList(vm.scriptId).then(
           function (response) {
             console.log(response);
+            console.log("===================");
+            console.log(response);
             if (response.data.success) {
               vm.testList = response.data.result;
+              console.log("===================");
+              console.log(response.data.result);
+              console.log("===================");
             }
           },
           _errorHandler_('Error: showTestList')
