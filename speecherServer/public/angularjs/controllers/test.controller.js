@@ -10,6 +10,7 @@
   function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
 
     $rootScope.test = choiceService;
+    $rootScope.vm = this;
     //$scope.startTest = startTest;
     //$scope.finishTest = finishTest;
 
@@ -78,6 +79,8 @@
     vm.testTime = $rootScope.test.counter;
     vm.testId = null;
 
+
+    vm.saveTestResult = saveTestResult;
     $rootScope.test.saveTestResult = saveTestResult;
     $rootScope.test.startRecording = startRecording;
     $rootScope.test.stopRecording = stopRecording;
@@ -88,6 +91,8 @@
 
       socketio.on('finished', function (fileName) {
         vm.filename =  fileName;
+        $rootScope.test.filename = fileName;
+
         console.log('got file ' + fileName);
 
         vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
@@ -100,6 +105,7 @@
           test_time: vm.testTime,
           filename: vm.filename
         };
+        console.log("testResult:: ");
         console.log(testResult);
 
         testService.testResult = testResult;

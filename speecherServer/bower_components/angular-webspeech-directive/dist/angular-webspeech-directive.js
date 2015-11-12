@@ -165,7 +165,8 @@
             if ($scope.ngModel.recognizing) {
               recognition.stop();
               console.log("toggleStartstop to Save Test  Result");
-              $scope.$parent.$parent.test.saveTestResult();
+              $scope.$parent.$parent.vm.saveTestResult();
+
               return reset();
             } else {
               console.log("toggleStartstop Test Start");
