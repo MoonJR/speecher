@@ -23,14 +23,20 @@
     test.setType = setType;
     test.types = types;
     test.type = types[0];
-    test.timer_status = status[0];
+    test.timer_status = true;
     test.testnow = false;
     test.typeText = typeText[0];
 
     (function initController() {
 
-      test.timer_status = status[0];
-      test.counter = 3;
+      if($cookieStore.get('test') != null) {
+        test.counter = $cookieStore.get('test').counter;
+        test.timer_status = $cookieStore.get('test').timer_status;
+      }
+      else {
+        test.counter = 3;
+        test.timer_status = true;
+      }
       test.timer_seconds = 300;
       test.current_seconds = 0;
       test.remain_seconds = 300;

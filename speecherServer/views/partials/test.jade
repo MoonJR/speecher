@@ -1,6 +1,6 @@
 .container
 
-  .progress
+  .progress(ng-show="vm.timerState")
     .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='{{test.timer_percent}}', aria-valuemin='0', aria-valuemax='100', style='width: {{test.timer_percent}}%')
       span.sr-only {{test.timer_percent}}% Complete
 
