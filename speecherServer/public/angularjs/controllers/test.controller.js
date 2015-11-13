@@ -43,7 +43,10 @@
     vm.finish = false;
     vm.counter = 3;
     vm.timerState = $rootScope.test.timer_status;
-    vm.timerMinute = $rootScope.test.counter;
+    vm.timerMinutes = $rootScope.test.counter;
+    vm.timerIntoSeconds = vm.timerMinutes * 60;
+    vm.timerExceedSeconds = 0;
+    vm.timerPercent =
     vm.timerSecondTens = 0;
     vm.timerSecondUnits = 0;
     vm.testInfo = $rootScope.test;
@@ -53,12 +56,8 @@
     vm.testTime = $rootScope.test.counter;
     vm.testId = null;
 
-    $rootScope.test.saveTestResult = saveTestResult;
-    $rootScope.test.startRecording = startRecording;
-    $rootScope.test.stopRecording = stopRecording;
-
     (function initController() {
-      console.log(vm.timerState);
+      //console.log(vm.timerState);
       countdown();
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
@@ -66,11 +65,18 @@
       $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
     })();
 
+    $rootScope.test.saveTestResult = saveTestResult;
+    $rootScope.test.startRecording = startRecording;
+    $rootScope.test.stopRecording = stopRecording;
+
     function timer() {
       var timerTimeout = $timeout(function () {
-        console.log(vm.timerMinute + ":" + vm.timerSecondTens + vm.timerSecondUnits);
+        //console.log(vm.timerMinutes + ":" + vm.timerSecondTens + vm.timerSecondUnits);
 
         vm.timerSecondUnits--;
+
+        //console.log(vm.timerExceedSeconds);
+        //console.log(vm.timerIntoSeconds);
 
         if (vm.timerSecondUnits == -1) {
           vm.timerSecondUnits = 9;
@@ -78,14 +84,15 @@
         }
         if (vm.timerSecondTens == -1) {
           vm.timerSecondTens = 5;
-          vm.timerMinute--;
+          vm.timerMinutes--;
         }
 
-        if(vm.timerMinute > -1) {
+        if(vm.timerMinutes > -1) {
+          vm.timerExceedSeconds++;
           timer();
         }
         else {
-          vm.timerMinute = $rootScope.test.counter;
+          vm.timerMinutes = $rootScope.test.counter;
           vm.timerSecondTens = 0;
           vm.timerSecondUnits = 0;
           $timeout.cancel(timerTimeout);
@@ -95,7 +102,7 @@
 
       $rootScope.$on('$locationChangeStart', function(event) {
         $timeout.cancel(timerTimeout);
-        vm.timerMinute = $rootScope.test.counter;
+        vm.timerMinutes = $rootScope.test.counter;
         vm.timerSecondTens = 0;
         vm.timerSecondUnits = 0;
       });

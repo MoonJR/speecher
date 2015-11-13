@@ -1,15 +1,8 @@
 .container
-
   .progress(ng-show="vm.timerState")
-    .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='{{test.timer_percent}}', aria-valuemin='0', aria-valuemax='100', style='width: {{test.timer_percent}}%')
-      span.sr-only {{test.timer_percent}}% Complete
-
-  .write-box
-    span(style="position:absolute; right:50%; ")
-      p.p-timer(style="position:relative; right:-50%; ") {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
-    .progress(style="width:100%; margin:0px; 0px 0px 0px")
-      .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
-        span.sr-only {{test.timer_percent}}% Complete
+    .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='{{vm.timerExceedSeconds}}', aria-valuemin='0', aria-valuemax='{{vm.timerIntoSeconds}}', style='width: {{vm.timerExceedSeconds/vm.timerIntoSeconds*100}}%')
+    .progress-timer
+      span.progress-timer-font {{vm.timerMinutes}}:{{vm.timerSecondTens}}{{vm.timerSecondUnits}}
 
   .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
     .flex

@@ -701,3 +701,22 @@ ins {
   font-size: 150px;
   font-weight: bolder;
 }
+
+.progress {
+  height: 80px !important;
+  width: 220px !important;;
+  margin:20px auto !important;;
+}
+
+.progress-timer {
+  position:absolute;
+  width: 220px;
+  text-align:center;
+}
+
+.progress-timer-font {
+  color: rgba(213, 213, 213, 0.5);
+  font-size:80px;
+  font-weight: bolder;
+  line-height:80px;
+}

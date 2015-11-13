@@ -128,5 +128,8 @@
       test.current_seconds = 0;
       test.timer_percent = 0;
     }
+
+    function startRecord(){}
+    function stopRecord(){}
   }
 })();
