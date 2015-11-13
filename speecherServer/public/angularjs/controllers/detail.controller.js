@@ -45,7 +45,7 @@
     function showWrongWord() {
       scriptService.getWrongWordAll(vm.scriptId).then(
           function (response) {
-            //console.log(response);
+            console.log(response);
             if(response.data.success) {
               vm.wrongWord = response.data.result;
             }

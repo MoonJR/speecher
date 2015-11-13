@@ -5,19 +5,10 @@
       .module('myApp')
       .controller('testCtrl', testController);
 
-  testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'testService'];
-
-  function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
+  testController.$inject = ['$scope','$rootScope', '$filter', '$location', '$timeout', '$cookieStore', 'choiceService', 'testService'];
+  function testController($scope, $rootScope, $filter, $location, $timeout, $cookieStore, choiceService, testService) {
 
     $rootScope.test = choiceService;
-
-    (function initController() {
-      var testCookie = $cookieStore.get('test');
-      choiceService.saveItem(testCookie);
-      $rootScope.test = testCookie;
-      $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
-
-    })();
 
     $scope.speech = {
       "maxResults": 2200,
@@ -31,39 +22,30 @@
     function getBlankScript(script){
       var split = script.split(" ");
       var blank = "[         ]";
-      try{
-        for(var i = 0; i< split.length/10 ; i++){
-          var random = Math.floor(Math.random() * split.length);
-          if(split[random].length <= 3 || split[random] == blank){
 
-          }else{
-            split[random] = blank;
-          }
-
+      for(var i = 0; i< split.length/10 ; i++){
+        var random = Math.floor(Math.random() * split.length);
+        if (split[random].length <= 2 || split[random] == blank) {
         }
-      }catch(e){
-        return "wait....";
+        else {
+          split[random] = blank;
+        }
       }
-
       return split.join(" ");
     }
-
-    function startTest(){
-      $rootScope.test.startTest();
-
-    }
-
-    function finishTest(){
-      //$scope.speech.recognizing = false;
-      $rootScope.test.finishTest();
-    }
-
 
     // Made by Sojin
 
     var vm = this;
 
     // APIs
+    vm.start = false;
+    vm.finish = false;
+    vm.counter = 3;
+    vm.timerState = $rootScope.test.timer_status;
+    vm.timerMinute = $rootScope.test.counter;
+    vm.timerSecondTens = 0;
+    vm.timerSecondUnits = 0;
     vm.testInfo = $rootScope.test;
     vm.scriptId = $rootScope.test.script_id;
     vm.scriptResult = null;
@@ -75,8 +57,77 @@
     $rootScope.test.startRecording = startRecording;
     $rootScope.test.stopRecording = stopRecording;
 
-    function saveTestResult() {
+    (function initController() {
+      console.log(vm.timerState);
+      countdown();
+      var testCookie = $cookieStore.get('test');
+      choiceService.saveItem(testCookie);
+      $rootScope.test = testCookie;
+      $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
+    })();
 
+    function timer() {
+      var timerTimeout = $timeout(function () {
+        console.log(vm.timerMinute + ":" + vm.timerSecondTens + vm.timerSecondUnits);
+
+        vm.timerSecondUnits--;
+
+        if (vm.timerSecondUnits == -1) {
+          vm.timerSecondUnits = 9;
+          vm.timerSecondTens--;
+        }
+        if (vm.timerSecondTens == -1) {
+          vm.timerSecondTens = 5;
+          vm.timerMinute--;
+        }
+
+        if(vm.timerMinute > -1) {
+          timer();
+        }
+        else {
+          vm.timerMinute = $rootScope.test.counter;
+          vm.timerSecondTens = 0;
+          vm.timerSecondUnits = 0;
+          $timeout.cancel(timerTimeout);
+          vm.finish = true;
+        }
+      }, 1000);
+
+      $rootScope.$on('$locationChangeStart', function(event) {
+        $timeout.cancel(timerTimeout);
+        vm.timerMinute = $rootScope.test.counter;
+        vm.timerSecondTens = 0;
+        vm.timerSecondUnits = 0;
+      });
+    }
+
+    function countdown() {
+      var countdownTimeout = $timeout(function () {
+        if (vm.counter == 'START') {
+          $timeout.cancel(countdownTimeout);
+          vm.counter = 3;
+          vm.start = true;
+
+          if (vm.timerState) {
+            timer();
+          }
+        }
+        else {
+          vm.counter--;
+          if (vm.counter == 0) {
+            vm.counter = 'START';
+          }
+          countdown();
+        }
+      }, 1000);
+
+      $rootScope.$on('$locationChangeStart', function(event) {
+        $timeout.cancel(countdownTimeout);
+        vm.counter = 3;
+      });
+    }
+
+    function saveTestResult() {
       stopRecording();
 
       socketio.on('finished', function (fileName) {
@@ -109,7 +160,6 @@
             _errorHandler_('Error: saveTestResult')
         );
         $location.path('/result/' + vm.scriptId);
-
       });
     }
 

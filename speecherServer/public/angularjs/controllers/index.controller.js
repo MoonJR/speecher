@@ -24,6 +24,7 @@
 
     // init script list & words
     (function initController() {
+      vm.test.timer_status = true;
       showScriptList();
       showWrongWordAll();
     })();

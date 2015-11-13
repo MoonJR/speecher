@@ -645,7 +645,7 @@ ins {
 }
 
 .modal-content {
-  border-radius: 0 !important;
+  /*border-radius: 0 !important;*/
 }
 
 .modal:before {
@@ -694,4 +694,10 @@ ins {
   text-align: right;
   border: none;
   border-bottom: 1px solid #cccccc;
+}
+
+.counter {
+  color: #51A7F9;
+  font-size: 150px;
+  font-weight: bolder;
 }

@@ -1,12 +1,12 @@
 .container
   .script-list
-    .col-xs-12.col-sm-6.col-md-4.col-lg-3(style="padding: 10px !important", ng-repeat='item in vm.scriptList')
+    .col-xs-12.col-sm-6.col-md-4.col-lg-3(style="padding: 10px !important", ng-repeat="item in vm.scriptList")
       .script-list-box
-        a(href='/#/detail/{{item.script_id}}')
+        a(href="/#/detail/{{item.script_id}}")
           .script-list-content-box
             p.script-list-content {{item.script_content}}
           hr.none
-        a(ng-click="vm.test.saveItem(item)" data-toggle='modal', data-target='#myModal')
+        a(ng-click="vm.test.saveItem(item)" data-toggle="modal", data-target="#myModal")
           .summary-box
             .summary-script-box
               h5 {{item.script_title}}
@@ -24,39 +24,35 @@
             .score-bar(style="width:{{vm.score}}%;")
   .word-list
     h5.word-list-title(ng-show="vm.wrongWordAll") 자주 틀리는 단어
-    ul.nav.nav-pills(role='tablist')
-      li(role='presentation', ng-repeat='item in vm.wrongWordAll')
+    ul.nav.nav-pills(role="tablist")
+      li(role="presentation", ng-repeat="item in vm.wrongWordAll")
         a.word-list-btn(ng-click="vm.showWrongWordDialog(item)")
           | {{item._id}}
           span.badge {{item.wrongCount}}
-  script(src='../js/tts.js')
-
-
-#myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+#myModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
   .modal-dialog
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') ×
+        button.close(type="button", data-dismiss="modal", aria-label="Close")
+          span(aria-hidden="true") ×
+        i.fa.fa-check-circle.fa-lg.icon-margin
         span#myModalLabel.modal-title(style="margin-right: 50px;") 테스트 종류
-        .btn-group(data-toggle='buttons')
-          input(type='radio', name="type", ng-click="vm.test.setType(0)", checked='checked')
-          span.modal-test-type 따라읽기
-          input(type='radio', name="type", ng-click="vm.test.setType(1)")
-          span.modal-test-type 빈칸 맞추기
-          input(type='radio', name="type", ng-click="vm.test.setType(2)")
-          span.modal-test-type 실전 말하기
+        .btn-group(data-toggle="buttons")
+          label(ng-repeat="type in vm.test.types")
+            input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
+            span.modal-test-type {{type}}
       .modal-body
+        i.fa.fa-clock-o.fa-lg.icon-margin
         span#myModalLabel.modal-title(style="margin-right: 50px;") 타이머 설정
         label.btn.btn-timer-none
-          input.btn-timer-time(type='number', value='3', ng-model="vm.test.counter")
+          input.btn-timer-time(type="number", value="3", ng-model="vm.test.counter")
           | 분
-        .btn-group(data-toggle='buttons')
-          label.btn.btn-default.btn-timer.active
-            input(type='radio', name='timer', checked='checked', value='true')
+        .btn-group(data-toggle="buttons")
+          label.btn.btn-default.btn-timer.active(ng-click="vm.test.timer_status = true")
+            input(type="radio", name="timer", ng-value="timer")
             |  켜기
-          label.btn.btn-default.btn-timer
-            input(type='radio', name='timer', value='false')
+          label.btn.btn-default.btn-timer(ng-click="vm.test.timer_status = false")
+            input(type="radio", name="timer", ng-value="timer")
             |  끄기
       .modal-footer(style="text-align: center;")
-        button.btn.btn-simple(type='button', data-dismiss='modal', aria-label='Close', ng-click="vm.test.moveTest()") 테스트 시작
+        button.btn.btn-simple(type="button", data-dismiss="modal", aria-label="Close", ng-click="vm.test.moveTest()") 테스트 시작
