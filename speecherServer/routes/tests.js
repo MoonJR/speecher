@@ -36,8 +36,9 @@ exports.save = function(req, res){
 
   var preProc;
 
-  while((preProc = testScript.match(/<ins>[^(<ins>)]*(\s)?\n<\/ins>/)) != null) {
-    testScript= testScript.replace(/<ins>[^(<ins>)]*(\s)?\n<\/ins>/, preProc[0].replace('\n', ''));
+  //console.log(testScript);
+  while((preProc = testScript.match(/<ins>[^<]*(\s)*\n<\/ins>/)) != null) {
+    testScript= testScript.replace(/<ins>[^<)]*(\s)*\n<\/ins>/, preProc[0].replace('\n', ''));
   }
 
   var paragraphArr = scriptUtil.scriptToParagraphJsonArray({
