@@ -114,3 +114,16 @@ exports.scriptTestNum = function(userId, scriptId, callback){
     });
   });
 }
+
+exports.averageTestScore = function(userId, scriptId, callback){
+  db.open(function(err, db) {
+    db.collection('test', function (err, collection) {
+      collection.aggregate([
+          {$match: {id: userId, script_id: scriptId}},
+          {$group: {_id: "$script_id", avgScore: { $avg: "$score" }}}
+        ], function (err, result) {
+          callback(err, result);
+      });
+    });
+  });
+}

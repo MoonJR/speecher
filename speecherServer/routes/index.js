@@ -52,6 +52,8 @@ router.post('/main/scriptDelete', deleteScript.deleteScriptExpress);
 router.post('/scriptDetail/scriptContent', readScript.readScriptDetail);
 router.post('/scriptDetail/scriptGrapeScores', testHistory.testHistory);
 router.post('/scriptDetail/failList', scriptDetail.failList);
+router.post('/scriptDetail/avgTestScore', scriptDetail.averageTestScore);
+router.post('/scriptDetail/testNum', scriptDetail.scriptTestNum);
 router.post('/test/getRecordPath', getRecord.getRecord);
 
 router.post('/test/testList', tests.testList);

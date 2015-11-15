@@ -56,23 +56,4 @@ describe('test', function() {
       tests.save(req, res);
     });
   });
-
-  describe('.scriptTestNum(scriptId)', function() {
-    it('테스트 리스트가 받아와져야한다.', function(done) {
-      var scriptId = 'f176e260-88d5-11e5-abe2-81005e88d990';
-      var userId = '1730350673859952';
-
-      var req = {session:{user_id: userId}, body: {script_id: scriptId}};
-      var res = {};
-
-      res.send = function (json) {
-        if (json.success == 1) {
-          console.log(json);
-          done();
-        }
-      };
-
-      tests.scriptTestNum(req, res);
-    });
-  });
 });
