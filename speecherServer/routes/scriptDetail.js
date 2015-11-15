@@ -24,3 +24,40 @@ exports.failList = function(req, res){
 
   });
 };
+
+exports.scriptTestNum = function(req, res) {
+  var userId = req.session.user_id;
+  var scriptId = req.body.script_id;
+
+  dbTest.scriptTestNum(userId, scriptId, function(err, data){
+    if(err){
+      res.send(error.db_load_error);
+    }
+
+    if(data){
+      res.send({success: error.success.success, msg: error.success.msg, result: data});
+    }else{
+      res.send(error.unknown_error);
+    }
+  });
+};
+
+exports.averageTestScore = function(req, res) {
+  var userId = req.session.user_id;
+  var scriptId = req.body.script_id;
+
+  dbTest.averageTestScore(userId, scriptId, function(err, data){
+    if(err) {
+      res.send(error.db_load_error);
+    }
+
+    if(data){
+      var scriptId = data[0]._id;
+      var avgScore = Math.ceil(data[0].avgScore);
+      data = {script_id: scriptId, avgScore: avgScore};
+      res.send({success: error.success.success, msg: error.success.msg, result: data});
+    }else{
+      res.send(error.unknown_error);
+    }
+  });
+};
