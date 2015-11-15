@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('resultController', resultController);
 
-  resultController.$inject = ['$routeParams', 'testService'];
-  function resultController($routeParams, testService) {
+  resultController.$inject = ['$routeParams', 'testService','scriptService'];
+  function resultController($routeParams, testService, scriptService) {
 
     var vm = this;
 
@@ -14,6 +14,7 @@
     vm.scriptId = { script_id : $routeParams.scriptId };
     vm.testResult = null;
     vm.testList = null;
+    vm.wrongWordAll = null;
     vm.showTestResult = showTestResult;
     vm.showTestList = showTestList;
 
@@ -28,6 +29,7 @@
 
       //showTestResult();
       showTestList();
+      showWrongWordAll();
     })();
 
     function showTestResult () {
@@ -67,6 +69,31 @@
       console.log(error);
       return { success: false, message: error };
     }
+
+    function showWrongWordAll() {
+      console.log("is:::");
+      console.log(vm.scriptId);
+      var id = vm.scriptId;
+      scriptService.getScriptWrongWord(id).then(
+        function (response) {
+          console.log(response);
+          if(response.data.success) {
+            if (response.data.result.length > 0) {
+              vm.wrongWordAll = response.data.result;
+              console.log(vm.wrongWordAll[0]._id);
+            }
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        _errorHandler_('Error: showWrongWordAll')
+      );
+    }
+
+
+
+
   }
 })();
 

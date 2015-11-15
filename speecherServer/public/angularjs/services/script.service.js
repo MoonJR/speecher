@@ -16,6 +16,7 @@
     service.deleteScript = deleteScript;
     service.getScript = getScript;
     service.getWrongWord = getWrongWord;
+    service.getScriptWrongWord = getScriptWrongWord;
     service.getScriptList = getScriptList;
     service.getWrongWordAll = getWrongWordAll;
 
@@ -45,6 +46,11 @@
     function getWrongWordAll() {
       return $http.post('/main/totalFailList').then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
     }
+
+    function getScriptWrongWord(scriptId) {
+      return $http.post('/scriptDetail/failList', scriptId).then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
+    }
+
 
 
 

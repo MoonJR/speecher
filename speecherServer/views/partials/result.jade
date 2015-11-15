@@ -1,4 +1,13 @@
 .container
+  .write-box(ng-show="vm.wrongWordAll")
+    h4 자주 틀리는 단어
+    ul.nav.nav-pills(role='tablist')
+      li(role='presentation', ng-repeat='item in vm.wrongWordAll')
+        //실데이터
+        a.btn-word(ng-click="vm.showWrongWordDialog(item)")
+          | {{item._id}}
+          span.badge {{item.wrongCount}}
+
   .write-box
     h4 {{vm.testResult.test_type}} 결과
     p(ng-bind-html="vm.testResult.script_result")

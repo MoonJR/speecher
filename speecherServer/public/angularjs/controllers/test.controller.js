@@ -17,7 +17,7 @@
     (function initController() {
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
-      $rootScope.test = testCookie;
+      //$rootScope.test = testCookie;
       $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
 
     })();

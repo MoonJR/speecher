@@ -91,7 +91,7 @@
     function startTest(){
       test.testnow = true;
       startCount();
-      startRecord();
+      //startRecord();
       //test.speech.recognizing = true;
 
     }
@@ -131,9 +131,6 @@
       test.current_seconds = 0;
       test.timer_percent = 0;
     }
-
-    function startRecord(){}
-    function stopRecord(){}
 
 
 
