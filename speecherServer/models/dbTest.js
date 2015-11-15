@@ -104,3 +104,13 @@ exports.saveWrongMorpheme = function(user_id, morpheme_array, paragraph_id, scri
       });
   });
 }
+
+exports.scriptTestNum = function(userId, scriptId, callback){
+  db.open(function(err, db) {
+    db.collection('test', function (err, collection) {
+      collection.find({"id": userId, "script_id": scriptId}).count(function (err, result) {
+        callback(err, result);
+      });
+    });
+  });
+}
