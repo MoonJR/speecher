@@ -6,7 +6,7 @@ html(lang='kr', ng-app="myApp")
     title= title
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='/css/base.css')
-    link(data-require='font-awesome@4.3.0', data-semver='4.3.0', rel='stylesheet', href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')
     link(rel="stylesheet", href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css")
     link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='bootstrap/dist/css/bootstrap-theme.css')
@@ -19,18 +19,18 @@ html(lang='kr', ng-app="myApp")
   body(layout="column")
     header.navbar-header
       .container
-        p.logo.menu-left You Can Speech
-        a.menu-left(ng-href="/#/write", ng-if="globals.currentUser")
-          |대본작성
-        a.menu-left(ng-href="/#/", ng-if="globals.currentUser")
-          |대본목록
+        p.logo You Can Speech
         a.menu-right(ng-href="/#/login", ng-if="globals.currentUser")
           |로그아웃
         p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
-
-  main.body-bg
-    block content
-  footer
+      .container
+        a.menu-left.active(ng-href="/#/", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/'}")
+          |대본목록
+        a.menu-left(ng-href="/#/write", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/write'}")
+          | 대본작성
+    main.body-bg
+      block content
+    footer
     //Angular Material Dependencies
     script(src='angular/angular.min.js')
     script(src='angular-animate/angular-animate.min.js')
@@ -39,35 +39,29 @@ html(lang='kr', ng-app="myApp")
     script(src='angular-cookies/angular-cookies.min.js')
     script(src='angular-sanitize/angular-sanitize.min.js')
     script(src='angular-material/angular-material.min.js')
-    script(src='../jquery/dist/jquery.min.js')
-    script(src='../bootstrap/dist/js/bootstrap.min.js')
-    script(src='../momentjs/min/moment.min.js')
-    script(src='../momentjs/min/locales.min.js')
-    script(src='../humanize-duration/humanize-duration.js')
-    script(src='../angular-timer/dist/angular-timer.min.js')
-    script(src='../angular-timer/dist/assets/js/angular-timer-all.min.js')
+    script(src='jquery/dist/jquery.min.js')
+    script(src='bootstrap/dist/js/bootstrap.min.js')
+    script(src='momentjs/min/moment.min.js')
+    script(src='momentjs/min/locales.min.js')
+    script(src='humanize-duration/humanize-duration.js')
+    script(src='angular-timer/dist/angular-timer.min.js')
+    script(src='angular-timer/dist/assets/js/angular-timer-all.min.js')
     script(src='https://www.webrtc-experiment.com/RecordRTC.js')
     script(src='https://cdn.socket.io/socket.io-1.3.7.js')
-
     script(src='ng-facebook/ngFacebook.js')
     script(src='angular-google-plus/dist/angular-google-plus.min.js')
     script(src='angular-webspeech-directive/dist/angular-webspeech-directive.js')
     script(src='angular-svg-round-progressbar/build/roundProgress.min.js')
     script(src='angular-diff/angular-diff.js')
-    script(src='../angular-svg-round-progressbar/build/roundProgress.min.js')
-    script(src='../js/timer.js')
-    script(src='../js/tts.js')
+    script(src='angular-svg-round-progressbar/build/roundProgress.min.js')
+    script(src='js/timer.js')
+    script(src='js/tts.js')
 
     script(src='angularjs/app.js')
     script(src='angularjs/controllers/login.controller.js')
     script(src='angularjs/controllers/write.controller.js')
     script(src='angularjs/controllers/index.controller.js')
-
-    script(src='angularjs/controllers/speech.controller.js')
     script(src='angularjs/controllers/detail.controller.js')
-
-
-
     script(src='angularjs/controllers/choice.controller.js')
     script(src='angularjs/controllers/result.controller.js')
     script(src='angularjs/controllers/test.controller.js')

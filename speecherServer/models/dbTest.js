@@ -95,3 +95,40 @@ exports.saveWrongMorpheme = function(user_id, morpheme_array, paragraph_id, scri
       });
   });
 }
+
+exports.scriptTestNum = function(userId, scriptId, callback){
+  db.open(function(err, db) {
+    db.collection('test', function (err, collection) {
+      collection.find({"id": userId, "script_id": scriptId}).count(function (err, result) {
+        callback(err, result);
+      });
+    });
+  });
+}
+
+exports.averageTestScore = function(userId, scriptId, callback){
+  db.open(function(err, db) {
+    db.collection('test', function (err, collection) {
+      collection.aggregate([
+          {$match: {id: userId, script_id: scriptId}},
+          {$group: {_id: "$script_id", avgScore: { $avg: "$score" }}}
+        ], function (err, result) {
+          callback(err, result);
+      });
+    });
+  });
+}
+
+exports.testScoreList = function(userId, callback){
+  db.open(function(err, db) {
+    db.collection('test', function (err, collection) {
+      collection.aggregate([
+        {$match: {id: userId}},
+        {$group: {_id: "$script_id", avgScore: { $avg: "$score" }, testCount: { $sum: 1}}}
+      ], function (err, result) {
+        callback(err, result);
+      });
+    });
+  });
+}
+

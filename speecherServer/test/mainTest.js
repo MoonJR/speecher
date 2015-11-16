@@ -65,4 +65,20 @@ describe('main', function() {
       main.wordDetail(req, res);
     });
   });
+
+  describe('.testScoreList', function() {
+    var req = {query: {}, session: {user_id: '901469693283252'}};
+    var res = {};
+
+    it('전체 스크립트에 대한 테스트 횟수, 평균 점수 받기', function (done) {
+
+      res.send = function (json) {
+        if (json.success == 1) {
+          done();
+        }
+      };
+
+      main.testScoreList(req, res);
+    });
+  });
 });

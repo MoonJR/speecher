@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('detailController', detailController);
 
-  detailController.$inject = ['$routeParams', 'scriptService', '$location'];
-  function detailController($routeParams, scriptService, $location) {
+  detailController.$inject = ['$routeParams', 'scriptService', '$location', 'choiceService'];
+  function detailController($routeParams, scriptService, $location, choiceService) {
 
     var vm = this;
 
@@ -21,6 +21,7 @@
     vm.modifyScript = modifyScript;
     vm.saveScript = saveScript;
     vm.deleteScript = deleteScript;
+    vm.moveChoice = moveChoice;
 
     // init script title & content
     (function initController() {
@@ -44,7 +45,7 @@
     function showWrongWord() {
       scriptService.getWrongWordAll(vm.scriptId).then(
           function (response) {
-            //console.log(response);
+            console.log(response);
             if(response.data.success) {
               vm.wrongWord = response.data.result;
             }
@@ -87,6 +88,19 @@
           },
           _errorHandler_('Error: deleteScript')
       );
+    }
+
+    // checking current selected test`s infomation and data
+    function moveChoice(){
+      var scriptData = {
+        script_id : vm.scriptId,
+        script_title : vm.scriptTitle,
+        script_content : vm.scriptContent
+      };
+
+      console.log("MOVE ID:"+scriptData["id"]);
+      choiceService.saveItem(scriptData);
+      $location.path('/choice');
     }
 
     // private functions
