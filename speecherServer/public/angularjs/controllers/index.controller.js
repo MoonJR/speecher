@@ -20,7 +20,7 @@
 
     // UI handle
     vm.number = 0;
-    vm.score = 0;
+    vm.score = 30;
 
     // init script list & words
     (function initController() {

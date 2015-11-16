@@ -229,7 +229,7 @@ md-tabs{
   font-weight: bold;
   font-size: 20px;
   display:inline-block;
-  line-height: 30px;
+  line-height: 60px;
   margin-top: 10px;
 }
 
@@ -245,7 +245,7 @@ md-tabs{
 
 .menu-right {
   float: right;
-  line-height: 30px;
+  line-height: 60px;
   margin-top: 10px;
   margin-bottom: 0px;
   margin-left: 10px;
@@ -425,7 +425,6 @@ h4 {
   text-overflow: ellipsis;
   margin-bottom:10px;
 }
-
 
 .gray{
   color: lightgray;
@@ -630,6 +629,14 @@ ins {
 
 .word-list-btn:hover {
   background-color: rgba(83, 171, 255, 0.53) !important;
+}
+
+.highScore {
+  background-color: rgba(255, 122, 110, 0.8) !important;
+}
+
+.middleScore {
+  background-color: rgba(255, 214, 130, 0.81);
 }
 
 .modal {
