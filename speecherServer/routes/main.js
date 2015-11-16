@@ -42,3 +42,22 @@ exports.wordDetail = function(req, res) {
 
   });
 };
+
+exports.testScoreList = function(req, res) {
+
+  var userId = req.session.user_id;
+
+  dbTest.testScoreList(userId, function (err, data) {
+
+    if (err){
+      res.send(error.db_load_error);
+    }
+
+    if (data) {
+      res.send({success: error.success.success, msg: error.success.msg, result: data});
+    } else {
+      res.send(error.unknown_error);
+    }
+
+  });
+};

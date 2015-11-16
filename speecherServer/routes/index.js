@@ -60,6 +60,7 @@ router.post('/test/testList', tests.testList);
 router.post('/test/save', tests.save);
 router.post('/main/totalFailList', main.totalFailList);
 router.post('/main/wordDetail', main.wordDetail);
+router.post('/main/testScoreList', main.testScoreList);
 
 router.post('/upload', recording.recordSpeaking);
 
