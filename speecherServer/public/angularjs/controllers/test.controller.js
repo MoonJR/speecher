@@ -5,22 +5,12 @@
       .module('myApp')
       .controller('testCtrl', testController);
 
-  testController.$inject = ['$scope','$rootScope', '$filter', '$location' ,'$cookieStore', 'choiceService', 'testService'];
-
-  function testController($scope, $rootScope, $filter, $location ,$cookieStore, choiceService, testService) {
+  testController.$inject = ['$scope','$rootScope', '$filter', '$location', '$timeout', '$cookieStore', 'choiceService', 'testService'];
+  function testController($scope, $rootScope, $filter, $location, $timeout, $cookieStore, choiceService, testService) {
 
     $rootScope.test = choiceService;
-    $rootScope.vm = this;
-    //$scope.startTest = startTest;
-    //$scope.finishTest = finishTest;
 
-    (function initController() {
-      var testCookie = $cookieStore.get('test');
-      choiceService.saveItem(testCookie);
-      //$rootScope.test = testCookie;
-      $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
 
-    })();
 
     $scope.speech = {
       "maxResults": 2200,
@@ -30,12 +20,11 @@
       "value":""
     };
 
-
-
     // Script 를  Blank화해서 저장한 후 보여준다  (구현중)
     function getBlankScript(script){
       var split = script.split(" ");
       var blank = "[         ]";
+
       try{
         for(var i = 0; i< split.length/10 ; i++){
           var random = Math.floor(Math.random() * split.length);
@@ -43,35 +32,30 @@
           }else{
             split[random] = blank;
           }
-
         }
+
       }catch(e){
         return script;
-      }
 
+      }
       return split.join(" ");
     }
-
-
-    ////$rootScope.test.script =  test 의  script_content;
-    //$rootScope.test.speech = $scope.speech;
-
-    function startTest(){
-      $rootScope.test.startTest();
-
-    }
-
-    function finishTest(){
-      //$scope.speech.recognizing = false;
-      $rootScope.test.finishTest();
-    }
-
 
     // Made by Sojin
 
     var vm = this;
 
     // APIs
+    vm.start = false;
+    vm.finish = false;
+    vm.counter = 3;
+    vm.timerState = $rootScope.test.timer_status;
+    vm.timerMinutes = $rootScope.test.counter;
+    vm.timerIntoSeconds = vm.timerMinutes * 60;
+    vm.timerExceedSeconds = 0;
+    vm.timerPercent =
+    vm.timerSecondTens = 0;
+    vm.timerSecondUnits = 0;
     vm.testInfo = $rootScope.test;
     vm.scriptId = $rootScope.test.script_id;
     vm.scriptResult = null;
@@ -80,13 +64,88 @@
     vm.testId = null;
 
 
+
     vm.saveTestResult = saveTestResult;
+
+    (function initController() {
+      //console.log(vm.timerState);
+      countdown();
+      var testCookie = $cookieStore.get('test');
+      choiceService.saveItem(testCookie);
+      $rootScope.test = testCookie;
+      $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
+    })();
+
     $rootScope.test.saveTestResult = saveTestResult;
     $rootScope.test.startRecording = startRecording;
     $rootScope.test.stopRecording = stopRecording;
 
-    function saveTestResult() {
+    function timer() {
+      var timerTimeout = $timeout(function () {
+        //console.log(vm.timerMinutes + ":" + vm.timerSecondTens + vm.timerSecondUnits);
 
+        vm.timerSecondUnits--;
+
+        //console.log(vm.timerExceedSeconds);
+        //console.log(vm.timerIntoSeconds);
+
+        if (vm.timerSecondUnits == -1) {
+          vm.timerSecondUnits = 9;
+          vm.timerSecondTens--;
+        }
+        if (vm.timerSecondTens == -1) {
+          vm.timerSecondTens = 5;
+          vm.timerMinutes--;
+        }
+
+        if(vm.timerMinutes > -1) {
+          vm.timerExceedSeconds++;
+          timer();
+        }
+        else {
+          vm.timerMinutes = $rootScope.test.counter;
+          vm.timerSecondTens = 0;
+          vm.timerSecondUnits = 0;
+          $timeout.cancel(timerTimeout);
+          vm.finish = true;
+        }
+      }, 1000);
+
+      $rootScope.$on('$locationChangeStart', function(event) {
+        $timeout.cancel(timerTimeout);
+        vm.timerMinutes = $rootScope.test.counter;
+        vm.timerSecondTens = 0;
+        vm.timerSecondUnits = 0;
+      });
+    }
+
+    function countdown() {
+      var countdownTimeout = $timeout(function () {
+        if (vm.counter == 'START') {
+          $timeout.cancel(countdownTimeout);
+          vm.counter = 3;
+          vm.start = true;
+
+          if (vm.timerState) {
+            timer();
+          }
+        }
+        else {
+          vm.counter--;
+          if (vm.counter == 0) {
+            vm.counter = 'START';
+          }
+          countdown();
+        }
+      }, 1000);
+
+      $rootScope.$on('$locationChangeStart', function(event) {
+        $timeout.cancel(countdownTimeout);
+        vm.counter = 3;
+      });
+    }
+
+    function saveTestResult() {
       stopRecording();
 
       socketio.on('finished', function (fileName) {
@@ -122,7 +181,6 @@
             _errorHandler_('Error: saveTestResult')
         );
         $location.path('/result/' + vm.scriptId);
-
       });
     }
 

@@ -1,34 +1,60 @@
-.container(style="min-height:700px")
-  .trans-box
-    .input-group
-      span.input-group-addon(style="margin:0px; padding:0px;")
-        p.p-menu
-          b [{{ test.type }}]  {{ test.script_title }}
+.container
+  .progress(ng-show="vm.timerState")
+    .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='{{vm.timerExceedSeconds}}', aria-valuemin='0', aria-valuemax='{{vm.timerIntoSeconds}}', style='width: {{vm.timerExceedSeconds/vm.timerIntoSeconds*100}}%')
+    .progress-timer
+      span.progress-timer-font {{vm.timerMinutes}}:{{vm.timerSecondTens}}{{vm.timerSecondUnits}}
+  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
+    .flex
+      textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px",disabled)
+      div.noresize.form-control#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:50%;height:400px",disabled)
+  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[1]]")
+    .flex
+      // 커스텀한 빈칸 스트립트를 보여주기
+      textarea.form-control.noresize#script(ng-model="test.script_content_blank", placeholder="",  style="width:50%;height:400px",disabled)
+      div.noresize.form-control#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:50%;height:400px",disabled)
+  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[2]]")
+    .flex
+      textarea.form-control.noresize#script(ng-model="speech.value" ,placeholder="테스트를 시작하면, 실시간으로 텍스트를 보여줍니다",   style="width:100%;height:400px",disabled)
+  .write-box
+    .flex
+      js-speech(ng-model="speech")
+#counterModal.modal(ng-class="{fade: vm.start==true, show: vm.start==false}", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-body(style="text-align: center;")
+        span.counter {{vm.counter}}
 
-  .trans-box.flex(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
-    .blue-box.per100(style="margin-bottom:10px;")
-      textarea.form-control.noresize.view-nb#script(ng-model="test.script_content", placeholder="",  style="width:100%;min-height:600px",disabled)
-    .blue-box.per100
-      div.noresize.form-control.view-nb#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:100%;min-height:600px",disabled)
-
-  .trans-box.flex(ng-class="{ false:'hidden', true:''}[test.type == test.types[1]]")
-    .blue-box.per100(style="margin-bottom:10px;")
-      textarea.form-control.noresize.view-nb#script(ng-model="test.script_content_blank", placeholder="",  style="width:100%;min-height:600px",disabled)
-    .blue-box.per100
-      div.noresize.form-control.view-nb#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:100%;min-height:600px",disabled)
-
-  .trans-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[2]]")
-    .blue-box.per100
-      textarea.form-control.noresize.view-nb#script(ng-model="speech.value" ,placeholder="테스트를 시작하면, 실시간으로 텍스트를 보여줍니다",   style="width:100%;height:400px",disabled)
-
-  .trans-box
-    span(style="position:absolute; right:50%; ")
-      p.p-timer(style="position:relative; right:-50%; ") {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
-    .progress(style="width:100%; margin:0px; 0px 0px 0px; background-image:linear-gradient(to bottom, #ebebeb 0%, #008CFF 100%);")
-      .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
-      span.sr-only {{test.timer_percent}}% Complete
-
-    js-speech(ng-model="speech" , style="margin:15px 0 15px 0;")
+//.container(style="min-height:700px")
+//  .trans-box
+//    .input-group
+//      span.input-group-addon(style="margin:0px; padding:0px;")
+//        p.p-menu
+//          b [{{ test.type }}]  {{ test.script_title }}
+//
+//  .trans-box.flex(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
+//    .blue-box.per100(style="margin-bottom:10px;")
+//      textarea.form-control.noresize.view-nb#script(ng-model="test.script_content", placeholder="",  style="width:100%;min-height:600px",disabled)
+//    .blue-box.per100
+//      div.noresize.form-control.view-nb#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:100%;min-height:600px",disabled)
+//
+//  .trans-box.flex(ng-class="{ false:'hidden', true:''}[test.type == test.types[1]]")
+//    .blue-box.per100(style="margin-bottom:10px;")
+//      textarea.form-control.noresize.view-nb#script(ng-model="test.script_content_blank", placeholder="",  style="width:100%;min-height:600px",disabled)
+//    .blue-box.per100
+//      div.noresize.form-control.view-nb#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:100%;min-height:600px",disabled)
+//
+//  .trans-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[2]]")
+//    .blue-box.per100
+//      textarea.form-control.noresize.view-nb#script(ng-model="speech.value" ,placeholder="테스트를 시작하면, 실시간으로 텍스트를 보여줍니다",   style="width:100%;height:400px",disabled)
+//
+//  .trans-box
+//    span(style="position:absolute; right:50%; ")
+//      p.p-timer(style="position:relative; right:-50%; ") {{test.current_seconds}}/{{test.timer_seconds}} ({{test.timer_percent | number:0}}%)
+//    .progress(style="width:100%; margin:0px; 0px 0px 0px; background-image:linear-gradient(to bottom, #ebebeb 0%, #008CFF 100%);")
+//      .progress-bar.progress-bar-striped.active(ng-class="{false:'progress-bar-info', true:'progress-bar-warning'}[test.timer_percent>100]", role='progressbar', aria-valuenow='{{test.timer_percent}}%', aria-valuemin='0', aria-valuemax='{{test.timer_percent}}%', style='width: {{test.timer_percent}}%;')
+//      span.sr-only {{test.timer_percent}}% Complete
+//
+//    js-speech(ng-model="speech" , style="margin:15px 0 15px 0;")
 //.container
 //
 //  //div(style="top:20%; left:50%; position:absolute;")

@@ -164,16 +164,20 @@
 
             if ($scope.ngModel.recognizing) {
               recognition.stop();
+
               console.log("toggleStartstop to Save Test  Result");
-              $scope.$parent.$parent.vm.saveTestResult();
+              //$scope.$parent.$parent.vm.saveTestResult();
+
 
               return reset();
             } else {
               console.log("toggleStartstop Test Start");
               recognition.start();
               $scope.ngModel.recognizing = true;
-              $scope.$parent.$parent.test.startTest();
-              $scope.$parent.$parent.test.startRecording();
+
+               //$scope.$parent.$parent.test.startTest();
+              //$scope.$parent.test.startRecording();
+
               angular.element(document.querySelector('#startButton')).text("테스트 종료");
               return setIcon('blocked');
             }

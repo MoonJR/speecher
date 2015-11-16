@@ -11,6 +11,7 @@
     var vm = this;
 
     // APIs
+    vm.location = $location;
     vm.response = 0;
     vm.saveScript = saveScript;
 

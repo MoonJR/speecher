@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('resultController', resultController);
 
-  resultController.$inject = ['$routeParams', 'testService','scriptService'];
-  function resultController($routeParams, testService, scriptService) {
+  resultController.$inject = ['$routeParams', 'testService','scriptService' , '$mdDialog'];
+  function resultController($routeParams, testService, scriptService, $mdDialog) {
 
     var vm = this;
 
@@ -17,7 +17,10 @@
     vm.wrongWordAll = null;
     vm.showTestResult = showTestResult;
     vm.showTestList = showTestList;
+    vm.showWrongWordDialog = showWrongWordDialog;
 
+    vm.selectResult = selectResult;
+    vm.result = null;
     // init test result
     (function initController() {
       if(testService.testResult === null) {
@@ -92,6 +95,39 @@
     }
 
 
+
+    function selectResult(item){
+      vm.result = item;
+    }
+
+
+    function showWrongWordDialog(item) {
+      var word = item._id.toLowerCase();
+      //var pWord = {'word':word}
+      var pWord = {'word':word}
+      var proArr = "";
+      scriptService.getWordDetail(pWord).then(
+        function (response) {
+          console.log(response);
+          if(response.data.success) {
+            var pros = response.data.result.pronunciation.all;
+            if(pros == undefined) pros = response.data.result.pronunciation;
+            $mdDialog.show(
+              $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title(word +"("+pros+")")
+                .content(
+                '<button class="play btn right md-primary md-button" value="'+word+'"><img src="../images/icon_play.png" style="margin:9px"></button> <input type="text" class="repeat  hidden" value="3" maxlength="1"/>')
+                .ok('닫기')
+            );
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        _errorHandler_('Error: showWrongWordAll')
+      );
+    }
 
 
   }

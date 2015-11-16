@@ -56,9 +56,6 @@
     }
 
 
-
-
-
     // private functions
     function _successHandler_(response) {
       if(response.data.success) {
