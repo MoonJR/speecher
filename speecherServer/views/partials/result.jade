@@ -6,6 +6,7 @@
       .script-list-box
         a.no-deco(ng-click="vm.selectResult(item)",data-toggle="modal", data-target="#diffModal")
           span(style="color:white; background-color:#44aFFF; padding:4px; position:absolute;border-radius: 0px 0px 10px 0px !important; left:7px; top:9px;") {{item.test_type}}
+
           .script-list-content-box
             b
               p.script-list-content {{item.script_content}}
@@ -13,7 +14,7 @@
         a(ng-click="" data-toggle="modal", data-target="#myModal")
           .summary-box
             .summary-script-box
-              h5 {{item.score}}
+              h5
               p.summary-script-date {{item.test_date | limitTo:10}}
             .summary-test-box
               p.summary-test-number(align="right")
@@ -78,5 +79,13 @@
           span#script {{vm.result.script_content}}"After Server ...<br>After Server ...<br>After Server ...<br>After Server ...<br>After Server ...<br>"
 
         .modal-footer(style="text-align: center;")
-          button.btn.btn-simple(type="button",style="width:35%;") TTS
-          button.btn.btn-simple(type="button",style="width:35%;") MY VOICE
+          button.play.btn.btn-simple(type="button",style="width:35%;", value="{{vm.result.script_content}}'After Server work. remove it.'   ") TTS
+          input.repeat.hidden(type="text" ,value="3",maxlength="1")
+          button.btn.btn-simple(type="button",style="width:35%;",ng-audio="uploads/{{vm.result.recordFilename}}, " , volume="0.5", start="0.2") MY VOICE
+            | <button ng-click='audio.paused ? audio.play() : audio.pause()'>Pause</button>
+
+
+
+
+
+

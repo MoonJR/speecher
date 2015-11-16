@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('resultController', resultController);
 
-  resultController.$inject = ['$routeParams', 'testService','scriptService' , '$mdDialog'];
-  function resultController($routeParams, testService, scriptService, $mdDialog) {
+  resultController.$inject = ['$scope','$routeParams', 'testService','scriptService' , '$mdDialog','ngAudio'];
+  function resultController($scope, $routeParams, testService, scriptService, $mdDialog, ngAudio) {
 
     var vm = this;
 
@@ -20,7 +20,10 @@
     vm.showWrongWordDialog = showWrongWordDialog;
 
     vm.selectResult = selectResult;
+
     vm.result = null;
+    //vm.sound = ngAudio.load("sounds/mySound.wav");
+
     // init test result
     (function initController() {
       if(testService.testResult === null) {
@@ -98,6 +101,7 @@
 
     function selectResult(item){
       vm.result = item;
+
     }
 
 
