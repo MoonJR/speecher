@@ -10,6 +10,7 @@ angular.module('myApp', [
   'googleplus',
   'ngWebSpeech',
   'diff'
+  //, 'chart.js'
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider

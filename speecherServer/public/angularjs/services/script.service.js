@@ -19,6 +19,7 @@
     service.getScriptWrongWord = getScriptWrongWord;
     service.getScriptList = getScriptList;
     service.getWrongWordAll = getWrongWordAll;
+    service.getWordDetail = getWordDetail;
 
     return service;
 
@@ -40,7 +41,6 @@
 
     function getScriptList() {
       return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getScriptList'));
-
     }
 
     function getWrongWordAll() {
@@ -50,6 +50,11 @@
     function getScriptWrongWord(scriptId) {
       return $http.post('/scriptDetail/failList', scriptId).then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
     }
+
+    function getWordDetail(word) {
+      return $http.post('main/wordDetail', word).then(_successHandler_, _errorHandler_('Error: getWordDetail'));
+    }
+
 
 
 
