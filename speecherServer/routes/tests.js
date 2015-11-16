@@ -35,6 +35,7 @@ exports.save = function(req, res){
   var testDate = new Date();
 
   var preProc;
+  var originTestScript = testScript;
 
   //console.log(testScript);
   while((preProc = testScript.match(/<ins>[^<]*(\s)*\n<\/ins>/)) != null) {
@@ -71,17 +72,11 @@ exports.save = function(req, res){
         res.send(error.db_load_error);
       }
     });
-    //for(var j = 0; j < morpheme_array.length; j++) {
-    //  if(morpheme_array[j] === '<location>') {
-    //    var wrongMorpheme = failWords[wrongIdx++].replace(/<(\/)?([a-zA-Z]*)(\\s[a-zA-Z]*=[^>]*)?(\\s)*(\/)?>/gi, "");
-    //
-    //  }
-    //}
   }
 
   score = parseInt((totalMorpheme_count-wrong)/totalMorpheme_count*100);
 
-  dbTest.saveTest(userId, recordFilename, scriptId, testType, score, testDate, function(err, data){
+  dbTest.saveTest(userId, recordFilename, scriptId, testType, score, testDate, originTestScript, function(err, data){
     if(err){
       res.send(error.db_load_error);
     }
