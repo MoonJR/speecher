@@ -127,3 +127,17 @@ exports.averageTestScore = function(userId, scriptId, callback){
     });
   });
 }
+
+exports.testScoreList = function(userId, callback){
+  db.open(function(err, db) {
+    db.collection('test', function (err, collection) {
+      collection.aggregate([
+        {$match: {id: userId}},
+        {$group: {_id: "$script_id", avgScore: { $avg: "$score" }, testCount: { $sum: 1}}}
+      ], function (err, result) {
+        callback(err, result);
+      });
+    });
+  });
+}
+
