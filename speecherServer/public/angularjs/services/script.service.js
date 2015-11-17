@@ -39,11 +39,18 @@
 
     function getScriptList() {
       return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getScriptList'));
-
     }
 
     function getWrongWordAll() {
       return $http.post('/main/totalFailList').then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
+    }
+
+    function getTestScore() {
+      return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getTestScore'));
+    }
+
+    function getTestCount() {
+      return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getTestCount'));
     }
 
     // private functions

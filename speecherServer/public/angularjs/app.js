@@ -17,8 +17,7 @@ angular.module('myApp', [
           .when('/', {
             templateUrl: '/partials/index',
             controller: 'indexController',
-            controllerAs: 'vm',
-            activetab: 'index'
+            controllerAs: 'vm'
           })
           .when('/login', {
             templateUrl: '/partials/login',
@@ -28,8 +27,7 @@ angular.module('myApp', [
           .when('/write', {
             templateUrl: '/partials/write',
             controller: 'writeController',
-            controllerAs: 'vm',
-            activetab: 'write'
+            controllerAs: 'vm'
           })
           .when('/detail/:scriptId', {
             templateUrl: '/partials/detail',
