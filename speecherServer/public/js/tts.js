@@ -36,7 +36,7 @@ $(document).on("click", ".play-tts", function() {
     $(this).val("speak");
     $(this).text("STOP");
     var value = $('#script').text();
-    var repeat =  $(this).parent().find(".repeat").val();
+    var repeat =  1;
     var msg = new SpeechSynthesisUtterance();
     var voices = window.speechSynthesis.getVoices();
 

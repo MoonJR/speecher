@@ -71,7 +71,7 @@
           button.close(type="button", data-dismiss="modal", aria-label="Close")
             span(aria-hidden="true") ×
           i.fa.fa-file-text.fa-lg.icon-margin
-          span#diffModalLabel.modal-title(style="margin-right: 50px; ") "[{{vm.result.test_type}}] After Server ..."
+          span#diffModalLabel.modal-title(style="margin-right: 50px; ") "{{vm.result.test_type}} ({{vm.result.test_date | limitTo:10}})
           .btn-group(data-toggle="buttons")
             label(ng-repeat="type in vm.test.types")
               input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
@@ -82,8 +82,7 @@
         .modal-footer(style="text-align: center;")
           button.play-tts.btn.btn-simple(type="button",style="width:35%;", value="stop") TTS
           input.repeat.hidden(type="text" ,value="3",maxlength="1")
-          button.btn.btn-simple(type="button",style="width:35%;", volume="0.5", start="0.2") MY VOICE
+          button.btn.btn-simple(type="button",style="width:35%;", volume="0.5", start="0.2", ng-click='vm.audio.paused ? vm.audio.play() : vm.audio.pause()') MY VOICE({{vm.audio.remaining | limitTo:4}}s)
 
 
-  button(ng-click='vm.audio.paused ? vm.audio.play() : vm.audio.pause()') START
-  p {{vm.audio.remaining | limitTo:3}}
+

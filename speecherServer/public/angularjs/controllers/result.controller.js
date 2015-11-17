@@ -10,6 +10,8 @@
 
     var vm = this;
     vm.audio = ngAudio.load("uploads/f82dbce0-8b5b-11e5-9a85-1f37fe0c9e86.wav");
+
+
     // APIs
     vm.scriptId = { script_id : $routeParams.scriptId };
     vm.testResult = null;
@@ -22,7 +24,8 @@
     vm.selectResult = selectResult;
 
     vm.result = null;
-    vm.compileHTML = compileHTML;
+
+
     //vm.sound = ngAudio.load("sounds/mySound.wav");
 
     // init test result
@@ -102,6 +105,9 @@
 
     function selectResult(item){
       vm.result = item;
+      vm.audio = ngAudio.load("uploads/"+vm.result.recordFilename);
+
+
 
     }
 
@@ -134,9 +140,6 @@
       );
     }
 
-    function compileHTML(test_script){
-
-    }
 
   }
 })();
