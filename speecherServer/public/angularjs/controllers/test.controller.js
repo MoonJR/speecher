@@ -49,13 +49,15 @@
     vm.testTime = $rootScope.test.counter;
     vm.testId = null;
 
-    vm.saveTestResult = saveTestResult;
-    vm.startRecording = startRecording;
-    vm.stopRecording = stopRecording;
-
     vm.speech  = speechService.recognition;
     vm.final_transcript  = '';
     vm.interim_transcript  = '';
+    vm.startSpeech = startSpeech;
+
+    var recordVideoSeparately = false;
+    var socketio = io();
+    var mediaStream = null;
+    var recordAudio, recordVideo;
 
     (function initController() {
       countdown();
@@ -82,9 +84,11 @@
     function startSpeech() {
       if (speechService.recognizing) {
         speechService.recognition.stop();
+        saveTestResult();
         return;
       }
 
+      startRecording();
       speechService.final_transcript = '';
       speechService.recognition.start();
       speechService.ignore_onend = false;
@@ -164,7 +168,7 @@
         vm.filename =  fileName;
         console.log('got file ' + fileName);
 
-        vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
+        vm.scriptResult = $filter('diffFilter')(vm.final_transcript, $rootScope.test.script_content);
         //console.log(vm.scriptResult);
 
         var testResult = {
@@ -199,11 +203,6 @@
       console.log(error);
       return { success: false, message: error };
     }
-
-    var recordVideoSeparately = false;
-    var socketio = io();
-    var mediaStream = null;
-    var recordAudio, recordVideo;
 
     function startRecording() {
 
