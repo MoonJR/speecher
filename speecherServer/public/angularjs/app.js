@@ -11,11 +11,10 @@ angular.module('myApp', [
   'ngWebSpeech',
   'diff',
   'ngAudio'
-  //, 'chart.js'
 ])
+  // 앵귤러 ROUTE를 처리한 부분
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider
-
           .when('/', {
             templateUrl: '/partials/index',
             controller: 'indexController',

@@ -1,5 +1,4 @@
-
-
+//Jade와  Angular를 통한 테스트 결과 리스트 페이지
 .container
   .script-list
     .col-xs-12.col-sm-6.col-md-4.col-lg-3(style="padding: 10px !important", ng-repeat="item in vm.testList")
@@ -27,6 +26,7 @@
           div()
           .score-box
             .score-bar(style="width:{{item.score}}%;")
+  //자주 틀리는 단어
   .word-list
     h5.word-list-title(ng-show="vm.wrongWordAll") 자주 틀리는 단어
     ul.nav.nav-pills(role="tablist")
@@ -34,6 +34,8 @@
         a.word-list-btn(ng-click="vm.showWrongWordDialog(item)", ng-class="{'middleScore' : item.wrongCount >= 5, 'highScore' : item.wrongCount >= 10 }")
           | {{item._id}}
           span.badge {{item.wrongCount}}
+
+
   #myModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
     .modal-dialog
       .modal-content
@@ -62,7 +64,6 @@
         .modal-footer(style="text-align: center;")
           button.btn.btn-simple(type="button", data-dismiss="modal", aria-label="Close", ng-click="vm.test.moveTest()") 테스트 시작
 
-
   #diffModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="diffModalLabel", aria-hidden="true")
     .modal-dialog
       .modal-content
@@ -81,11 +82,8 @@
         .modal-footer(style="text-align: center;")
           button.play.btn.btn-simple(type="button",style="width:35%;", value="{{vm.result.script_content}}'After Server work. remove it.'   ") TTS
           input.repeat.hidden(type="text" ,value="3",maxlength="1")
-          button.btn.btn-simple(type="button",style="width:35%;",ng-audio="uploads/{{vm.result.recordFilename}}, " , volume="0.5", start="0.2") MY VOICE
-            | <button ng-click='audio.paused ? audio.play() : audio.pause()'>Pause</button>
+          button.btn.btn-simple(type="button",style="width:35%;", volume="0.5", start="0.2") MY VOICE
 
 
-
-
-
-
+  button(ng-click='vm.audio.paused ? vm.audio.play() : vm.audio.pause()') START
+  p {{vm.audio.remaining | limitTo:3}}

@@ -1,7 +1,7 @@
 'use strict';
 //var app = angular.module('myApp', ['ngRoute','ngMaterial','angular-svg-round-progress']);
 
-
+//테스트 종류를 선택하는 페이지의 컨트롤러
 angular
   .module('myApp')
   .controller('choiceCtrl', choiceController);

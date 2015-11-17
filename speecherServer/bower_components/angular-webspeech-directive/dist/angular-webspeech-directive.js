@@ -166,7 +166,7 @@
               recognition.stop();
 
               console.log("toggleStartstop to Save Test  Result");
-              //$scope.$parent.$parent.vm.saveTestResult();
+              //$scope.$parent.$parent.test.saveTestResult();
 
 
               return reset();
@@ -175,7 +175,7 @@
               recognition.start();
               $scope.ngModel.recognizing = true;
 
-               //$scope.$parent.$parent.test.startTest();
+              //$scope.$parent.$parent.test.startTest();
               //$scope.$parent.test.startRecording();
 
               angular.element(document.querySelector('#startButton')).text("테스트 종료");

@@ -7,7 +7,7 @@
     var typeText =["등록한 대본을 보면서 읽을 수 있도록, 대본을 보여주는 상태로 테스트를 진행합니다","등록한 대본의 일부를 랜덤 빈칸으로 비워둔 상태로 테스트를 진행합니다.", "등록한 대본을 이용한 마지막 실전 테스트입니다. 대본의 내용을 보지 않고 테스트를 진행합니다"];
     var types =["따라읽기", "빈칸 맞추기", "실전 말하기"];
     var test = {};
-    //function
+    //function  and value
     test.moveTest = moveTest;
     test.startTest = startTest;
     test.finishTest = finishTest;
@@ -22,8 +22,8 @@
     test.testnow = false;
     test.typeText = typeText[0];
 
+    // 컨트롤러의 초기값을 처리해주는 부분 (저장된 데이터가 존재하면 데이터를 불러오고, 그렇지 않으면 초기값을 설정)
     (function initController() {
-
       if($cookieStore.get('test') != null) {
         test.counter = $cookieStore.get('test').counter;
         test.timer_status = $cookieStore.get('test').timer_status;
@@ -41,7 +41,6 @@
       test.testnow = false;
       test.typeText = typeText[0];
       var testCookie = $cookieStore.get('test');
-      //test.saveItem(testCookie);
     })();
 
     return test;
@@ -127,7 +126,7 @@
       test.timer_percent = 0;
     }
 
-    
+
   }
   angular
     .module('myApp')

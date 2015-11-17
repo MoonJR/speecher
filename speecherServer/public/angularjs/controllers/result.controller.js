@@ -9,7 +9,7 @@
   function resultController($scope, $routeParams, testService, scriptService, $mdDialog, ngAudio) {
 
     var vm = this;
-
+    vm.audio = ngAudio.load("uploads/f82dbce0-8b5b-11e5-9a85-1f37fe0c9e86.wav");
     // APIs
     vm.scriptId = { script_id : $routeParams.scriptId };
     vm.testResult = null;
