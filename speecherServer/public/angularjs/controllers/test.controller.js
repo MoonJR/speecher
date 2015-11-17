@@ -49,13 +49,15 @@
     vm.testTime = $rootScope.test.counter;
     vm.testId = null;
 
-    vm.saveTestResult = saveTestResult;
-    vm.startRecording = startRecording;
-    vm.stopRecording = stopRecording;
-
     vm.speech  = speechService.recognition;
     vm.final_transcript  = '';
     vm.interim_transcript  = '';
+    vm.startSpeech = startSpeech;
+
+    var recordVideoSeparately = false;
+    var socketio = io();
+    var mediaStream = null;
+    var recordAudio, recordVideo;
 
     (function initController() {
       countdown();
@@ -63,11 +65,11 @@
       choiceService.saveItem(testCookie);
       $rootScope.test = testCookie;
       $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
-      startSpeech();
     })();
 
     vm.speech.onresult = function(event) {
       vm.interim_transcript = '';
+
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           vm.final_transcript += event.results[i][0].transcript;
@@ -77,14 +79,21 @@
       }
 
       vm.final_transcript = vm.final_transcript.replace(/\S/, function(m) { return m.toUpperCase(); });
+
+      //console.log(vm.interim_transcript);
+      //console.log(vm.final_transcript);
     };
 
     function startSpeech() {
+
       if (speechService.recognizing) {
         speechService.recognition.stop();
+        saveTestResult();
+        console.log("hello");
         return;
       }
 
+      startRecording();
       speechService.final_transcript = '';
       speechService.recognition.start();
       speechService.ignore_onend = false;
@@ -128,6 +137,8 @@
         vm.timerMinutes = $rootScope.test.counter;
         vm.timerSecondTens = 0;
         vm.timerSecondUnits = 0;
+        speechService.recognition.stop();
+        speechService.recognizing = false;
       });
     }
 
@@ -137,6 +148,7 @@
           $timeout.cancel(countdownTimeout);
           vm.counter = 3;
           vm.start = true;
+          startSpeech();
 
           if (vm.timerState) {
             timer();
@@ -154,6 +166,8 @@
       $rootScope.$on('$locationChangeStart', function(event) {
         $timeout.cancel(countdownTimeout);
         vm.counter = 3;
+        speechService.recognition.stop();
+        speechService.recognizing = false;
       });
     }
 
@@ -164,7 +178,7 @@
         vm.filename =  fileName;
         console.log('got file ' + fileName);
 
-        vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
+        vm.scriptResult = $filter('diffFilter')(vm.final_transcript, $rootScope.test.script_content);
         //console.log(vm.scriptResult);
 
         var testResult = {
@@ -200,15 +214,10 @@
       return { success: false, message: error };
     }
 
-    var recordVideoSeparately = false;
-    var socketio = io();
-    var mediaStream = null;
-    var recordAudio, recordVideo;
-
     function startRecording() {
 
       vm.testId = socketio.id;
-      console.log(vm.testId);
+      //console.log(vm.testId);
 
       navigator.getUserMedia({
         audio: true,

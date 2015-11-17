@@ -98,14 +98,13 @@
         script_content : vm.scriptContent
       };
 
-      console.log("MOVE ID:"+scriptData["id"]);
+      //console.log("MOVE ID:"+scriptData["id"]);
       choiceService.saveItem(scriptData);
       $location.path('/choice');
     }
 
     // private functions
     function _errorHandler_ (error) {
-      console.log(error);
       return { success: false, message: error };
     }
   }
