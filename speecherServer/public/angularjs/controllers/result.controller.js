@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('resultController', resultController);
 
-  resultController.$inject = ['$scope','$routeParams', 'testService','scriptService' , '$mdDialog','ngAudio'];
-  function resultController($scope, $routeParams, testService, scriptService, $mdDialog, ngAudio) {
+  resultController.$inject = ['$scope','$routeParams', 'testService','scriptService' , '$mdDialog','ngAudio','$compile'];
+  function resultController($scope, $routeParams, testService, scriptService, $mdDialog, ngAudio, $compile) {
 
     var vm = this;
     vm.audio = ngAudio.load("uploads/f82dbce0-8b5b-11e5-9a85-1f37fe0c9e86.wav");
@@ -22,6 +22,7 @@
     vm.selectResult = selectResult;
 
     vm.result = null;
+    vm.compileHTML = compileHTML;
     //vm.sound = ngAudio.load("sounds/mySound.wav");
 
     // init test result
@@ -133,6 +134,9 @@
       );
     }
 
+    function compileHTML(test_script){
+
+    }
 
   }
 })();

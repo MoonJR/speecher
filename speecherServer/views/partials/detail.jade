@@ -3,7 +3,7 @@
     .input-group
       input.form-control(type='text', placeholder="{{vm.scriptTitle}}", ng-model="vm.scriptTitle", ng-readonly="!vm.scriptIsModifing")
 
-      a.input-group-addon.detail-btn-history(href="/#/testResultList/{{vm.scriptId.script_id}}") 테스트 기록보기
+      a.input-group-addon.detail-btn-history(href="/#/result/{{vm.scriptId.script_id}}") 테스트 기록보기
       a.input-group-addon.detail-btn-test(ng-click="vm.moveChoice()") 테스트하기
 
   .write-box(ng-show="vm.wrongWord")
@@ -20,5 +20,3 @@
     button.btn.btn-test(ng-click='vm.modifyScript(false)', ng-show='vm.scriptIsModifing') 취소
     button.btn.btn-test(ng-click='vm.deleteScript()' ng-show='!vm.scriptIsModifing') 삭제
     button.btn.btn-save(ng-click='vm.modifyScript(true)' ng-show='!vm.scriptIsModifing') 수정
-
-

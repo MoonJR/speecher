@@ -3,21 +3,28 @@
     .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='{{vm.timerExceedSeconds}}', aria-valuemin='0', aria-valuemax='{{vm.timerIntoSeconds}}', style='width: {{vm.timerExceedSeconds/vm.timerIntoSeconds*100}}%')
     .progress-timer
       span.progress-timer-font {{vm.timerMinutes}}:{{vm.timerSecondTens}}{{vm.timerSecondUnits}}
+
+  button(ng-click='vm.startSpeech()') 정지
+
   .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
     .flex
       textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px",disabled)
-      div.noresize.form-control#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:50%;height:400px",disabled)
+
+
   .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[1]]")
     .flex
       // 커스텀한 빈칸 스트립트를 보여주기
       textarea.form-control.noresize#script(ng-model="test.script_content_blank", placeholder="",  style="width:50%;height:400px",disabled)
-      div.noresize.form-control#speech(ng-bind-html="test.script_content|diff:speech.value",style="width:50%;height:400px",disabled)
+
   .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[2]]")
     .flex
       textarea.form-control.noresize#script(ng-model="speech.value" ,placeholder="테스트를 시작하면, 실시간으로 텍스트를 보여줍니다",   style="width:100%;height:400px",disabled)
   .write-box
-    .flex
-      js-speech(ng-model="speech")
+
+    span.final(ng-bind-html="test.script_content|diff:vm.final_transcript")
+    span.interim() {{vm.interim_transcript}}
+
+
 #counterModal.modal(ng-class="{fade: vm.start==true, show: vm.start==false}", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
   .modal-dialog
     .modal-content

@@ -708,11 +708,11 @@ ins {
 }
 
 .highScore {
-  background-color: rgba(255, 122, 110, 0.8) !important;
+  background-color: rgba(255, 146, 120, 0.8) !important;
 }
 
 .middleScore {
-  background-color: rgba(255, 214, 130, 0.81);
+  background-color: rgba(255, 202, 174, 0.81);
 }
 
 .modal {
@@ -807,3 +807,11 @@ ins {
 .no-deco{
   text-decoration: none !important;
 }
+.final {
+  color: black;
+}
+
+.interim {
+  color: grey;
+}
+

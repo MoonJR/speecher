@@ -5,20 +5,11 @@
       .module('myApp')
       .controller('testCtrl', testController);
 
-  testController.$inject = ['$scope','$rootScope', '$filter', '$location', '$timeout', '$cookieStore', 'choiceService', 'testService'];
-  function testController($scope, $rootScope, $filter, $location, $timeout, $cookieStore, choiceService, testService) {
+  testController.$inject = ['$scope','$rootScope', '$filter', '$location', '$timeout', '$cookieStore', 'choiceService', 'testService', 'speechService'];
+  function testController($scope, $rootScope, $filter, $location, $timeout, $cookieStore, choiceService, testService, speechService) {
 
     $rootScope.test = choiceService;
 
-
-
-    $scope.speech = {
-      "maxResults": 2200,
-      "continuous": true,
-      "interimResults": true,
-      "recognizing": true,
-      "value":""
-    };
 
     // Script 를  Blank화해서 저장한 후 보여준다  (구현중)
     function getBlankScript(script){
@@ -48,14 +39,15 @@
     // APIs
     vm.start = false;
     vm.finish = false;
+
     vm.counter = 3;
     vm.timerState = $rootScope.test.timer_status;
     vm.timerMinutes = $rootScope.test.counter;
     vm.timerIntoSeconds = vm.timerMinutes * 60;
     vm.timerExceedSeconds = 0;
-    vm.timerPercent =
     vm.timerSecondTens = 0;
     vm.timerSecondUnits = 0;
+
     vm.testInfo = $rootScope.test;
     vm.scriptId = $rootScope.test.script_id;
     vm.scriptResult = null;
@@ -63,22 +55,53 @@
     vm.testTime = $rootScope.test.counter;
     vm.testId = null;
 
+    vm.speech  = speechService.recognition;
+    vm.final_transcript  = '';
+    vm.interim_transcript  = '';
+    vm.startSpeech = startSpeech;
 
+    var recordVideoSeparately = false;
+    var socketio = io();
+    var mediaStream = null;
+    var recordAudio, recordVideo;
 
-    vm.saveTestResult = saveTestResult;
 
     (function initController() {
-      //console.log(vm.timerState);
       countdown();
       var testCookie = $cookieStore.get('test');
       choiceService.saveItem(testCookie);
       $rootScope.test = testCookie;
       $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
+      startSpeech();
     })();
 
-    $rootScope.test.saveTestResult = saveTestResult;
-    $rootScope.test.startRecording = startRecording;
-    $rootScope.test.stopRecording = stopRecording;
+    vm.speech.onresult = function(event) {
+      vm.interim_transcript = '';
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          vm.final_transcript += event.results[i][0].transcript;
+        } else {
+          vm.interim_transcript += event.results[i][0].transcript;
+        }
+      }
+
+      vm.final_transcript = vm.final_transcript.replace(/\S/, function(m) { return m.toUpperCase(); });
+    };
+
+    function startSpeech() {
+      if (speechService.recognizing) {
+        speechService.recognition.stop();
+        saveTestResult();
+        return;
+      }
+
+      startRecording();
+      speechService.final_transcript = '';
+      speechService.recognition.start();
+      speechService.ignore_onend = false;
+
+      speechService.notify('info_allow');
+    }
 
     function timer() {
       var timerTimeout = $timeout(function () {
@@ -154,7 +177,7 @@
 
         console.log('got file ' + fileName);
 
-        vm.scriptResult = $filter('diffFilter')($scope.speech.value, $rootScope.test.script_content);
+        vm.scriptResult = $filter('diffFilter')(vm.final_transcript, $rootScope.test.script_content);
         //console.log(vm.scriptResult);
 
         var testResult = {
@@ -171,6 +194,7 @@
 
         testService.saveTestResult(testResult).then(
             function (response) {
+              console.log(response);
               if (response.data.success) {
                 $location.path('/result');
               }
@@ -189,11 +213,6 @@
       console.log(error);
       return { success: false, message: error };
     }
-
-    var recordVideoSeparately = false;
-    var socketio = io();
-    var mediaStream = null;
-    var recordAudio, recordVideo;
 
     function startRecording() {
 

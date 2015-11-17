@@ -77,10 +77,10 @@
               input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
               span.modal-test-type
         .modal-body
-          span#script {{vm.result.script_content}}"After Server ...<br>After Server ...<br>After Server ...<br>After Server ...<br>After Server ...<br>"
+          span#script(ng-bind-html="vm.result.test_script")
 
         .modal-footer(style="text-align: center;")
-          button.play.btn.btn-simple(type="button",style="width:35%;", value="{{vm.result.script_content}}'After Server work. remove it.'   ") TTS
+          button.play-tts.btn.btn-simple(type="button",style="width:35%;", value="stop") TTS
           input.repeat.hidden(type="text" ,value="3",maxlength="1")
           button.btn.btn-simple(type="button",style="width:35%;", volume="0.5", start="0.2") MY VOICE
 
