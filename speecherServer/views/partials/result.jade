@@ -80,7 +80,7 @@
           span#script(ng-bind-html="vm.result.test_script")
 
         .modal-footer(style="text-align: center;")
-          button.play-tts.btn.btn-simple(type="button",style="width:35%;", value="stop") TTS
+          button.play-tts.btn.btn-simple(type="button",style="width:35%;z-index=1060;", value="stop") TTS
           input.repeat.hidden(type="text" ,value="3",maxlength="1")
           button.btn.btn-simple(type="button",style="width:35%;", volume="0.5", start="0.2", ng-click='vm.audio.paused ? vm.audio.play() : vm.audio.pause()') MY VOICE({{vm.audio.remaining | limitTo:4}}s)
 
