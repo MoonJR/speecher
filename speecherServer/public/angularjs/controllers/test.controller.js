@@ -35,10 +35,7 @@
     vm.interim_transcript  = '';
     vm.startSpeech = startSpeech;
 
-    var recordVideoSeparately = false;
-    var socketio = io();
-    var mediaStream = null;
-    var recordAudio, recordVideo;
+
 
     vm.startSpeech = startSpeech;
     vm.reload = reload;
@@ -221,6 +218,7 @@
       console.log(error);
       return { success: false, message: error };
     }
+
 
     function startRecording() {
 

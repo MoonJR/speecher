@@ -68,30 +68,30 @@
 
     function showWrongWordDialog(item) {
       var word = item._id.toLowerCase();
-      var tts = "http://translate.google.com/translate_tts?tl=en&q="+word;
-
-      $mdDialog.show(
-        $mdDialog.alert()
-          .clickOutsideToClose(true)
-          .title("틀린단어 상세보기")
-          .content(word +"("+item.wrongCount+")<br>"+'<a href="http://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+word+'">TTS</a>'
-          +'<button class="play" value="'+word+'">듣기</button> <input type="text" class="voice" value=""/>')
-
-          .ariaLabel("")
-          .ok('Close')
+      //var pWord = {'word':word}
+      var pWord = {'word':word}
+      var proArr = "";
+      scriptService.getWordDetail(pWord).then(
+        function (response) {
+          console.log(response);
+          if(response.data.success) {
+            var pros = response.data.result.pronunciation.all;
+            if(pros == undefined) pros = response.data.result.pronunciation;
+            $mdDialog.show(
+              $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title(word +"("+pros+")")
+                .content(
+                '<button class="play btn right md-primary md-button" value="'+word+'"><img src="../images/icon_play.png" style="margin:9px"></button> <input type="text" class="repeat  hidden" value="3" maxlength="1"/>')
+                .ok('닫기')
+            );
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        _errorHandler_('Error: showWrongWordAll')
       );
-    }
-
-    function DialogController($scope, $mdDialog) {
-      $scope.hide = function() {
-        $mdDialog.hide();
-      };
-      $scope.cancel = function() {
-        $mdDialog.cancel();
-      };
-      $scope.answer = function(answer) {
-        $mdDialog.hide(answer);
-      };
     }
 
     // private functions

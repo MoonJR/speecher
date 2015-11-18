@@ -1,18 +1,69 @@
-.container
-  .login-box1
-      h2.login-header
-        |  Don't Look The Paper
-      p.login-content
-        | You Can Speech와 함께 정확하게 말하는 연습을 해보세요
-        br
-        | 이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
-      p
-        button.login-facebook.btn(ng-click='vm.facebookLogin()')
-          i.fa.fa-facebook-square.icon-margin
-          |Facebook으로 시작하기
-      p
-        button.login-google.btn(ng-click='vm.googleLogin()')
-          i.fa.fa-google-plus.icon-margin
-          |Google+로 시작하기
-
-  tts(tts-text='Hello world', tts-lang='en')
+link(rel='stylesheet', type='text/css', href='http://mmkjony.github.io/enllax.js/stylesheets/normalize.css', media='screen')
+link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700', rel='stylesheet', type='text/css')
+link(rel='stylesheet', type='text/css', href='../css/stylesheet.css', media='screen')
+link(rel='stylesheet', type='text/css', href='http://mmkjony.github.io/enllax.js/stylesheets/github-light.css', media='screen')
+link(rel='stylesheet', type='text/css', href='../css/enllax.css', media='screen')
+div#scrollpage(style="background:#202124")
+  section.page-header
+    img.logo
+    h1(style="margin-top:150px; font-size:40sp") You Can Speech
+    h2 You Can Speech와 함께 정확하게 말하는 연습을 해보세요<br>이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
+    p
+      button.login-facebook.btn(ng-click='vm.facebookLogin()')
+        i.fa.fa-facebook-square.icon-margin
+        | Facebook으로 시작하기
+    p
+      button.login-google.btn(ng-click='vm.googleLogin()')
+        i.fa.fa-google-plus.icon-margin
+        | Google+로 시작하기
+  section.page-header.bgTable
+    .text-center(style="margin-bottom:20px;")
+      h1(style="font-size:40px;") FUNCTIONS
+    div(style="margin-top:250px;")
+      .flex
+      .bg3.text-center(data-enllax-ratio='.1', style='color: #fff; margin:45px 0px 45px 0px;')
+        .flex
+          img.img-circle.img-thumbnail.left(src="../images/icon_jr.png", style="width:150px; height:150px; padding:5px;")
+          h1(data-enllax-ratio='3.6', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FF373D; font-size:30px;") Script Management
+        h1(data-enllax-ratio='.1', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FF6600;font-size:30px;") Talking Test
+        h1(data-enllax-ratio='-14.0', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FFAC00;font-size:30px;") Recording / Listening
+  section.page-header(style="background:#FFF")
+    .text-center(style="margin-bottom:80px;margin-top:20px;")
+      h1.rainbow(style="font-size:40px") ADVANTAGE
+    .flex(data-enllax-ratio='0.2', data-enllax-type='foreground', data-enllax-direction='vertical', style="margin-top:220px;")
+      .mini-box.rainbow1
+        h1  영어 발표 연습
+        p(style="font-size:20px;") 영어 말하기 발표를 앞둔 사람이<br> 준비한 대본을 이용해서<br> 발표를 연습하게 도와줍니다 <br>
+      .mini-box.rainbow2
+        h1  내 스피치 대본 관리 및 실시간 발음 비교
+        p(style="font-size:20px;") 발표와 관련된 영어 스피치 대본을 보관해줍니다<br>또한 테스트 사이에, 실시간으로 내 발음과 지문의 다른 부분을 비교해서 보여줍니다<br><br>
+    .flex(data-enllax-ratio='0.5', data-enllax-type='foreground', data-enllax-direction='vertical', style="margin-top:150px;")
+      .mini-box.rainbow1
+        h1 테스트별 스피치 녹음파일 관리
+        p(style="font-size:20px;") 테스트 종료 후,  내 테스트의 녹음 파일을 보관 및 다시듣기 할 수 있도록 도와줍니다<br><br><br>
+      .mini-box.rainbow2
+        h1 테스트 결과 관리 및 자주 틀리는 단어
+        p(style="font-size:20px;")대본별 테스트 결과 관리 및, 자주 틀리는 단어를 알려줍니다<br><br>
+  section.page-header.bgProfile
+    .text-center(style="margin-bottom:80px;margin-top:20px;")
+      b
+        h1.white(style="font-size:50px") TEAM
+      .flex(style="margin:50px; " , data-enllax-ratio='.1', data-enllax-type='foreground', data-enllax-direction='horizontal')
+        img.img-circle.left.img-thumbnail(src="../images/icon_bsh.png", style="width:250px; height:250px; padding:5px;")
+        h1(style="margin:95px;0px 0px 0px;") 반상현
+        img.img-circle.img-thumbnail.left(src="../images/icon_minki.png", style="width:250px; height:250px; padding:5px;")
+        h1(style="margin:95px;0px 0px 0px;") 김민기
+      .flex(style="margin:50px; " , data-enllax-ratio='1', data-enllax-type='foreground', data-enllax-direction='horizontal')
+        img.img-circle.img-thumbnail.left(src="../images/icon_sojin.png", style="width:250px; height:250px; padding:5px;")
+        h1(style="margin:95px;0px 0px 0px;") 오소진
+        img.img-circle.img-thumbnail.left(src="../images/icon_jr.png", style="width:250px; height:250px; padding:5px;")
+        h1(style="margin:95px;0px 0px 0px;") 문종락
+  section.main-content(style="height:70px;")
+    footer.site-footer
+      span.site-footer-owner
+        | Copyright © 2015,
+        a(href='https://github.com/mmkjony') Software Maestro 6기 "Can You Speech"
+        | .
+      span.site-footer-credits
+  script(src='http://mmkjony.github.io/enllax.js/jquery.enllax.min.js')
+  script(src='../js/enllax.js')

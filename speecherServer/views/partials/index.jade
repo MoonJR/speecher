@@ -9,7 +9,7 @@
         a(ng-click="vm.test.saveItem(item)" data-toggle="modal", data-target="#myModal")
           .summary-box
             .summary-script-box
-              h5 {{item.script_title}}
+              h5 {{item.script_title | limitTo:14}}
               p.summary-script-date {{item.reg_date | limitTo:10}}
             .summary-test-box
               p.summary-test-number(align="right")

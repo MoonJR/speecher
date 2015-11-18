@@ -18,7 +18,8 @@
     service.getWrongWord = getWrongWord;
     service.getScriptList = getScriptList;
     service.getWrongWordAll = getWrongWordAll;
-
+    service.getScriptWrongWord = getScriptWrongWord;
+    service.getWordDetail = getWordDetail;
     return service;
 
     function saveScript(script) {
@@ -45,12 +46,20 @@
       return $http.post('/main/totalFailList').then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
     }
 
+    function getWordDetail(word) {
+      return $http.post('main/wordDetail', word).then(_successHandler_, _errorHandler_('Error: getWordDetail'));
+    }
+
     function getTestScore() {
       return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getTestScore'));
     }
 
     function getTestCount() {
       return $http.post('/main/scriptList').then(_successHandler_, _errorHandler_('Error: getTestCount'));
+    }
+
+    function getScriptWrongWord(scriptId) {
+      return $http.post('/scriptDetail/failList', scriptId).then(_successHandler_, _errorHandler_('Error: getWrongWordAll'));
     }
 
     // private functions

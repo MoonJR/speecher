@@ -11,23 +11,31 @@ html(lang='kr', ng-app="myApp")
     link(rel='stylesheet', href='bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='bootstrap/dist/css/bootstrap-theme.css')
 
+    script(src='../jquery/dist/jquery.min.js')
+
     block css
     block js
     if ENV_DEVELOPMENT
       script(src='http://localhost:35729/livereload.js')
   body(layout="column")
-    header.navbar-header
+
+    header.header(ng-if="globals.currentUser")
       .container
-        p.logo You Can Speech
+        img.img-logo(src="../images/logo.png")
+        p.logo Speecher
+
         a.menu-right(ng-href="/#/login", ng-if="globals.currentUser")
           |로그아웃
         p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
+
       .container
         a.menu-left.active(ng-href="/#/", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/'}")
           |대본목록
         a.menu-left(ng-href="/#/write", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/write'}")
           | 대본작성
-    main
+
+    main.body-bg.bg-ltblue
+
       block content
     footer
 
@@ -53,6 +61,8 @@ html(lang='kr', ng-app="myApp")
     script(src='angular-svg-round-progressbar/build/roundProgress.min.js')
     script(src='angular-diff/angular-diff.js')
     script(src='angular-svg-round-progressbar/build/roundProgress.min.js')
+    script(src='angular-audio/app/angular.audio.js')
+
     script(src='js/timer.js')
     script(src='js/tts.js')
 

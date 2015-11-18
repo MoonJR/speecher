@@ -1,10 +1,51 @@
 .container
-  .write-box
-    h4 {{vm.testResult.test_type}} 결과
-    p(ng-bind-html="vm.testResult.script_result")
-  .row
-    .col-sm-3.col-md-3(ng-repeat='item in vm.testList')
-      a(href='#', style="text-decoration: none !important; color:#333;")
-        .script-box(style="margin:10px;")
-          h4 {{item.test_date}}
-          h4 {{item.score}}
+  .script-list
+    .col-xs-12.col-sm-6.col-md-4.col-lg-3(style="padding: 10px !important", ng-repeat="item in vm.testList")
+      .script-list-box("style='height:140px;'")
+        a.no-deco(ng-click="vm.selectResult(item)",data-toggle="modal", data-target="#diffModal")
+          span(style="color:white; background-color:#44aFFF; padding:4px; position:absolute;border-radius: 0px 0px 10px 0px !important; left:7px; top:9px;") {{item.test_type}}
+          .script-list-content-box
+            b.text-center
+              h1 {{item.score}}Point
+          hr.none
+          .text-center{{item.test_date | limitTo:10}}
+        a(ng-click="vm.selectResult(item)" data-toggle="modal", data-target="#diffModal")
+
+
+
+          div()
+          .score-box
+            .score-bar(style="width:{{item.score}}%;")
+  //자주 틀리는 단어
+  .word-list
+    h5.word-list-title(ng-show="vm.wrongWordAll") 자주 틀리는 단어
+    ul.nav.nav-pills(role="tablist")
+      li(role="presentation", ng-repeat="item in vm.wrongWordAll")
+        a.word-list-btn(ng-click="vm.showWrongWordDialog(item)", ng-class="{'middleScore' : item.wrongCount >= 5, 'highScore' : item.wrongCount >= 10 }")
+          | {{item._id}}
+          span.badge {{item.wrongCount}}
+
+
+
+  #diffModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="diffModalLabel", aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") ×
+          i.fa.fa-file-text.fa-lg.icon-margin
+          span#diffModalLabel.modal-title(style="margin-right: 50px; ") "{{vm.result.test_type}} ({{vm.result.test_date | limitTo:10}})
+          .btn-group(data-toggle="buttons")
+            label(ng-repeat="type in vm.test.types")
+              input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
+              span.modal-test-type
+        .modal-body
+          span#script(ng-bind-html="vm.result.test_script")
+
+        .modal-footer(style="text-align: center;")
+          button.play-tts.btn.btn-simple(type="button",style="width:35%;z-index=1060;", value="stop") TTS
+          input.repeat.hidden(type="text" ,value="3",maxlength="1")
+          button.btn.btn-simple(type="button",style="width:35%;", volume="0.5", start="0.2", ng-click='vm.audio.paused ? vm.audio.play() : vm.audio.pause()') MY VOICE({{vm.audio.remaining | limitTo:4}}s)
+
+
+

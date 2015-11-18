@@ -20,6 +20,7 @@
     span.final(ng-bind-html="vm.test.script_content|diff:vm.final_transcript")
     span.interim() {{vm.interim_transcript}}
 
+
 #counterModal.modal(ng-class="{fade: vm.start==true, show: vm.start==false}", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
   .modal-dialog
     .modal-content
@@ -34,8 +35,10 @@
             #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
               .panel-body
                 | {{vm.score}}
-            #headingOne.panel-heading(role='tab')
-              a(data-toggle='collapse', data-dismiss="modal", aria-label="Close", data-parent='#accordion', href='', aria-expanded='true', aria-controls='collapseOne')
+
+
+            #headingOne.panel-heading(role='tab',data-dismiss="modal")
+              a(href='#/result/{{vm.test.script_id}}')
                 | 테스트 기록보기
           .panel.panel-default
             #headingTwo.panel-heading(role='tab')
