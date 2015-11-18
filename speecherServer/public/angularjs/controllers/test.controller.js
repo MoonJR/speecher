@@ -33,15 +33,10 @@
     vm.speech  = speechService.recognition;
     vm.final_transcript  = '';
     vm.interim_transcript  = '';
-    vm.startSpeech = startSpeech;
-
-    var recordVideoSeparately = false;
-    var socketio = io();
-    var mediaStream = null;
-    var recordAudio, recordVideo;
 
     vm.startSpeech = startSpeech;
     vm.reload = reload;
+    vm.goTestList = goTestList;
 
     var recordVideoSeparately = false;
     var socketio = io();
@@ -107,6 +102,10 @@
     function reload() {
       choiceService.saveItem(vm.test);
       $route.reload();
+    }
+
+    function goTestList() {
+      $location.path('/result/' + vm.test.script_id);
     }
 
     function timer() {

@@ -35,7 +35,7 @@
               .panel-body(style="text-align:center;")
                 span.score {{vm.score}}
             #headingOne.panel-heading(role='tab', style="text-align:center;")
-              a(data-toggle='collapse', data-dismiss="modal", aria-label="Close", data-parent='#accordion', href='', aria-expanded='true', aria-controls='collapseOne')
+              a(data-dismiss="modal", aria-label="Close", href="", ng-click="vm.goTestList()", aria-expanded='true')
                 | 테스트 기록보기
           .panel.panel-default
             #headingTwo.panel-heading(role='tab', style="text-align:center;")
