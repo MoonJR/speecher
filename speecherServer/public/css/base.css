@@ -485,6 +485,21 @@ ins {
   border-radius:20px !important;
 }
 
+.btn-save {
+  float: right;
+  color: #51A7F9;
+  background-color: white;
+  border: 1px solid #51A7F9 !important;
+}
+
+.btn-test {
+  float: right;
+  color: #51A7F9;
+  background-color: white;
+  border: 1px solid #51A7F9 !important;
+  margin-left: 15px;
+}
+
 /* Index */
 
 .script-list {
@@ -741,6 +756,11 @@ ins {
   min-width: 120px;
 }
 
+.score {
+  color: #51A7F9;
+  font-size: 150px;
+  font-weight: bolder;
+}
 
 .no-deco{
   text-decoration: none !important;

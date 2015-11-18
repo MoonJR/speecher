@@ -16,6 +16,7 @@
     vm.wrongWordAll = null;
     vm.showScriptList = showScriptList;
     vm.showWrongWordAll = showWrongWordAll;
+    vm.showTestSummary = showTestSummary;
     vm.showWrongWordDialog = showWrongWordDialog;
 
     // UI handle
@@ -33,7 +34,7 @@
       scriptService.getScriptList().then(
         function (response) {
           if (response.data.success) {
-            //console.log(response.data);
+            console.log(response.data);
             if (response.data.result.length > 0) {
               vm.scriptList = response.data.result;
               //console.log(response.data.result);
@@ -64,6 +65,10 @@
         },
         _errorHandler_('Error: showWrongWordAll')
       );
+    }
+
+    function showTestSummary() {
+
     }
 
     function showWrongWordDialog(item) {
