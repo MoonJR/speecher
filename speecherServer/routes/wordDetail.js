@@ -15,13 +15,11 @@ exports.wordDetailData = function wordDetailData(word, callback) {
           callback(false, result.body);
         }
         else {
-          callback(true, 0);
+          callback(true, result.body);
         }
       });
   }catch(e){
-
-  }finally{
-    callback(true, 0);
+    callback(true, result.body);
   }
 
 };
