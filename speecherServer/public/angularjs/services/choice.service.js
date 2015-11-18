@@ -64,9 +64,6 @@
     }
 
     function moveTest(){
-      //위의 set까지는 cookie 세이브가아닌 페이지 내에서의 저장
-      console.log("helo");
-      console.log(test);
 
       //stopCount();//뒤로가기 후 앞으로가기등 상황 대비 리셋용
       //setTimer(test.counter);

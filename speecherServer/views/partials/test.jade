@@ -29,25 +29,39 @@
 #resultModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
   .modal-dialog
     .modal-content
-      .modal-header
-        i.fa.fa-check-circle.fa-lg.icon-margin
-        span#myModalLabel.modal-title(style="margin-right: 50px;") 테스트 종류
-        .btn-group(data-toggle="buttons")
-          label(ng-repeat="type in vm.test.types")
-            input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
-            span.modal-test-type {{type}}
       .modal-body
-        i.fa.fa-clock-o.fa-lg.icon-margin
-        span#myModalLabel.modal-title(style="margin-right: 50px;") 타이머 설정
-        label.btn.btn-timer-none
-          input.btn-timer-time(type="number", value="3", ng-model="vm.test.counter")
-          | 분
-        .btn-group(data-toggle="buttons")
-          label.btn.btn-default.btn-timer.active(ng-click="vm.test.timer_status = true")
-            input(type="radio", name="timer", ng-value="timer")
-            |  켜기
-          label.btn.btn-default.btn-timer(ng-click="vm.test.timer_status = false")
-            input(type="radio", name="timer", ng-value="timer")
-            |  끄기
-      .modal-footer(style="text-align: center;")
-        button.btn.btn-simple(type="button", data-dismiss="modal", aria-label="Close", ng-click="vm.reload()") 다시 시작
+        #accordion.panel-group(role='tablist', aria-multiselectable='true')
+          .panel.panel-default
+            #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+              .panel-body
+                | Anim pariatur cliche reprehenderit
+            #headingOne.panel-heading(role='tab')
+              a(data-toggle='collapse', data-dismiss="modal", aria-label="Close", data-parent='#accordion', href='/#/result/{{vm.scriptId}}', aria-expanded='true', aria-controls='collapseOne')
+                | 테스트 기록보기
+          .panel.panel-default
+            #headingTwo.panel-heading(role='tab')
+              a.collapsed(data-toggle='collapse', data-parent='#accordion', href="javascript:;", data-target="#collapseTwo", aria-expanded='false', aria-controls='collapseTwo')
+                | 테스트 다시하기
+            #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+              .modal-header
+                i.fa.fa-check-circle.fa-lg.icon-margin
+                span#myModalLabel.modal-title(style="margin-right: 50px;") 테스트 종류
+                .btn-group(data-toggle="buttons")
+                  label(ng-repeat="type in vm.test.types")
+                    input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
+                    span.modal-test-type {{type}}
+              .modal-body
+                i.fa.fa-clock-o.fa-lg.icon-margin
+                span#myModalLabel.modal-title(style="margin-right: 50px;") 타이머 설정
+                label.btn.btn-timer-none
+                  input.btn-timer-time(type="number", value="3", ng-model="vm.test.counter")
+                  | 분
+                .btn-group(data-toggle="buttons")
+                  label.btn.btn-default.btn-timer.active(ng-click="vm.test.timer_status = true")
+                    input(type="radio", name="timer", ng-value="timer")
+                    |  켜기
+                  label.btn.btn-default.btn-timer(ng-click="vm.test.timer_status = false")
+                    input(type="radio", name="timer", ng-value="timer")
+                    |  끄기
+              .modal-footer(style="text-align: center;")
+                button.btn.btn-simple(type="button", data-dismiss="modal", aria-label="Close", ng-click="vm.reload()") 다시 시작
