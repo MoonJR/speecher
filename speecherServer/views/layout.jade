@@ -17,7 +17,6 @@ html(lang='kr', ng-app="myApp")
 
 
 
-    //|<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap-responsive.css">
     block css
     block js
 
@@ -52,10 +51,12 @@ html(lang='kr', ng-app="myApp")
           |대본목록
         a.menu-left(ng-href="/#/write", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/write'}")
           | 대본작성
+
     main.body-bg.bg-ltblue
+
       block content
     footer
-    //Angular Material Dependencies
+
     script(src='angular/angular.min.js')
     script(src='angular-animate/angular-animate.min.js')
     script(src='angular-aria/angular-aria.min.js')

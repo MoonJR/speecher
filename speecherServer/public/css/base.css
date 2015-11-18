@@ -1,5 +1,6 @@
-body{
+body, main{
   margin:auto !important;
+
 }
 .body-bg {
   padding: 0px 0px 0px 0px!important;
@@ -12,6 +13,9 @@ body{
   .body-bg {
     padding: 0px 0px 0px 0px!important;
   }
+
+
+
 
 }
 
@@ -32,6 +36,7 @@ header {
 
 }
 
+
 .page-header{
   margin: 0px 0 0px !important;
   height:990px;
@@ -49,6 +54,7 @@ main{
   display:inline-block;
   margin-right: 40px;
 }
+
 
 .top-menu {
   float: right;
@@ -506,7 +512,8 @@ del {
 }
 
 ins {
-  background-color: rgba(255, 0, 0, 0.50);
+  background-color: rgba(255, 163, 213, 0.5);
+  color: rgba(255, 0, 0, 0.81);
   text-decoration: none;
 }
 .dialogdemoBasicUsage #popupContainer {
@@ -580,7 +587,6 @@ ins {
 .script-list {
   width:60%;
   float:left;
-  min-height:600px;
 }
 
 @media screen and (min-width: 768px) {
@@ -751,6 +757,7 @@ ins {
   margin-right: 30px !important;
 }
 
+/* Test */
 .btn-timer {
   padding: 0px 15px 0px 15px !important;
   color: #aaaaaa !important;
@@ -786,22 +793,27 @@ ins {
 }
 
 .progress {
-  height: 80px !important;
-  width: 220px !important;;
-  margin:20px auto !important;;
+  height: 40px !important;
+  margin-bottom: 0px !important;
 }
 
 .progress-timer {
   position:absolute;
-  width: 220px;
   text-align:center;
+  margin-left: 10px;
 }
 
 .progress-timer-font {
   color: rgba(213, 213, 213, 0.5);
-  font-size:80px;
+  font-size:40px;
   font-weight: bolder;
-  line-height:80px;
+  line-height:40px;
+}
+
+.test-finish {
+  height: 30px !important;
+  width: 220px !important;;
+  margin:20px auto !important;;
 }
 
 .no-deco{
@@ -816,6 +828,7 @@ ins {
 }
 
 
+
 .item-text{
   text-overflow: ellipsis;
   max-height: 14px;
@@ -828,3 +841,18 @@ ins {
   height:40px;
   margin:3px 3px 3px 10px;
 }
+
+.simple-box {
+  width: 100%;
+  float: left;
+  box-shadow: 0px 3px 5px -3px #777777;
+  background-color: #FFFFFF;
+  padding: 20px;
+  margin: 10px;
+}
+
+.btn-test-finish {
+  height: 40px;
+  min-width: 120px;
+}
+

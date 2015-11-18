@@ -72,11 +72,11 @@
       choiceService.saveItem(testCookie);
       $rootScope.test = testCookie;
       $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
-      startSpeech();
     })();
 
     vm.speech.onresult = function(event) {
       vm.interim_transcript = '';
+
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           vm.final_transcript += event.results[i][0].transcript;
@@ -86,12 +86,17 @@
       }
 
       vm.final_transcript = vm.final_transcript.replace(/\S/, function(m) { return m.toUpperCase(); });
+
+      //console.log(vm.interim_transcript);
+      //console.log(vm.final_transcript);
     };
 
     function startSpeech() {
+
       if (speechService.recognizing) {
         speechService.recognition.stop();
         saveTestResult();
+
         return;
       }
 
@@ -139,6 +144,8 @@
         vm.timerMinutes = $rootScope.test.counter;
         vm.timerSecondTens = 0;
         vm.timerSecondUnits = 0;
+        speechService.recognition.stop();
+        speechService.recognizing = false;
       });
     }
 
@@ -148,6 +155,7 @@
           $timeout.cancel(countdownTimeout);
           vm.counter = 3;
           vm.start = true;
+          startSpeech();
 
           if (vm.timerState) {
             timer();
@@ -165,6 +173,8 @@
       $rootScope.$on('$locationChangeStart', function(event) {
         $timeout.cancel(countdownTimeout);
         vm.counter = 3;
+        speechService.recognition.stop();
+        speechService.recognizing = false;
       });
     }
 
@@ -217,7 +227,7 @@
     function startRecording() {
 
       vm.testId = socketio.id;
-      console.log(vm.testId);
+      //console.log(vm.testId);
 
       navigator.getUserMedia({
         audio: true,
