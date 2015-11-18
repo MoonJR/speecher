@@ -6,19 +6,19 @@
         .progress-timer
           span.progress-timer-font {{vm.timerMinutes}}:{{vm.timerSecondTens}}{{vm.timerSecondUnits}}
     div(style="float:right")
-      button.btn-test-finish.btn-simple(ng-click'vm.startSpeech()', style="margin:auto 0") 테스트 종료
+      button.btn-test-finish.btn-simple(data-toggle="modal", data-target="#resultModal", ng-click='vm.startSpeech()') 테스트 종료
 
-  .simple-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
+  .simple-box(ng-class="{ false:'hidden', true:''}[vm.test.type == vm.test.types[0]]")
     p 대본 내용
-    span.noresize#script {{test.script_content}}
+    span.noresize#script {{vm.test.script_content}}
 
-  .simple-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[1]]")
+  .simple-box(ng-class="{ false:'hidden', true:''}[vm.test.type == vm.test.types[1]]")
     p 대본 내용
-    span.noresize#script {{test.script_content_blank}}
+    span.noresize#script {{vm.test.script_content_blank}}
 
   .simple-box
     p 스피치 결과
-    span.final(ng-bind-html="test.script_content|diff:vm.final_transcript")
+    span.final(ng-bind-html="vm.test.script_content|diff:vm.final_transcript")
     span.interim() {{vm.interim_transcript}}
 
 #counterModal.modal(ng-class="{fade: vm.start==true, show: vm.start==false}", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
@@ -26,3 +26,28 @@
     .modal-content
       .modal-body(style="text-align: center;")
         span.counter {{vm.counter}}
+#resultModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-header
+        i.fa.fa-check-circle.fa-lg.icon-margin
+        span#myModalLabel.modal-title(style="margin-right: 50px;") 테스트 종류
+        .btn-group(data-toggle="buttons")
+          label(ng-repeat="type in vm.test.types")
+            input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
+            span.modal-test-type {{type}}
+      .modal-body
+        i.fa.fa-clock-o.fa-lg.icon-margin
+        span#myModalLabel.modal-title(style="margin-right: 50px;") 타이머 설정
+        label.btn.btn-timer-none
+          input.btn-timer-time(type="number", value="3", ng-model="vm.test.counter")
+          | 분
+        .btn-group(data-toggle="buttons")
+          label.btn.btn-default.btn-timer.active(ng-click="vm.test.timer_status = true")
+            input(type="radio", name="timer", ng-value="timer")
+            |  켜기
+          label.btn.btn-default.btn-timer(ng-click="vm.test.timer_status = false")
+            input(type="radio", name="timer", ng-value="timer")
+            |  끄기
+      .modal-footer(style="text-align: center;")
+        button.btn.btn-simple(type="button", data-dismiss="modal", aria-label="Close", ng-click="vm.reload()") 다시 시작

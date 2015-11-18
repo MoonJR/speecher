@@ -5,12 +5,65 @@
       .module('myApp')
       .controller('testCtrl', testController);
 
-  testController.$inject = ['$scope','$rootScope', '$filter', '$location', '$timeout', '$cookieStore', 'choiceService', 'testService', 'speechService'];
-  function testController($scope, $rootScope, $filter, $location, $timeout, $cookieStore, choiceService, testService, speechService) {
+  testController.$inject = ['$scope','$rootScope', '$filter', '$location', '$route', '$timeout', '$cookieStore', 'choiceService', 'testService', 'speechService'];
+  function testController($scope, $rootScope, $filter, $location, $route, $timeout, $cookieStore, choiceService, testService, speechService) {
 
-    $rootScope.test = choiceService;
+    var vm = this;
 
-    // Script 를  Blank화해서 저장한 후 보여준다  (구현중)
+    // APIs
+    vm.test = choiceService;
+
+    vm.start = false;
+    vm.finish = false;
+
+    vm.counter = 3;
+    vm.timerState = vm.test.timer_status;
+    vm.timerMinutes = vm.test.counter;
+    vm.timerIntoSeconds = vm.timerMinutes * 60;
+    vm.timerExceedSeconds = 0;
+    vm.timerSecondTens = 0;
+    vm.timerSecondUnits = 0;
+    vm.scriptId = vm.test.script_id;
+    vm.scriptResult = null;
+    vm.testType = vm.test.type;
+    vm.testTime = vm.test.counter;
+    vm.testId = null;
+
+    vm.speech  = speechService.recognition;
+    vm.final_transcript  = '';
+    vm.interim_transcript  = '';
+
+    vm.startSpeech = startSpeech;
+    vm.reload = reload;
+
+    var recordVideoSeparately = false;
+    var socketio = io();
+    var mediaStream = null;
+    var recordAudio, recordVideo;
+
+    (function initController() {
+
+      countdown();
+      var testCookie = $cookieStore.get('test');
+      choiceService.saveItem(testCookie);
+      vm.test = testCookie;
+      vm.test.script_content_blank = getBlankScript(vm.test.script_content);
+    })();
+
+    vm.speech.onresult = function(event) {
+      vm.interim_transcript = '';
+
+      for (var i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          vm.final_transcript += event.results[i][0].transcript;
+        } else {
+          vm.interim_transcript += event.results[i][0].transcript;
+        }
+      }
+
+      vm.final_transcript = vm.final_transcript.replace(/\S/, function(m) { return m.toUpperCase(); });
+    };
+
     function getBlankScript(script){
       var split = script.split(" ");
       var blank = "[         ]";
@@ -26,70 +79,14 @@
       return split.join(" ");
     }
 
-    // Made by Sojin
-
-    var vm = this;
-
-    // APIs
-    vm.start = false;
-    vm.finish = false;
-
-    vm.counter = 3;
-    vm.timerState = $rootScope.test.timer_status;
-    vm.timerMinutes = $rootScope.test.counter;
-    vm.timerIntoSeconds = vm.timerMinutes * 60;
-    vm.timerExceedSeconds = 0;
-    vm.timerSecondTens = 0;
-    vm.timerSecondUnits = 0;
-
-    vm.testInfo = $rootScope.test;
-    vm.scriptId = $rootScope.test.script_id;
-    vm.scriptResult = null;
-    vm.testType = $rootScope.test.type;
-    vm.testTime = $rootScope.test.counter;
-    vm.testId = null;
-
-    vm.speech  = speechService.recognition;
-    vm.final_transcript  = '';
-    vm.interim_transcript  = '';
-    vm.startSpeech = startSpeech;
-
-    var recordVideoSeparately = false;
-    var socketio = io();
-    var mediaStream = null;
-    var recordAudio, recordVideo;
-
-    (function initController() {
-      countdown();
-      var testCookie = $cookieStore.get('test');
-      choiceService.saveItem(testCookie);
-      $rootScope.test = testCookie;
-      $rootScope.test.script_content_blank = getBlankScript($rootScope.test.script_content);
-    })();
-
-    vm.speech.onresult = function(event) {
-      vm.interim_transcript = '';
-
-      for (var i = event.resultIndex; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          vm.final_transcript += event.results[i][0].transcript;
-        } else {
-          vm.interim_transcript += event.results[i][0].transcript;
-        }
-      }
-
-      vm.final_transcript = vm.final_transcript.replace(/\S/, function(m) { return m.toUpperCase(); });
-
-      //console.log(vm.interim_transcript);
-      //console.log(vm.final_transcript);
-    };
-
     function startSpeech() {
 
+      console.log(speechService.recognizing);
+
       if (speechService.recognizing) {
+        console.log("hello");
         speechService.recognition.stop();
         saveTestResult();
-        console.log("hello");
         return;
       }
 
@@ -97,8 +94,12 @@
       speechService.final_transcript = '';
       speechService.recognition.start();
       speechService.ignore_onend = false;
-
       speechService.notify('info_allow');
+    }
+
+    function reload() {
+      choiceService.saveItem(vm.test);
+      $route.reload();
     }
 
     function timer() {
@@ -124,17 +125,19 @@
           timer();
         }
         else {
-          vm.timerMinutes = $rootScope.test.counter;
+          vm.timerMinutes = vm.test.counter;
           vm.timerSecondTens = 0;
           vm.timerSecondUnits = 0;
-          $timeout.cancel(timerTimeout);
+          if (vm.timerState) {
+            $timeout.cancel(timerTimeout);
+          }
           vm.finish = true;
         }
       }, 1000);
 
       $rootScope.$on('$locationChangeStart', function(event) {
         $timeout.cancel(timerTimeout);
-        vm.timerMinutes = $rootScope.test.counter;
+        vm.timerMinutes = vm.test.counter;
         vm.timerSecondTens = 0;
         vm.timerSecondUnits = 0;
         speechService.recognition.stop();
@@ -149,10 +152,7 @@
           vm.counter = 3;
           vm.start = true;
           startSpeech();
-
-          if (vm.timerState) {
-            timer();
-          }
+          timer();
         }
         else {
           vm.counter--;
@@ -178,7 +178,7 @@
         vm.filename =  fileName;
         console.log('got file ' + fileName);
 
-        vm.scriptResult = $filter('diffFilter')(vm.final_transcript, $rootScope.test.script_content);
+        vm.scriptResult = $filter('diffFilter')(vm.final_transcript, vm.test.script_content);
         //console.log(vm.scriptResult);
 
         var testResult = {
@@ -196,7 +196,7 @@
             function (response) {
               console.log(response);
               if (response.data.success) {
-                $location.path('/result');
+                //$location.path('/result');
               }
               else {
                 _errorHandler_('Error: success 0');
@@ -204,7 +204,7 @@
             },
             _errorHandler_('Error: saveTestResult')
         );
-        $location.path('/result/' + vm.scriptId);
+        //$location.path('/result/' + vm.scriptId);
       });
     }
 
