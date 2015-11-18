@@ -766,9 +766,24 @@ ins {
 .img-logo{
   width:40px;
   height:40px;
-  margin:3px 3px 3px 10px;
+  margin:-1px 3px 3px 10px;
 }
 
+.img-blue{
+  background-image: url(../images/bg-blue.jpeg);
+  background-position:center center;
+  background-repeat:no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+.img-blue2{
+  background-image: url(https://images.unsplash.com/photo-1432821596592-e2c18b78144f?dpr=2&fit=crop&fm=jpg&h=800&ixjsv=2.0.0&ixlib=rb-0.3.5&q=50&w=1200);
+  background-position:center center;
+  background-repeat:no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
 
 .height100p{
   height:100vh;
@@ -850,6 +865,8 @@ ins {
 .dkblue{
   color:#3b5998;
 }
+
+
 .padding10{
   padding: 20px;
   margin: 50px 10px 20px 10px;
@@ -865,4 +882,9 @@ ins {
   font-weight: 200;
 }
 
+
+
+.ltblue{
+  background-color: #51A7F9;
+}
 

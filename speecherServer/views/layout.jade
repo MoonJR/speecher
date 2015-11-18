@@ -22,17 +22,17 @@ html(lang='kr', ng-app="myApp")
     header.header(ng-if="globals.currentUser")
       .container
         img.img-logo(src="../images/logo.png")
-        p.logo Speecher
+        p.logo(style="padding:2px 0px 0px 3px;") Speecher
 
         a.menu-right(ng-href="/#/login", ng-if="globals.currentUser")
-          |로그아웃
+          b 로그아웃
         p.menu-right(ng-if="globals.currentUser") {{globals.currentUser.username}}
 
       .container
         a.menu-left.active(ng-href="/#/", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/'}")
-          |대본목록
+          b 대본목록
         a.menu-left(ng-href="/#/write", ng-if="globals.currentUser" ng-class="{active: vm.location.path == '/write'}")
-          | 대본작성
+          b 대본작성
 
     main.body-bg.bg-ltblue
 
