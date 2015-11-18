@@ -2,27 +2,18 @@
 .container
   .script-list
     .col-xs-12.col-sm-6.col-md-4.col-lg-3(style="padding: 10px !important", ng-repeat="item in vm.testList")
-      .script-list-box
+      .script-list-box("style='height:140px;'")
         a.no-deco(ng-click="vm.selectResult(item)",data-toggle="modal", data-target="#diffModal")
           span(style="color:white; background-color:#44aFFF; padding:4px; position:absolute;border-radius: 0px 0px 10px 0px !important; left:7px; top:9px;") {{item.test_type}}
-
           .script-list-content-box
-            b
-              p.script-list-content {{item.script_content}}
+            b.text-center
+              h1 {{item.score}}Point
           hr.none
-        a(ng-click="" data-toggle="modal", data-target="#myModal")
-          .summary-box
-            .summary-script-box
-              h5
-              p.summary-script-date {{item.test_date | limitTo:10}}
-            .summary-test-box
-              p.summary-test-number(align="right")
-                | <br>
-              p.summary-test-score(align="right")
-                | {{item.score}}점
-            .summary-go-test
-              p.summary-go-text(align="right")
-                | 테스트
+          .text-center{{item.test_date | limitTo:10}}
+        a(ng-click="vm.selectResult(item)" data-toggle="modal", data-target="#diffModal")
+
+
+
           div()
           .score-box
             .score-bar(style="width:{{item.score}}%;")
@@ -36,33 +27,6 @@
           span.badge {{item.wrongCount}}
 
 
-  #myModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
-    .modal-dialog
-      .modal-content
-        .modal-header
-          button.close(type="button", data-dismiss="modal", aria-label="Close")
-            span(aria-hidden="true") ×
-          i.fa.fa-check-circle.fa-lg.icon-margin
-          span#myModalLabel.modal-title(style="margin-right: 50px;") 테스트 종류
-          .btn-group(data-toggle="buttons")
-            label(ng-repeat="type in vm.test.types")
-              input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
-              span.modal-test-type {{type}}
-        .modal-body
-          i.fa.fa-clock-o.fa-lg.icon-margin
-          span#myModalLabel.modal-title(style="margin-right: 50px;") 타이머 설정
-          label.btn.btn-timer-none
-            input.btn-timer-time(type="number", value="3", ng-model="vm.test.counter")
-            | 분
-          .btn-group(data-toggle="buttons")
-            label.btn.btn-default.btn-timer.active(ng-click="vm.test.timer_status = true")
-              input(type="radio", name="timer", ng-value="timer")
-              |  켜기
-            label.btn.btn-default.btn-timer(ng-click="vm.test.timer_status = false")
-              input(type="radio", name="timer", ng-value="timer")
-              |  끄기
-        .modal-footer(style="text-align: center;")
-          button.btn.btn-simple(type="button", data-dismiss="modal", aria-label="Close", ng-click="vm.test.moveTest()") 테스트 시작
 
   #diffModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="diffModalLabel", aria-hidden="true")
     .modal-dialog

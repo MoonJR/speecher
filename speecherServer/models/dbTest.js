@@ -21,7 +21,9 @@ exports.wrongWordsInScript = function (userId, scriptId, wordLimit, callback) {
       collection.aggregate([
         {$match: {id: userId, script_id: scriptId}},
         {$group: {"_id": "$content", wrongCount: {$sum: "$wrongCount"}}},
-        {$sort: {wrongCount: -1}}]).toArray(function (err, result) {
+        {$sort: {wrongCount: -1}},
+        {$limit:wordLimit}])
+        .toArray(function (err, result) {
         callback(err, result);
       });
     });

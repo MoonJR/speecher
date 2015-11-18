@@ -3,8 +3,8 @@
     .input-group
       input.form-control(type='text', placeholder="{{vm.scriptTitle}}", ng-model="vm.scriptTitle", ng-readonly="!vm.scriptIsModifing")
 
-      a.input-group-addon.detail-btn-history(href="/#/result/{{vm.scriptId.script_id}}") 테스트 기록보기
-      a.input-group-addon.detail-btn-test(ng-click="vm.moveChoice()") 테스트하기
+      a.input-group-addon.detail-btn-test(href="/#/result/{{vm.scriptId.script_id}}") 테스트 기록보기
+      //a.input-group-addon.detail-btn-test(ng-click="vm.moveChoice()") 테스트하기
 
   .write-box(ng-show="vm.wrongWord")
     h4 자주 틀리는 단어

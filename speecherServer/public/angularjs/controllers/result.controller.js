@@ -90,7 +90,8 @@
           if(response.data.success) {
             if (response.data.result.length > 0) {
               vm.wrongWordAll = response.data.result;
-              console.log(vm.wrongWordAll[0]._id);
+              console.log("TESTER:");
+              console.log(response.data);
             }
           }
           else {
@@ -113,6 +114,7 @@
 
 
     function showWrongWordDialog(item) {
+      console.log("showWrongWordDialog(item)");
       var word = item._id.toLowerCase();
       //var pWord = {'word':word}
       var pWord = {'word':word}
@@ -121,6 +123,7 @@
         function (response) {
           console.log(response);
           if(response.data.success) {
+            console.log(response.data.success);
             var pros = response.data.result.pronunciation.all;
             if(pros == undefined) pros = response.data.result.pronunciation;
             $mdDialog.show(
