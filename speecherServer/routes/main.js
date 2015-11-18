@@ -14,12 +14,12 @@ exports.totalFailList = function(req, res) {
 
     if (err){
       res.send({success: error.db_load_error.success , msg: error.db_load_error.msg});
-    }
-
-    if (data) {
-      res.send({success: error.successCode.success, msg: error.successMsg.success, result: data});
-    } else {
-      res.send({success: error.unknown_error.success, msg: error.unknown_error.msg});
+    }else{
+      if (data) {
+        res.send({success: error.successCode.success, msg: error.successMsg.success, result: data});
+      } else {
+        res.send({success: error.unknown_error.success, msg: error.unknown_error.msg});
+      }
     }
   });
 
@@ -31,13 +31,15 @@ exports.wordDetail = function(req, res) {
 
     if (err) {
       res.send(error.db_load_error);
+    }else{
+      if (data) {
+        res.send({success: error.success.success, msg: error.success.msg, result: data});
+      } else {
+        res.send(error.unknown_error);
+      }
     }
 
-    if (data) {
-      res.send({success: error.success.success, msg: error.success.msg, result: data});
-    } else {
-      res.send(error.unknown_error);
-    }
+
 
   });
 
@@ -50,13 +52,14 @@ exports.testScoreList = function(req, res) {
   dbTest.testScoreList(userId, function (err, data) {
 
     if (err){
+      console.log('fff');
       res.send(error.db_load_error);
-    }
-
-    if (data) {
-      res.send({success: error.success.success, msg: error.success.msg, result: data});
-    } else {
-      res.send(error.unknown_error);
+    }else{
+      if (data) {
+        res.send({success: error.success.success, msg: error.success.msg, result: data});
+      } else {
+        res.send(error.unknown_error);
+      }
     }
 
   });

@@ -6,20 +6,22 @@ var unirest = require('unirest');
 
 exports.wordDetailData = function wordDetailData(word, callback) {
 
-  try {
-    unirest.get("https://wordsapiv1.p.mashape.com/words/" + word + "/pronunciation")
-      .header("X-Mashape-Key", "Ts7OIrZgaNmshsP20MhtKUfunFNZp1dDOpBjsnCuuu2C7LROLo")
-      .header("Accept", "application/json")
-      .end(function (result) {
+  unirest.get("https://wordsapiv1.p.mashape.com/words/" + word + "/pronunciation")
+    .header("X-Mashape-Key", "Ts7OIrZgaNmshsP20MhtKUfunFNZp1dDOpBjsnCuuu2C7LROLo")
+    .header("Accept", "application/json")
+    .end(function (result) {
+      try{
         if (result.status == 200) {
           callback(false, result.body);
+        }else {
+          throw e;
         }
-        else {
-          callback(true, result.body);
-        }
-      });
-  }catch(e){
-    callback(true, result.body);
-  }
+      }catch(e){
+        callback(true,0);
+      }
+
+
+    });
+
 
 };

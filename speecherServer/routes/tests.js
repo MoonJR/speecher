@@ -15,12 +15,12 @@ exports.testList = function(req, res) {
   dbTest.testList(userId, scriptId, function(err, data){
     if(err){
       res.send(error.db_load_error);
-    }
-
-    if(data){
-      res.send({success: error.success.success, msg: error.success.msg, result: data});
     }else{
-      res.send(error.unknown_error);
+      if(data){
+        res.send({success: error.success.success, msg: error.success.msg, result: data});
+      }else{
+        res.send(error.unknown_error);
+      }
     }
   });
 };
@@ -79,13 +79,15 @@ exports.save = function(req, res){
   dbTest.saveTest(userId, recordFilename, scriptId, testType, score, testDate, originTestScript, function(err, data){
     if(err){
       res.send(error.db_load_error);
+    }else{
+      if(data.result.ok==1){
+        res.send({success: error.success.success, msg: error.success.msg, result: {score:score}});
+      }else{
+        res.send(error.unknown_error);
+      }
     }
 
-    if(data.result.ok==1){
-      res.send({success: error.success.success, msg: error.success.msg, result: {score:score}});
-    }else{
-      res.send(error.unknown_error);
-    }
+
   });
 }
 

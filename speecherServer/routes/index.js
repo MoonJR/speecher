@@ -29,6 +29,9 @@ router.get('/', function (req, res) {
   res.render('index', {title: 'Express'});
 });
 
+
+
+
 router.get('/testRecord', function (req, res) {
   //views/index.jade 을 렌더링
   res.render('recodingTestView', {title: 'Express'});
