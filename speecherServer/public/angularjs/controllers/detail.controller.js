@@ -5,8 +5,8 @@
       .module('myApp')
       .controller('detailController', detailController);
 
-  detailController.$inject = ['$routeParams', 'scriptService', '$location', 'choiceService'];
-  function detailController($routeParams, scriptService, $location, choiceService) {
+  detailController.$inject = ['$routeParams', 'scriptService', '$location', 'choiceService', '$mdDialog'];
+  function detailController($routeParams, scriptService, $location, choiceService, $mdDialog) {
 
     var vm = this;
 
@@ -18,15 +18,17 @@
     vm.wrongWord = null;
     vm.showScript = showScript;
     vm.showWrongWord = showWrongWord;
+    vm.showWrongWordAll = showWrongWordAll;
     vm.modifyScript = modifyScript;
     vm.saveScript = saveScript;
     vm.deleteScript = deleteScript;
     vm.moveChoice = moveChoice;
-
+    vm.showWrongWordDialog = showWrongWordDialog;
     // init script title & content
     (function initController() {
       showScript();
       showWrongWord();
+      showWrongWordAll();
     })();
 
     function showScript() {
@@ -54,6 +56,63 @@
             }
           },
           _errorHandler_('Error: showWrongWordAll')
+      );
+    }
+
+    function showWrongWordAll() {
+      var id = vm.scriptId;
+      scriptService.getScriptWrongWord(id).then(
+        function (response) {
+          console.log(response);
+          if(response.data.success) {
+            if (response.data.result.length > 0) {
+              vm.wrongWordAll = response.data.result;
+              console.log("TESTER:");
+              console.log(response.data);
+            }
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        _errorHandler_('Error: showWrongWordAll')
+      );
+    }
+
+    function showWrongWordDialog(item) {
+      var word = item._id.toLowerCase();
+      //var pWord = {'word':word}
+      var pWord = {'word':word}
+      var proArr = "";
+      scriptService.getWordDetail(pWord).then(
+        function (response) {
+
+          if(response.data.success) {
+            var title = "";
+            var pros = "";
+            try{
+              pros = response.data.result.pronunciation.all;
+              if(pros == undefined) pros = response.data.result.pronunciation;
+              title = word +"("+pros+")"
+            }catch(e){
+              title = word;
+            }
+
+            $mdDialog.show(
+              $mdDialog.alert()
+                .clickOutsideToClose(true)
+                .title(title)
+                .content(
+                '<button class="play btn right md-primary md-button" value="'+word+'"><img src="../images/icon_play.png" style="margin:9px"></button> <input type="text" class="repeat  hidden" value="3" maxlength="1"/>')
+                .ok('닫기')
+            );
+
+          }
+          else {
+            _errorHandler_('Error: success 0');
+          }
+        },
+        _errorHandler_('Error: showWrongWordAll')
       );
     }
 

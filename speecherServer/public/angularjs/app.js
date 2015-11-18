@@ -9,7 +9,8 @@ angular.module('myApp', [
   'angular-svg-round-progress',
   'googleplus',
   'ngWebSpeech',
-  'diff'
+  'diff',
+  'ngAudio'
 ])
     .config(function ($routeProvider, $locationProvider, $facebookProvider, GooglePlusProvider) {
       $routeProvider

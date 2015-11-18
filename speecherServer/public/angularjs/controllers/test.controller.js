@@ -221,6 +221,7 @@
       return { success: false, message: error };
     }
 
+
     function startRecording() {
 
       vm.testId = socketio.id;

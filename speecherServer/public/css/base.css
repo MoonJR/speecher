@@ -761,3 +761,20 @@ ins {
   font-size: 150px;
   font-weight: bolder;
 }
+
+.no-deco{
+  text-decoration: none !important;
+}
+
+.item-text{
+  text-overflow: ellipsis;
+  max-height: 14px;
+  overflow: hidden;
+}
+
+
+.img-logo{
+  width:40px;
+  height:40px;
+  margin:3px 3px 3px 10px;
+}
