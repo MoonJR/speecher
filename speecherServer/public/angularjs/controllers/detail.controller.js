@@ -86,18 +86,27 @@
       var proArr = "";
       scriptService.getWordDetail(pWord).then(
         function (response) {
-          console.log(response);
+
           if(response.data.success) {
-            var pros = response.data.result.pronunciation.all;
-            if(pros == undefined) pros = response.data.result.pronunciation;
+            var title = "";
+            var pros = "";
+            try{
+              pros = response.data.result.pronunciation.all;
+              if(pros == undefined) pros = response.data.result.pronunciation;
+              title = word +"("+pros+")"
+            }catch(e){
+              title = word;
+            }
+
             $mdDialog.show(
               $mdDialog.alert()
                 .clickOutsideToClose(true)
-                .title(word +"("+pros+")")
+                .title(title)
                 .content(
                 '<button class="play btn right md-primary md-button" value="'+word+'"><img src="../images/icon_play.png" style="margin:9px"></button> <input type="text" class="repeat  hidden" value="3" maxlength="1"/>')
                 .ok('닫기')
             );
+
           }
           else {
             _errorHandler_('Error: success 0');
