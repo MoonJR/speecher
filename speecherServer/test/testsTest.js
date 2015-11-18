@@ -8,14 +8,15 @@ var wordDetail = require('../routes/wordDetail');
 describe('test', function() {
   describe('.testList(scriptId)', function() {
     it('테스트 리스트가 받아와져야한다.', function(done) {
-      var scriptId = '7c8f78f0-8447-11e5-90a7-7f9032ad2b3b';
-      var userId = '1730350673859952';
+      var scriptId = 'b65e6f80-891c-11e5-aff9-c925ff76a418';
+      var userId = '901469693283252';
 
       var req = {session:{user_id: userId}, body: {script_id: scriptId}};
       var res = {};
 
       res.send = function (json) {
         if (json.success == 1) {
+          console.log(json);
           done();
         }
       };
@@ -26,11 +27,11 @@ describe('test', function() {
 
   describe('.testSave', function() {
     it('테스트를 정보를 저장한다.', function(done) {
-      var scriptId = 'fbe22d00-8924-11e5-8dc3-219951de5373';
-      var userId = '885722828163340';
+      var scriptId = 'b65e6f80-891c-11e5-aff9-c925ff76a418';
+      var userId = '901469693283252';
       var testType = "대본읽기";//
       var filename = "d48e2250-8928-11e5-8dc3-219951de5373.wav";//
-      var testScript = '<ins>Test </ins><ins>Test \n</ins>';
+      var testScript = '<ins>bbb </ins><ins>Test \n</ins>';
       //var testScript = '<del></ins><del></ins>';
       //var testScript = 'hi my name is minki and minki good bye';
       var testTime = 1;
@@ -49,6 +50,7 @@ describe('test', function() {
 
       res.send = function (json) {
         if (json.success == 1) {
+          console.log(json);
           done();
         }
       };

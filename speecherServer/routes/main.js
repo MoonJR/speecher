@@ -27,10 +27,9 @@ exports.totalFailList = function(req, res) {
 
 exports.wordDetail = function(req, res) {
   var word = req.body.word;
-
   wordDetail.wordDetailData(word, function (err, data) {
 
-    if (err){
+    if (err) {
       res.send(error.db_load_error);
     }
 
@@ -41,6 +40,7 @@ exports.wordDetail = function(req, res) {
     }
 
   });
+
 };
 
 exports.testScoreList = function(req, res) {

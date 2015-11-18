@@ -81,8 +81,8 @@ exports.save = function(req, res){
       res.send(error.db_load_error);
     }
 
-    if(data){
-      res.send({success: error.success.success, msg: error.success.msg, result: data});
+    if(data.result.ok==1){
+      res.send({success: error.success.success, msg: error.success.msg, result: {score:score}});
     }else{
       res.send(error.unknown_error);
     }
