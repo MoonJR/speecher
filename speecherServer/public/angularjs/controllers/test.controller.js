@@ -15,6 +15,7 @@
 
     vm.start = false;
     vm.finish = false;
+    vm.score = '...';
 
     vm.counter = 3;
     vm.timerState = vm.test.timer_status;
@@ -32,6 +33,12 @@
     vm.speech  = speechService.recognition;
     vm.final_transcript  = '';
     vm.interim_transcript  = '';
+    vm.startSpeech = startSpeech;
+
+    var recordVideoSeparately = false;
+    var socketio = io();
+    var mediaStream = null;
+    var recordAudio, recordVideo;
 
     vm.startSpeech = startSpeech;
     vm.reload = reload;
@@ -179,6 +186,7 @@
         console.log('got file ' + fileName);
 
         vm.scriptResult = $filter('diffFilter')(vm.final_transcript, vm.test.script_content);
+
         //console.log(vm.scriptResult);
 
         var testResult = {
@@ -196,7 +204,7 @@
             function (response) {
               console.log(response);
               if (response.data.success) {
-                //$location.path('/result');
+                vm.score = response.data.result.score;
               }
               else {
                 _errorHandler_('Error: success 0');

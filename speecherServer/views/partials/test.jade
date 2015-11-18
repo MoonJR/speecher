@@ -11,7 +11,6 @@
   .simple-box(ng-class="{ false:'hidden', true:''}[vm.test.type == vm.test.types[0]]")
     p 대본 내용
     span.noresize#script {{vm.test.script_content}}
-
   .simple-box(ng-class="{ false:'hidden', true:''}[vm.test.type == vm.test.types[1]]")
     p 대본 내용
     span.noresize#script {{vm.test.script_content_blank}}
@@ -34,9 +33,9 @@
           .panel.panel-default
             #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
               .panel-body
-                | Anim pariatur cliche reprehenderit
+                | {{vm.score}}
             #headingOne.panel-heading(role='tab')
-              a(data-toggle='collapse', data-dismiss="modal", aria-label="Close", data-parent='#accordion', href='/#/result/{{vm.scriptId}}', aria-expanded='true', aria-controls='collapseOne')
+              a(data-toggle='collapse', data-dismiss="modal", aria-label="Close", data-parent='#accordion', href='', aria-expanded='true', aria-controls='collapseOne')
                 | 테스트 기록보기
           .panel.panel-default
             #headingTwo.panel-heading(role='tab')

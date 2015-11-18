@@ -26,9 +26,6 @@ describe('Stemmers', function () {
 
     it('대본을 문단 단위로 나눌 수 있다', function (done) {
       var paragraphArray = stemmers.scriptToParagraphJsonArray(scriptJson);
-      //
-      //assert.isEqual(paragraphArray, true);
-      //assert.isEqual(paragraphArray[3].script_id, "dsfdsfsdaf");
 
       if (paragraphArray != null || typeof paragraphArray != 'undefined') {
 
