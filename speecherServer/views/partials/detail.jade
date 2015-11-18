@@ -6,11 +6,11 @@
       a.input-group-addon.detail-btn-test(href="/#/result/{{vm.scriptId.script_id}}") 테스트 기록보기
       //a.input-group-addon.detail-btn-test(ng-click="vm.moveChoice()") 테스트하기
 
-  .write-box(ng-show="vm.wrongWord")
+  .write-box(ng-show="vm.wrongWordAll")
     h4 자주 틀리는 단어
     ul.nav.nav-pills(role='tablist')
-      li(role='presentation', ng-repeat='item in vm.wrongWord')
-        a.btn-word(href='/#/')
+      li(role='presentation', ng-repeat='item in vm.wrongWordAll')
+        a.btn-word(ng-click="vm.showWrongWordDialog(item)")
           | {{item._id}}
           span.badge {{item.wrongCount}}
   .write-box
