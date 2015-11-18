@@ -1,0 +1,131 @@
+* { margin: 0; padding: 0; }
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  line-height: 1.4;
+  overflow-x: hidden;
+  background: url(http://subtlepatterns.com/patterns/geometry2.png);
+}
+.text-center {
+  text-align: center;
+}
+.p50 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.bgExample {
+  background: url(../images/desc.png);
+  width:100%;
+}
+
+.bgTable {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(../images/bg-table.jpeg);
+  width:100%;
+}
+
+.bgProfile {
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-image: url(../images/bg-profile.jpeg);
+  width:100%;
+}
+
+
+.dem1 {
+  height: 300px;
+  background-size: cover;
+  box-sizing: border-box;
+  padding: 100px;
+}.bg1 {
+   background: url(http://www.mrwallpaper.com/wallpapers/AUtumn-Yellow-Park-1680x1050.jpg);
+ }.bg2 {
+    background: url(http://madisonmemorial.org/wp-content/uploads/2013/09/mountain-river-autumn-nature.jpg);
+  }.bg3 {
+     background: url(http://www.listofimages.com/wp-content/uploads/2012/05/nature-photography-fields-sunflowers-yellow-flowers.jpg);
+   }.bg4 {
+      background: url(../images/nightsky.jpeg);
+    }.box {
+       width: 90%;
+       margin: 0 auto;
+       background: #efefef;
+       padding: 100px;
+       box-sizing: border-box;
+       border: 1px solid #ddd;
+       box-shadow: 0 0 1px #777;
+       margin-bottom: 15px;
+     }.b2 {
+        background: #dedede;
+      }.dl {
+         margin-top: 200px;
+         padding: 100px;
+       }
+
+
+.fork-mmk {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 99999;
+}
+
+.mini-box {
+  padding:0px;
+  margin: 1px;
+
+  width: 50%;
+  height:200px;
+}
+
+.profile-box {
+
+  padding: 20px;
+  margin: 1px;
+
+  width: 50%;
+
+  border: 2px solid #008aff;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: #22acff;
+}
+
+.title-grad{
+  color:white !important;
+  background-color: #008CFF;
+  background-image: linear-gradient(90deg, #22acff, #008CFF);
+}
+
+
+
+.rainbow{
+  background-color: #008CFF;
+  background-image: linear-gradient(120deg, RGB(255, 0, 0) ,RGB(255, 200, 0));
+}
+
+
+
+.rainbow1{
+  background-color: #008CFF;
+  background-image: linear-gradient(120deg, RGB(255, 0, 0) ,RGB(250, 128, 0));
+}
+
+.rainbow2{
+  background-color: #008CFF;
+  background-image: linear-gradient(120deg , RGB(250, 128, 0), RGB(255, 200, 0));
+}
+
+.rainbow3{
+  background-color: #008CFF;
+  background-image: linear-gradient(120deg , RGB(255, 255, 0) , RGB(0,  255, 0) );
+}
+
+.rainbow4{
+  background-color: #008CFF;
+  background-image: linear-gradient(120deg , RGB(0,0,255) , RGB(0, 255,0) );
+}
+
+
