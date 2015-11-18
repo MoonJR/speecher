@@ -6,7 +6,7 @@
         .progress-timer
           span.progress-timer-font {{vm.timerMinutes}}:{{vm.timerSecondTens}}{{vm.timerSecondUnits}}
     div(style="float:right")
-      button.btn-test-finish.btn-simple(data-toggle="modal", data-target="#resultModal", ng-click='vm.startSpeech()') 테스트 종료
+      button.btn-test-finish.btn-simple(data-toggle="modal", data-backdrop="static", data-target="#resultModal", ng-click='vm.startSpeech()') 테스트 종료
 
   .simple-box(ng-class="{ false:'hidden', true:''}[vm.test.type == vm.test.types[0]]")
     p 대본 내용
@@ -32,13 +32,13 @@
         #accordion.panel-group(role='tablist', aria-multiselectable='true')
           .panel.panel-default
             #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
-              .panel-body
-                | {{vm.score}}
-            #headingOne.panel-heading(role='tab')
+              .panel-body(style="text-align:center;")
+                span.score {{vm.score}}
+            #headingOne.panel-heading(role='tab', style="text-align:center;")
               a(data-toggle='collapse', data-dismiss="modal", aria-label="Close", data-parent='#accordion', href='', aria-expanded='true', aria-controls='collapseOne')
                 | 테스트 기록보기
           .panel.panel-default
-            #headingTwo.panel-heading(role='tab')
+            #headingTwo.panel-heading(role='tab', style="text-align:center;")
               a.collapsed(data-toggle='collapse', data-parent='#accordion', href="javascript:;", data-target="#collapseTwo", aria-expanded='false', aria-controls='collapseTwo')
                 | 테스트 다시하기
             #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')

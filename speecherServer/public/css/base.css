@@ -740,3 +740,9 @@ ins {
   height: 40px;
   min-width: 120px;
 }
+
+.score {
+  color: #51A7F9;
+  font-size: 150px;
+  font-weight: bolder;
+}
