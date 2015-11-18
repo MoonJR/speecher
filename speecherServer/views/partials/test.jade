@@ -1,26 +1,23 @@
 .container
-  .progress(ng-show="vm.timerState")
-    .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='{{vm.timerExceedSeconds}}', aria-valuemin='0', aria-valuemax='{{vm.timerIntoSeconds}}', style='width: {{vm.timerExceedSeconds/vm.timerIntoSeconds*100}}%')
-    .progress-timer
-      span.progress-timer-font {{vm.timerMinutes}}:{{vm.timerSecondTens}}{{vm.timerSecondUnits}}
+  .simple-box
+    div(style="float:left; width:80%")
+      .progress(ng-show="vm.timerState")
+        .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='{{vm.timerExceedSeconds}}', aria-valuemin='0', aria-valuemax='{{vm.timerIntoSeconds}}', style='width: {{vm.timerExceedSeconds/vm.timerIntoSeconds*100}}%')
+        .progress-timer
+          span.progress-timer-font {{vm.timerMinutes}}:{{vm.timerSecondTens}}{{vm.timerSecondUnits}}
+    div(style="float:right")
+      button.btn-test-finish.btn-simple(data-toggle="modal", data-target="#resultModal", ng-click='vm.startSpeech()') 테스트 종료
 
+  .simple-box(ng-class="{ false:'hidden', true:''}[vm.test.type == vm.test.types[0]]")
+    p 대본 내용
+    span.noresize#script {{vm.test.script_content}}
+  .simple-box(ng-class="{ false:'hidden', true:''}[vm.test.type == vm.test.types[1]]")
+    p 대본 내용
+    span.noresize#script {{vm.test.script_content_blank}}
 
-  button(ng-click='vm.startSpeech()') 정지
-
-  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[0]]")
-    .flex
-      textarea.form-control.noresize#script(ng-model="test.script_content", placeholder="",  style="width:50%;height:400px",disabled)
-
-  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[1]]")
-    .flex
-      // 커스텀한 빈칸 스트립트를 보여주기
-      textarea.form-control.noresize#script(ng-model="test.script_content_blank", placeholder="",  style="width:50%;height:400px",disabled)
-
-  .write-box(ng-class="{ false:'hidden', true:''}[test.type == test.types[2]]")
-    .flex
-      textarea.form-control.noresize#script(ng-model="speech.value" ,placeholder="테스트를 시작하면, 실시간으로 텍스트를 보여줍니다",   style="width:100%;height:400px",disabled)
-  .write-box
-    span.final(ng-bind-html="test.script_content|diff:vm.final_transcript")
+  .simple-box
+    p 스피치 결과
+    span.final(ng-bind-html="vm.test.script_content|diff:vm.final_transcript")
     span.interim() {{vm.interim_transcript}}
 
 #counterModal.modal(ng-class="{fade: vm.start==true, show: vm.start==false}", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
@@ -28,3 +25,42 @@
     .modal-content
       .modal-body(style="text-align: center;")
         span.counter {{vm.counter}}
+#resultModal.modal.fade(tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+  .modal-dialog
+    .modal-content
+      .modal-body
+        #accordion.panel-group(role='tablist', aria-multiselectable='true')
+          .panel.panel-default
+            #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
+              .panel-body
+                | {{vm.score}}
+            #headingOne.panel-heading(role='tab')
+              a(data-toggle='collapse', data-dismiss="modal", aria-label="Close", data-parent='#accordion', href='', aria-expanded='true', aria-controls='collapseOne')
+                | 테스트 기록보기
+          .panel.panel-default
+            #headingTwo.panel-heading(role='tab')
+              a.collapsed(data-toggle='collapse', data-parent='#accordion', href="javascript:;", data-target="#collapseTwo", aria-expanded='false', aria-controls='collapseTwo')
+                | 테스트 다시하기
+            #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+              .modal-header
+                i.fa.fa-check-circle.fa-lg.icon-margin
+                span#myModalLabel.modal-title(style="margin-right: 50px;") 테스트 종류
+                .btn-group(data-toggle="buttons")
+                  label(ng-repeat="type in vm.test.types")
+                    input(type="radio", name="type", ng-model="vm.test.type", ng-value="type")
+                    span.modal-test-type {{type}}
+              .modal-body
+                i.fa.fa-clock-o.fa-lg.icon-margin
+                span#myModalLabel.modal-title(style="margin-right: 50px;") 타이머 설정
+                label.btn.btn-timer-none
+                  input.btn-timer-time(type="number", value="3", ng-model="vm.test.counter")
+                  | 분
+                .btn-group(data-toggle="buttons")
+                  label.btn.btn-default.btn-timer.active(ng-click="vm.test.timer_status = true")
+                    input(type="radio", name="timer", ng-value="timer")
+                    |  켜기
+                  label.btn.btn-default.btn-timer(ng-click="vm.test.timer_status = false")
+                    input(type="radio", name="timer", ng-value="timer")
+                    |  끄기
+              .modal-footer(style="text-align: center;")
+                button.btn.btn-simple(type="button", data-dismiss="modal", aria-label="Close", ng-click="vm.reload()") 다시 시작

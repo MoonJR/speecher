@@ -13,11 +13,6 @@
     var types =["따라읽기", "빈칸 맞추기", "실전 말하기"];
     var test = {};
     //function
-    test.moveTest = moveTest;
-    test.startTest = startTest;
-    test.finishTest = finishTest;
-    test.resetCount = resetCount;
-    test.stopCount = stopCount;
     test.saveItem = saveItem;
     test.setTimer = setTimer;
     test.setType = setType;
@@ -26,6 +21,8 @@
     test.timer_status = true;
     test.testnow = false;
     test.typeText = typeText[0];
+
+    test.moveTest = moveTest;
 
     (function initController() {
 
@@ -67,12 +64,11 @@
     }
 
     function moveTest(){
-      //위의 set까지는 cookie 세이브가아닌 페이지 내에서의 저장
 
-      stopCount();//뒤로가기 후 앞으로가기등 상황 대비 리셋용
-      setTimer(test.counter);
+      //stopCount();//뒤로가기 후 앞으로가기등 상황 대비 리셋용
+      //setTimer(test.counter);
       saveItem(test);
-
+      console.log(test);
       $location.path('/test');
     }
 
@@ -112,7 +108,6 @@
         test.timer_percent = test.current_seconds/test.timer_seconds * 100;
         test.remain_seconds = test.timer_seconds - test.current_seconds;
         $timeout(startCount, 100);
-
       }
     }
 
