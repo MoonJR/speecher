@@ -14,10 +14,11 @@
     vm.facebookLogin = facebookLogin;
     vm.googleLogin = googleLogin;
     vm.logout = logout;
-
+    vm.slides =[];
     // init login status
     (function initController() {
       logout();
+      initCarousel();
     })();
 
     function facebookLogin() {
@@ -80,6 +81,14 @@
       console.log(error);
       return {success: false, message: error};
     }
+
+
+    function initCarousel(){
+
+    }
+
+
+
   }
 })();
 
