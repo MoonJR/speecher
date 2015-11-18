@@ -3,11 +3,15 @@ link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,700', rel='style
 link(rel='stylesheet', type='text/css', href='../css/stylesheet.css', media='screen')
 link(rel='stylesheet', type='text/css', href='http://mmkjony.github.io/enllax.js/stylesheets/github-light.css', media='screen')
 link(rel='stylesheet', type='text/css', href='../css/enllax.css', media='screen')
-div#scrollpage(style="background:#202124")
-  section.page-header
-    img.logo
-    h1(style="margin-top:150px; font-size:40sp") You Can Speech
-    h2 You Can Speech와 함께 정확하게 말하는 연습을 해보세요<br>이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
+
+
+div.height100p(style="background:#ffffff; ")
+  section.page-header()
+    //img(src="../images/intro_top.png", style="width:100%; height:100px;")
+    h1(style="margin-top:50px; font-size:70px")
+      img.img-circle.icon-custom(src="../images/logo.png", style="margin: 0px 5px 10px; 5px")
+      b SPEECHER
+    h1(style="font-weight: 100;line-height:1.4em") SPEECHER와 함께 정확하게 말하는 연습을 해보세요<br>이제 당신의 두려움인 대본을 버리고 힘껏 말할 수 있습니다
     p
       button.login-facebook.btn(ng-click='vm.facebookLogin()')
         i.fa.fa-facebook-square.icon-margin
@@ -16,54 +20,83 @@ div#scrollpage(style="background:#202124")
       button.login-google.btn(ng-click='vm.googleLogin()')
         i.fa.fa-google-plus.icon-margin
         | Google+로 시작하기
-  section.page-header.bgTable
-    .text-center(style="margin-bottom:20px;")
-      h1(style="font-size:40px;") FUNCTIONS
-    div(style="margin-top:250px;")
-      .flex
-      .bg3.text-center(data-enllax-ratio='.1', style='color: #fff; margin:45px 0px 45px 0px;')
-        .flex
-          img.img-circle.img-thumbnail.left(src="../images/icon_jr.png", style="width:150px; height:150px; padding:5px;")
-          h1(data-enllax-ratio='3.6', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FF373D; font-size:30px;") Script Management
-        h1(data-enllax-ratio='.1', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FF6600;font-size:30px;") Talking Test
-        h1(data-enllax-ratio='-14.0', data-enllax-type='foreground', data-enllax-direction='horizontal', style="color:#FFAC00;font-size:30px;") Recording / Listening
-  section.page-header(style="background:#FFF")
-    .text-center(style="margin-bottom:80px;margin-top:20px;")
-      h1.rainbow(style="font-size:40px") ADVANTAGE
-    .flex(data-enllax-ratio='0.2', data-enllax-type='foreground', data-enllax-direction='vertical', style="margin-top:220px;")
-      .mini-box.rainbow1
-        h1  영어 발표 연습
-        p(style="font-size:20px;") 영어 말하기 발표를 앞둔 사람이<br> 준비한 대본을 이용해서<br> 발표를 연습하게 도와줍니다 <br>
-      .mini-box.rainbow2
-        h1  내 스피치 대본 관리 및 실시간 발음 비교
-        p(style="font-size:20px;") 발표와 관련된 영어 스피치 대본을 보관해줍니다<br>또한 테스트 사이에, 실시간으로 내 발음과 지문의 다른 부분을 비교해서 보여줍니다<br><br>
-    .flex(data-enllax-ratio='0.5', data-enllax-type='foreground', data-enllax-direction='vertical', style="margin-top:150px;")
-      .mini-box.rainbow1
-        h1 테스트별 스피치 녹음파일 관리
-        p(style="font-size:20px;") 테스트 종료 후,  내 테스트의 녹음 파일을 보관 및 다시듣기 할 수 있도록 도와줍니다<br><br><br>
-      .mini-box.rainbow2
-        h1 테스트 결과 관리 및 자주 틀리는 단어
-        p(style="font-size:20px;")대본별 테스트 결과 관리 및, 자주 틀리는 단어를 알려줍니다<br><br>
-  section.page-header.bgProfile
-    .text-center(style="margin-bottom:80px;margin-top:20px;")
-      b
-        h1.white(style="font-size:50px") TEAM
-      .flex(style="margin:50px; " , data-enllax-ratio='.1', data-enllax-type='foreground', data-enllax-direction='horizontal')
-        img.img-circle.left.img-thumbnail(src="../images/icon_bsh.png", style="width:250px; height:250px; padding:5px;")
-        h1(style="margin:95px;0px 0px 0px;") 반상현
-        img.img-circle.img-thumbnail.left(src="../images/icon_minki.png", style="width:250px; height:250px; padding:5px;")
-        h1(style="margin:95px;0px 0px 0px;") 김민기
-      .flex(style="margin:50px; " , data-enllax-ratio='1', data-enllax-type='foreground', data-enllax-direction='horizontal')
-        img.img-circle.img-thumbnail.left(src="../images/icon_sojin.png", style="width:250px; height:250px; padding:5px;")
-        h1(style="margin:95px;0px 0px 0px;") 오소진
-        img.img-circle.img-thumbnail.left(src="../images/icon_jr.png", style="width:250px; height:250px; padding:5px;")
-        h1(style="margin:95px;0px 0px 0px;") 문종락
-  section.main-content(style="height:70px;")
-    footer.site-footer
-      span.site-footer-owner
-        | Copyright © 2015,
-        a(href='https://github.com/mmkjony') Software Maestro 6기 "Can You Speech"
-        | .
-      span.site-footer-credits
-  script(src='http://mmkjony.github.io/enllax.js/jquery.enllax.min.js')
-  script(src='../js/enllax.js')
+
+
+    .text-center(style="margin-top:40px;")
+      img.icon-custom(src="../images/icon1.png")
+      img.icon-custom2(src="../images/icon2.jpg")
+      img.icon-custom(src="../images/icon10.png",style="padding:3px")
+      img.icon-custom2(src="../images/icon4.png")
+      img.icon-custom2(src="../images/icon5.png")
+      img.icon-custom2(src="../images/icon6.png")
+      img.icon-custom(src="../images/icon7.png")
+
+  div.div-desc(style="background-color:#51A7F9; opacity:0.6;")
+    .text-center(style="padding:20px; margin:0px 300px 0px 300px;")
+      .p333.item-desc
+        img(src="../images/compare.png", style="height: 100px; display:block; margin: 0 auto; ")
+        span.text-desc(style="display:block; margin: 20px auto;")
+          b 실시간 발음 비교
+      .p333.item-desc
+        img(src="../images/result.png", style="height: 100px; display:block; margin: 0 auto; ")
+        span.text-desc(style="display:block; margin: 20px auto;")
+          b 스피치 정확도 측정
+      .p333.item-desc
+        img(src="../images/voice.png", style="height: 100px; display:block; margin: 0 auto; ")
+        span.text-desc(style="display:block; margin: 20px auto;")
+          b 연습 음성 듣기
+
+
+  div.line-custom
+
+  .text-center
+    h1.dkblue(style="margin:100px 0px 40px 0px; font-size:50px")
+      b 소프트웨어 마에스트로 6기
+  div.line-custom
+  .row(style="margin:0 200px 0 200px")
+    .col-lg-6.col-md-6.col-sm-6
+      .relative.padding10
+        img.icon-custom4.img-thumbnail.img-circle(src="../images/icon_bsh.png")
+        div.text-center
+          span.team-title.span-lg 반상현
+          span.team-text <br>
+            a.a-black https://bitbucket.org/appulele/
+      .relative.padding10
+        img.icon-custom4.img-thumbnail.img-circle(src="../images/icon_sojin.png")
+        div.text-center
+          span.team-title.span-lg 오소진
+          span.team-text <br>
+            a.a-black https://github.com/jaisonoh
+
+    .col-lg-6.col-md-6.col-sm-6
+      .relative.padding10
+        img.icon-custom4.img-thumbnail.img-circle(src="../images/icon_minki.png")
+        div.text-center
+          span.team-title.span-lg 김민기
+          span.team-text <br>
+            a.a-black https://github.com/minkikim89
+      .relative.padding10
+        img.icon-custom4.img-thumbnail.img-circle(src="../images/icon_jr.png")
+        div.text-center
+          span.team-title.span-lg 문종락
+          span.team-text <br>
+            a.a-black https://github.com/MoonJR
+      h3.right.dkblue(style="padding-right:10px;") 그리고 우리 우상훈 멘토님
+  div.line-custom
+  .row
+    .col-lg-12.col-md-12.col-sm-12
+    div.line-custom
+
+  div.footer(style="background-color:#51A7F9; opacity:0.6; height:72px;")
+
+
+
+
+
+
+
+
+
+
+
+

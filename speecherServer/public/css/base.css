@@ -1,6 +1,7 @@
-body, main{
+html, body, main{
   margin:auto !important;
-  background-color: #f5f8fa !important;
+  background-color: transparent !important;
+  height: 100%;
 }
 
 .left {
@@ -55,6 +56,15 @@ header {
 }
 .flex{
   display: flex;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+  background: #fcfcfc;
 }
 
 .flex > .boxR{
@@ -758,3 +768,101 @@ ins {
   height:40px;
   margin:3px 3px 3px 10px;
 }
+
+
+.height100p{
+  height:100vh;
+}
+
+
+.icon-custom{
+  width: 70px;
+  height: 70px;
+}
+
+.icon-custom2{
+  width: 70px;
+  height: 70px;
+  padding:10px;
+}
+
+.icon-custom3{
+  width: 300px;
+  height: 300px;
+  padding:50px;
+}
+
+
+.icon-custom4{
+  width: 150px;
+  height: 150px;
+  padding:20px;
+}
+
+.div-text{
+  height: 150px;
+  background-color: #dcdcdc;
+}
+
+.div-desc{
+  height: 250px;
+  background-color: #eeeeee;
+}
+
+.item-desc{
+  float:left;
+  text-align:center;
+  margin:30px 0px 30px 0px;
+}
+.team-title{
+  position: absolute;
+  top: 50px;
+  left: 180px;
+  color:#555555;
+
+}
+
+.team-text{
+  position: absolute;
+  top: 80px;
+  left: 180px;
+  color:#777777;
+  font-size: 20px;
+}
+
+.span-lg{
+  font-size: 30px;
+}
+
+.h1-lg{
+  font-size: 40px;
+}
+.p333{
+  width: 33.3%;
+}
+
+.line-custom{
+  width: 100%;
+  padding:10px;
+  border-bottom: 0px solid #3b5998;
+}
+
+.dkblue{
+  color:#3b5998;
+}
+.padding10{
+  padding: 20px;
+  margin: 50px 10px 20px 10px;
+  /*border: 2px dotted rgba(83, 171, 255, 0.53);*/
+}
+.a-black{
+  color: #666;
+}
+
+.text-desc{
+  color:#FFFFFF;
+  font-size: 30px;
+  font-weight: 200;
+}
+
+

@@ -18,9 +18,9 @@ a:hover {
 .btn {
   display: inline-block;
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: #008CFF;
   background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: #008CFF;
   border-style: solid;
   border-width: 1px;
   border-radius: 0.3rem;
@@ -29,10 +29,10 @@ a:hover {
   margin-left: 1rem; }
 
 .btn:hover {
-  color: rgba(255, 255, 255, 0.8);
+  color: #000000;;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3); }
+  border-color: #008CFF;; }
 
 @media screen and (min-width: 64em) {
   .btn {
@@ -54,14 +54,16 @@ a:hover {
     margin-left: 0; } }
 
 .page-header {
-  color: #fff;
+  color: #008CFF;
   text-align: center;
-  background-color: #008CFF;
-  background-image: linear-gradient(90deg, #ccc, #008CFF); }
+  background-color: #ffffff;
+  /*background-image: linear-gradient(0deg, #ccc, #008CFF); }*/
+}
 
 @media screen and (min-width: 64em) {
   .page-header {
-    padding: 5rem 6rem; } }
+    padding: 5rem 6rem;
+    border : 0px solid #fff;} }
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .page-header {
