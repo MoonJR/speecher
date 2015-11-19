@@ -14,6 +14,7 @@ mongoClient.connect(url, function (err, db) {
     exports.scriptCollection = db.collection('script');
     exports.paragraphCollection = db.collection('paragraph');
     exports.morphemeCollection = db.collection('morpheme');
+    exports.testCollection = db.collection('test');
   }
 });
 
