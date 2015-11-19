@@ -39,7 +39,7 @@
     vm.goTestList = goTestList;
 
     var recordVideoSeparately = false;
-    var socketio = io();
+    var socketio;
     var mediaStream = null;
     var recordAudio, recordVideo;
 
@@ -83,10 +83,9 @@
 
     function startSpeech() {
 
-      console.log(speechService.recognizing);
+      //console.log(speechService.recognizing);
 
       if (speechService.recognizing) {
-        console.log("hello");
         speechService.recognition.stop();
         saveTestResult();
         return;
@@ -180,9 +179,10 @@
     function saveTestResult() {
       stopRecording();
 
+      socketio.removeAllListeners("finished");
       socketio.on('finished', function (fileName) {
         vm.filename =  fileName;
-        console.log('got file ' + fileName);
+        //console.log('got file ' + fileName);
 
         vm.scriptResult = $filter('diffFilter')(vm.final_transcript, vm.test.script_content);
 
@@ -195,13 +195,11 @@
           test_time: vm.testTime,
           filename: vm.filename
         };
-        console.log(testResult);
-
-        testService.testResult = testResult;
+        //console.log(testResult);
 
         testService.saveTestResult(testResult).then(
             function (response) {
-              console.log(response);
+              //console.log(response);
               if (response.data.success) {
                 vm.score = response.data.result.score;
               }
@@ -211,18 +209,18 @@
             },
             _errorHandler_('Error: saveTestResult')
         );
-        //$location.path('/result/' + vm.scriptId);
       });
     }
 
     // private functions
     function _errorHandler_(error) {
-      console.log(error);
+      //console.log(error);
       return { success: false, message: error };
     }
 
 
     function startRecording() {
+      socketio = io();
 
       vm.testId = socketio.id;
       //console.log(vm.testId);
