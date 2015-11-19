@@ -19,6 +19,7 @@
     return service;
 
     function saveTestResult(testResult) {
+      console.log("test");
       return $http.post('/test/save', testResult).then(_successHandler_, _errorHandler_('Error: getScriptSave'));
     }
 
