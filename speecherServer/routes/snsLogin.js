@@ -60,7 +60,7 @@ exports.googleLogin = function (req, res) {
         route: 'google',
         id: response.sub,
         email: response.email,
-        name: response.email.split('@')[0]
+        name: response.email
       };
 
       var resData = {};
