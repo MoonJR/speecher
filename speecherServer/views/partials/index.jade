@@ -13,17 +13,15 @@
               p.summary-script-date {{item.reg_date | limitTo:10}}
             .summary-test-box
               p.summary-test-number(align="right")
-                | {{vm.number}}회
+                | {{vm.testList[$index].testCount}}회
               p.summary-test-score(align="right")
-                | {{vm.score}}점
+                | {{vm.testList[$index].avgScore}}점
             .summary-go-test
               p.summary-go-text(align="right")
                 | 테스트
           div()
           .score-box
-            .score-bar(style="width:{{vm.score}}%;")
-
-
+            .score-bar(style="width:{{vm.testList[$index].avgScore}}%;")
   .word-list
     h5.word-list-title(ng-show="vm.wrongWordAll") 자주 틀리는 단어
     ul.nav.nav-pills(role="tablist")

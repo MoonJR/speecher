@@ -102,16 +102,10 @@
       );
     }
 
-
-
     function selectResult(item){
       vm.result = item;
       vm.audio = ngAudio.load("uploads/"+vm.result.recordFilename);
-
-
-
     }
-
 
     function showWrongWordDialog(item) {
       console.log("showWrongWordDialog(item)");

@@ -13,28 +13,26 @@
     vm.test = choiceService;
     vm.location = $location;
     vm.scriptList = null;
+    vm.testList = null;
     vm.wrongWordAll = null;
     vm.showScriptList = showScriptList;
     vm.showWrongWordAll = showWrongWordAll;
     vm.showTestSummary = showTestSummary;
     vm.showWrongWordDialog = showWrongWordDialog;
 
-    // UI handle
-    vm.number = 0;
-    vm.score = 30;
-
     // init script list & words
     (function initController() {
       vm.test.timer_status = true;
       showScriptList();
       showWrongWordAll();
+      showTestSummary();
     })();
 
     function showScriptList(){
       scriptService.getScriptList().then(
         function (response) {
           if (response.data.success) {
-            console.log(response.data);
+            //console.log(response.data);
             if (response.data.result.length > 0) {
               vm.scriptList = response.data.result;
               //console.log(response.data.result);
@@ -68,7 +66,22 @@
     }
 
     function showTestSummary() {
-
+      scriptService.getTestSummary().then(
+          function (response) {
+            //console.log(response);
+            if(response.data.success) {
+              if (response.data.result.length > 0) {
+                vm.testList = response.data.result;
+                //console.log(vm.testList);
+                //console.log(vm.testList[0].avgScore);
+              }
+            }
+            else {
+              _errorHandler_('Error: success 0');
+            }
+          },
+          _errorHandler_('Error: showTestSummary')
+      );
     }
 
     function showWrongWordDialog(item) {
