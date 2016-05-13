@@ -3,7 +3,7 @@
  */
 //mongoDB Connection Pool
 var mongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://somalunak.cafe24.com:27017/soma';
+var url = '';
 
 mongoClient.connect(url, function (err, db) {
   if (err) {
