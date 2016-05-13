@@ -4,10 +4,12 @@
 
 var mongodb = require('mongodb');
 
+var ip;
+var port;
 var server = new mongodb.Server(
-  'somalunak.cafe24.com',
-  27017,
+  ip,
+  port,
   {auto_reconnect: true, poolSize: 100});
-var db = new mongodb.Db('soma', server);
+var db = new mongodb.Db('speecher', server);
 
 module.exports = db;
